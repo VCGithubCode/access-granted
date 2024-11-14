@@ -53,7 +53,7 @@ We are a passionate team of developers and designers participating in the Code I
 5. The website should be deployed on GitHub.
 6. It is nice to have a logo and a footer on each page.
 
-## Testing
+## Testing Criteria
 1. The website should be tested for browser compatibility
  (Chrome, Edge, Safari, and Firefox).
 2. The website should be tested 
