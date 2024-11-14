@@ -18,6 +18,7 @@ We are a passionate team of developers and designers participating in the Code I
   - [Benjamin Schäfer](https://github.com/benschaf)
  
   - [Angela Siniavskaja](https://github.com/Angela-Sin)
+  - [Ashraf Bocktor](https://github.com/PATH-HIVE)
 
 ## Project Overview
 
