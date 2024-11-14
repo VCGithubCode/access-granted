@@ -30,6 +30,7 @@ The objective of this project is to **raise awareness** about the importance of 
 - Benjamin Schäfer: 
 - Angela Siniavskaja: 
 - Ashraf Bocktor: Support member
+- Alison Mossop
 
 ## About Us
 
@@ -42,7 +43,10 @@ We are a passionate team of developers and designers participating in the Code I
   - [Benjamin Schäfer](https://github.com/benschaf)
  
   - [Angela Siniavskaja](https://github.com/Angela-Sin)
+  
   - [Ashraf Bocktor](https://github.com/PATH-HIVE)
+
+  - [Alison Mossop](https://github.com/ali-moss-24)
 
   ## Requirements
 
