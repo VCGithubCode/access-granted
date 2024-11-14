@@ -25,9 +25,22 @@
   font-weight: bold;
   font-style: italic;
 }
-.high-contrast {
-  background-color: #000;
-  color: #fff;
+
+:root [data-bs-theme="light"] {
+  --bs-primary: #0d6efd;
+}
+
+:root [data-bs-theme="dark"] {
+  --bs-primary: #0d6efd;
+}
+
+:root [data-bs-theme="contrast"] {
+  --bs-primary: #fff;
+}
+
+[data-font-theme="dyslexic"] {
+  --bs-font-sans-serif: "opendyslexic", sans-serif;
+  --bs-font-monospace: "opendyslexic", sans-serif;
 }
 
 .deuteranopia {
