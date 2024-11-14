@@ -1,10 +1,46 @@
-.dyslexic-font {
-  font-family: 'OpenDyslexic', Arial, sans-serif;
+@font-face {
+  font-family: 'opendyslexic';
+  src: url('../fonts/OpenDyslexic-Regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
 }
 
-.high-contrast {
-  background-color: #000;
-  color: #fff;
+@font-face {
+  font-family: 'opendyslexic';
+  src: url('../fonts/OpenDyslexic-Italic.otf') format('opentype');
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'opendyslexic';
+  src: url('../fonts/OpenDyslexic-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opendyslexic';
+  src: url('../fonts/OpenDyslexic-BoldItalic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+:root [data-bs-theme="light"] {
+  --bs-primary: #0d6efd;
+}
+
+:root [data-bs-theme="dark"] {
+  --bs-primary: #0d6efd;
+}
+
+:root [data-bs-theme="contrast"] {
+  --bs-primary: #fff;
+}
+
+[data-font-theme="dyslexic"] {
+  --bs-font-sans-serif: "opendyslexic", sans-serif;
+  --bs-font-monospace: "opendyslexic", sans-serif;
 }
 
 .deuteranopia {
