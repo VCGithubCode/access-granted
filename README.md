@@ -1,16 +1,23 @@
 
 # Inclusive Web: Building Accessible Websites. Hackathon
 
+This project aims to create websites that are accessible and usable by everyone, regardless of their abilities or disabilities. Inclusive web design incorporates accessibility best practices, ensuring that websites are perceivable, operable, understandable, and robust for users with diverse needs, including those who use assistive technologies like screen readers, voice recognition software, or specialized input devices.
+
+The goal of this project is to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content truly inclusive for all users.
+
 
 
 ## About Us
 
 We are a passionate team of developers and designers participating in the Code Institute Inclusive Web: Building Accessible Websites. Hackathon.
 
-- Vernell Clark
-- Nikola Simic
-- Benjamin Schäfer
-- Anzela Siniavskaja
+  - [Vernell Clark](https://github.com/VCGithubCode)
+
+  - [Nikola Simic](https://github.com/nlekkerman)
+
+  - [Benjamin Schäfer](https://github.com/benschaf)
+ 
+  - [Angela Siniavskaja](https://github.com/Angela-Sin)
 
 ## Project Overview
 
@@ -56,13 +63,15 @@ We are a passionate team of developers and designers participating in the Code I
 
 ## Technologies Used
 
-### Languages Used
+- ### Languages Used
 
 - [HTML5](https://en.wikipedia.org/wiki/HTML5)
 - [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
 - [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 
-### Frameworks, Libraries & Programs Used
+- ### Frameworks, Libraries & Programs Used
+
+- [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
 
 ## Testing
 
@@ -137,16 +146,18 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 | [Coolors](https://coolors.co/)                                                                                       | Across website | Colour palette selection     |
 | [W3Schools](https://www.w3schools.com/)                                                                              | Across website | Various help pages           |
 | [Balsamiq](https://balsamiq.com/?gad_source=1&gclid=EAIaIQobChMI9-DR99b-hwMV9JtQBh0I3yMEEAAYASAAEgJTpPD_BwE)         | Across website | Wireframes creation          |
-| [Pixabay](https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=69233) | Across website | Sounds liabrary              |
+| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
 
 
 ### Acknowledgements
+
+- Special Thank You Note for Hackathon Organizers
 
 - Our team also deserves special mention as a whole. We learned a lot from each other, dove headfirst into new technologies, and were helpful in times of need to resolve coding issues.:
 
   - [Vernell Clark](https://github.com/VCGithubCode)
 
-  - [Nikola Simic]()
+  - [Nikola Simic](https://github.com/nlekkerman)
 
   - [Benjamin Schäfer](https://github.com/benschaf)
  
