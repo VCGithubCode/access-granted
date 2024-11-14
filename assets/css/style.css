@@ -1,86 +1,46 @@
-/* CSS Reset */
-
-
-/* Set to make rem values more clear (1.6rem = 16px) */
-html {
-font-size: 100%;
+.dyslexic-font {
+  font-family: 'OpenDyslexic', Arial, sans-serif;
 }
 
-*, *::before, *::after {
-  box-sizing: border-box;
+.high-contrast {
+  background-color: #000;
+  color: #fff;
 }
 
-* {
-  margin: 0;
+.deuteranopia {
+  filter: url('#deuteranopia-filter');
+}
+
+.protanopia {
+  filter: url('#protanopia-filter');
+}
+
+.tritanopia {
+  filter: url('#tritanopia-filter');
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
   padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
 }
 
-body {
-  line-height: 2.4rem;
-  -webkit-font-smoothing: antialiased;
-}
-
-img, picture, video, canvas, svg {
-  display: block;
-  max-width: 100%;
-}
-
-input, button, textarea, select {
-  font: inherit;
-}
-
-p, h1, h2, h3, h4, h5, h6 {
-  overflow-wrap: break-word;
-  hyphens: auto;
-}
-
-#root, #__next {
-  height: 100%;
-  isolation: isolate;
-}
-
-body {
-  background: #050505;
-  color: #ffffff;
-  font-family: Geneva, Verdana, sans-serif;
-  text-align: center;
-}
-
-.container {
-  grid-template-rows: auto 1fr auto;
-}
-
-header {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  line-height: 3em;
-  background: linear-gradient(0deg, #000000 0%, #0e0e0e 5%, #757575 25%, #c5c5c5 35%, #ffffff 50%, #c5c5c5 65%, #757575 75%, #0e0e0e 95%, #000000 0%);
-  color: black;
-  align-content: center;
-  border-top: 0.025rem solid #ffffff;
-  border-bottom: 0.025rem solid #ffffff;
-  z-index: 1100;
-}
-
-main {
-  margin-top: 5.2rem;
-}
-
-h1, h2 {
-  margin: 2rem auto;
-}
-
-footer {
-  bottom: 0;
+.skip-link {
+  position: absolute;
+  top: -40px;
   left: 0;
-  position: fixed;
-  line-height: 3em;
-  width: 100%;
-  background: linear-gradient(0deg, #000000 0%, #0e0e0e 5%, #757575 25%, #c5c5c5 35%, #ffffff 50%, #c5c5c5 65%, #757575 75%, #0e0e0e 95%, #000000 0%);
-  color: black;
-  align-content: center;
-  border-top: 0.025rem solid #ffffff;
-  border-bottom: 0.025rem solid #ffffff;
-  z-index: 1100;
+  background: #000;
+  color: white;
+  padding: 8px;
+  z-index: 100;
+}
+
+.skip-link:focus {
+  top: 0;
 }
