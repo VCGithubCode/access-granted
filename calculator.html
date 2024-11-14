@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voice-Controlled Calculator</title>
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .calculator {
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+        .result {
+            font-size: 2em;
+            margin: 10px 0;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="calculator">
+        <h1>Voice Calculator</h1>
+        <div id="calc-result" class="result">0</div>
+    </div>
+
+    <script>
+        let recognition;
+
+        // Initialize and start speech recognition automatically on page load
+        function startListening() {
+            if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+                alert("Speech recognition is not supported in this browser.");
+                return;
+            }
+
+            const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+            recognition = new SpeechRecognition();
+            recognition.continuous = false; // Only listen once
+            recognition.lang = 'en-US';
+
+            recognition.onresult = function(event) {
+                const transcript = event.results[event.results.length - 1][0].transcript.trim().toLowerCase();
+                console.log("Recognized command:", transcript);
+                handleCalculatorCommand(transcript);
+            };
+
+            recognition.onerror = function(event) {
+                console.error("Speech recognition error:", event.error);
+            };
+
+            recognition.onend = function() {
+                console.log("Stopped listening.");
+                recognition.start(); // Restart listening automatically
+            };
+
+            // Start recognition
+            recognition.start();
+            responsiveVoice.speak("I'm listening. Please state your calculation.", "UK English Male");
+        }
+
+        // Convert large number words to numeric values
+        function convertLargeNumbers(command) {
+            const numberWords = {
+                'one': 1, 'two': 2, 'three': 3, 'four': 4, 'five': 5, 'six': 6, 'seven': 7, 'eight': 8, 'nine': 9, 'ten': 10,
+                'hundred': 100, 'thousand': 1000, 'million': 1000000, 'billion': 1000000000, 'trillion': 1000000000000,
+                'quadrillion': 1000000000000000, 'quintillion': 1000000000000000000
+            };
+
+            // Convert spoken number into numeric format (e.g., "two million" -> 2000000)
+            let result = 0;
+            let currentNumber = 0;
+
+            // Split the command into words and process each part
+            const words = command.split(/\s+/);
+
+            for (let i = 0; i < words.length; i++) {
+                if (numberWords[words[i]]) {
+                    currentNumber *= numberWords[words[i]];
+                } else {
+                    result += currentNumber;
+                    currentNumber = 0;
+                }
+            }
+            return result + currentNumber;
+        }
+
+        // Handle calculator commands using normalized input
+        function handleCalculatorCommand(command) {
+            const calcResultElement = document.getElementById("calc-result");
+
+            // Normalize the command by replacing common variations of operators
+            command = command
+                .replace(/add|plus|sum|and|together|in addition/g, "+")   // Added "in addition"
+                .replace(/subtract|minus|less|take away|deduct/g, "-")     // Added "deduct"
+                .replace(/multiply|times|product|by|multiplied|times as much|of|times more|multiplied by|multiplied with|double/g, "*")  // Expanded multiplication
+                .replace(/divide|divided by|over|into|per/g, "/");  // Added "per" for division
+
+            // Remove introductory words like "calculate", "how much is", "what is"
+            command = command.replace(/^(calculate|how much is|what is|what's|find out|what’s)/, '').trim();
+
+            // Check if there are any large numbers in the command
+            if (/million|billion|trillion|quadrillion|quintillion/.test(command)) {
+                command = command.replace(/(\d+)(\s+)(million|billion|trillion|quadrillion|quintillion)/g, (match, p1, p2, p3) => {
+                    return (parseInt(p1) * convertLargeNumbers(p3)).toString();
+                });
+            }
+
+            console.log("Normalized command:", command);
+
+            // Match numbers (whole or decimal) and operators from the command
+            const numbers = command.match(/(\d+(\.\d+)?)/g); // Match both whole numbers and decimals
+            const operator = command.match(/[+\-*/]/); // Match operators
+
+            // If numbers are found and no operator is explicitly mentioned
+            if (numbers && numbers.length >= 2 && !operator) {
+                // Automatically assume the operation is addition if no operator is given
+                let result = parseFloat(numbers[0]) + parseFloat(numbers[1]);
+
+                // Display the result and speak it out
+                calcResultElement.textContent = `Result: ${numbers[0]} + ${numbers[1]} = ${result}`;
+                responsiveVoice.speak("The result is " + result, "UK English Male");
+                return;
+            }
+
+            // Handle case where no valid numbers or operators are found
+            if (!numbers || numbers.length < 2 || !operator) {
+                calcResultElement.textContent = "Error";
+                responsiveVoice.speak("I'm sorry, I couldn't understand that. Please try again.", "UK English Male");
+                return;
+            }
+
+            // Parse the numbers and operator
+            const num1 = parseFloat(numbers[0]);
+            const num2 = parseFloat(numbers[1]);
+            let result;
+
+            // Handle the operator logic
+            if (operator[0] === "+") {
+                result = num1 + num2;
+            } else if (operator[0] === "-") {
+                result = num1 - num2;
+            } else if (operator[0] === "*") {
+                result = num1 * num2;
+            } else if (operator[0] === "/") {
+                if (num2 === 0) {
+                    result = "Error (divide by zero)";
+                } else {
+                    result = num1 / num2;
+                }
+            }
+
+            // Display the result and speak it out
+            calcResultElement.textContent = `Result: ${num1} ${operator[0]} ${num2} = ${result}`;
+            responsiveVoice.speak("The result is " + result, "UK English Male");
+        }
+
+        // Automatically start listening as soon as the page loads
+        window.onload = startListening;
+    </script>
+</body>
+</html>
