@@ -44,3 +44,7 @@
 .skip-link:focus {
   top: 0;
 }
+
+.svg-filter {
+display: none;
+}
