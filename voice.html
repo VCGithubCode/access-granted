@@ -6,21 +6,6 @@
     <title>Voice Command Site</title>
     <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
     <script src="assets/js/voice_interface.js" defer></script>
-</head>
-<body>
-    <h1>Voice Command Site</h1>
-    
-    <!-- Overlay for permission request -->
-    <div id="permissionOverlay" class="overlay" onclick="handleOverlayClick()">
-        <div class="overlay-text">Click anywhere to grant voice and location permissions</div>
-    </div>
-
-    <!-- Output for debugging/logging -->
-    <div id="output" class="output"></div>
-
-    <!-- Weather Output -->
-    <div id="weather-output" class="weather-output" style="margin-top: 20px; font-size: 18px; color: #333;"></div>
-
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,6 +30,108 @@
             font-size: 16px;
             color: #333;
         }
+        .weather-output {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+        /* Planner and Reminder Section Styles */
+        .planner-reminder {
+            margin-top: 40px;
+            padding: 20px;
+            background-color: #f4f4f4;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        .planner-reminder h2 {
+            font-size: 24px;
+            color: #333;
+        }
+        .planner-reminder ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .planner-reminder ul li {
+            padding: 10px;
+            background-color: #e9ecef;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+        .planner-reminder ul li span {
+            font-weight: bold;
+        }
+        /* Current Time Section */
+        .current-time {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+        }
     </style>
+</head>
+<body>
+    <h1>Voice Command Site</h1>
+    
+    <!-- Overlay for permission request -->
+    <div id="permissionOverlay" class="overlay" onclick="handleOverlayClick()">
+        <div class="overlay-text">Click anywhere to grant voice and location permissions</div>
+    </div>
+
+    <!-- Output for debugging/logging -->
+    <div id="output" class="output"></div>
+
+    <!-- Weather Output -->
+    <div id="weather-output" class="weather-output"></div>
+
+    <!-- Current Time Display -->
+    <div id="current-time" class="current-time"></div>
+
+    <!-- Planner and Reminder Section -->
+    <div class="planner-reminder">
+        <h2>Today's Planner & Reminders</h2>
+        <ul>
+            <li><span>9:00 AM:</span> Meeting with Marketing Team</li>
+            <li><span>12:00 PM:</span> Lunch Break</li>
+            <li><span>3:00 PM:</span> Conference Call with Client</li>
+            <li><span>6:00 PM:</span> Gym - Workout</li>
+            <li><span>8:00 PM:</span> Dinner with Family</li>
+        </ul>
+        <h3>Reminder:</h3>
+        <ul>
+            <li>Don't forget to submit the project report by 5:00 PM.</li>
+            <li>Call John about the upcoming meeting.</li>
+            <li>Prepare presentation slides for tomorrow's conference.</li>
+        </ul>
+    </div>
+<!-- Calculator Section -->
+<div id="calculator" class="calculator">
+    <div class="close-calculator" onclick="closeCalculator()">X</div>
+    <h3>Calculator</h3>
+    <input type="text" id="calculator-display" disabled />
+    <br>
+    <button onclick="appendNumber('1')">1</button>
+    <button onclick="appendNumber('2')">2</button>
+    <button onclick="appendNumber('3')">3</button>
+    <button onclick="appendOperator('+')">+</button>
+    <br>
+    <button onclick="appendNumber('4')">4</button>
+    <button onclick="appendNumber('5')">5</button>
+    <button onclick="appendNumber('6')">6</button>
+    <button onclick="appendOperator('-')">-</button>
+    <br>
+    <button onclick="appendNumber('7')">7</button>
+    <button onclick="appendNumber('8')">8</button>
+    <button onclick="appendNumber('9')">9</button>
+    <button onclick="appendOperator('*')">*</button>
+    <br>
+    <button onclick="appendNumber('0')">0</button>
+    <button onclick="clearDisplay()">C</button>
+    <button onclick="calculateResult()">=</button>
+    <button onclick="appendOperator('/')">/</button>
+</div>
 </body>
 </html>
