@@ -53,11 +53,27 @@ We are a passionate team of developers and designers participating in the Code I
 5. The website should be deployed on GitHub.
 6. It is nice to have a logo and a footer on each page.
 
+## Testing
+1. The website should be tested for browser compatibility
+ (Chrome, Edge, Safari, and Firefox).
+2. The website should be tested 
+for responsiveness on various devices (mobile, tablet, and desktop).
+3. The website should pass the W3C Web Accessibility Initiative, or WRI.
+
+## Website Structure
+
+- Home Page
+- About Page
+- xcv
+
+## Resources
+
+### Images
+
+<img src="./assets/">
 
 
-
-
-**By following these links you can learn what Web Accessibility means**
+### By following these links you can learn what Web Accessibility means**
 
 - [Link](https://www.w3.org/WAI/fundamentals/accessibility-intro/)
 - [Link](https://accessibe.com/glossary/inclusivity)
@@ -182,6 +198,9 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 | [Balsamiq](https://balsamiq.com/?gad_source=1&gclid=EAIaIQobChMI9-DR99b-hwMV9JtQBh0I3yMEEAAYASAAEgJTpPD_BwE)         | Across website | Wireframes creation          |
 | [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
 
+
+## Future Work
+1. We ...
 
 ### Acknowledgements
 
