@@ -136,13 +136,9 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 | [Fonts Google](https://fonts.google.com/)                                                                            | Across website | Font selection               |
 | [Coolors](https://coolors.co/)                                                                                       | Across website | Colour palette selection     |
 | [W3Schools](https://www.w3schools.com/)                                                                              | Across website | Various help pages           |
-| [Pastebin](https://pastebin.com/gEfdRwgc)                                                                            | Across website | Background Star Flash        |
-| [Wikipedia](https://en.wikipedia.org/)                                                                               | Across website | History of origin game       |
-| [Pixilart](https://www.pixilart.com/draw)                                                                            | Across website | Chareacters creation         |
 | [Balsamiq](https://balsamiq.com/?gad_source=1&gclid=EAIaIQobChMI9-DR99b-hwMV9JtQBh0I3yMEEAAYASAAEgJTpPD_BwE)         | Across website | Wireframes creation          |
 | [Pixabay](https://pixabay.com/?utm_source=link-attribution&utm_medium=referral&utm_campaign=music&utm_content=69233) | Across website | Sounds liabrary              |
-| [Freepic](https://www.freepik.com/)                                                                                  | Across website | Png Library                  |
-| [Simple](https://www.simpleimageresizer.com/upload)                                                                  | Across website | Png Resizer                  |
+
 
 ### Acknowledgements
 
