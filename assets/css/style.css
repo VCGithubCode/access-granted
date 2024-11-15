@@ -263,3 +263,9 @@ header {
 [data-bs-theme="contrast"] .resources-contrast-article {
   background-color: transparent;
 }
+
+[data-bs-theme="contrast"] .btn-primary {
+  color: #000;
+  background-color: #fff;
+  
+}
