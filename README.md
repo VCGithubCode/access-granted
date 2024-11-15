@@ -4,7 +4,7 @@
 
 This project aims to create websites that are accessible and usable by everyone, regardless of their abilities or disabilities. Inclusive web design incorporates accessibility best practices, ensuring that websites are perceivable, operable, understandable, and robust for users with diverse needs, including those who use assistive technologies like screen readers, voice recognition software, or specialized input devices.
 
-The goal of this project is to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content truly inclusive for all users.
+This project aims to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content truly inclusive for all users.
 
 
 
@@ -12,25 +12,16 @@ The goal of this project is to empower developers to implement features and stru
 **Inclusion** has recently become a widely discussed topic, with one key focus being the inclusion of people with disabilities. This includes individuals with visual, auditory, physical, speech, cognitive, and neurological disabilities.
 The objective of this project is to **raise awareness** about the importance of accessible websites and to provide **a template or resource** that developers can rely on when building inclusive websites.
 
-## Target audiance
-*Web developers, people with disability and everyone who is interested in inclusion.*
+## Target audience
+*Web developers, people with disability, and everyone interested in inclusion.*
 
 ## Criteria of Success
 
-1. Delivering a website that is first point of contact for people who would like to gain practical framework and features for accessible websites.
+1. Delivering a website that is the first point of contact for people who would like to gain a practical framework and features for accessible websites.
 2. Delivering the project on time (on or before the 18th of November 2024).
-3. Users of the webiste would find it easy to navigate and utilise.
-4. Raising the awarness that not only building accessible websites are essentail but actually easy to achieve using the current website. 
-   
+3. Website users would find it easy to navigate and utilize.
+4. Raising the awareness that not only building accessible websites is essential but easy to achieve using the current website. 
 
-## Stakeholders
-
-- Vernell Clark: Project lead and git/github expert
-- Nikola Simic: 
-- Benjamin Schäfer: 
-- Angela Siniavskaja: 
-- Ashraf Bocktor: Support member
-- Alison Mossop
 
 ## About Us
 
@@ -50,12 +41,12 @@ We are a passionate team of developers and designers participating in the Code I
 
   ## Requirements
 
-1. The website will consist of a home page, ....
+1. The website will consist of a home page,...
 2. Prepare a README.md file to describe the project.
 3. The website must be responsive for mobile, tablet, and desktop views.
-4. The website will be a clear real life example accommodating special needs, *i.e. example of accessibility.* 
+4. The website will be a clear real-life example accommodating special needs, *i.e. example of accessibility.* 
 5. The website should be deployed on GitHub.
-6. It is nice to have a logo and a footer on each page.
+6. Having a logo and a footer on each page is nice.
 
 ## Testing Criteria
 1. The website should be tested for browser compatibility
@@ -219,3 +210,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
   - [Benjamin Schäfer](https://github.com/benschaf)
  
   - [Angela Siniavskaja](https://github.com/Angela-Sin)
+ 
+  - [Alison Mossop](https://github.com/ali-moss-24)
+ 
+  - [Ashraf Bocktor](https://github.com/PATH-HIVE)
