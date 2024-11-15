@@ -103,6 +103,10 @@ for responsiveness on various devices (mobile, tablet, and desktop).
 
 ![image](https://github.com/user-attachments/assets/bcf63084-a3cd-4905-a4ad-c546a9fa44bb)
 
+- Contact Page
+![image](https://github.com/user-attachments/assets/80886145-08a4-49b6-b51e-7af617bb2ecd)
+
+
 
 
 
@@ -197,9 +201,12 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 | [Fonts Google](https://fonts.google.com/)                                                                            | Across website | Font selection               |
 | [Coolors](https://coolors.co/)                                                                                       | Across website | Colour palette selection     |
 | [W3Schools](https://www.w3schools.com/)                                                                              | Across website | Various help pages           |
-| [Balsamiq](https://balsamiq.com/?gad_source=1&gclid=EAIaIQobChMI9-DR99b-hwMV9JtQBh0I3yMEEAAYASAAEgJTpPD_BwE)         | Across website | Wireframes creation          |
+| [Lucid.App](https://lucid.app/documents#/documents?folder_id=home)                                                   | Across website | Wireframes creation          |
+| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Css Layout, styling, Icons   |
+| [Email.js](https://www.emailjs.com/)                                                                                 | Across website | For replying to users contact|
+| [tiny.png](https://tinypng.com/)                                                                                     | Across website | For image convertion         |
 | [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
-
+| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
 
 ## Future Work
 1. We ...
