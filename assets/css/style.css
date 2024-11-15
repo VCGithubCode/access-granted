@@ -79,6 +79,10 @@ h1 {
   background-color: green;
 }
 
+header {
+  transition: background-color 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
 .header-background {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
