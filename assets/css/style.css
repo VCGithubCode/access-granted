@@ -43,6 +43,11 @@
   --bs-font-sans-serif: "opendyslexic", sans-serif;
   --bs-font-monospace: "opendyslexic", sans-serif;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: var(--bs-font-sans-serif);
   font-size: 16px;
