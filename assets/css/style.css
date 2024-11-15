@@ -80,7 +80,7 @@ h1 {
 }
 
 .bg-feature-card {
-  background: linear-gradient(to bottom, #fac1ab, white);
+  background: linear-gradient(20deg, #ffe0d3, white, white);
 }
 
 .main-background {
