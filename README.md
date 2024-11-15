@@ -132,6 +132,9 @@ for responsiveness on various devices (mobile, tablet, and desktop).
 
 - ### Color Pallete
 
+![image](https://github.com/user-attachments/assets/e8131409-754f-4157-a87f-4035d0059bcf)
+
+
 
 
 ## Features
@@ -234,6 +237,12 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 ### Acknowledgements
 
 - Special Thank You Note for Hackathon Organizers
+  
+- Bootstrap Team for their responsive framework.
+  
+- OpenDyslexic project for the dyslexia-friendly font.
+  
+- Community testers who provided valuable feedback.
 
 - Our team also deserves special mention as a whole. We learned a lot from each other, dove headfirst into new technologies, and were helpful in times of need to resolve coding issues.:
 
