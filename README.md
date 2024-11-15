@@ -98,6 +98,9 @@ for responsiveness on various devices (mobile, tablet, and desktop).
 
 - ### Wireframes
 
+ -- Landing Page
+![image](https://github.com/user-attachments/assets/9e856951-f306-456a-9128-591e4721fcb3)
+
 
 - ### Color Pallete
 
