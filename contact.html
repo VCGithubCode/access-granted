@@ -5,9 +5,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Contact Us | Access Granted</title>
+	<link rel='shortcut icon' href="assets/images/logo.webp">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
 	<link rel="stylesheet" href="assets/css/style.css">
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+	</script>
 </head>
 
 <body>
@@ -200,14 +203,16 @@
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 	<script src="assets/js/script.js"></script>
+	<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+	</script>
 	<script>
 		(function () {
-			emailjs.init("YOUR_USER_ID"); // Replace with your EmailJS user ID
+			emailjs.init("8pCIEGd_mp5NJs52U"); // Replace with your EmailJS user ID
 		})();
 
 		document.getElementById('contact-form').addEventListener('submit', function (event) {
 			event.preventDefault();
-			emailjs.sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', this)
+			emailjs.sendForm('service_8g5rqe9', 'template_530aj3p', this)
 				.then(function () {
 					window.location.href = 'thank-you.html';
 				}, function (error) {

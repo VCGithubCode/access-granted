@@ -79,8 +79,27 @@ h1 {
   background-color: green;
 }
 
+header {
+  transition: background-color 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-background {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
 .bg-feature-card {
-  background: linear-gradient(to bottom, #fac1ab, white);
+  background: linear-gradient(20deg, #ffe0d3, white, white);
+}
+
+.main-background {
+  background-image: url('../images/shiny1.webp');
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
 }
 
 .deuteranopia {

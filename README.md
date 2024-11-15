@@ -59,9 +59,8 @@ for responsiveness on various devices (mobile, tablet, and desktop).
 
 - Home Page
 - About Page
-- xcv
-
-## Resources
+- Contact
+- Accessibility Features
 
 ### Images
 
@@ -72,17 +71,37 @@ for responsiveness on various devices (mobile, tablet, and desktop).
 
 - [Link](https://www.w3.org/WAI/fundamentals/accessibility-intro/)
 - [Link](https://accessibe.com/glossary/inclusivity)
-- [Link]
 
-## User Goal
+# User Goal
 
+### As a visually impaired user, I benefit from the high contrast mode and larger text options, making the site easier to read.
 
-- I want the site to be easy and intuitive to use.
-- I want 
-- I want 
-- I want 
-- I want 
-- I want
+- The "Accessibility Features" dropdown menu allows me to toggle these options without any hassle.
+- I can also switch to the OpenDyslexic font, reducing visual stress while reading the content.
+  
+### As a user with color blindness, I appreciate the built-in colorblind modes like deuteranopia, protanopia, and tritanopia filters.
+
+- By selecting the appropriate filter, I can see and differentiate the content, images, and icons.
+- As someone who relies on voice commands, I can easily enable the Voice Control feature.
+- This allows me to navigate the site hands-free, making it convenient for individuals with mobility impairments.
+  
+### As a user exploring the site for resources, I find the navigation menu intuitive and straightforward.
+
+- The links to the "Resources," "About," and "Contact" pages are visible and accessible.
+- The "Skip to main content" link at the top ensures that I can bypass repetitive navigation and quickly access the core content.
+  
+### As a person who values inclusive design, I am delighted to see the comprehensive range of accessibility options.
+
+- I can customize the theme (light, dark, high contrast) and font themes to suit my preferences, making my browsing experience more comfortable.
+  
+### As a user looking for help, the Contact page is easy to find.
+
+- I can fill out a simple form, providing my name, email, and message, and expect a prompt response from the team.
+- The site's address and contact information are also clearly listed, offering multiple ways to get in touch.
+  
+### As a user interested in learning about accessibility, I can navigate to the "Accessibility Guide".
+
+- This page offers helpful tips and information on using the website's features effectively, demonstrating the project’s commitment to inclusivity.
 
 ## Our Contributions
 
@@ -98,8 +117,23 @@ for responsiveness on various devices (mobile, tablet, and desktop).
 
 - ### Wireframes
 
+ - Landing Page
+![image](https://github.com/user-attachments/assets/9925db0b-d5ab-414c-aa31-470cd11068da)
+
+![image](https://github.com/user-attachments/assets/bcf63084-a3cd-4905-a4ad-c546a9fa44bb)
+
+- Contact Page
+![image](https://github.com/user-attachments/assets/75b21e83-f92f-4b8e-93d1-645b72a8ab0d)
+
+
+
+
+
 
 - ### Color Pallete
+
+![image](https://github.com/user-attachments/assets/e8131409-754f-4157-a87f-4035d0059bcf)
+
 
 
 
@@ -190,9 +224,12 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 | [Fonts Google](https://fonts.google.com/)                                                                            | Across website | Font selection               |
 | [Coolors](https://coolors.co/)                                                                                       | Across website | Colour palette selection     |
 | [W3Schools](https://www.w3schools.com/)                                                                              | Across website | Various help pages           |
-| [Balsamiq](https://balsamiq.com/?gad_source=1&gclid=EAIaIQobChMI9-DR99b-hwMV9JtQBh0I3yMEEAAYASAAEgJTpPD_BwE)         | Across website | Wireframes creation          |
+| [Lucid.App](https://lucid.app/documents#/documents?folder_id=home)                                                   | Across website | Wireframes creation          |
+| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Css Layout, styling, Icons   |
+| [Email.js](https://www.emailjs.com/)                                                                                 | Across website | For replying to users contact|
+| [tiny.png](https://tinypng.com/)                                                                                     | Across website | For image convertion         |
 | [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
-
+| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
 
 ## Future Work
 1. We ...
@@ -200,6 +237,12 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 ### Acknowledgements
 
 - Special Thank You Note for Hackathon Organizers
+  
+- Bootstrap Team for their responsive framework.
+  
+- OpenDyslexic project for the dyslexia-friendly font.
+  
+- Community testers who provided valuable feedback.
 
 - Our team also deserves special mention as a whole. We learned a lot from each other, dove headfirst into new technologies, and were helpful in times of need to resolve coding issues.:
 

@@ -78,10 +78,6 @@ document.getElementById('fontSize').addEventListener('input', function () {
   document.body.style.fontSize = this.value + 'px';
 });
 
-document.getElementById('simplifiedLayout').addEventListener('change', function () {
-  document.body.classList.toggle('simplified-layout');
-});
-
 // Load saved preferences
 window.addEventListener('load', function () {
   const savedPreferences = JSON.parse(localStorage.getItem('accessibilityPreferences')) || {};
@@ -97,10 +93,6 @@ window.addEventListener('load', function () {
   if (savedPreferences.highContrast) {
     document.getElementById('highContrast').checked = true;
     document.body.classList.add('high-contrast');
-  }
-  if (savedPreferences.simplifiedLayout) {
-    document.getElementById('simplifiedLayout').checked = true;
-    document.body.classList.add('simplified-layout');
   }
   if (savedPreferences.colorblindMode) {
     document.getElementById('colorblindMode').value = savedPreferences.colorblindMode;
