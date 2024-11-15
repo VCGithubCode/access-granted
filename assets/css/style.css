@@ -83,6 +83,17 @@ h1 {
   background: linear-gradient(to bottom, #fac1ab, white);
 }
 
+.main-background {
+  background-image: url('../images/shiny1.webp');
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+  z-index: -1;
+}
+
 .deuteranopia {
   filter: url('#deuteranopia-filter');
 }
