@@ -39,6 +39,7 @@ We are a passionate team of developers and designers participating in the Code I
 
   - [Alison Mossop](https://github.com/ali-moss-24)
 
+  - [James Bracken](https://github.com/JamesBracken)
 
 ## Website Structure
 
