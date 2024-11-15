@@ -104,7 +104,8 @@ for responsiveness on various devices (mobile, tablet, and desktop).
 ![image](https://github.com/user-attachments/assets/bcf63084-a3cd-4905-a4ad-c546a9fa44bb)
 
 - Contact Page
-![image](https://github.com/user-attachments/assets/80886145-08a4-49b6-b51e-7af617bb2ecd)
+![image](https://github.com/user-attachments/assets/75b21e83-f92f-4b8e-93d1-645b72a8ab0d)
+
 
 
 
