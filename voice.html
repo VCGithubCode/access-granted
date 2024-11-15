@@ -75,7 +75,10 @@
 </head>
 <body>
     <h1>Voice Command Site</h1>
-    
+    <!-- Add this to your HTML -->
+<div id="standby-indicator" style="display:none; color: red; font-size: 20px;">
+    Help Buddy is in standby mode.
+</div>
     <!-- Overlay for permission request -->
     <div id="permissionOverlay" class="overlay" onclick="handleOverlayClick()">
         <div class="overlay-text">Click anywhere to grant voice and location permissions</div>
@@ -89,49 +92,41 @@
 
     <!-- Current Time Display -->
     <div id="current-time" class="current-time"></div>
+    <div id="planner-output" class="current-time"></div>
+    <div id="reminder-output" class="current-time"></div>
 
-    <!-- Planner and Reminder Section -->
-    <div class="planner-reminder">
-        <h2>Today's Planner & Reminders</h2>
-        <ul>
-            <li><span>9:00 AM:</span> Meeting with Marketing Team</li>
-            <li><span>12:00 PM:</span> Lunch Break</li>
-            <li><span>3:00 PM:</span> Conference Call with Client</li>
-            <li><span>6:00 PM:</span> Gym - Workout</li>
-            <li><span>8:00 PM:</span> Dinner with Family</li>
-        </ul>
-        <h3>Reminder:</h3>
-        <ul>
-            <li>Don't forget to submit the project report by 5:00 PM.</li>
-            <li>Call John about the upcoming meeting.</li>
-            <li>Prepare presentation slides for tomorrow's conference.</li>
-        </ul>
+   <!-- Accessible Calculator Display -->
+<div id="calculator" style="display: none; padding: 20px; max-width: 300px;">
+    <!-- Calculator screen -->
+    <div id="calc-result"></div>
+
+    <input type="text" id="calculator-display" readonly style="width: 100%; height: 50px; font-size: 1.5em; text-align: right; padding: 10px; margin-bottom: 10px;">
+
+    <!-- Calculator buttons -->
+    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+        <!-- Number buttons -->
+        <button onclick="appendNumber('1')" style="font-size: 1.5em; padding: 20px;">1</button>
+        <button onclick="appendNumber('2')" style="font-size: 1.5em; padding: 20px;">2</button>
+        <button onclick="appendNumber('3')" style="font-size: 1.5em; padding: 20px;">3</button>
+        <button onclick="appendOperator('+')" style="font-size: 1.5em; padding: 20px;">+</button>
+
+        <button onclick="appendNumber('4')" style="font-size: 1.5em; padding: 20px;">4</button>
+        <button onclick="appendNumber('5')" style="font-size: 1.5em; padding: 20px;">5</button>
+        <button onclick="appendNumber('6')" style="font-size: 1.5em; padding: 20px;">6</button>
+        <button onclick="appendOperator('-')" style="font-size: 1.5em; padding: 20px;">−</button>
+
+        <button onclick="appendNumber('7')" style="font-size: 1.5em; padding: 20px;">7</button>
+        <button onclick="appendNumber('8')" style="font-size: 1.5em; padding: 20px;">8</button>
+        <button onclick="appendNumber('9')" style="font-size: 1.5em; padding: 20px;">9</button>
+        <button onclick="appendOperator('*')" style="font-size: 1.5em; padding: 20px;">×</button>
+
+        <button onclick="clearDisplay()" style="font-size: 1.5em; padding: 20px; grid-column: span 2;">C</button>
+        <button onclick="appendNumber('0')" style="font-size: 1.5em; padding: 20px;">0</button>
+        <button onclick="calculateResult()" style="font-size: 1.5em; padding: 20px;">=</button>
+        <button onclick="appendOperator('/')" style="font-size: 1.5em; padding: 20px;">÷</button>
     </div>
-<!-- Calculator Section -->
-<div id="calculator" class="calculator">
-    <div class="close-calculator" onclick="closeCalculator()">X</div>
-    <h3>Calculator</h3>
-    <input type="text" id="calculator-display" disabled />
-    <br>
-    <button onclick="appendNumber('1')">1</button>
-    <button onclick="appendNumber('2')">2</button>
-    <button onclick="appendNumber('3')">3</button>
-    <button onclick="appendOperator('+')">+</button>
-    <br>
-    <button onclick="appendNumber('4')">4</button>
-    <button onclick="appendNumber('5')">5</button>
-    <button onclick="appendNumber('6')">6</button>
-    <button onclick="appendOperator('-')">-</button>
-    <br>
-    <button onclick="appendNumber('7')">7</button>
-    <button onclick="appendNumber('8')">8</button>
-    <button onclick="appendNumber('9')">9</button>
-    <button onclick="appendOperator('*')">*</button>
-    <br>
-    <button onclick="appendNumber('0')">0</button>
-    <button onclick="clearDisplay()">C</button>
-    <button onclick="calculateResult()">=</button>
-    <button onclick="appendOperator('/')">/</button>
 </div>
+
+   
 </body>
 </html>

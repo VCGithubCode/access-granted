@@ -1,65 +1,42 @@
 // Global variables for speech recognition
 let recognition;
 let isListening = false;
-let isProcessing = false; // Flag to indicate if an operation is in progress
- // Global variable to store the current expression in the calculator
- let currentExpression = "";
+let isProcessing = false;
+let fallbackTriggered = false;
+let currentExpression = "";
+let isStandbyMode = false;
+let lastSpokenPhrase = ""; 
+let recognitionActive = false;
+// Append number to the calculator display
+function appendNumber(number) {
+    currentExpression += number;
+    document.getElementById("calculator-display").value = currentExpression;
+}
 
- // Append number to the calculator display
- function appendNumber(number) {
-     currentExpression += number;
-     document.getElementById("calculator-display").value = currentExpression;
- }
+// Append operator to the calculator display
+function appendOperator(operator) {
+    currentExpression += operator;
+    document.getElementById("calculator-display").value = currentExpression;
+}
 
- // Append operator to the calculator display
- function appendOperator(operator) {
-     currentExpression += operator;
-     document.getElementById("calculator-display").value = currentExpression;
- }
+// Clear the calculator display
+function clearDisplay() {
+    currentExpression = "";
+    document.getElementById("calculator-display").value = "";
+}
 
- // Clear the calculator display
- function clearDisplay() {
-     currentExpression = "";
-     document.getElementById("calculator-display").value = "";
- }
+// Calculate the result of the expression
+function calculateResult() {
+    try {
+        currentExpression = eval(currentExpression).toString();
+        document.getElementById("calculator-display").value = currentExpression;
+    } catch (e) {
+        document.getElementById("calculator-display").value = "Error";
+        currentExpression = "";
+    }
+}
 
- // Calculate the result of the expression
- function calculateResult() {
-     try {
-         currentExpression = eval(currentExpression).toString();
-         document.getElementById("calculator-display").value = currentExpression;
-     } catch (e) {
-         document.getElementById("calculator-display").value = "Error";
-         currentExpression = "";
-     }
- }
 
- // Handle voice commands for the calculator
- function handleSpeechRecognition(transcript) {
-     // Simple calculator commands: number and operators
-     if (transcript.includes("add")) {
-         appendOperator('+');
-     } else if (transcript.includes("subtract")) {
-         appendOperator('-');
-     } else if (transcript.includes("multiply")) {
-         appendOperator('*');
-     } else if (transcript.includes("divide")) {
-         appendOperator('/');
-     } else if (transcript.includes("clear")) {
-         clearDisplay();
-     } else if (transcript.includes("equals") || transcript.includes("calculate")) {
-         calculateResult();
-     } else {
-         // Recognize numbers in speech
-         const numbers = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-         const numberWords = ["zero", "one", "two", "three", "four", "five", "six", "seven", "eight", "nine"];
-         for (let i = 0; i < numbers.length; i++) {
-             if (transcript.includes(numbers[i])) {
-                 appendNumber(i.toString());
-             }
-         }
-     }
- }
 // Store user location globally
 let userLocation = {};
 
@@ -79,29 +56,85 @@ const questionAnswerPairs = {
     "tell me a joke": "Why did the scarecrow win an award? Because he was outstanding in his field!",
 };
 
+function speakResponse(responseText) {
+    // Log the response text being spoken
+    console.log("Response Text:", responseText);
 
-// Function to handle recognized speech and respond
+    // Log the last spoken phrase before speaking the new response
+    console.log("Last Spoken Phrase:", lastSpokenPhrase);
+
+    // Use responsiveVoice to speak the response
+    responsiveVoice.speak(responseText, "UK English Male", {
+        onstart: () => {
+            // Update lastSpokenPhrase at the start of speaking
+            lastSpokenPhrase = responseText; 
+        },
+    });
+
+    // Log that the response has been spoken
+    console.log(`Help Buddy Response: ${responseText}`);
+}
+
+
+
 function handleSpeechRecognition(transcript) {
-    // If an operation is in progress, suppress fallback response
-    if (isProcessing) {
-        console.log("Help Buddy: Currently processing, no fallback needed.");
+    const recognizedPhrase = transcript.trim().toLowerCase();
+    console.log("Recognized phrase:", recognizedPhrase);
+
+    // Ignore self-generated responses
+    if (recognizedPhrase === lastSpokenPhrase.trim().toLowerCase()) {
+        console.log("Ignored self-generated phrase:", recognizedPhrase);
         return;
     }
 
-    // Check if greeting keyword exists and respond with time-based greeting
-    if (transcript.includes("hello") || transcript.includes("hi") || transcript.includes("hey")) {
+    // Process standby mode-specific behavior
+    if (isStandbyMode) {
+        // Define a list of phrases that will activate the system from standby mode
+    const wakeUpPhrases = [
+        "wake up",
+        "hey buddy, wake up",
+        "buddy, it's time to wake up",
+        "buddy, are you there?",
+        "wake up buddy",
+        "buddy, start listening",
+        "come on buddy",
+        "hey buddy, let's go","hi buddy",
+        "buddy, it's time to talk",
+        "buddy, reactivate",
+        "hello buddy, wake up",
+        "buddy, reboot",
+        "buddy, let's get started",
+        "wake up, buddy!",
+        "buddy, time to wake up"
+    ];
+
+    // Check if the recognized phrase matches any of the wake-up phrases
+    if (wakeUpPhrases.includes(recognizedPhrase)) {
+        deactivateStandbyMode(); // Reactivate the system
+        return;
+    }
+
+        if (lastSpokenPhrase == "currently in standby mode. please say 'wake up' to activate.") {
+            const standbyMessage = "Currently in standby mode. Please say 'wake up' to activate.";
+            speakResponse(standbyMessage);
+        } else {
+            console.log("Help Buddy: Standby message already spoken.");
+        }
+        return;
+    }
+
+    console.log("Help Buddy: Processing command:", recognizedPhrase);
+
+    // Handle greetings
+    if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || recognizedPhrase.includes("hey")) {
         const greeting = `${getTimeBasedGreeting()}! How can I assist you today?`;
-        responsiveVoice.speak(greeting, "UK English Male");
-        console.log(`Help Buddy: ${greeting}`);
+        speakResponse(greeting);
         return;
     }
 
     // Handle general weather queries
-    if (transcript.includes("weather")) {
-        if (transcript.includes("tomorrow") || transcript.includes("next day") || transcript.includes("tomorrow's weather")) {
-            const weatherTomorrowMessage = "Let me fetch the weather forecast for tomorrow.";
-            responsiveVoice.speak(weatherTomorrowMessage, "UK English Male");
-            console.log(`Help Buddy: ${weatherTomorrowMessage}`);
+    if (recognizedPhrase.includes("weather")) {
+        if (recognizedPhrase.includes("tomorrow") || recognizedPhrase.includes("next day") || recognizedPhrase.includes("tomorrow's weather")) {
             getWeather('forecast'); // Fetch forecast for tomorrow
         } else {
             getWeather('current'); // Fetch current weather
@@ -109,27 +142,120 @@ function handleSpeechRecognition(transcript) {
         return;
     }
 
-    // Check for "thank you" in the transcript and respond with "You're welcome"
-    if (transcript.includes("thank you") || transcript.includes("thanks")) {
-        const thankYouResponse = "You're welcome!";
-        responsiveVoice.speak(thankYouResponse, "UK English Male");
-        console.log(`Help Buddy: ${thankYouResponse}`);
+    // Handle thank-you and goodbye phrases, activate standby mode
+    if (
+        recognizedPhrase.includes("that is all") ||
+        recognizedPhrase.includes("that's all buddy") ||
+        recognizedPhrase.includes("bye buddy") ||
+        recognizedPhrase.includes("goodbye buddy") ||
+        recognizedPhrase.includes("bye") ||
+        recognizedPhrase.includes("see you")
+    ) {
+        speakResponse("You're welcome!");
+        activateStandbyMode(); // Activate standby mode
         return;
     }
 
-    // Handle other questions
+    // Handle calculator visibility commands
+    if (recognizedPhrase.includes("show calculator") || recognizedPhrase.includes("open calculator") || recognizedPhrase.includes("calculator please")) {
+        toggleCalculator(true);
+        speakResponse("Calculator displayed.");
+        return;
+    }
+
+    if (recognizedPhrase.includes("hide calculator") || recognizedPhrase.includes("close calculator") || recognizedPhrase.includes("turn off calculator")) {
+        toggleCalculator(false);
+        speakResponse("Calculator hidden.");
+        return;
+    }
+
+    if (
+        (recognizedPhrase.includes("calculate") || 
+         recognizedPhrase.includes("what is") || 
+         recognizedPhrase.includes("find out") ||
+         recognizedPhrase.includes("what's") || 
+         recognizedPhrase.includes("what’s") || 
+         recognizedPhrase.includes("calculate for") ||
+         recognizedPhrase.includes("do the math") ||
+         recognizedPhrase.includes("solve") ||
+         recognizedPhrase.includes("find the result") ||
+         recognizedPhrase.includes("what's the answer") ||
+         recognizedPhrase.includes("tell me the result")) &&
+        isCalculatorDisplayed()
+    ) {
+        handleCalculatorCommand(recognizedPhrase);
+        return;
+    }
+
+    // Handle predefined question-answer pairs
     for (const [question, answer] of Object.entries(questionAnswerPairs)) {
-        if (transcript.includes(question)) {
-            responsiveVoice.speak(answer, "UK English Male");
+        if (recognizedPhrase.includes(question)) {
+            speakResponse(answer);
             console.log(`Help Buddy Answer: ${answer}`);
             return;
         }
     }
 
-    // Default response if no match is found
-    const fallbackResponse = "I'm here to help! Could you please clarify your request?";
-    responsiveVoice.speak(fallbackResponse, "UK English Male");
-    console.log(`Help Buddy Fallback: ${fallbackResponse}`);
+    // If no match is found and fallback has not been triggered yet
+    if (!fallbackTriggered && !isStandbyMode) {
+        fallbackTriggered = true; // Set the flag to prevent repeated fallback
+        speakResponse("I'm here to help! Could you please clarify your request?");
+
+        // Reset the fallback flag after a delay (to allow for the next interaction)
+        setTimeout(() => {
+            fallbackTriggered = false;
+        }, 13000); 
+    } else {
+        console.log("Help Buddy: Waiting for user clarification...");
+    }
+}
+
+
+
+function activateStandbyMode() {
+    isStandbyMode = true;  // Set standby mode to true
+    recognitionActive = false;  // Mark recognition as inactive
+    console.log("Standby Mode: Activated. No voice commands will be processed.");
+
+    // Stop speech recognition or any listening mechanism
+    if (recognition && recognition.stop) {
+        try {
+            recognition.stop();  // Stop speech recognition service
+            console.log("SpeechRecognition stopped.");
+        } catch (error) {
+            console.error("Error stopping SpeechRecognition:", error.message);
+        }
+    }
+
+    // Optionally, speak a message indicating that the system is in standby mode
+    responsiveVoice.speak("System is now in standby mode. Please say 'wake up' to reactivate.", "UK English Male");
+}
+
+
+
+function deactivateStandbyMode() {
+    isStandbyMode = false;
+    recognitionActive = true;  // Mark recognition as active
+    console.log("Help Buddy: Deactivated standby mode. Ready to listen for commands.");
+
+    // Check if recognition is running
+    if (recognition && recognition.state === "active") {
+        console.log("SpeechRecognition is already active.");
+        responsiveVoice.speak("System is now active. Please say a command.", "UK English Male");
+        return;
+    }
+
+    // Start recognition only if it isn't already running
+    try {
+        if (recognition) {
+            recognition.start();  // Start the recognition service
+            console.log("SpeechRecognition started successfully.");
+        }
+    } catch (error) {
+        console.error("Error starting SpeechRecognition:", error.message);
+    }
+    
+    responsiveVoice.speak("System is now active. Please say a command.", "UK English Male");
 }
 
 // Function to get weather for the current location or forecast
@@ -211,30 +337,50 @@ function requestVoicePermission() {
 
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     recognition = new SpeechRecognition();
-    recognition.continuous = true;
-    recognition.lang = 'en-US';
+    recognition.continuous = true;  // Keep recognition running continuously
+    recognition.lang = 'en-US';  // Set language to English
 
+    // Event when speech recognition starts
     recognition.onstart = () => {
         isListening = true;
         console.log("Help Buddy is now listening...");
     };
 
+    // Event when recognition gets a result
     recognition.onresult = (event) => {
         const transcript = event.results[event.resultIndex][0].transcript.trim().toLowerCase();
         console.log("Recognized phrase:", transcript);
         handleSpeechRecognition(transcript);
     };
 
+    // Error handling for speech recognition
     recognition.onerror = (error) => {
         console.error("Speech recognition error:", error);
-        stopListening();
+
+        // Handle specific error types
+        if (error.error === 'no-speech') {
+            console.log("No speech detected. Retrying...");
+        } else if (error.error === 'audio-capture') {
+            console.log("Audio capture failed. Please check your microphone.");
+        } else if (error.error === 'not-allowed') {
+            console.log("Permission denied for speech recognition.");
+        }
+
+        // Restart recognition in case of error, except for 'not-allowed' error
+        if (error.error !== 'not-allowed') {
+            recognition.start();
+        }
     };
 
+    // Event when recognition stops (either due to errors or natural end)
     recognition.onend = () => {
-        if (isListening) recognition.start(); // Restart for continuous listening
+        if (isListening) {
+            console.log("Recognition ended. Restarting...");
+            recognition.start();  // Automatically restart recognition to keep listening
+        }
     };
 
-    // Start recognition
+    // Start the speech recognition process
     recognition.start();
 }
 
@@ -258,6 +404,7 @@ function requestLocationPermission() {
             console.log(`Location granted: Lat: ${latitude}, Lon: ${longitude}`);
         }, (error) => {
             console.error("Location permission error:", error);
+            
             alert("Location access is required for weather functionality.");
         });
     } else {
@@ -269,8 +416,86 @@ function requestLocationPermission() {
 function handleOverlayClick() {
     console.log("Overlay clicked - initiating permission requests.");
     requestVoicePermission();
+    speakResponse("Press enter to give your geolocation")
     requestLocationPermission();
     document.getElementById("permissionOverlay").style.display = "none";
     const initialGreeting = `${getTimeBasedGreeting()}, I'm your help buddy. How can I assist you today?`;
     responsiveVoice.speak(initialGreeting, "UK English Male");
+}
+// Handle calculator commands, using the flag to avoid repeat permissions
+function handleCalculatorCommand(command) {
+    const calcResultElement = document.getElementById("calc-result");
+    voicePermissionGranted = true
+    command = command
+        .replace(/add|plus|sum|and|together|in addition/g, "+")
+        .replace(/subtract|minus|less|take away|deduct/g, "-")
+        .replace(/multiply|times|product|by|multiplied|times as much|of|times more|multiplied by|multiplied with|double/g, "*")
+        .replace(/divide|divided by|over|into|per/g, "/");
+
+    command = command.replace(/^(calculate|how much is|what is|what's|find out|what’s)/, '').trim();
+
+    if (/million|billion|trillion|quadrillion|quintillion/.test(command)) {
+        command = command.replace(/(\d+)(\s+)(million|billion|trillion|quadrillion|quintillion)/g, (match, p1, p2, p3) => {
+            return (parseInt(p1) * convertLargeNumbers(p3)).toString();
+        });
+    }
+
+    console.log("Normalized command:", command);
+
+    const numbers = command.match(/(\d+(\.\d+)?)/g);
+    const operator = command.match(/[+\-*/]/);
+
+    if (numbers && numbers.length >= 2 && !operator) {
+        let result = parseFloat(numbers[0]) + parseFloat(numbers[1]);
+        calcResultElement.textContent = `Result: ${numbers[0]} + ${numbers[1]} = ${result}`;
+
+        if (voicePermissionGranted) {
+            voicePermissionGranted = true
+            responsiveVoice.speak("The result is " + result, "UK English Male");
+        }
+        return;
+    }
+
+    if (!numbers || numbers.length < 2 || !operator) {
+        calcResultElement.textContent = "Error";
+        if (voicePermissionGranted) {
+            responsiveVoice.speak("I'm sorry, I couldn't understand that. Please try again.", "UK English Male");
+        }
+        return;
+    }
+
+    const num1 = parseFloat(numbers[0]);
+    const num2 = parseFloat(numbers[1]);
+    let result;
+
+    if (operator[0] === "+") {
+        result = num1 + num2;
+    } else if (operator[0] === "-") {
+        result = num1 - num2;
+    } else if (operator[0] === "*") {
+        result = num1 * num2;
+    } else if (operator[0] === "/") {
+        result = num2 === 0 ? "Error (divide by zero)" : num1 / num2;
+    }
+
+    calcResultElement.textContent = `Result: ${num1} ${operator[0]} ${num2} = ${result}`;
+
+    if (voicePermissionGranted) {
+        responsiveVoice.speak("The result is " + result, "UK English Male");
+    }
+}
+
+
+function isCalculatorDisplayed() {
+    const calculatorElement = document.getElementById("calculator");
+    return calculatorElement && calculatorElement.style.display !== "none";
+}
+
+function toggleCalculator(show) {
+    const calculatorElement = document.getElementById("calculator");
+    if (show) {
+        calculatorElement.style.display = "block";
+    } else {
+        calculatorElement.style.display = "none";
+    }
 }
