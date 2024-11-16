@@ -23,19 +23,24 @@ This project aims to empower developers to implement features and structures tha
 
 We are a passionate team of developers and designers participating in the Code Institute Inclusive Web: Building Accessible Websites. Hackathon.
 
-  - [Vernell Clark](https://github.com/VCGithubCode)
+![image](https://github.com/user-attachments/assets/cc461991-9f77-4690-b187-61e132c47055)
 
-  - [Nikola Simic](https://github.com/nlekkerman)
 
-  - [Benjamin Schäfer](https://github.com/benschaf)
+  - [Vernell Clark](https://github.com/VCGithubCode)[LinkedIn]()
+
+  - [Nikola Simic](https://github.com/nlekkerman)[LinkedIn]()
+
+  - [Benjamin Schäfer](https://github.com/benschaf)[LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
  
-  - [Angela Siniavskaja](https://github.com/Angela-Sin)
+  - [Angela Siniavskaja](https://github.com/Angela-Sin)[LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
   
-  - [Ashraf Bocktor](https://github.com/PATH-HIVE)
+  - [Ashraf Bocktor](https://github.com/PATH-HIVE)[LinkedIn](https://www.linkedin.com/in/abbocktor/)
 
-  - [Alison Mossop](https://github.com/ali-moss-24)
+  - [Alison Mossop](https://github.com/ali-moss-24)[LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
 
-  - [James Bracken](https://github.com/JamesBracken)
+  - [James Bracken](https://github.com/JamesBracken)LinkedIn[]()
+
+  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi)[LinkedIn]()
 
 ### By following these links you can learn what Web Accessibility means**
 
