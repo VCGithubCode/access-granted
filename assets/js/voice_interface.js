@@ -5,8 +5,26 @@ let isProcessing = false;
 let fallbackTriggered = false;
 let currentExpression = "";
 let isStandbyMode = false;
-let lastSpokenPhrase = ""; 
+let lastSpokenPhrase = "";
 let recognitionActive = false;
+let noteDetails = {
+    content: '',
+    date: '',
+    time: '',
+    remind: false,
+    id: null // Adding ID to noteDetails
+};
+let isCreatingNote = false;  // New flag to track note creation process
+let isDateTimeRequested = false;
+let isNoteSaved = false;
+
+let isNoteProcessActive = false; // Flag to track note creation process
+let noteDate = '';
+let noteTime = '';
+
+
+
+
 // Append number to the calculator display
 function appendNumber(number) {
     currentExpression += number;
@@ -55,26 +73,50 @@ const questionAnswerPairs = {
     "what can you do": "I can assist with various tasks, answer questions, and provide information.",
     "tell me a joke": "Why did the scarecrow win an award? Because he was outstanding in his field!",
 };
-
+let isAssistantSpeaking = false; 
+// Function to start or stop recognition based on the assistant's speaking state
 function speakResponse(responseText) {
+    // Disable recognition while the assistant speaks
+    recognitionActive = false;
+    isAssistantSpeaking = true; // Set the assistant as speaking
+
     // Log the response text being spoken
     console.log("Response Text:", responseText);
-
-    // Log the last spoken phrase before speaking the new response
-    console.log("Last Spoken Phrase:", lastSpokenPhrase);
 
     // Use responsiveVoice to speak the response
     responsiveVoice.speak(responseText, "UK English Male", {
         onstart: () => {
-            // Update lastSpokenPhrase at the start of speaking
-            lastSpokenPhrase = responseText; 
+            // Optionally log or take action when speaking starts
+            console.log("Assistant is speaking...");
         },
+        onend: () => {
+            // Re-enable recognition after the assistant finishes speaking
+            recognitionActive = true; // Allow recognition to start again
+            isAssistantSpeaking = false; // Mark the assistant as done speaking
+        }
     });
 
     // Log that the response has been spoken
     console.log(`Help Buddy Response: ${responseText}`);
 }
 
+// Simplified function to stop recognition
+function stopRecognition() {
+    if (recognitionActive) {
+        recognition.stop(); // Stop recognition
+        recognitionActive = false; // Set flag to false
+        console.log("Speech recognition stopped.");
+    }
+}
+
+// Simplified function to start recognition again
+function startRecognition() {
+    if (!recognitionActive) {
+        recognition.start(); // Start recognition again
+        recognitionActive = true; // Set flag to true
+        console.log("Speech recognition started.");
+    }
+}
 
 
 function handleSpeechRecognition(transcript) {
@@ -90,29 +132,29 @@ function handleSpeechRecognition(transcript) {
     // Process standby mode-specific behavior
     if (isStandbyMode) {
         // Define a list of phrases that will activate the system from standby mode
-    const wakeUpPhrases = [
-        "wake up",
-        "hey buddy, wake up",
-        "buddy, it's time to wake up",
-        "buddy, are you there?",
-        "wake up buddy",
-        "buddy, start listening",
-        "come on buddy",
-        "hey buddy, let's go","hi buddy",
-        "buddy, it's time to talk",
-        "buddy, reactivate",
-        "hello buddy, wake up",
-        "buddy, reboot",
-        "buddy, let's get started",
-        "wake up, buddy!",
-        "buddy, time to wake up"
-    ];
+        const wakeUpPhrases = [
+            "wake up",
+            "hey buddy, wake up",
+            "buddy, it's time to wake up",
+            "buddy, are you there?",
+            "wake up buddy",
+            "buddy, start listening",
+            "come on buddy",
+            "hey buddy, let's go", "hi buddy",
+            "buddy, it's time to talk",
+            "buddy, reactivate",
+            "hello buddy, wake up",
+            "buddy, reboot",
+            "buddy, let's get started",
+            "wake up, buddy!",
+            "buddy, time to wake up"
+        ];
 
-    // Check if the recognized phrase matches any of the wake-up phrases
-    if (wakeUpPhrases.includes(recognizedPhrase)) {
-        deactivateStandbyMode(); // Reactivate the system
-        return;
-    }
+        // Check if the recognized phrase matches any of the wake-up phrases
+        if (wakeUpPhrases.includes(recognizedPhrase)) {
+            deactivateStandbyMode(); // Reactivate the system
+            return;
+        }
 
         if (lastSpokenPhrase == "currently in standby mode. please say 'wake up' to activate.") {
             const standbyMessage = "Currently in standby mode. Please say 'wake up' to activate.";
@@ -125,10 +167,13 @@ function handleSpeechRecognition(transcript) {
 
     console.log("Help Buddy: Processing command:", recognizedPhrase);
 
+
+
     // Handle greetings
     if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || recognizedPhrase.includes("hey")) {
         const greeting = `${getTimeBasedGreeting()}! How can I assist you today?`;
         speakResponse(greeting);
+        recognitionActive = true;
         return;
     }
 
@@ -142,6 +187,7 @@ function handleSpeechRecognition(transcript) {
         return;
     }
 
+
     // Handle thank-you and goodbye phrases, activate standby mode
     if (
         recognizedPhrase.includes("that is all") ||
@@ -149,7 +195,26 @@ function handleSpeechRecognition(transcript) {
         recognizedPhrase.includes("bye buddy") ||
         recognizedPhrase.includes("goodbye buddy") ||
         recognizedPhrase.includes("bye") ||
-        recognizedPhrase.includes("see you")
+        recognizedPhrase.includes("see you") ||
+        recognizedPhrase.includes("thanks") ||          // Adding general thanks
+        recognizedPhrase.includes("thank you") ||       // Adding formal "thank you"
+        recognizedPhrase.includes("cheers") ||          // Casual thank you
+        recognizedPhrase.includes("take care") ||       // Casual goodbye
+        recognizedPhrase.includes("catch you later") || // Informal sign-off
+        recognizedPhrase.includes("see you later") ||   // Another casual goodbye
+        recognizedPhrase.includes("talk soon") ||       // Informal farewell
+        recognizedPhrase.includes("peace") ||           // Friendly goodbye
+        recognizedPhrase.includes("good night") ||      // Evening sign-off
+        recognizedPhrase.includes("have a good one") || // Casual farewell
+        recognizedPhrase.includes("goodbye for now") || // Slightly more formal
+        recognizedPhrase.includes("later") ||           // Informal way of saying goodbye
+        recognizedPhrase.includes("thank you buddy") || // Personalized gratitude with "buddy"
+        recognizedPhrase.includes("thanks a lot") ||    // More gratitude variations
+        recognizedPhrase.includes("thanks a ton") ||    // Another informal gratitude
+        recognizedPhrase.includes("thanks a million") ||    // Another informal gratitude
+        recognizedPhrase.includes("much appreciated") || // Formal thank you
+        recognizedPhrase.includes("you're the best")    // Positive, casual sign-off
+
     ) {
         speakResponse("You're welcome!");
         activateStandbyMode(); // Activate standby mode
@@ -170,20 +235,118 @@ function handleSpeechRecognition(transcript) {
     }
 
     if (
-        (recognizedPhrase.includes("calculate") || 
-         recognizedPhrase.includes("what is") || 
-         recognizedPhrase.includes("find out") ||
-         recognizedPhrase.includes("what's") || 
-         recognizedPhrase.includes("what’s") || 
-         recognizedPhrase.includes("calculate for") ||
-         recognizedPhrase.includes("do the math") ||
-         recognizedPhrase.includes("solve") ||
-         recognizedPhrase.includes("find the result") ||
-         recognizedPhrase.includes("what's the answer") ||
-         recognizedPhrase.includes("tell me the result")) &&
+        (recognizedPhrase.includes("calculate") ||
+            recognizedPhrase.includes("what is") ||
+            recognizedPhrase.includes("find out") ||
+            recognizedPhrase.includes("what’s") ||
+            recognizedPhrase.includes("how much is") ||       // Added for casual phrasing
+            recognizedPhrase.includes("how many times") ||    // Added for informal multiplication requests
+            recognizedPhrase.includes("what is the value of") || // Added for formal or longer requests
+            recognizedPhrase.includes("what’s the result") ||    // Added for variation of "what's the answer"
+            recognizedPhrase.includes("can you figure out") ||  // Added for casual request
+            recognizedPhrase.includes("what do you get") ||     // Added for conversational phrasing
+            recognizedPhrase.includes("compute") ||             // Added for technical phrasing
+            recognizedPhrase.includes("calculate the total") ||  // Added for more specific requests
+            recognizedPhrase.includes("find the answer") ||     // Added for natural language phrasing
+            recognizedPhrase.includes("how does it add up") ||  // Added for conversational phrasing
+            recognizedPhrase.includes("what's the result") ||   // Added for another variation of "what's the answer"
+            // Multiplication phrases
+            recognizedPhrase.includes("multiply") ||            // Direct use of "multiply"
+
+
+
+            // Subtraction phrases
+            recognizedPhrase.includes("subtract") ||           // Common for subtraction
+            recognizedPhrase.includes("minus") ||              // Common for subtraction
+            recognizedPhrase.includes("less") ||               // Casual phrasing for subtraction
+            recognizedPhrase.includes("take away") ||          // Informal phrasing for subtraction
+            recognizedPhrase.includes("deduct") ||             // Formal subtraction phrasing
+            // Division phrases
+            recognizedPhrase.includes("divide") ||             // Common for division
+            recognizedPhrase.includes("divided by") ||         // Full phrase "divided by"
+            recognizedPhrase.includes("over") ||               // Used for division (e.g., "10 over 2")
+            recognizedPhrase.includes("into") ||               // Common for division
+            recognizedPhrase.includes("per") ||                // For division (e.g., "cost per item")
+            recognizedPhrase.includes("split") ||              // Used for division in casual phrasing
+            recognizedPhrase.includes("shared by") ||          // Division phrasing
+            recognizedPhrase.includes("divided into")          // Another phrasing for division
+        ) &&
         isCalculatorDisplayed()
     ) {
         handleCalculatorCommand(recognizedPhrase);
+        return;
+    }
+    // Assuming recognition is already running and we capture the recognizedPhrase
+    if (recognizedPhrase.includes("open planner") || recognizedPhrase.includes("run planner") || recognizedPhrase.includes("show planner")) {
+        // Open the planner and display it
+        openPlanner();
+    }
+
+
+
+    // Handle asking for the current date with variations
+    const dateKeywords = [
+        "date today",
+        "today's date",
+        "what is the date",
+        "what's the date",
+        "what is today's date",
+        "what's today's date",
+        "give me the date",
+        "tell me the date",
+        "date please",
+        "today date"
+    ];
+
+    // Check if the recognized phrase includes any of the keywords for asking about the date
+    if (dateKeywords.some(keyword => recognizedPhrase.includes(keyword))) {
+        const currentDate = new Date();
+        const dateString = currentDate.toLocaleDateString(); // Format the date in a readable format
+        const dateMessage = `Today's date is ${dateString}.`;
+        speakResponse(dateMessage);
+        return;
+    }
+
+    // Handle asking for the current time with variations
+    const timeKeywords = [
+
+        "time now",
+        "current time",
+        "what is the time",
+        "what's the time",
+        "what is the current time",
+        "what's the current time",
+        "give me the time",
+        "tell me the time",
+        "time please",
+        "now time"
+    ];
+
+    // Check if the recognized phrase includes any of the keywords for asking about the time
+    if (timeKeywords.some(keyword => recognizedPhrase.includes(keyword))) {
+        const currentTime = new Date();
+        const timeString = currentTime.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }); // Format the time in 12-hour format
+        const timeMessage = `The current time is ${timeString}.`;
+        speakResponse(timeMessage);
+        return;
+    }
+    // Process note creation
+    if (isNoteProcessActive) {
+        handleNoteCreationProcess(recognizedPhrase);
+        return;
+    }
+
+    // Handle "make note", "buddy make note", etc.
+    if (
+        recognizedPhrase.includes("make note") ||
+        recognizedPhrase.includes("make a note") ||
+        recognizedPhrase.includes("make a plan") ||
+        recognizedPhrase.includes("make a reminder") ||
+        recognizedPhrase.includes("buddy make note") ||
+        recognizedPhrase.includes("create note") ||
+        recognizedPhrase.includes("take note")
+    ) {
+        startNoteCreation();
         return;
     }
 
@@ -204,7 +367,7 @@ function handleSpeechRecognition(transcript) {
         // Reset the fallback flag after a delay (to allow for the next interaction)
         setTimeout(() => {
             fallbackTriggered = false;
-        }, 13000); 
+        }, 13000);
     } else {
         console.log("Help Buddy: Waiting for user clarification...");
     }
@@ -228,7 +391,7 @@ function activateStandbyMode() {
     }
 
     // Optionally, speak a message indicating that the system is in standby mode
-    responsiveVoice.speak("System is now in standby mode. Please say 'wake up' to reactivate.", "UK English Male");
+    responsiveVoice.speak("I'm going to take nap. Please say wake up buddy or something  to wake me up.", "UK English Male");
 }
 
 
@@ -254,8 +417,8 @@ function deactivateStandbyMode() {
     } catch (error) {
         console.error("Error starting SpeechRecognition:", error.message);
     }
-    
-    responsiveVoice.speak("System is now active. Please say a command.", "UK English Male");
+
+    responsiveVoice.speak("I m back. How can i help?", "UK English Male");
 }
 
 // Function to get weather for the current location or forecast
@@ -404,7 +567,7 @@ function requestLocationPermission() {
             console.log(`Location granted: Lat: ${latitude}, Lon: ${longitude}`);
         }, (error) => {
             console.error("Location permission error:", error);
-            
+
             alert("Location access is required for weather functionality.");
         });
     } else {
@@ -422,18 +585,21 @@ function handleOverlayClick() {
     const initialGreeting = `${getTimeBasedGreeting()}, I'm your help buddy. How can I assist you today?`;
     responsiveVoice.speak(initialGreeting, "UK English Male");
 }
-// Handle calculator commands, using the flag to avoid repeat permissions
 function handleCalculatorCommand(command) {
     const calcResultElement = document.getElementById("calc-result");
-    voicePermissionGranted = true
-    command = command
-        .replace(/add|plus|sum|and|together|in addition/g, "+")
-        .replace(/subtract|minus|less|take away|deduct/g, "-")
-        .replace(/multiply|times|product|by|multiplied|times as much|of|times more|multiplied by|multiplied with|double/g, "*")
-        .replace(/divide|divided by|over|into|per/g, "/");
+    voicePermissionGranted = true;
 
+    // Normalize the command by replacing different variations of operations with symbols
+    command = command
+        .replace(/add|plus|sum|and|together|in addition/g, "+")          // For addition
+        .replace(/subtract|minus|less|take away|deduct/g, "-")            // For subtraction
+        .replace(/times|multiply|product|by|multiplied|multiplied by|times as much|of|times more|multiplied by|multiplied with|multiplied wit|multiplied into|times as|x/g, "*")  // For multiplication
+        .replace(/divide|divided by|over|into|per/g, "/");                // For division
+
+    // Clean up some unnecessary phrases that may be included in the command
     command = command.replace(/^(calculate|how much is|what is|what's|find out|what’s)/, '').trim();
 
+    // Handle large number units (million, billion, etc.)
     if (/million|billion|trillion|quadrillion|quintillion/.test(command)) {
         command = command.replace(/(\d+)(\s+)(million|billion|trillion|quadrillion|quintillion)/g, (match, p1, p2, p3) => {
             return (parseInt(p1) * convertLargeNumbers(p3)).toString();
@@ -442,20 +608,22 @@ function handleCalculatorCommand(command) {
 
     console.log("Normalized command:", command);
 
-    const numbers = command.match(/(\d+(\.\d+)?)/g);
-    const operator = command.match(/[+\-*/]/);
+    // Match numbers (including decimals) and operators (+, -, *, /)
+    const numbers = command.match(/(\d+(\.\d+)?)/g);  // Match numbers
+    const operator = command.match(/[+\-*/]/);        // Match operators
 
+    // If the command contains two numbers and no operator, perform simple addition
     if (numbers && numbers.length >= 2 && !operator) {
         let result = parseFloat(numbers[0]) + parseFloat(numbers[1]);
         calcResultElement.textContent = `Result: ${numbers[0]} + ${numbers[1]} = ${result}`;
 
         if (voicePermissionGranted) {
-            voicePermissionGranted = true
             responsiveVoice.speak("The result is " + result, "UK English Male");
         }
         return;
     }
 
+    // Handle invalid input (less than 2 numbers or missing operator)
     if (!numbers || numbers.length < 2 || !operator) {
         calcResultElement.textContent = "Error";
         if (voicePermissionGranted) {
@@ -464,10 +632,13 @@ function handleCalculatorCommand(command) {
         return;
     }
 
+    // Parse the first and second numbers
     const num1 = parseFloat(numbers[0]);
     const num2 = parseFloat(numbers[1]);
+
     let result;
 
+    // Perform the operation based on the operator found
     if (operator[0] === "+") {
         result = num1 + num2;
     } else if (operator[0] === "-") {
@@ -478,8 +649,10 @@ function handleCalculatorCommand(command) {
         result = num2 === 0 ? "Error (divide by zero)" : num1 / num2;
     }
 
+    // Display the result
     calcResultElement.textContent = `Result: ${num1} ${operator[0]} ${num2} = ${result}`;
 
+    // Speak the result if voice permission is granted
     if (voicePermissionGranted) {
         responsiveVoice.speak("The result is " + result, "UK English Male");
     }
@@ -499,3 +672,149 @@ function toggleCalculator(show) {
         calculatorElement.style.display = "none";
     }
 }
+
+
+/** PLANNER SECTION */
+
+// Start the note creation process
+function startNoteCreation() {
+    // Only start if a note process is not already active
+    if (!isNoteProcessActive) {
+        isNoteProcessActive = true;  // Mark the note creation process as active
+        isCreatingNote = false;  // Reset the creating note flag to ensure proper flow
+        speakResponse("Ok! let's see,...");
+    }
+}
+
+// Function to handle the note creation process
+function handleNoteCreationProcess(recognizedPhrase) {
+    if (recognitionActive) {  // Ensure that recognition only happens when it's active
+        if (isNoteProcessActive && !isCreatingNote) {
+            isCreatingNote = true;
+            speakResponse("What would you like to note down?"); // Ask for note content
+            return;
+        }
+
+        // Step 1: Collect note content
+        if (!isNoteSaved && !noteDetails.content) {
+            // If no note content is set yet, use the recognized phrase
+            noteDetails.content = recognizedPhrase.trim();
+            speakResponse(`You said: "${noteDetails.content}". Is that correct?`);
+            return;
+        }
+
+        // Step 2: Confirm the note content (when recognized phrase is "yes" or "no")
+        if (!isNoteSaved) {
+            if (recognizedPhrase.toLowerCase().includes("yes")) {
+                // If user confirms, save the note
+                speakResponse("Note content confirmed.");
+                const currentDate = new Date();
+                noteDetails.date = currentDate.toLocaleDateString();
+                noteDetails.time = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+                saveNoteToLocalStorage(noteDetails);  // Save to local storage
+                displayNotes();  // Update notes display
+                isNoteSaved = true;
+                //askForDateAndTime(); // Optionally ask for date and time
+                return;
+            } else if (recognizedPhrase.toLowerCase().includes("no")) {
+                // If user says no, reset content and start over
+                noteDetails.content = '';  // Reset note content
+                speakResponse("Okay, let's start over. What is the note about?");
+                return;
+            }
+        }
+    }
+}
+// Function to ask the user if they want to set the date and time
+function askForDateAndTime() {
+    isDateTimeRequested = true;
+    speakResponse("Do you want to set a date and time for this note? Say 'yes' or 'no'.");
+}
+
+// Function to handle the response from the user regarding date and time
+function handleDateAndTimeResponse(recognizedPhrase) {
+    if (recognizedPhrase.includes("yes")) {
+        speakResponse("Please say the date and time you want to set for this note.");
+        return;
+    } else if (recognizedPhrase.includes("no")) {
+        speakResponse("Your note is finalized without a date and time.");
+        isDateTimeRequested = false;
+        return;
+    }
+}
+
+// Function to capture and update the date and time
+function captureDateAndTime(recognizedPhrase) {
+    // Check if the recognized phrase is a date and time (e.g., "second November 10:30")
+    const dateTimePattern = /\b(\d{1,2})(st|nd|rd|th)?\s+([a-zA-Z]+)\s+(\d{1,2}:\d{2}|\d{1,2}:\d{2}\s?(AM|PM)?)\b/;
+    const match = recognizedPhrase.match(dateTimePattern);
+
+    if (match) {
+        // Extract and format the date and time
+        const day = match[1];
+        const month = match[3];
+        const time = match[4];
+
+        // Here, you can add logic to convert "second November" to an actual date format
+        const date = `${day} ${month}`;
+        updateNoteDateAndTime(date, time);
+
+        speakResponse(`The date and time for your note has been set to ${date} at ${time}.`);
+        isDateTimeRequested = false;
+        return;
+    } else {
+        // If no valid date/time is provided, finalize the note
+        speakResponse("Your note is finalized without a date and time.");
+        isDateTimeRequested = false;
+    }
+}
+
+// Function to update the note with date and time
+function updateNoteDateAndTime(date, time) {
+    let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+    const noteIndex = notes.findIndex(note => note.id === noteDetails.id);
+    if (noteIndex !== -1) {
+        notes[noteIndex].date = date;
+        notes[noteIndex].time = time;
+        localStorage.setItem('notes', JSON.stringify(notes)); // Save the updated array
+        displayNotes(); // Refresh the displayed notes
+    }
+}
+// Function to save the note to localStorage
+function saveNoteToLocalStorage(note) {
+    let notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+    // Assign a unique ID to the note
+    note.id = notes.length + 1;
+    notes.push(note); // Add the new note to the array
+    localStorage.setItem('notes', JSON.stringify(notes)); // Save the updated array back to localStorage
+}
+
+// Function to display all notes from localStorage
+function displayNotes() {
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+    const notesList = notes.map(note => {
+        return `
+            <li style="margin-bottom: 15px;">
+                <p>
+                    <strong>Note #${note.id}:</strong><br>
+                    <strong>Content:</strong> ${note.content}<br>
+                    <strong>Date:</strong> ${note.date}<br>
+                    <strong>Time:</strong> ${note.time}
+                </p>
+                <button onclick="editNote(${note.id})">Edit</button>
+            </li>
+        `;
+    }).join('');
+
+    document.getElementById('organizer-output').innerHTML = notesList;
+}
+
+// Initially load and display all notes when the page is loaded
+window.onload = function () {
+
+    displayNotes(); // Display any existing notes from localStorage when the page loads
+};
+

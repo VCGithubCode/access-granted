@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Voice Command Site</title>
     <link rel='shortcut icon' href="assets/images/logo.webp">
     <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+
+    <script src="assets/js/utils.js" defer></script>
     <script src="assets/js/voice_interface.js" defer></script>
     <style>
         body {
             font-family: Arial, sans-serif;
             text-align: center;
         }
+
         .overlay {
             position: fixed;
             top: 0;
@@ -26,16 +30,19 @@
             font-size: 24px;
             z-index: 1000;
         }
+
         .output {
             margin-top: 20px;
             font-size: 16px;
             color: #333;
         }
+
         .weather-output {
             margin-top: 20px;
             font-size: 18px;
             color: #333;
         }
+
         /* Planner and Reminder Section Styles */
         .planner-reminder {
             margin-top: 40px;
@@ -47,14 +54,17 @@
             margin-left: auto;
             margin-right: auto;
         }
+
         .planner-reminder h2 {
             font-size: 24px;
             color: #333;
         }
+
         .planner-reminder ul {
             list-style-type: none;
             padding: 0;
         }
+
         .planner-reminder ul li {
             padding: 10px;
             background-color: #e9ecef;
@@ -62,9 +72,11 @@
             margin-bottom: 10px;
             font-size: 18px;
         }
+
         .planner-reminder ul li span {
             font-weight: bold;
         }
+
         /* Current Time Section */
         .current-time {
             margin-top: 20px;
@@ -72,14 +84,113 @@
             font-weight: bold;
             color: #333;
         }
+
+        .calendar-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .calendar-header button {
+            font-size: 20px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        .calendar-header h2 {
+            font-size: 24px;
+            margin: 0;
+        }
+
+        .days-of-week {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            margin-bottom: 10px;
+        }
+
+        .day {
+            padding: 10px;
+            font-weight: bold;
+            text-align: center;
+            background-color: #f4f4f4;
+        }
+
+        .days {
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+        }
+
+        .day-box {
+            padding: 15px;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .day-box:hover {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .day-box.disabled {
+            background-color: #ddd;
+            color: #aaa;
+            cursor: not-allowed;
+        }
+
+        .current-day {
+            background-color: #007bff;
+            color: white;
+            border-radius: 50%;
+        }
+/* Ensure no bullets for list items in organizer-output */
+#organizer-output ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+/* Specifically remove markers (bullets) from list items */
+#organizer-output li::marker {
+    content: none;
+}
+
+/* Styling for individual list items */
+#organizer-output li {
+    margin-bottom: 15px;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+}
     </style>
 </head>
+
 <body>
     <h1>Voice Command Site</h1>
     <!-- Add this to your HTML -->
-<div id="standby-indicator" style="display:none; color: red; font-size: 20px;">
-    Help Buddy is in standby mode.
-</div>
+    <div id="standby-indicator" style="display:none; color: red; font-size: 20px;">
+        Help Buddy is in standby mode.
+    </div>
+
+    <div id="calendar-container">
+        <div class="calendar-header">
+            <button id="prev-month">←</button>
+            <h2 id="calendar-title"></h2>
+            <button id="next-month">→</button>
+        </div>
+        <div class="days-of-week">
+            <div class="day">Sun</div>
+            <div class="day">Mon</div>
+            <div class="day">Tue</div>
+            <div class="day">Wed</div>
+            <div class="day">Thu</div>
+            <div class="day">Fri</div>
+            <div class="day">Sat</div>
+        </div>
+        <div class="days" id="days-container"></div>
+    </div>
     <!-- Overlay for permission request -->
     <div id="permissionOverlay" class="overlay" onclick="handleOverlayClick()">
         <div class="overlay-text">Click anywhere to grant voice and location permissions</div>
@@ -90,44 +201,53 @@
 
     <!-- Weather Output -->
     <div id="weather-output" class="weather-output"></div>
+    <div id="displayed-weather" class="displayed-weather"></div>
 
     <!-- Current Time Display -->
     <div id="current-time" class="current-time"></div>
-    <div id="planner-output" class="current-time"></div>
-    <div id="reminder-output" class="current-time"></div>
+    <div id="organizer-output" class="organizer-output">
+        <ul class="notes-list" >
+            <li style="margin-bottom: 15px;">
 
-   <!-- Accessible Calculator Display -->
-<div id="calculator" style="display: none; padding: 20px; max-width: 300px;">
-    <!-- Calculator screen -->
-    <div id="calc-result"></div>
-
-    <input type="text" id="calculator-display" readonly style="width: 100%; height: 50px; font-size: 1.5em; text-align: right; padding: 10px; margin-bottom: 10px;">
-
-    <!-- Calculator buttons -->
-    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-        <!-- Number buttons -->
-        <button onclick="appendNumber('1')" style="font-size: 1.5em; padding: 20px;">1</button>
-        <button onclick="appendNumber('2')" style="font-size: 1.5em; padding: 20px;">2</button>
-        <button onclick="appendNumber('3')" style="font-size: 1.5em; padding: 20px;">3</button>
-        <button onclick="appendOperator('+')" style="font-size: 1.5em; padding: 20px;">+</button>
-
-        <button onclick="appendNumber('4')" style="font-size: 1.5em; padding: 20px;">4</button>
-        <button onclick="appendNumber('5')" style="font-size: 1.5em; padding: 20px;">5</button>
-        <button onclick="appendNumber('6')" style="font-size: 1.5em; padding: 20px;">6</button>
-        <button onclick="appendOperator('-')" style="font-size: 1.5em; padding: 20px;">−</button>
-
-        <button onclick="appendNumber('7')" style="font-size: 1.5em; padding: 20px;">7</button>
-        <button onclick="appendNumber('8')" style="font-size: 1.5em; padding: 20px;">8</button>
-        <button onclick="appendNumber('9')" style="font-size: 1.5em; padding: 20px;">9</button>
-        <button onclick="appendOperator('*')" style="font-size: 1.5em; padding: 20px;">×</button>
-
-        <button onclick="clearDisplay()" style="font-size: 1.5em; padding: 20px; grid-column: span 2;">C</button>
-        <button onclick="appendNumber('0')" style="font-size: 1.5em; padding: 20px;">0</button>
-        <button onclick="calculateResult()" style="font-size: 1.5em; padding: 20px;">=</button>
-        <button onclick="appendOperator('/')" style="font-size: 1.5em; padding: 20px;">÷</button>
+            </li>
+        </ul>
     </div>
-</div>
 
-   
+
+    <!-- Accessible Calculator Display -->
+    <div id="calculator" style="display: none; padding: 20px; max-width: 300px;">
+        <!-- Calculator screen -->
+        <div id="calc-result"></div>
+
+        <input type="text" id="calculator-display" readonly
+            style="width: 100%; height: 50px; font-size: 1.5em; text-align: right; padding: 10px; margin-bottom: 10px;">
+
+        <!-- Calculator buttons -->
+        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+            <!-- Number buttons -->
+            <button onclick="appendNumber('1')" style="font-size: 1.5em; padding: 20px;">1</button>
+            <button onclick="appendNumber('2')" style="font-size: 1.5em; padding: 20px;">2</button>
+            <button onclick="appendNumber('3')" style="font-size: 1.5em; padding: 20px;">3</button>
+            <button onclick="appendOperator('+')" style="font-size: 1.5em; padding: 20px;">+</button>
+
+            <button onclick="appendNumber('4')" style="font-size: 1.5em; padding: 20px;">4</button>
+            <button onclick="appendNumber('5')" style="font-size: 1.5em; padding: 20px;">5</button>
+            <button onclick="appendNumber('6')" style="font-size: 1.5em; padding: 20px;">6</button>
+            <button onclick="appendOperator('-')" style="font-size: 1.5em; padding: 20px;">−</button>
+
+            <button onclick="appendNumber('7')" style="font-size: 1.5em; padding: 20px;">7</button>
+            <button onclick="appendNumber('8')" style="font-size: 1.5em; padding: 20px;">8</button>
+            <button onclick="appendNumber('9')" style="font-size: 1.5em; padding: 20px;">9</button>
+            <button onclick="appendOperator('*')" style="font-size: 1.5em; padding: 20px;">×</button>
+
+            <button onclick="clearDisplay()" style="font-size: 1.5em; padding: 20px; grid-column: span 2;">C</button>
+            <button onclick="appendNumber('0')" style="font-size: 1.5em; padding: 20px;">0</button>
+            <button onclick="calculateResult()" style="font-size: 1.5em; padding: 20px;">=</button>
+            <button onclick="appendOperator('/')" style="font-size: 1.5em; padding: 20px;">÷</button>
+        </div>
+    </div>
+
+
 </body>
+
 </html>
