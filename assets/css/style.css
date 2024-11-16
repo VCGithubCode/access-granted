@@ -40,6 +40,11 @@
   --bs-font-monospace: "opendyslexic", sans-serif;
 }
 
+[data-bs-theme="contrast"][data-font-theme="dyslexic"] {
+  --bs-font-sans-serif: "opendyslexic", sans-serif;
+  --bs-font-monospace: "opendyslexic", sans-serif;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -74,6 +79,13 @@ h1 {
   color: #fff;
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
+  border-radius: 50rem;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #137b34;
+  border-color: #137b34;
 }
 
 .bg-light {
@@ -166,6 +178,10 @@ header {
 
   background-color: var(--bs-dark);
   color: var(--bs-light);
+}
+
+[data-bs-theme="contrast"] .nav-link:active {
+  color: var(--bs-body-color-rgb);
 }
 
 [data-bs-theme="contrast"] body {
@@ -272,13 +288,16 @@ header {
 
 }
 
+
+
 /* Credit for custrom form component sizes: https://stackoverflow.com/questions/55593229/increasing-the-size-of-a-bootstrap-checkbox */
 .form-check-input {
   clear: left;
 }
 
 .form-switch.form-switch-sm {
-  margin-bottom: 0.5rem; /* JUST FOR STYLING PURPOSE */
+  margin-bottom: 0.5rem;
+  /* JUST FOR STYLING PURPOSE */
 }
 
 .form-switch.form-switch-sm .form-check-input {
@@ -288,7 +307,8 @@ header {
 }
 
 .form-switch.form-switch-md {
-  margin-bottom: 1rem; /* JUST FOR STYLING PURPOSE */
+  margin-bottom: 1rem;
+  /* JUST FOR STYLING PURPOSE */
 }
 
 .form-switch.form-switch-md .form-check-input {
@@ -298,7 +318,8 @@ header {
 }
 
 .form-switch.form-switch-lg {
-  margin-bottom: 1.5rem; /* JUST FOR STYLING PURPOSE */
+  margin-bottom: 1.5rem;
+  /* JUST FOR STYLING PURPOSE */
 }
 
 .form-switch.form-switch-lg .form-check-input {
@@ -308,11 +329,38 @@ header {
 }
 
 .form-switch.form-switch-xl {
-  margin-bottom: 2rem; /* JUST FOR STYLING PURPOSE */
+  margin-bottom: 2rem;
+  /* JUST FOR STYLING PURPOSE */
 }
 
 .form-switch.form-switch-xl .form-check-input {
   height: 2.5rem;
   width: calc(4rem + 0.75rem);
   border-radius: 5rem;
+}
+
+/* Add primary color when toggled active */
+.form-check-input:checked {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+[data-bs-theme="contrast"] .form-check-input:checked {
+  background-color: #000;
+  border-color: #fff;
+}
+
+.form-check-input:checked:focus {
+  box-shadow: 0 0 0 0.25rem rgba(32, 201, 151, 0.25);
+}
+
+.form-check-input:checked::before {
+  background-color: #fff;
+  transform: translateX(calc(100% + 0.25rem));
+}
+
+[data-bs-theme="contrast"] .form-check-input:checked::before {
+  background-color: #000;
+  border: 2px solid #fff;
+  transform: translateX(calc(100% + 0.25rem));
 }
