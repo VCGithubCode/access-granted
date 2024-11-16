@@ -453,6 +453,11 @@ nav li {
   border-bottom-right-radius: 0.25rem;
 }
 
+[data-bs-theme="contrast"] .tab-content {
+  border: 1px solid #495057;
+  background-color: #000000;
+}
+
 .tab-pane a {
   color: var(--bs-primary);
   text-decoration: underline;
@@ -461,4 +466,12 @@ nav li {
 .tab-pane a:hover {
   color: var(--bs-primary-dark);
   text-decoration: none;
+}
+
+[data-bs-theme="contrast"] .tab-pane a {
+  color: #00ff00;
+}
+
+[data-bs-theme="contrast"] .tab-pane a:hover {
+  color: #00ff00;
 }
