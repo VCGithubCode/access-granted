@@ -423,3 +423,7 @@ header {
 .offcanvas-body li .form-check {
   margin-bottom: 0;
 }
+
+nav li {
+  margin-left: 1rem;
+}
