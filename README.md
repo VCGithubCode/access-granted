@@ -1,22 +1,40 @@
+<h1 align="center"><strong>Inclusive Web: Building Accessible Websites. Hackathon</strong>
 
-# Inclusive Web: Building Accessible Websites. Hackathon
+---
+
+<h1 align="center"><strong>Access Granted</strong>
+
+---
+
 
 ![image](https://github.com/user-attachments/assets/1a642ceb-2125-4901-8424-2d3eeed5b0c5)
 
-Live Link for [Access Granted](https://vcgithubcode.github.io/access-granted/)
+Access Granted - GitHub repository: [GitHub repository](https://github.com/VCGithubCode/access-granted/tree/as-accssesOk-branch)
 
-## Project Overview
+Visit the deployed site: [Access Granted](https://vcgithubcode.github.io/access-granted/index.html)
+
+
+# Project Overview
 
 This project aims to create websites that are accessible and usable by everyone, regardless of their abilities or disabilities. Inclusive web design incorporates accessibility best practices, ensuring that websites are perceivable, operable, understandable, and robust for users with diverse needs, including those who use assistive technologies like screen readers, voice recognition software, or specialized input devices.
 
 This project aims to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content inclusive for all users.
 
-## Criteria of Success
+# Criteria of Success
 
-1. Delivering a website that is the first point of contact for people who would like to gain a practical framework and features for accessible websites.
-2. Delivering the project on time (on or before the 18th of November 2024).
-3. Website users would find it easy to navigate and utilize.
-4. Raising the awareness that not only building accessible websites is essential but easy to achieve using the current website. 
+The "Access Granted" project aims to make the web more accessible for all users, focusing on features like voice assistance, dyslexia-friendly fonts, and high-contrast modes for users with visual impairments. The site incorporates customizable accessibility settings, including font size adjustments, dyslexia-friendly fonts, colorblind modes, and high-contrast themes to enhance the user experience. It is dedicated to breaking down barriers and creating an inclusive, user-friendly digital environment.
+
+- We have designed an immersive and intuitive user interface, ensuring that our design is not only visually distinctive but also delivers a smooth and engaging user experience.
+
+- The success of our project is a result of careful planning and execution. We leveraged GitHub Projects for effective organization and complemented this with a detailed README.md to ensure transparency and keep our development on track.
+
+- Our work is strongly aligned with the Hackathon's theme, presenting forward-thinking and creative solutions that push the boundaries of innovation. This project sets a new standard, paving the way for future developments.
+
+- We’ve created a responsive, accessible, and well-tested application, emphasizing user experience across various devices and catering to diverse accessibility requirements.
+
+- Our project introduces unique features and functionality, adding significant value and fostering engagement.
+
+- A key strength of our project lies in the collaborative effort of our team. Through active involvement, inclusive practices, and a shared commitment to excellence, we’ve cultivated an environment of mutual support and high-quality outcomes. 
 
 
 ## About Us
@@ -24,30 +42,28 @@ This project aims to empower developers to implement features and structures tha
 We are a passionate team of developers and designers participating in the Code Institute Inclusive Web: Building Accessible Websites. Hackathon.
 
 
+* [Access Granted](#access-granted)
+* [Introduction](#introduction)
+* [Criteria](#criteria)
+* [Goal & UX](#goal--ux)
+* [Website Structure](#website-structure)
+  * [Landing Page](#landing-page)
+  * [Explore Page](#explore-page)
+  * [Contact Page](#contact)
+  * [Responsiveness](#responsiveness)
+* [TWireframes](#wareframes)
+* [Development Process](#development-process)
+  * [Agile Methodology](#agile-methodology)
+  * [Collaboration Tools](#collaboration-tools)
+  * [Programming paradigms](#programming-paradigms)
+* [Prerequisites and Deployment](#prerequisites-and-deployment)
+  * [Forking](#forking)
+  * [Making a Local Clone](#making-a-local-clone)
+  * [Obtaining EmailJS API](#obtaining-emailjs-api)
+* [Credits and Acknowledgements](#credits-and-acknowledgements)
 
 
-  - [Vernell Clark](https://github.com/VCGithubCode) [LinkedIn]
-
-  - [Nikola Simic](https://github.com/nlekkerman) [LinkedIn]
-
-  - [Benjamin Schäfer](https://github.com/benschaf) [LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
- 
-  - [Angela Siniavskaja](https://github.com/Angela-Sin) [LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
-  
-  - [Ashraf Bocktor](https://github.com/PATH-HIVE) [LinkedIn](https://www.linkedin.com/in/abbocktor/)
-
-  - [Alison Mossop](https://github.com/ali-moss-24) [LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
-
-  - [James Bracken](https://github.com/JamesBracken)  [LinkedIn]
-
-  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi) [LinkedIn]
-
-### By following these links you can learn what Web Accessibility means**
-
-- [W3Schools](https://www.w3.org/WAI/fundamentals/accessibility-intro/)
-- [Link](https://accessibe.com/glossary/inclusivity)
-
-# User Goal
+# Goal & UX
 
 ### As a visually impaired user, I benefit from the high contrast mode and larger text options, making the site easier to read.
 
@@ -77,6 +93,8 @@ We are a passionate team of developers and designers participating in the Code I
 ### As a user interested in learning about accessibility, I can navigate to the "Accessibility Guide".
 
 - This page offers helpful tips and information on using the website's features effectively, demonstrating the project’s commitment to inclusivity.
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 # Website structure
 
@@ -135,7 +153,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 ### Accessibility Tools Articles:
 -The page features three main articles, each dedicated to a specific accessibility feature:
 
-### Voice Assistant ("Mikey the Mic")![image](assets/images/microphone-icon.webpgit):
+### Voice Assistant ("Mikey the Mic")![image](assets/images/microphone-icon.webp):
 - Describes voice navigation capabilities for users with visual impairments or mobility issues.
 ### OpenDyslexic Font ("Glassy with the Glasses")![immage](assets/images/glasses-icon.webp):
 - Explains the font switch for dyslexia-friendly text display, aiding users who struggle with standard fonts.
@@ -165,6 +183,13 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ![image](https://github.com/user-attachments/assets/256309b8-36d2-49f7-b48d-2a5db493aa82)
 
+The page provides a user-friendly Contact Us form along with accessibility features, making it easy for users to get in touch while ensuring a smooth experience for people with different accessibility needs. The layout is responsive, thanks to Bootstrap, and includes tools to adjust the design for better accessibility.
+
+### Responsiveness
+
+The website is fully responsive, providing a seamless experience on devices of all sizes, from smartphones to desktops. 
+Please visit [Link](https://ui.dev/amiresponsive?url=https://vcgithubcode.github.io/access-granted/index.html)
+
 
 ## Design
 
@@ -179,6 +204,24 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 - ### Contact Page
 ![image](https://github.com/user-attachments/assets/75b21e83-f92f-4b8e-93d1-645b72a8ab0d)
 
+
+## Development Process
+
+The development of our project is guided by a structured yet adaptable approach, allowing us to respond to changes and feedback while staying focused on our objectives. Our methodology prioritizes collaboration, iterative progress, and transparency, both within the development team and with our stakeholders. [canvas](https://code-institute-room.slack.com/canvas/C080JB3ETHU)
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
+
+### Agile Methodology
+
+Our project follows the Agile methodology, a framework that enables us to tackle the inherent unpredictability of software development through incremental, iterative work cycles, known as sprints. This approach promotes adaptability and allows us to respond quickly to changes, which is crucial in the fast-paced world of software development.
+
+At the beginning of each sprint, our team conducts sprint planning to set the course for the upcoming work. This includes prioritizing the product backlog to address the most important tasks first, establishing clear sprint goals aligned with project milestones, and assigning tasks based on expertise and workload. During development, we carefully manage trade-offs between scope, quality, time, and resources to ensure a balance between delivering high-quality work and meeting deadlines. By adopting Agile methodologies, we stay adaptable and focused, ensuring that we meet user needs while striving for excellence.
+
+ ### Collaboration Tools
+ 
+The team used [Slack](https://slack.com/) for quick collaboration purposes and Github projects to track User Stories, Bugs and Time plan.
+
+The Team used slack team channel Canvas to ensure everyone stayed updated on project progress and discussions. [canvas](https://code-institute-room.slack.com/canvas/C080JB3ETHU)
 
 
 
@@ -217,20 +260,10 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 ### Future adding
 
 
-## Getting Started
 
-First, fork the repository. Then, go into your preferred code editor.
+## Prerequisites and Deployment
 
-1. git clone [https://github.com/VCGithubCode/accessOk]
-2. cd game
-3. npm install
-4. npm run serve
-
-## Deployment
-
-### GitHub Pages
-
-The project was deployed to GitHub Pages using the following steps...
+The site was developed in VS Code/Gitpod, stored in GitHub as the local repository. Github Pages was used to deploy the live website. The instructions to achieve this are below.
 
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
 2. At the top of the Repository (not the top of the page), locate the "Settings" Button on the menu.
@@ -240,7 +273,7 @@ The project was deployed to GitHub Pages using the following steps...
 5. The page will automatically refresh.
 6. Scroll back down through the page to locate the now-published site [link](https://github.com) in the "GitHub Pages" section.
 
-### Forking the GitHub Repository
+### Forking
 
 By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
 
@@ -267,7 +300,50 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
-## Content
+#### Obtaining EmailJS API 
+
+1. Sign up for a [EmailJS](https://www.emailjs.com/docs/) account in the EmailJS website.
+2. Create an email service in your EmailJS dashboard.
+3. Install EmailJS Library. You can do this by including the EmailJS script in your HTML file or by installing it via npm if you're using a package manager like npm or yarn.
+
+```
+npm install --save @emailjs/browser
+```
+
+or
+
+```
+$ yarn add @emailjs/browser
+```
+4. In your EmailJS dashboard, navigate to the "API Keys" section and copy your API key.
+5. Add this code snippet before your closing tags. Making sure you have added your public key.
+
+```js
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+  (function(){
+      emailjs.init({
+        publicKey: "YOUR_PUBLIC_KEY",
+      });
+  })();
+</script>
+```
+
+6.  Create an email template in your EmailJS dashboard. This template will define the content and structure of the emails you'll send.
+7. Write JavaScript function to send email using EmailJS. Below is a basic syntax for the code: 
+
+```
+emailjs.send(serviceID, templateID, templateParams, options);
+```
+
+8. Call your function whenever you want to send an email.
+
+*<span style="color: blue;">[Back to Content](#access-granted)</span>*
+
+
+
 
 ### All content was written by the  Hackathon Team 7.
 
@@ -303,14 +379,18 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 
   - [Vernell Clark](https://github.com/VCGithubCode)
 
-  - [Nikola Simic](https://github.com/nlekkerman)
+  - [Vernell Clark](https://github.com/VCGithubCode) [LinkedIn]
 
-  - [Benjamin Schäfer](https://github.com/benschaf)
+  - [Nikola Simic](https://github.com/nlekkerman) [LinkedIn]
+
+  - [Benjamin Schäfer](https://github.com/benschaf) [LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
  
-  - [Angela Siniavskaja](https://github.com/Angela-Sin)
- 
-  - [Alison Mossop](https://github.com/ali-moss-24)
- 
-  - [Ashraf Bocktor](https://github.com/PATH-HIVE)
- 
-  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi)
+  - [Angela Siniavskaja](https://github.com/Angela-Sin) [LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
+  
+  - [Ashraf Bocktor](https://github.com/PATH-HIVE) [LinkedIn](https://www.linkedin.com/in/abbocktor/)
+
+  - [Alison Mossop](https://github.com/ali-moss-24) [LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
+
+  - [James Bracken](https://github.com/JamesBracken)  [LinkedIn]
+
+  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi) [LinkedIn]
