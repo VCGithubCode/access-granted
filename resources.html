@@ -34,7 +34,7 @@
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
             <li class="nav-item mt-2">
-              <a class="nav-link" href="resources.html"><i class="fas fa-book"></i> Resources</a>
+              <a class="nav-link active" href="resources.html"><i class="fas fa-book"></i> Resources</a>
             </li>
             <li class="nav-item mt-2">
               <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About</a>
@@ -50,6 +50,82 @@
       </div>
     </nav>
   </header>
+
+  <!-- Canvas sidebar -->
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Accessibility Settings</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-unstyled p-3" aria-labelledby="navbarDropdown">
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <label class="form-label">Font Size</label>
+            <div class="d-flex flex-column">
+              <div class="btn-group" role="group" aria-label="Font Size">
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeSmall" value="small"
+                  autocomplete="off">
+                <label class="btn btn-outline-secondary" for="fontSizeSmall">Small</label>
+
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeMedium"
+                  value="medium" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="fontSizeMedium">Medium</label>
+
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeLarge" value="large"
+                  autocomplete="off">
+                <label class="btn btn-outline-secondary" for="fontSizeLarge">Large</label>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <div class="form-check form-switch form-switch-lg d-flex align-items-center">
+              <input class="form-check-input font-switch" type="checkbox" id="fontSwitch1" aria-label="Font switch">
+              <label class="form-check-label ms-2" for="fontSwitch1">Turn on Dyslexic Font</label>
+            </div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <div class="form-check form-switch form-switch-lg d-flex align-items-center">
+              <input class="form-check-input theme-switch" type="checkbox" id="themeSwitch1" aria-label="Theme switch">
+              <label class="form-check-label ms-2" for="themeSwitch1">Turn on High Contrast Mode</label>
+            </div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <label class="form-label">Colorblind Mode</label>
+            <div class="d-flex flex-column">
+              <div class="btn-group-vertical w-100" role="group" aria-label="Colorblind Mode">
+                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="normalVision" value=""
+                  autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="normalVision">Normal Vision</label>
+
+                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="deuteranopia"
+                  value="deuteranopia" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="deuteranopia">Deuteranopia</label>
+
+                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="protanopia"
+                  value="protanopia" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="protanopia">Protanopia</label>
+
+                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="tritanopia"
+                  value="tritanopia" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="tritanopia">Tritanopia</label>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <a class="dropdown-item" href="accessibility-guide.html"><i class="fas fa-book"></i> Accessibility Guide</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <main id="main-content">
     <section class="p-5 text-center container-fluid main-background d-flex align-items-center" style="height: 50vh;">
