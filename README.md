@@ -41,6 +41,7 @@ The "Access Granted" project aims to make the web more accessible for all users,
 
 We are a passionate team of developers and designers participating in the Code Institute Inclusive Web: Building Accessible Websites. Hackathon.
 
+## Content
 
 * [Access Granted](#access-granted)
 * [Introduction](#introduction)
@@ -135,6 +136,9 @@ We are a passionate team of developers and designers participating in the Code I
 The page includes an SVG filter section for color adjustments based on the selected colorblind mode.
 Buttons and form elements have descriptive icons and ARIA labels for better screen reader support.
 
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
+
 ## Explore Page
 
 ![image](https://github.com/user-attachments/assets/cd6896f2-3d34-4fe5-876a-717e9ab5ca87)
@@ -178,6 +182,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 - Provides useful links, a social media section, and a sitemap.
 - A “Back to top” link enhances navigation, allowing users to quickly return to the top of the page.
 
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 ## Contact Page
 
@@ -190,6 +195,7 @@ The page provides a user-friendly Contact Us form along with accessibility featu
 The website is fully responsive, providing a seamless experience on devices of all sizes, from smartphones to desktops. 
 Please visit [Link](https://ui.dev/amiresponsive?url=https://vcgithubcode.github.io/access-granted/index.html)
 
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 ## Design
 
@@ -204,6 +210,7 @@ Please visit [Link](https://ui.dev/amiresponsive?url=https://vcgithubcode.github
 - ### Contact Page
 ![image](https://github.com/user-attachments/assets/75b21e83-f92f-4b8e-93d1-645b72a8ab0d)
 
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 ## Development Process
 
@@ -217,6 +224,9 @@ Our project follows the Agile methodology, a framework that enables us to tackle
 
 At the beginning of each sprint, our team conducts sprint planning to set the course for the upcoming work. This includes prioritizing the product backlog to address the most important tasks first, establishing clear sprint goals aligned with project milestones, and assigning tasks based on expertise and workload. During development, we carefully manage trade-offs between scope, quality, time, and resources to ensure a balance between delivering high-quality work and meeting deadlines. By adopting Agile methodologies, we stay adaptable and focused, ensuring that we meet user needs while striving for excellence.
 
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
+
  ### Collaboration Tools
  
 The team used [Slack](https://slack.com/) for quick collaboration purposes and Github projects to track User Stories, Bugs and Time plan.
@@ -224,20 +234,17 @@ The team used [Slack](https://slack.com/) for quick collaboration purposes and G
 The Team used slack team channel Canvas to ensure everyone stayed updated on project progress and discussions. [canvas](https://code-institute-room.slack.com/canvas/C080JB3ETHU)
 
 
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 
+## Features
 
 - ### Color Pallete
 
 ![image](https://github.com/user-attachments/assets/e8131409-754f-4157-a87f-4035d0059bcf)
 
 
-
-
-## Features
-
-
-## Technologies Used
+- ## Technologies Used
 
 
 - [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
@@ -261,9 +268,9 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 
 
 
-## Prerequisites and Deployment
+- ## Prerequisites and Deployment
 
-The site was developed in VS Code/Gitpod, stored in GitHub as the local repository. Github Pages was used to deploy the live website. The instructions to achieve this are below.
+- The site was developed in VS Code/Gitpod, stored in GitHub as the local repository. Github Pages was used to deploy the live website. The instructions to ac- hieve this are below.
 
 1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
 2. At the top of the Repository (not the top of the page), locate the "Settings" Button on the menu.
@@ -273,38 +280,37 @@ The site was developed in VS Code/Gitpod, stored in GitHub as the local reposito
 5. The page will automatically refresh.
 6. Scroll back down through the page to locate the now-published site [link](https://github.com) in the "GitHub Pages" section.
 
-### Forking
+- ### Forking
 
-By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
+- By forking the GitHub Repository we make a copy of the original repository on our GitHub account to view and/or make changes without affecting the original repository by using the following steps...
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. At the top of the Repository (not the top of the page) just above the "Settings" Button on the menu, locate the "Fork" Button.
-3. You should now have a copy of the original repository in your GitHub account.
+  1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
+  2. At the top of the Repository (not the top of the page) just above the "Settings" Button on the menu, locate the "Fork" Button.
+  3. You should now have a copy of the original repository in your GitHub account.
 
-### Making a Local Clone
+- ### Making a Local Clone
 
-1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
-2. Under the repository name, click "Clone or download".
-3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
-4. Open Git Bash
-5. Change the current working directory to where you want the cloned directory to be made.
-6. Type `git clone`, and then paste [https://github.com/YOUR-USERNAME/YOUR-REPOSITORY] in.
-7. Press Enter. Your local clone will be created.
-
-8. $ git clone [https://github.com/YOUR-USERNAME/YOUR-REPOSITORY]
-9. Cloning into `CI-Clone`...
-10. remote: Counting objects: 10, done.
-11. remote: Compressing objects: 100% (8/8), done.
-12. remove: Total 10 (delta 1), reused 10 (delta 1)
-13. Unpacking objects: 100% (10/10), done.
+  1. Log in to GitHub and locate the [GitHub Repository](https://github.com/)
+  2. Under the repository name, click "Clone or download".
+  3. To clone the repository using HTTPS, under "Clone with HTTPS", copy the link.
+  4. Open Git Bash
+  5. Change the current working directory to where you want the cloned directory to be made.
+  6. Type `git clone`, and then paste [https://github.com/YOUR-USERNAME/YOUR-REPOSITORY] in.
+  7. Press Enter. Your local clone will be created.
+  8. $ git clone [https://github.com/YOUR-USERNAME/YOUR-REPOSITORY]
+  9. Cloning into `CI-Clone`...
+  10. remote: Counting objects: 10, done.
+  11. remote: Compressing objects: 100% (8/8), done.
+  12. remove: Total 10 (delta 1), reused 10 (delta 1)
+  13. Unpacking objects: 100% (10/10), done.
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
-#### Obtaining EmailJS API 
+-  #### Obtaining EmailJS API 
 
-1. Sign up for a [EmailJS](https://www.emailjs.com/docs/) account in the EmailJS website.
-2. Create an email service in your EmailJS dashboard.
-3. Install EmailJS Library. You can do this by including the EmailJS script in your HTML file or by installing it via npm if you're using a package manager like npm or yarn.
+  1. Sign up for a [EmailJS](https://www.emailjs.com/docs/) account in the EmailJS website.
+  2. Create an email service in your EmailJS dashboard.
+  3. Install EmailJS Library. You can do this by including the EmailJS script in your HTML file or by installing it via npm if you're using a package manager like npm or yarn.
 
 ```
 npm install --save @emailjs/browser
@@ -315,8 +321,8 @@ or
 ```
 $ yarn add @emailjs/browser
 ```
-4. In your EmailJS dashboard, navigate to the "API Keys" section and copy your API key.
-5. Add this code snippet before your closing tags. Making sure you have added your public key.
+  4. In your EmailJS dashboard, navigate to the "API Keys" section and copy your API key.
+  5. Add this code snippet before your closing tags. Making sure you have added your public key.
 
 ```js
 <script type="text/javascript"
@@ -331,16 +337,16 @@ $ yarn add @emailjs/browser
 </script>
 ```
 
-6.  Create an email template in your EmailJS dashboard. This template will define the content and structure of the emails you'll send.
-7. Write JavaScript function to send email using EmailJS. Below is a basic syntax for the code: 
+  6.  Create an email template in your EmailJS dashboard. This template will define the content and structure of the emails you'll send.
+  7. Write JavaScript function to send email using EmailJS. Below is a basic syntax for the code: 
 
 ```
 emailjs.send(serviceID, templateID, templateParams, options);
 ```
 
-8. Call your function whenever you want to send an email.
+  8. Call your function whenever you want to send an email.
 
-*<span style="color: blue;">[Back to Content](#access-granted)</span>*
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 
 
@@ -377,8 +383,6 @@ emailjs.send(serviceID, templateID, templateParams, options);
 
 - Our team also deserves special mention as a whole. We learned a lot from each other, dove headfirst into new technologies, and were helpful in times of need to resolve coding issues.:
 
-  - [Vernell Clark](https://github.com/VCGithubCode)
-
   - [Vernell Clark](https://github.com/VCGithubCode) [LinkedIn]
 
   - [Nikola Simic](https://github.com/nlekkerman) [LinkedIn]
@@ -394,3 +398,23 @@ emailjs.send(serviceID, templateID, templateParams, options);
   - [James Bracken](https://github.com/JamesBracken)  [LinkedIn]
 
   - [Ahmad Al Hindi](https://github.com/Ahmadalhindi) [LinkedIn]
+
+  *<span style="color: blue;">[Back to Content](#content)</span>*
+
+  Vernell Clark[image](assets/images/avatars/Vernell.webp)
+
+
+  - Nikola Simic [image](/assets/images/avatars/)
+
+  - Benjamin Schäfer [image](/assets/images/avatars/Ben.webp)
+ 
+  - Angela Siniavskaja
+
+  - Ashraf Bocktor
+
+  - Alison Mossop
+
+  - James Bracken
+
+  - Ahmad Al Hindi
+
