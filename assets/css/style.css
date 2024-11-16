@@ -88,6 +88,19 @@ h1 {
   border-color: #137b34;
 }
 
+.btn-secondary {
+  color: #fff;
+  background-color: #cd4e1b;
+  border-color: #cd4e1b;
+  border-radius: 50rem;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #d5683d;
+  border-color: #d5683d;
+}
+
 .bg-light {
   background-color: green;
 }
@@ -293,6 +306,8 @@ header {
 /* Credit for custrom form component sizes: https://stackoverflow.com/questions/55593229/increasing-the-size-of-a-bootstrap-checkbox */
 .form-check-input {
   clear: left;
+  width: 2.5em;
+  height: 1.5em;
 }
 
 .form-switch.form-switch-sm {
@@ -363,4 +378,48 @@ header {
   background-color: #000;
   border: 2px solid #fff;
   transform: translateX(calc(100% + 0.25rem));
+}
+
+.offcanvas {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+[data-bs-theme="contrast"] .offcanvas {
+  background-color: rgb(0, 0, 0);
+}
+
+.offcanvas-body {
+  padding: 0px;
+}
+
+.offcanvas-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+[data-font-size="small"] body {
+  font-size: 14px;
+}
+
+[data-font-size="medium"] body {
+  font-size: 16px;
+}
+
+[data-font-size="large"] body {
+  font-size: 18px;
+}
+
+.dropdown-item {
+  padding: 0.5rem 0;
+}
+
+.offcanvas-body li {
+  border: 2px solid #f0f0f0;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.offcanvas-body li .form-check {
+  margin-bottom: 0;
 }
