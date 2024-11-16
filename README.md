@@ -23,19 +23,24 @@ This project aims to empower developers to implement features and structures tha
 
 We are a passionate team of developers and designers participating in the Code Institute Inclusive Web: Building Accessible Websites. Hackathon.
 
-  - [Vernell Clark](https://github.com/VCGithubCode)
+![image](https://github.com/user-attachments/assets/cc461991-9f77-4690-b187-61e132c47055)
 
-  - [Nikola Simic](https://github.com/nlekkerman)
 
-  - [Benjamin Schäfer](https://github.com/benschaf)
+  - [Vernell Clark](https://github.com/VCGithubCode) [LinkedIn]()
+
+  - [Nikola Simic](https://github.com/nlekkerman) [LinkedIn]()
+
+  - [Benjamin Schäfer](https://github.com/benschaf) [LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
  
-  - [Angela Siniavskaja](https://github.com/Angela-Sin)
+  - [Angela Siniavskaja](https://github.com/Angela-Sin) [LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
   
-  - [Ashraf Bocktor](https://github.com/PATH-HIVE)
+  - [Ashraf Bocktor](https://github.com/PATH-HIVE) [LinkedIn](https://www.linkedin.com/in/abbocktor/)
 
-  - [Alison Mossop](https://github.com/ali-moss-24)
+  - [Alison Mossop](https://github.com/ali-moss-24) [LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
 
-  - [James Bracken](https://github.com/JamesBracken)
+  - [James Bracken](https://github.com/JamesBracken) LinkedIn[]()
+
+  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi) [LinkedIn]()
 
 ### By following these links you can learn what Web Accessibility means**
 
@@ -169,15 +174,17 @@ We are a passionate team of developers and designers participating in the Code I
 
 ## Technologies Used
 
-- ### Languages Used
 
-- [HTML5](https://en.wikipedia.org/wiki/HTML5)
-- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-
-- ### Frameworks, Libraries & Programs Used
-
-- [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
+- [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
+- [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) used for secure online code storage.
+- [![Gitpod](https://img.shields.io/badge/Gitpod-grey?logo=gitpod&logoColor=FFAE33)](https://gitpod.io) used as a cloud-based IDE for development.
+- [![VSCode](https://img.shields.io/badge/VSCode-grey?logo=htmx&logoColor=007ACC)](https://code.visualstudio.com) used as a local IDE for development.
+- [![HTML](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) used for the main site content.
+- [![CSS](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
+- [![JavaScript](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) used for user interaction on the site.
+- [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
+- [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) used for the icons.
+- [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
 
 ## Testing
 
