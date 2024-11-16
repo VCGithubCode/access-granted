@@ -1,19 +1,15 @@
 
 # Inclusive Web: Building Accessible Websites. Hackathon
+
+![image](https://github.com/user-attachments/assets/1a642ceb-2125-4901-8424-2d3eeed5b0c5)
+
+Live Link for [Access Granted](https://vcgithubcode.github.io/access-granted/)
+
 ## Project Overview
 
 This project aims to create websites that are accessible and usable by everyone, regardless of their abilities or disabilities. Inclusive web design incorporates accessibility best practices, ensuring that websites are perceivable, operable, understandable, and robust for users with diverse needs, including those who use assistive technologies like screen readers, voice recognition software, or specialized input devices.
 
-This project aims to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content truly inclusive for all users.
-
-
-
-## Why
-**Inclusion** has recently become a widely discussed topic, with one key focus being the inclusion of people with disabilities. This includes individuals with visual, auditory, physical, speech, cognitive, and neurological disabilities.
-The objective of this project is to **raise awareness** about the importance of accessible websites and to provide **a template or resource** that developers can rely on when building inclusive websites.
-
-## Target audience
-*Web developers, people with disability, and everyone interested in inclusion.*
+This project aims to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content inclusive for all users.
 
 ## Criteria of Success
 
@@ -39,21 +35,7 @@ We are a passionate team of developers and designers participating in the Code I
 
   - [Alison Mossop](https://github.com/ali-moss-24)
 
-  ## Requirements
-
-1. The website will consist of a home page,...
-2. Prepare a README.md file to describe the project.
-3. The website must be responsive for mobile, tablet, and desktop views.
-4. The website will be a clear real-life example accommodating special needs, *i.e. example of accessibility.* 
-5. The website should be deployed on GitHub.
-6. Having a logo and a footer on each page is nice.
-
-## Testing Criteria
-1. The website should be tested for browser compatibility
- (Chrome, Edge, Safari, and Firefox).
-2. The website should be tested 
-for responsiveness on various devices (mobile, tablet, and desktop).
-3. The website should pass the W3C Web Accessibility Initiative, or WRI.
+  - [James Bracken](https://github.com/JamesBracken)
 
 ## Website Structure
 
@@ -105,12 +87,68 @@ for responsiveness on various devices (mobile, tablet, and desktop).
 
 ## Our Contributions
 
--
--
--
--
--
--
+### HTML Structure
+
+- Uses modern HTML5 with semantic tags for accessibility (e.g., <header>, <main>, <footer>).
+- Includes lang=" en" and meta tags for viewport settings and character encoding, ensuring proper rendering across devices.
+- Utilizes data-bs-theme for theme customization, allowing dynamic switching between light, dark, and high-contrast modes.
+
+### Frameworks and Libraries
+
+- Bootstrap 5: Utilizes Bootstrap's grid system, components, and responsive design features.
+- Bootstrap Icons: Integrated for icon usage (e.g., social media links).
+- Custom CSS and JavaScript: Separate custom styles (style.css) and scripts (script.js, theme-switcher.js) for enhanced functionality.
+
+### Accessibility Features
+
+- Dedicated dropdown for accessibility options, including:
+- Font size adjustment (via a range input).
+- Toggle switches for Dyslexic Font, High Contrast, and Simplified Layout.
+- Dropdown selection for different colorblind modes (Deuteranopia, Protanopia, Tritanopia).
+- Theme selection (Auto, Light, Dark, High Contrast).
+- Voice control toggle, suggesting integration with a voice assistant feature.
+- Link to a detailed Accessibility Guide.
+
+### Header and Navigation
+
+- Sticky header with a responsive navbar, including links to:
+- Home, Resources, About, and Contact pages.
+- Accessibility features dropdown with a comprehensive list of settings.
+
+### Main Content
+
+- A hero section with:
+- A welcoming message.
+- A call-to-action button ("Explore Our Features").
+- An image representing the brand (e.g., lock icon).
+- A feature showcase using Bootstrap cards with shadow and responsiveness:
+- Voice Assistant: Aimed at users needing assistive technology.
+- OpenDyslexic Font: Improves readability for users with dyslexia.
+- High Contrast Mode: Enhances visibility for those with visual impairments.
+
+### SVG Filters for Colorblind Modes
+
+- Defines three colorblind filters (deuteranopia, protanopia, tritanopia) using feColorMatrix, which adjusts color perception on the webpage.
+
+### Footer Section
+
+- Divided into three columns:
+- Resources: Links to documentation, tutorials, and support.
+- Social Media Links: Icons for Twitter, Facebook, and Instagram.
+- Site Map: Quick navigation links for Home, About, Resources, and Contact pages.
+- Copyright information with a "Back to top" link.
+
+### JavaScript Integration
+   
+- Uses Bootstrap's JavaScript Bundle for interactive components.
+- Includes a custom script (theme-switcher.js) for handling theme and font changes.
+- Custom script.js likely manages additional interactivity and accessibility features.
+
+### Design and User Experience
+    
+- Consistent design language: Uses Bootstrap's default styling with light customizations (e.g., shadow, background images).
+- Responsive layout: Ensures compatibility across mobile, tablet, and desktop views.
+- Focus on inclusivity: Emphasizes features aimed at making the site usable for users with various disabilities.
 
 
 ## Design
@@ -211,11 +249,11 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
-### Content
+## Content
 
-- All content was written by the  Hackathon Team 7.
+### All content was written by the  Hackathon Team 7.
 
-## Resources Used
+
 
 | Source                                                                                                               | Location       | Notes                        |
 | -------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
@@ -231,8 +269,7 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 | [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
 | [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
 
-## Future Work
-1. We ...
+
 
 ### Acknowledgements
 
