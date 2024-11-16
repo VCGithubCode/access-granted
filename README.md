@@ -37,21 +37,9 @@ We are a passionate team of developers and designers participating in the Code I
 
   - [James Bracken](https://github.com/JamesBracken)
 
-## Website Structure
-
-- Home Page
-- About Page
-- Contact
-- Accessibility Features
-
-### Images
-
-<img src="./assets/">
-
-
 ### By following these links you can learn what Web Accessibility means**
 
-- [Link](https://www.w3.org/WAI/fundamentals/accessibility-intro/)
+- [W3Schools](https://www.w3.org/WAI/fundamentals/accessibility-intro/)
 - [Link](https://accessibe.com/glossary/inclusivity)
 
 # User Goal
@@ -63,7 +51,7 @@ We are a passionate team of developers and designers participating in the Code I
   
 ### As a user with color blindness, I appreciate the built-in colorblind modes like deuteranopia, protanopia, and tritanopia filters.
 
-- By selecting the appropriate filter, I can see and differentiate the content, images, and icons.
+- I can see and differentiate the content, images, and icons by selecting the appropriate filter.
 - As someone who relies on voice commands, I can easily enable the Voice Control feature.
 - This allows me to navigate the site hands-free, making it convenient for individuals with mobility impairments.
   
@@ -155,12 +143,13 @@ We are a passionate team of developers and designers participating in the Code I
 
 - ### Wireframes
 
- - Landing Page
+ - ###Landing Page
+   
 ![image](https://github.com/user-attachments/assets/9925db0b-d5ab-414c-aa31-470cd11068da)
 
 ![image](https://github.com/user-attachments/assets/bcf63084-a3cd-4905-a4ad-c546a9fa44bb)
 
-- Contact Page
+- ### Contact Page
 ![image](https://github.com/user-attachments/assets/75b21e83-f92f-4b8e-93d1-645b72a8ab0d)
 
 
@@ -294,3 +283,5 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
   - [Alison Mossop](https://github.com/ali-moss-24)
  
   - [Ashraf Bocktor](https://github.com/PATH-HIVE)
+ 
+  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi)
