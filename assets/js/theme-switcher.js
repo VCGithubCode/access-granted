@@ -37,19 +37,23 @@
   setTheme(getPreferredTheme());
 
   const showActiveTheme = (theme) => {
-    const themeSelect = document.querySelector("#themeSelect");
-    if (!themeSelect) {
-      return;
-    }
+    const themeSwitches = document.querySelectorAll(".theme-switch");
+    themeSwitches.forEach((themeSwitch) => {
+      const themeLabel = document.querySelector(`label[for='${themeSwitch.id}']`);
+      if (!themeSwitch || !themeLabel) {
+        return;
+      }
 
-    themeSelect.value = theme;
+      themeSwitch.checked = theme === "contrast";
+      themeLabel.textContent = theme === "contrast" ? "Turn off High Contrast Mode" : "Turn on High Contrast Mode";
+    });
   };
 
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", () => {
       const storedTheme = getStoredTheme();
-      if (storedTheme !== "light" && storedTheme !== "dark") {
+      if (storedTheme !== "light" && storedTheme !== "dark" && storedTheme !== "contrast") {
         setTheme(getPreferredTheme());
       }
     });
@@ -57,12 +61,14 @@
   window.addEventListener("DOMContentLoaded", () => {
     showActiveTheme(getPreferredTheme());
 
-    const themeSelect = document.querySelector("#themeSelect");
-    themeSelect.addEventListener("change", () => {
-      const theme = themeSelect.value;
-      setStoredTheme(theme);
-      setTheme(theme);
-      showActiveTheme(theme);
+    const themeSwitches = document.querySelectorAll(".theme-switch");
+    themeSwitches.forEach((themeSwitch) => {
+      themeSwitch.addEventListener("change", () => {
+        const theme = themeSwitch.checked ? "contrast" : "light";
+        setStoredTheme(theme);
+        setTheme(theme);
+        showActiveTheme(theme);
+      });
     });
   });
 })();
