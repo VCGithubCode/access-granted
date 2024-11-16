@@ -1,19 +1,15 @@
 
 # Inclusive Web: Building Accessible Websites. Hackathon
+
+![image](https://github.com/user-attachments/assets/1a642ceb-2125-4901-8424-2d3eeed5b0c5)
+
+Live Link for [Access Granted](https://vcgithubcode.github.io/access-granted/)
+
 ## Project Overview
 
 This project aims to create websites that are accessible and usable by everyone, regardless of their abilities or disabilities. Inclusive web design incorporates accessibility best practices, ensuring that websites are perceivable, operable, understandable, and robust for users with diverse needs, including those who use assistive technologies like screen readers, voice recognition software, or specialized input devices.
 
-This project aims to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content truly inclusive for all users.
-
-
-
-## Why
-**Inclusion** has recently become a widely discussed topic, with one key focus being the inclusion of people with disabilities. This includes individuals with visual, auditory, physical, speech, cognitive, and neurological disabilities.
-The objective of this project is to **raise awareness** about the importance of accessible websites and to provide **a template or resource** that developers can rely on when building inclusive websites.
-
-## Target audience
-*Web developers, people with disability, and everyone interested in inclusion.*
+This project aims to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content inclusive for all users.
 
 ## Criteria of Success
 
