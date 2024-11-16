@@ -1,3 +1,15 @@
+// Back to top button
+document.addEventListener("scroll", function () {
+  const backToTopButton = document.querySelector(".back-to-top");
+  if (window.scrollY > 200) {
+    backToTopButton.classList.add("d-block");
+    backToTopButton.classList.remove("d-none");
+  } else {
+    backToTopButton.classList.add("d-none");
+    backToTopButton.classList.remove("d-block");
+  }
+});
+
 // Accessibility feature toggles
 document.getElementById('dyslexicFont').addEventListener('change', function () {
   document.body.classList.toggle('dyslexic-font');
