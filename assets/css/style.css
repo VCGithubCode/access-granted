@@ -428,6 +428,12 @@ header {
 
 .footerdiv li a:hover {
   color: rgba(0, 0, 0, .7)!important;
+}
+
+nav a .nav-link {
+  padding-left: 14px;
+  padding-right: 14px;
+}
 
 nav li {
   margin-left: 1rem;
