@@ -486,3 +486,89 @@ nav li {
 [data-bs-theme="contrast"] .tab-pane a:hover {
   color: #00ff00;
 }
+
+/* Flip Card Specific Styles */
+.flip-card {
+  perspective: 1000px;
+  overflow: hidden;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+  padding: 15px;
+}
+
+.flip-card-front img {
+  height: 180px;
+  width: auto;
+  object-fit: cover;
+  margin-top: 5px;
+}
+
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transform: rotateY(180deg);
+  background-color: #f8f9fa;
+  padding: 15px;
+  text-align: center;
+}
+
+/* Responsiveness */
+@media (max-width: 576px) {
+  .flip-card {
+    height: 250px;
+    margin-bottom: 15px;
+  }
+  
+  .flip-card-front img {
+    height: 120px;
+  }
+  
+  .card-text {
+    font-size: 12px;
+  }
+
+  .btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flip-card {
+    height: 280px;
+  }
+  
+  .flip-card-front img {
+    height: 150px;
+  }
+}
