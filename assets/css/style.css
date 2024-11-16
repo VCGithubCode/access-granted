@@ -423,3 +423,55 @@ header {
 .offcanvas-body li .form-check {
   margin-bottom: 0;
 }
+
+nav li {
+  margin-left: 1rem;
+}
+
+/* Style the tabs section */
+.nav-tabs .nav-link {
+  color: #495057;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: #e9ecef #e9ecef #dee2e6;
+}
+
+.nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: var(--bs-primary);
+}
+
+.tab-content {
+  border: 1px solid #dee2e6;
+  border-top: none;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+[data-bs-theme="contrast"] .tab-content {
+  border: 1px solid #495057;
+  background-color: #000000;
+}
+
+.tab-pane a {
+  color: var(--bs-primary);
+  text-decoration: underline;
+}
+
+.tab-pane a:hover {
+  color: var(--bs-primary-dark);
+  text-decoration: none;
+}
+
+[data-bs-theme="contrast"] .tab-pane a {
+  color: #00ff00;
+}
+
+[data-bs-theme="contrast"] .tab-pane a:hover {
+  color: #00ff00;
+}
