@@ -424,6 +424,11 @@ header {
   margin-bottom: 0;
 }
 
+/* Footer styles */
+
+.footerdiv li a:hover {
+  color: rgba(0, 0, 0, .7)!important;
+
 nav li {
   margin-left: 1rem;
 }
