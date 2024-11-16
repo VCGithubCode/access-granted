@@ -364,3 +364,47 @@ header {
   border: 2px solid #fff;
   transform: translateX(calc(100% + 0.25rem));
 }
+
+.offcanvas {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+[data-bs-theme="contrast"] .offcanvas {
+  background-color: rgb(0, 0, 0);
+}
+
+.offcanvas-body {
+  padding: 0px;
+}
+
+.offcanvas-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+[data-font-size="small"] body {
+  font-size: 14px;
+}
+
+[data-font-size="medium"] body {
+  font-size: 16px;
+}
+
+[data-font-size="large"] body {
+  font-size: 18px;
+}
+
+.dropdown-item {
+  padding: 0.5rem 0;
+}
+
+.offcanvas-body li {
+  border: 2px solid #f0f0f0;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.offcanvas-body li .form-check {
+  margin-bottom: 0;
+}
