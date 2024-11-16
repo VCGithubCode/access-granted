@@ -79,6 +79,13 @@ h1 {
   color: #fff;
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
+  border-radius: 50rem;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #137b34;
+  border-color: #137b34;
 }
 
 .bg-light {
