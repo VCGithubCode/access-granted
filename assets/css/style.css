@@ -180,6 +180,10 @@ header {
   color: var(--bs-light);
 }
 
+[data-bs-theme="contrast"] .nav-link:active {
+  color: var(--bs-body-color-rgb);
+}
+
 [data-bs-theme="contrast"] body {
   background-color: var(--bs-dark);
   color: var(--bs-light);
