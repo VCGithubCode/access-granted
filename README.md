@@ -26,21 +26,21 @@ We are a passionate team of developers and designers participating in the Code I
 ![image](https://github.com/user-attachments/assets/cc461991-9f77-4690-b187-61e132c47055)
 
 
-  - [Vernell Clark](https://github.com/VCGithubCode)[LinkedIn]()
+  - [Vernell Clark](https://github.com/VCGithubCode) [LinkedIn]()
 
-  - [Nikola Simic](https://github.com/nlekkerman)[LinkedIn]()
+  - [Nikola Simic](https://github.com/nlekkerman) [LinkedIn]()
 
-  - [Benjamin Schäfer](https://github.com/benschaf)[LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
+  - [Benjamin Schäfer](https://github.com/benschaf) [LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
  
-  - [Angela Siniavskaja](https://github.com/Angela-Sin)[LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
+  - [Angela Siniavskaja](https://github.com/Angela-Sin) [LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
   
-  - [Ashraf Bocktor](https://github.com/PATH-HIVE)[LinkedIn](https://www.linkedin.com/in/abbocktor/)
+  - [Ashraf Bocktor](https://github.com/PATH-HIVE) [LinkedIn](https://www.linkedin.com/in/abbocktor/)
 
-  - [Alison Mossop](https://github.com/ali-moss-24)[LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
+  - [Alison Mossop](https://github.com/ali-moss-24) [LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
 
-  - [James Bracken](https://github.com/JamesBracken)LinkedIn[]()
+  - [James Bracken](https://github.com/JamesBracken) LinkedIn[]()
 
-  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi)[LinkedIn]()
+  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi) [LinkedIn]()
 
 ### By following these links you can learn what Web Accessibility means**
 
