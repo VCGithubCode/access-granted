@@ -4,156 +4,305 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About Us | Access Granted</title>
+	<link rel='shortcut icon' href="assets/images/logo.webp">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
+    <title>About Us | Access Granted</title>
 </head>
-<body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+<body class="relative">
+	<a href="#main-content" class="d-none">Skip to main content</a>
     
-	<header>
-		<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<header class="fixed-top">
+		<nav class="navbar navbar-expand-lg">
 		  <div class="container">
-			<div class="container">
-			  <a class="navbar-brand" href="index.html">
-				<img src="assets/images/logo.png" alt="Access Granted Logo" width="30" height="30"
-				  class="d-inline-block align-top">
-				Access Granted
-			  </a>
-			  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-				aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			  </button>
-			  <div class="collapse navbar-collapse" id="navbarContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0">
-				  <li class="nav-item">
-					<a class="nav-link" href="#about">About</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="#features">Features</a>
-				  </li>
-				  <li class="nav-item">
-					<a class="nav-link" href="#contact">Contact</a>
-				  </li>
-				  <li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-					  aria-expanded="false">
-					  Accessibility Features
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-					  <li>
-						<div class="dropdown-item">
-						  <label for="fontSize" class="form-label">Font Size</label>
-						  <input type="range" class="form-range font-size-control" id="fontSize" min="12" max="24" step="1"
-							value="16">
+			<a class="navbar-brand" href="index.html">
+			  <img src="assets/images/logo.webp" alt="Access Granted Logo" width="30" height="30"
+				class="d-inline-block align-top">
+			  Access Granted
+			</a>
+			<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+			  aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+			  <span class="navbar-toggler-icon"></span>
+			</button>
+			<div class="collapse navbar-collapse" id="navbarContent">
+			  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+				<li class="nav-item">
+				  <a class="nav-link" href="resources.html">Resources</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="about.html">About</a>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link" href="contact.html">Contact</a>
+				</li>
+				<li class="nav-item dropdown">
+				  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+					aria-expanded="false">
+					Accessibility Features
+				  </a>
+				  <ul class="dropdown-menu p-3" aria-labelledby="navbarDropdown" style="width: 300px;">
+					<li>
+					  <div class="dropdown-item">
+						<label for="fontSize" class="form-label">Font Size</label>
+						<input type="range" class="form-range font-size-control" id="fontSize" min="12" max="24" step="1"
+						  value="16">
+					  </div>
+					</li>
+					<li>
+					  <div class="dropdown-item">
+						<div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" id="dyslexicFont">
+						  <label class="form-check-label" for="dyslexicFont">Dyslexic Font</label>
 						</div>
-					  </li>
-					  <li>
-						<div class="dropdown-item">
-						  <div class="form-check form-switch">
-							<input class="form-check-input" type="checkbox" id="dyslexicFont">
-							<label class="form-check-label" for="dyslexicFont">Dyslexic Font</label>
-						  </div>
+					  </div>
+					</li>
+					<li>
+					  <div class="dropdown-item">
+						<div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" id="highContrast">
+						  <label class="form-check-label" for="highContrast">High Contrast</label>
 						</div>
-					  </li>
-					  <li>
-						<div class="dropdown-item">
-						  <div class="form-check form-switch">
-							<input class="form-check-input" type="checkbox" id="highContrast">
-							<label class="form-check-label" for="highContrast">High Contrast</label>
-						  </div>
+					  </div>
+					</li>
+					<li>
+					  <div class="dropdown-item">
+						<div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" id="simplifiedLayout">
+						  <label class="form-check-label" for="simplifiedLayout">Simplified Layout</label>
 						</div>
-					  </li>
-					  <li>
-						<div class="dropdown-item">
-						  <div class="form-check form-switch">
-							<input class="form-check-input" type="checkbox" id="simplifiedLayout">
-							<label class="form-check-label" for="simplifiedLayout">Simplified Layout</label>
-						  </div>
+					  </div>
+					</li>
+					<li>
+					  <div class="dropdown-item">
+						<label for="colorblindMode" class="form-label">Colorblind Mode</label>
+						<select class="form-select" id="colorblindMode" aria-label="Colorblind mode">
+						  <option selected value="">Normal Vision</option>
+						  <option value="deuteranopia">Deuteranopia</option>
+						  <option value="protanopia">Protanopia</option>
+						  <option value="tritanopia">Tritanopia</option>
+						</select>
+					  </div>
+					</li>
+					<li>
+					  <div class="dropdown-item">
+						<div class="form-check form-switch">
+						  <input class="form-check-input" type="checkbox" id="voiceControl">
+						  <label class="form-check-label" for="voiceControl">Voice Control</label>
 						</div>
-					  </li>
-					  <li>
-						<div class="dropdown-item">
-						  <select class="form-select" id="colorblindMode" aria-label="Colorblind mode">
-							<option selected value="">Normal Vision</option>
-							<option value="deuteranopia">Deuteranopia</option>
-							<option value="protanopia">Protanopia</option>
-							<option value="tritanopia">Tritanopia</option>
-						  </select>
-						</div>
-					  </li>
-					  <li>
-						<div class="dropdown-item">
-						  <div class="form-check form-switch">
-							<input class="form-check-input" type="checkbox" id="voiceControl">
-							<label class="form-check-label" for="voiceControl">Voice Control</label>
-						  </div>
-						</div>
-					  </li>
-					  <li>
-						<hr class="dropdown-divider">
-					  </li>
-					  <li><a class="dropdown-item" href="accessibility-guide.html">Accessibility Guide</a></li>
-			  </div>
+					  </div>
+					</li>
+					<li>
+					  <hr class="dropdown-divider">
+					</li>
+					<li><a class="dropdown-item" href="accessibility-guide.html">Accessibility Guide</a></li>
+					<li>
+					  <div class="dropdown-item">
+						<label for="themeSelect" class="form-label">Theme</label>
+						<select class="form-select" id="themeSelect" aria-label="Theme select">
+						  <option value="auto" data-bs-theme-value="auto">Auto</option>
+						  <option value="light" data-bs-theme-value="light">Light</option>
+						  <option value="dark" data-bs-theme-value="dark">Dark</option>
+						  <option value="contrast" data-bs-theme-value="contrast">High Contrast</option>
+						</select>
+					  </div>
+					</li>
+					<li>
+					  <div class="dropdown-item">
+						<label for="fontThemeSelect" class="form-label">Font Theme</label>
+						<select class="form-select" id="fontThemeSelect" aria-label="Font theme select">
+						  <option value="default" data-font-theme-value="default">Default</option>
+						  <option value="dyslexic" data-font-theme-value="dyslexic">Open Dyslexic</option>
+						</select>
+					  </div>
+					</li>
+				  </ul>
+				</li>
+			  </ul>
 			</div>
-			</li>
-			</ul>
-			</li>
-			</ul>
-		  </div>
 		  </div>
 		</nav>
 	  </header>
 	
 
-    <main id="main-content" class="container my-5">
-        <h1 class="mb-4">About Us</h1>
-        <p class="lead mb-5">We are a team of passionate developers dedicated to making the web more accessible for everyone.</p>
-        
-        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
-            <!-- Team Member 1 -->
-            <div class="col">
-                <div class="card h-100">
-                    <img src="placeholder-image-1.jpg" class="card-img-top" alt="Team Member 1">
-                    <div class="card-body">
-                        <h5 class="card-title">John Doe</h5>
-                        <p class="card-text">Frontend Developer with a passion for creating accessible user interfaces.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/johndoe" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
-                        <a href="https://linkedin.com/in/johndoe" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-                            <i class="bi bi-linkedin"></i> LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Team Member 2 -->
-            <div class="col">
-                <div class="card h-100">
-                    <img src="placeholder-image-2.jpg" class="card-img-top" alt="Team Member 2">
-                    <div class="card-body">
-                        <h5 class="card-title">Jane Smith</h5>
-                        <p class="card-text">Backend Developer specializing in scalable and secure web applications.</p>
-                    </div>
-                    <div class="card-footer">
-                        <a href="https://github.com/janesmith" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
-                            <i class="bi bi-github"></i> GitHub
-                        </a>
-                        <a href="https://linkedin.com/in/janesmith" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-                            <i class="bi bi-linkedin"></i> LinkedIn
-                        </a>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Repeat the above card structure for the remaining x team members -->
-            <!-- Team Members 3-x -->
-
-        </div>
-    </main>
+	<main class="container my-5">
+		<section>
+		  <div class="row">
+			<div class="col-md-6">
+			  <img src="team.jpg" alt="Our Team" class="img-fluid rounded shadow-lg">
+			</div>
+			<div class="col-md-6">
+			  <h2>Our Mission</h2>
+			  <p>
+				Our mission is to create a more inclusive, accessible world for everyone.
+			  <br>
+			  <br>
+				We are a team of passionate developers dedicated to bring innovative solutions and foster a community built on values of collaboration and empathy.
+			  </p>
+			</div>
+		  </div>
+		</section>
+	  <main class="container my-5">
+		<section>
+			<h2 class="text-center mb-4">Meet Our Team</h2>
+			<div class="row g-4">
+				<!-- Card 1 -->
+				<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+					<div class="card shadow-lg text-center flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front">
+								<img src="ceo.jpg" class="card-img-top" alt="">
+								<div class="card-body">
+									<h5 class="card-title">Vernell Clark</h5>
+									<p class="card-text">Project lead and git/github expert</p>
+								</div>
+							</div>
+							<div class="flip-card-back">
+								<div class="card-body">
+									<p>Project lead and git/github expert</p>
+									<a href="https://github.com/" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-github"></i> GitHub
+									</a>
+									<a href="https://linkedin.com/in/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-linkedin"></i> LinkedIn
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<!-- Card 2 -->
+				<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+					<div class="card shadow-lg text-center flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front">
+								<img src="ceo.jpg" class="card-img-top" alt="">
+								<div class="card-body">
+									<h5 class="card-title">Nikola Simic</h5>
+									<p class="card-text">aaaaa</p>
+								</div>
+							</div>
+							<div class="flip-card-back">
+								<div class="card-body">
+									<p>aaaa</p>
+									<a href="https://github.com/" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-github"></i> GitHub
+									</a>
+									<a href="https://linkedin.com/in/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-linkedin"></i> LinkedIn
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<!-- Card 3 -->
+				<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+					<div class="card shadow-lg text-center flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front">
+								<img src="ceo.jpg" class="card-img-top" alt="">
+								<div class="card-body">
+									<h5 class="card-title">Benjamin Schäfer</h5>
+									<p class="card-text">aaaaa</p>
+								</div>
+							</div>
+							<div class="flip-card-back">
+								<div class="card-body">
+									<p>aaaa</p>
+									<a href="https://github.com/" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-github"></i> GitHub
+									</a>
+									<a href="https://linkedin.com/in/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-linkedin"></i> LinkedIn
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+				<!-- Card 4 -->
+				<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+					<div class="card shadow-lg text-center flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front">
+								<img src="ceo.jpg" class="card-img-top" alt="">
+								<div class="card-body">
+									<h5 class="card-title">Angela Siniavskaja</h5>
+									<p class="card-text">aaaa</p>
+								</div>
+							</div>
+							<div class="flip-card-back">
+								<div class="card-body">
+									<p>aaaaa</p>
+									<a href="https://github.com/" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-github"></i> GitHub
+									</a>
+									<a href="https://linkedin.com/in/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-linkedin"></i> LinkedIn
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+					<div class="card shadow-lg text-center flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front">
+								<img src="ceo.jpg" class="card-img-top" alt="">
+								<div class="card-body">
+									<h5 class="card-title">Ashraf Bocktor</h5>
+									<p class="card-text">aaaa</p>
+								</div>
+							</div>
+							<div class="flip-card-back">
+								<div class="card-body">
+									<p>aaaaa</p>
+									<a href="https://github.com/" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-github"></i> GitHub
+									</a>
+									<a href="https://linkedin.com/in/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-linkedin"></i> LinkedIn
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="col-12 col-sm-6 col-md-6 col-lg-4">
+					<div class="card shadow-lg text-center flip-card">
+						<div class="flip-card-inner">
+							<div class="flip-card-front">
+								<img src="ceo.jpg" class="card-img-top" alt="">
+								<div class="card-body">
+									<h5 class="card-title">Ahmad Al Hindi</h5>
+									<p class="card-text">aaaa</p>
+								</div>
+							</div>
+							<div class="flip-card-back">
+								<div class="card-body">
+									<p>aaaaa</p>
+									<a href="https://github.com/" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-github"></i> GitHub
+									</a>
+									<a href="https://linkedin.com/in/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
+										<i class="bi bi-linkedin"></i> LinkedIn
+									</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+	
+			</div>
+		</section>
+	  </main>
+	</main>
 
 	<footer class="text-muted py-5">
 		<div class="container">
@@ -210,5 +359,6 @@
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
+
 </body>
 </html>

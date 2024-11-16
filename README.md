@@ -1,114 +1,193 @@
 
 # Inclusive Web: Building Accessible Websites. Hackathon
+
+![image](https://github.com/user-attachments/assets/1a642ceb-2125-4901-8424-2d3eeed5b0c5)
+
+Live Link for [Access Granted](https://vcgithubcode.github.io/access-granted/)
+
 ## Project Overview
 
 This project aims to create websites that are accessible and usable by everyone, regardless of their abilities or disabilities. Inclusive web design incorporates accessibility best practices, ensuring that websites are perceivable, operable, understandable, and robust for users with diverse needs, including those who use assistive technologies like screen readers, voice recognition software, or specialized input devices.
 
-The goal of this project is to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content truly inclusive for all users.
-
-
-
-## Why
-**Inclusion** has recently become a widely discussed topic, with one key focus being the inclusion of people with disabilities. This includes individuals with visual, auditory, physical, speech, cognitive, and neurological disabilities.
-The objective of this project is to **raise awareness** about the importance of accessible websites and to provide **a template or resource** that developers can rely on when building inclusive websites.
-
-## Target audiance
-*Web developers, people with disability and everyone who is interested in inclusion.*
+This project aims to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content inclusive for all users.
 
 ## Criteria of Success
 
-1. Delivering a website that is first point of contact for people who would like to gain practical framework and features for accessible websites.
+1. Delivering a website that is the first point of contact for people who would like to gain a practical framework and features for accessible websites.
 2. Delivering the project on time (on or before the 18th of November 2024).
-3. Users of the webiste would find it easy to navigate and utilise.
-4. Raising the awarness that not only building accessible websites are essentail but actually easy to achieve using the current website. 
-   
+3. Website users would find it easy to navigate and utilize.
+4. Raising the awareness that not only building accessible websites is essential but easy to achieve using the current website. 
 
-## Stakeholders
-
-- Vernell Clark: Project lead and git/github expert
-- Nikola Simic: 
-- Benjamin Schäfer: 
-- Angela Siniavskaja: 
-- Ashraf Bocktor: Support member
-- Alison Mossop
 
 ## About Us
 
 We are a passionate team of developers and designers participating in the Code Institute Inclusive Web: Building Accessible Websites. Hackathon.
 
-  - [Vernell Clark](https://github.com/VCGithubCode)
 
-  - [Nikola Simic](https://github.com/nlekkerman)
 
-  - [Benjamin Schäfer](https://github.com/benschaf)
+
+  - [Vernell Clark](https://github.com/VCGithubCode) [LinkedIn]
+
+  - [Nikola Simic](https://github.com/nlekkerman) [LinkedIn]
+
+  - [Benjamin Schäfer](https://github.com/benschaf) [LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
  
-  - [Angela Siniavskaja](https://github.com/Angela-Sin)
+  - [Angela Siniavskaja](https://github.com/Angela-Sin) [LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
   
-  - [Ashraf Bocktor](https://github.com/PATH-HIVE)
+  - [Ashraf Bocktor](https://github.com/PATH-HIVE) [LinkedIn](https://www.linkedin.com/in/abbocktor/)
 
-  - [Alison Mossop](https://github.com/ali-moss-24)
+  - [Alison Mossop](https://github.com/ali-moss-24) [LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
 
-  ## Requirements
+  - [James Bracken](https://github.com/JamesBracken)  [LinkedIn]
 
-1. The website will consist of a home page, ....
-2. Prepare a README.md file to describe the project.
-3. The website must be responsive for mobile, tablet, and desktop views.
-4. The website will be a clear real life example accommodating special needs, *i.e. example of accessibility.* 
-5. The website should be deployed on GitHub.
-6. It is nice to have a logo and a footer on each page.
-
-## Testing Criteria
-1. The website should be tested for browser compatibility
- (Chrome, Edge, Safari, and Firefox).
-2. The website should be tested 
-for responsiveness on various devices (mobile, tablet, and desktop).
-3. The website should pass the W3C Web Accessibility Initiative, or WRI.
-
-## Website Structure
-
-- Home Page
-- About Page
-- xcv
-
-## Resources
-
-### Images
-
-<img src="./assets/">
-
+  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi) [LinkedIn]
 
 ### By following these links you can learn what Web Accessibility means**
 
-- [Link](https://www.w3.org/WAI/fundamentals/accessibility-intro/)
+- [W3Schools](https://www.w3.org/WAI/fundamentals/accessibility-intro/)
 - [Link](https://accessibe.com/glossary/inclusivity)
-- [Link]
 
-## User Goal
+# User Goal
+
+### As a visually impaired user, I benefit from the high contrast mode and larger text options, making the site easier to read.
+
+- The "Accessibility Features" dropdown menu allows me to toggle these options without any hassle.
+- I can also switch to the OpenDyslexic font, reducing visual stress while reading the content.
+  
+### As a user with color blindness, I appreciate the built-in colorblind modes like deuteranopia, protanopia, and tritanopia filters.
+
+- I can see and differentiate the content, images, and icons by selecting the appropriate filter.
+- As someone who relies on voice commands, I can easily enable the Voice Control feature.
+- This allows me to navigate the site hands-free, making it convenient for individuals with mobility impairments.
+  
+### As a user exploring the site for resources, I find the navigation menu intuitive and straightforward.
+
+- The links to the "Resources," "About," and "Contact" pages are visible and accessible.
+- The "Skip to main content" link at the top ensures that I can bypass repetitive navigation and quickly access the core content.
+  
+### As a person who values inclusive design, I am delighted to see the comprehensive range of accessibility options.
+
+- I can customize the theme (light, dark, high contrast) and font themes to suit my preferences, making my browsing experience more comfortable.
+  
+### As a user looking for help, the Contact page is easy to find.
+
+- I can fill out a simple form, providing my name, email, and message, and expect a prompt response from the team.
+- The site's address and contact information are also clearly listed, offering multiple ways to get in touch.
+  
+### As a user interested in learning about accessibility, I can navigate to the "Accessibility Guide".
+
+- This page offers helpful tips and information on using the website's features effectively, demonstrating the project’s commitment to inclusivity.
+
+# Website structure
+
+## Landing Page
+
+![image](https://github.com/user-attachments/assets/d69ac759-d3ae-4605-ad29-ad1b5c4f8581)
+
+## Key Features
+
+### Navigation & Header:
+
+- The header includes a logo, navigation links, and an accessibility button that opens an off-canvas menu with settings.
+- The navigation bar is responsive and features icons for clarity.
+- Accessibility Settings Panel:
+
+### The off-canvas menu offers customizable options:
+- Font Size: Users can choose between small, medium, or large font sizes.
+- Dyslexic Font: A toggle switch for enabling a dyslexia-friendly font.
+- High Contrast Mode: A toggle to enhance visibility.
+- Colorblind Modes: Options for Deuteranopia, Protanopia, and Tritanopia, using SVG filters for color adjustments.
+
+## Main Content Section:
+
+### A welcoming hero section with a title, description, and call-to-action button.
+- The section features an illustration and a brief introduction to the purpose of the site, emphasizing its commitment to accessibility.
+- Features Showcase:
+
+### Three key features are highlighted:
+- Voice Assistant: Enables hands-free navigation.
+- OpenDyslexic Font: Enhances readability for users with dyslexia.
+- High Contrast Mode: Improves visibility for users with visual impairments.
+
+### Footer:
+- Contains links to resources, social media profiles, and a site map.
+- Includes a "Back to Top" button for easier navigation.
+- Accessibility Enhancements:
+
+The page includes an SVG filter section for color adjustments based on the selected colorblind mode.
+Buttons and form elements have descriptive icons and ARIA labels for better screen reader support.
+
+## Explore Page
+
+![image](https://github.com/user-attachments/assets/cd6896f2-3d34-4fe5-876a-717e9ab5ca87)
+
+## Key features
+
+### Header Section:
+
+- A welcoming banner with a headline introducing the purpose of the page.
+- Includes a brief description emphasizing the importance of web accessibility.
+
+### Carousel Section:
+- A Bootstrap-based image carousel highlighting key concepts of accessibility, each with a caption and description.
+- Three slides are included, each emphasizing different benefits of accessible design (e.g., user experience, inclusion).
+
+### Accessibility Tools Articles:
+-The page features three main articles, each dedicated to a specific accessibility feature:
+
+### Voice Assistant ("Mikey the Mic")![image](assets/images/microphone-icon.webpgit):
+- Describes voice navigation capabilities for users with visual impairments or mobility issues.
+### OpenDyslexic Font ("Glassy with the Glasses")![immage](assets/images/glasses-icon.webp):
+- Explains the font switch for dyslexia-friendly text display, aiding users who struggle with standard fonts.
+### High Contrast Mode ("Spikey the Hedgehog")[image](assets/images/contrast-icon.webp):
+- Details a toggle for high-contrast visuals to assist users with color blindness or low vision.
+
+### Each article outlines:
+- Who it helps
+- How it works
+- Why it matters
+
+### Tabs Section (Accessibility Standards):
+- Utilizes Bootstrap tabs to provide information about various accessibility guidelines:
+- WCAG (Web Content Accessibility Guidelines)
+- ARIA (Accessible Rich Internet Applications)
+- Section 508 (U.S. federal requirements for accessible electronic content)
+
+### Simulation Section:
+- Features interactive buttons allowing users to simulate various accessibility challenges (e.g., color blindness, low vision, screen reader use). This helps users understand the importance of inclusive design.
+
+### Footer
+- Provides useful links, a social media section, and a sitemap.
+- A “Back to top” link enhances navigation, allowing users to quickly return to the top of the page.
 
 
-- I want the site to be easy and intuitive to use.
-- I want 
-- I want 
-- I want 
-- I want 
-- I want
+## Contact Page
 
-## Our Contributions
-
--
--
--
--
--
--
+![image](https://github.com/user-attachments/assets/256309b8-36d2-49f7-b48d-2a5db493aa82)
 
 
 ## Design
 
 - ### Wireframes
 
+ - ###Landing Page
+   
+![image](https://github.com/user-attachments/assets/9925db0b-d5ab-414c-aa31-470cd11068da)
+
+![image](https://github.com/user-attachments/assets/bcf63084-a3cd-4905-a4ad-c546a9fa44bb)
+
+- ### Contact Page
+![image](https://github.com/user-attachments/assets/75b21e83-f92f-4b8e-93d1-645b72a8ab0d)
+
+
+
+
+
 
 - ### Color Pallete
+
+![image](https://github.com/user-attachments/assets/e8131409-754f-4157-a87f-4035d0059bcf)
+
 
 
 
@@ -117,15 +196,17 @@ for responsiveness on various devices (mobile, tablet, and desktop).
 
 ## Technologies Used
 
-- ### Languages Used
 
-- [HTML5](https://en.wikipedia.org/wiki/HTML5)
-- [CSS3](https://en.wikipedia.org/wiki/Cascading_Style_Sheets)
-- [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
-
-- ### Frameworks, Libraries & Programs Used
-
-- [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)
+- [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
+- [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) used for secure online code storage.
+- [![Gitpod](https://img.shields.io/badge/Gitpod-grey?logo=gitpod&logoColor=FFAE33)](https://gitpod.io) used as a cloud-based IDE for development.
+- [![VSCode](https://img.shields.io/badge/VSCode-grey?logo=htmx&logoColor=007ACC)](https://code.visualstudio.com) used as a local IDE for development.
+- [![HTML](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) used for the main site content.
+- [![CSS](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
+- [![JavaScript](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) used for user interaction on the site.
+- [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
+- [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) used for the icons.
+- [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
 
 ## Testing
 
@@ -186,11 +267,11 @@ By forking the GitHub Repository we make a copy of the original repository on ou
 
 Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-repositories/cloning-a-repository#cloning-a-repository-to-github-desktop) to retrieve pictures for some of the buttons and more detailed explanations of the above process.
 
-### Content
+## Content
 
-- All content was written by the  Hackathon Team 7.
+### All content was written by the  Hackathon Team 7.
 
-## Resources Used
+
 
 | Source                                                                                                               | Location       | Notes                        |
 | -------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
@@ -199,16 +280,24 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
 | [Fonts Google](https://fonts.google.com/)                                                                            | Across website | Font selection               |
 | [Coolors](https://coolors.co/)                                                                                       | Across website | Colour palette selection     |
 | [W3Schools](https://www.w3schools.com/)                                                                              | Across website | Various help pages           |
-| [Balsamiq](https://balsamiq.com/?gad_source=1&gclid=EAIaIQobChMI9-DR99b-hwMV9JtQBh0I3yMEEAAYASAAEgJTpPD_BwE)         | Across website | Wireframes creation          |
+| [Lucid.App](https://lucid.app/documents#/documents?folder_id=home)                                                   | Across website | Wireframes creation          |
+| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Css Layout, styling, Icons   |
+| [Email.js](https://www.emailjs.com/)                                                                                 | Across website | For replying to users contact|
+| [tiny.png](https://tinypng.com/)                                                                                     | Across website | For image convertion         |
+| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
 | [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
 
 
-## Future Work
-1. We ...
 
 ### Acknowledgements
 
 - Special Thank You Note for Hackathon Organizers
+  
+- Bootstrap Team for their responsive framework.
+  
+- OpenDyslexic project for the dyslexia-friendly font.
+  
+- Community testers who provided valuable feedback.
 
 - Our team also deserves special mention as a whole. We learned a lot from each other, dove headfirst into new technologies, and were helpful in times of need to resolve coding issues.:
 
@@ -219,3 +308,9 @@ Click [Here](https://help.github.com/en/github/creating-cloning-and-archiving-re
   - [Benjamin Schäfer](https://github.com/benschaf)
  
   - [Angela Siniavskaja](https://github.com/Angela-Sin)
+ 
+  - [Alison Mossop](https://github.com/ali-moss-24)
+ 
+  - [Ashraf Bocktor](https://github.com/PATH-HIVE)
+ 
+  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi)

@@ -1,10 +1,135 @@
-.dyslexic-font {
-  font-family: 'OpenDyslexic', Arial, sans-serif;
+/* Poppins Font */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+
+@font-face {
+  font-family: 'opendyslexic';
+  src: url('../fonts/OpenDyslexic-Regular.otf') format('opentype');
+  font-style: normal;
+  font-weight: normal;
 }
 
-.high-contrast {
-  background-color: #000;
+@font-face {
+  font-family: 'opendyslexic';
+  src: url('../fonts/OpenDyslexic-Italic.otf') format('opentype');
+  font-style: italic;
+  font-weight: normal;
+}
+
+@font-face {
+  font-family: 'opendyslexic';
+  src: url('../fonts/OpenDyslexic-Bold.otf') format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'opendyslexic';
+  src: url('../fonts/OpenDyslexic-BoldItalic.otf') format('opentype');
+  font-weight: bold;
+  font-style: italic;
+}
+
+:root {
+  --bs-primary: #238b44;
+  --bs-font-sans-serif: 'Poppins', sans-serif;
+  --light: #105295;
+}
+
+[data-font-theme="dyslexic"] {
+  --bs-font-sans-serif: "opendyslexic", sans-serif;
+  --bs-font-monospace: "opendyslexic", sans-serif;
+}
+
+[data-bs-theme="contrast"][data-font-theme="dyslexic"] {
+  --bs-font-sans-serif: "opendyslexic", sans-serif;
+  --bs-font-monospace: "opendyslexic", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--bs-font-sans-serif);
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--bs-font-sans-serif);
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 4rem;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3rem;
+  }
+}
+
+.btn-primary {
   color: #fff;
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  border-radius: 50rem;
+}
+
+.btn-primary:hover {
+  color: #fff;
+  background-color: #137b34;
+  border-color: #137b34;
+}
+
+.btn-secondary {
+  color: #fff;
+  background-color: #cd4e1b;
+  border-color: #cd4e1b;
+  border-radius: 50rem;
+}
+
+.btn-secondary:hover {
+  color: #fff;
+  background-color: #d5683d;
+  border-color: #d5683d;
+}
+
+.bg-light {
+  background-color: green;
+}
+
+header {
+  transition: background-color 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
+.header-background {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+.bg-feature-card {
+  background: linear-gradient(20deg, #ffe0d3, white, white);
+}
+
+.main-background {
+  background-image: url('../images/shiny1.webp');
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  position: relative;
+}
+
+[data-bs-theme="contrast"] .main-background {
+  background-image: none;
 }
 
 .deuteranopia {
@@ -46,5 +171,312 @@
 }
 
 .svg-filter {
-display: none;
+  display: none;
+}
+
+
+
+[data-bs-theme="contrast"] {
+  --bs-primary: #000000;
+  --bs-secondary: #ffffff;
+  --bs-success: #00ff00;
+  --bs-info: #00ffff;
+  --bs-warning: #ffff00;
+  --bs-danger: #ff0000;
+  --bs-light: #ffffff;
+  --bs-dark: #000000;
+  --bs-font-sans-serif: 'Poppins', sans-serif;
+  --bs-font-monospace: 'Courier New', monospace;
+  --bs-body-color-rgb: 255, 255, 255;
+
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+}
+
+[data-bs-theme="contrast"] .nav-link:active {
+  color: var(--bs-body-color-rgb);
+}
+
+[data-bs-theme="contrast"] body {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+}
+
+[data-bs-theme="contrast"] h1,
+[data-bs-theme="contrast"] h2,
+[data-bs-theme="contrast"] h3,
+[data-bs-theme="contrast"] h4,
+[data-bs-theme="contrast"] h5,
+[data-bs-theme="contrast"] h6 {
+  color: var(--bs-light);
+}
+
+[data-bs-theme="contrast"] .btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+  color: var(--bs-secondary);
+}
+
+[data-bs-theme="contrast"] .list-group-item {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+  border-color: var(--bs-light);
+}
+
+[data-bs-theme="contrast"] .bg-feature-card {
+  background: transparent;
+}
+
+[data-bs-theme="contrast"] .header-background {
+  background-color: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+[data-bs-theme="contrast"] .navbar {
+  background-color: var(--bs-dark);
+}
+
+[data-bs-theme="contrast"] .navbar-brand,
+[data-bs-theme="contrast"] .nav-link {
+  color: var(--bs-light);
+}
+
+[data-bs-theme="contrast"] .nav-link:hover {
+  color: var(--bs-info);
+}
+
+[data-bs-theme="contrast"] .dropdown-menu {
+  background-color: var(--bs-dark);
+  color: var(--bs-light);
+}
+
+[data-bs-theme="contrast"] .dropdown-item {
+  color: var(--bs-light);
+}
+
+[data-bs-theme="contrast"] .dropdown-item:hover {
+  background-color: var(--bs-primary);
+  color: var(--bs-secondary);
+}
+
+[data-bs-theme="contrast"] .bg-light {
+  background-color: var(--bs-dark);
+}
+
+[data-bs-theme="contrast"] .text-muted {
+  color: var(--bs-info) !important;
+}
+
+[data-bs-theme="contrast"] .border-0 {
+  border: 1px solid var(--bs-light) !important;
+}
+
+.resources-voice-article {
+  background-color: #f0f8ff;
+}
+
+.resources-dyslexia-article {
+  background-color: #fff0f5;
+}
+
+.resources-contrast-article {
+  background-color: #f5f5dc;
+}
+
+[data-bs-theme="contrast"] .resources-voice-article {
+  background-color: transparent;
+}
+
+[data-bs-theme="contrast"] .resources-dyslexia-article {
+  background-color: transparent;
+}
+
+[data-bs-theme="contrast"] .resources-contrast-article {
+  background-color: transparent;
+}
+
+[data-bs-theme="contrast"] .btn-primary {
+  color: #000;
+  background-color: #fff;
+
+}
+
+
+
+/* Credit for custrom form component sizes: https://stackoverflow.com/questions/55593229/increasing-the-size-of-a-bootstrap-checkbox */
+.form-check-input {
+  clear: left;
+  width: 2.5em;
+  height: 1.5em;
+}
+
+.form-switch.form-switch-sm {
+  margin-bottom: 0.5rem;
+  /* JUST FOR STYLING PURPOSE */
+}
+
+.form-switch.form-switch-sm .form-check-input {
+  height: 1rem;
+  width: calc(1rem + 0.75rem);
+  border-radius: 2rem;
+}
+
+.form-switch.form-switch-md {
+  margin-bottom: 1rem;
+  /* JUST FOR STYLING PURPOSE */
+}
+
+.form-switch.form-switch-md .form-check-input {
+  height: 1.5rem;
+  width: calc(2rem + 0.75rem);
+  border-radius: 3rem;
+}
+
+.form-switch.form-switch-lg {
+  margin-bottom: 1.5rem;
+  /* JUST FOR STYLING PURPOSE */
+}
+
+.form-switch.form-switch-lg .form-check-input {
+  height: 2rem;
+  width: calc(3rem + 0.75rem);
+  border-radius: 4rem;
+}
+
+.form-switch.form-switch-xl {
+  margin-bottom: 2rem;
+  /* JUST FOR STYLING PURPOSE */
+}
+
+.form-switch.form-switch-xl .form-check-input {
+  height: 2.5rem;
+  width: calc(4rem + 0.75rem);
+  border-radius: 5rem;
+}
+
+/* Add primary color when toggled active */
+.form-check-input:checked {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+
+[data-bs-theme="contrast"] .form-check-input:checked {
+  background-color: #000;
+  border-color: #fff;
+}
+
+.form-check-input:checked:focus {
+  box-shadow: 0 0 0 0.25rem rgba(32, 201, 151, 0.25);
+}
+
+.form-check-input:checked::before {
+  background-color: #fff;
+  transform: translateX(calc(100% + 0.25rem));
+}
+
+[data-bs-theme="contrast"] .form-check-input:checked::before {
+  background-color: #000;
+  border: 2px solid #fff;
+  transform: translateX(calc(100% + 0.25rem));
+}
+
+.offcanvas {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
+
+[data-bs-theme="contrast"] .offcanvas {
+  background-color: rgb(0, 0, 0);
+}
+
+.offcanvas-body {
+  padding: 0px;
+}
+
+.offcanvas-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+[data-font-size="small"] body {
+  font-size: 14px;
+}
+
+[data-font-size="medium"] body {
+  font-size: 16px;
+}
+
+[data-font-size="large"] body {
+  font-size: 18px;
+}
+
+.dropdown-item {
+  padding: 0.5rem 0;
+}
+
+.offcanvas-body li {
+  border: 2px solid #f0f0f0;
+  padding: 1rem;
+  border-radius: 5px;
+}
+
+.offcanvas-body li .form-check {
+  margin-bottom: 0;
+}
+
+/* Footer styles */
+
+.footerdiv li a:hover {
+  color: rgba(0, 0, 0, .7)!important;
+
+nav li {
+  margin-left: 1rem;
+}
+
+/* Style the tabs section */
+.nav-tabs .nav-link {
+  color: #495057;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: #e9ecef #e9ecef #dee2e6;
+}
+
+.nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: var(--bs-primary);
+}
+
+.tab-content {
+  border: 1px solid #dee2e6;
+  border-top: none;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+[data-bs-theme="contrast"] .tab-content {
+  border: 1px solid #495057;
+  background-color: #000000;
+}
+
+.tab-pane a {
+  color: var(--bs-primary);
+  text-decoration: underline;
+}
+
+.tab-pane a:hover {
+  color: var(--bs-primary-dark);
+  text-decoration: none;
+}
+
+[data-bs-theme="contrast"] .tab-pane a {
+  color: #00ff00;
+}
+
+[data-bs-theme="contrast"] .tab-pane a:hover {
+  color: #00ff00;
 }
