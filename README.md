@@ -73,70 +73,93 @@ We are a passionate team of developers and designers participating in the Code I
 
 - This page offers helpful tips and information on using the website's features effectively, demonstrating the project’s commitment to inclusivity.
 
-## Our Contributions
+# Website structure
 
-### HTML Structure
+## Landing Page
 
-- Uses modern HTML5 with semantic tags for accessibility (e.g., <header>, <main>, <footer>).
-- Includes lang=" en" and meta tags for viewport settings and character encoding, ensuring proper rendering across devices.
-- Utilizes data-bs-theme for theme customization, allowing dynamic switching between light, dark, and high-contrast modes.
+![image](https://github.com/user-attachments/assets/d69ac759-d3ae-4605-ad29-ad1b5c4f8581)
 
-### Frameworks and Libraries
+## Key Features
 
-- Bootstrap 5: Utilizes Bootstrap's grid system, components, and responsive design features.
-- Bootstrap Icons: Integrated for icon usage (e.g., social media links).
-- Custom CSS and JavaScript: Separate custom styles (style.css) and scripts (script.js, theme-switcher.js) for enhanced functionality.
+### Navigation & Header:
 
-### Accessibility Features
+- The header includes a logo, navigation links, and an accessibility button that opens an off-canvas menu with settings.
+- The navigation bar is responsive and features icons for clarity.
+- Accessibility Settings Panel:
 
-- Dedicated dropdown for accessibility options, including:
-- Font size adjustment (via a range input).
-- Toggle switches for Dyslexic Font, High Contrast, and Simplified Layout.
-- Dropdown selection for different colorblind modes (Deuteranopia, Protanopia, Tritanopia).
-- Theme selection (Auto, Light, Dark, High Contrast).
-- Voice control toggle, suggesting integration with a voice assistant feature.
-- Link to a detailed Accessibility Guide.
+### The off-canvas menu offers customizable options:
+- Font Size: Users can choose between small, medium, or large font sizes.
+- Dyslexic Font: A toggle switch for enabling a dyslexia-friendly font.
+- High Contrast Mode: A toggle to enhance visibility.
+- Colorblind Modes: Options for Deuteranopia, Protanopia, and Tritanopia, using SVG filters for color adjustments.
+- Main Content Section:
 
-### Header and Navigation
+### A welcoming hero section with a title, description, and call-to-action button.
+- The section features an illustration and a brief introduction to the purpose of the site, emphasizing its commitment to accessibility.
+- Features Showcase:
 
-- Sticky header with a responsive navbar, including links to:
-- Home, Resources, About, and Contact pages.
-- Accessibility features dropdown with a comprehensive list of settings.
+### Three key features are highlighted:
+- Voice Assistant: Enables hands-free navigation.
+- OpenDyslexic Font: Enhances readability for users with dyslexia.
+- High Contrast Mode: Improves visibility for users with visual impairments.
 
-### Main Content
+### Footer:
+- Contains links to resources, social media profiles, and a site map.
+- Includes a "Back to Top" button for easier navigation.
+- Accessibility Enhancements:
 
-- A hero section with:
-- A welcoming message.
-- A call-to-action button ("Explore Our Features").
-- An image representing the brand (e.g., lock icon).
-- A feature showcase using Bootstrap cards with shadow and responsiveness:
-- Voice Assistant: Aimed at users needing assistive technology.
-- OpenDyslexic Font: Improves readability for users with dyslexia.
-- High Contrast Mode: Enhances visibility for those with visual impairments.
+The page includes an SVG filter section for color adjustments based on the selected colorblind mode.
+Buttons and form elements have descriptive icons and ARIA labels for better screen reader support.
 
-### SVG Filters for Colorblind Modes
+## Explore Page
 
-- Defines three colorblind filters (deuteranopia, protanopia, tritanopia) using feColorMatrix, which adjusts color perception on the webpage.
+![image](https://github.com/user-attachments/assets/cd6896f2-3d34-4fe5-876a-717e9ab5ca87)
 
-### Footer Section
+## Key features
 
-- Divided into three columns:
-- Resources: Links to documentation, tutorials, and support.
-- Social Media Links: Icons for Twitter, Facebook, and Instagram.
-- Site Map: Quick navigation links for Home, About, Resources, and Contact pages.
-- Copyright information with a "Back to top" link.
+### Header Section:
 
-### JavaScript Integration
-   
-- Uses Bootstrap's JavaScript Bundle for interactive components.
-- Includes a custom script (theme-switcher.js) for handling theme and font changes.
-- Custom script.js likely manages additional interactivity and accessibility features.
+- A welcoming banner with a headline introducing the purpose of the page.
+- Includes a brief description emphasizing the importance of web accessibility.
 
-### Design and User Experience
-    
-- Consistent design language: Uses Bootstrap's default styling with light customizations (e.g., shadow, background images).
-- Responsive layout: Ensures compatibility across mobile, tablet, and desktop views.
-- Focus on inclusivity: Emphasizes features aimed at making the site usable for users with various disabilities.
+### Carousel Section:
+- A Bootstrap-based image carousel highlighting key concepts of accessibility, each with a caption and description.
+- Three slides are included, each emphasizing different benefits of accessible design (e.g., user experience, inclusion).
+
+### Accessibility Tools Articles:
+-The page features three main articles, each dedicated to a specific accessibility feature:
+
+### Voice Assistant ("Mikey the Mic"):
+- Describes voice navigation capabilities for users with visual impairments or mobility issues.
+### OpenDyslexic Font ("Glassy with the Glasses"):
+- Explains the font switch for dyslexia-friendly text display, aiding users who struggle with standard fonts.
+### High Contrast Mode ("Spikey the Hedgehog"):
+- Details a toggle for high-contrast visuals to assist users with color blindness or low vision.
+
+### Each article outlines:
+- Who it helps
+- How it works
+- Why it matters
+
+### Tabs Section (Accessibility Standards):
+- Utilizes Bootstrap tabs to provide information about various accessibility guidelines:
+- WCAG (Web Content Accessibility Guidelines)
+- ARIA (Accessible Rich Internet Applications)
+- Section 508 (U.S. federal requirements for accessible electronic content)
+
+### Simulation Section:
+- Features interactive buttons allowing users to simulate various accessibility challenges (e.g., color blindness, low vision, screen reader use). This helps users understand the importance of inclusive design.
+
+### Footer
+- Provides useful links, a social media section, and a sitemap.
+- A “Back to top” link enhances navigation, allowing users to quickly return to the top of the page.
+
+
+## Contact Page
+
+![image](https://github.com/user-attachments/assets/256309b8-36d2-49f7-b48d-2a5db493aa82)
+
+
 
 
 ## Design
