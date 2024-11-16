@@ -37,19 +37,23 @@
   setTheme(getPreferredTheme());
 
   const showActiveTheme = (theme) => {
-    const themeSelect = document.querySelector("#themeSelect");
-    if (!themeSelect) {
-      return;
-    }
+    const themeSwitches = document.querySelectorAll(".theme-switch");
+    themeSwitches.forEach((themeSwitch) => {
+      const themeLabel = document.querySelector(`label[for='${themeSwitch.id}']`);
+      if (!themeSwitch || !themeLabel) {
+        return;
+      }
 
-    themeSelect.value = theme;
+      themeSwitch.checked = theme === "contrast";
+      themeLabel.textContent = theme === "contrast" ? "Turn off High Contrast Mode" : "Turn on High Contrast Mode";
+    });
   };
 
   window
     .matchMedia("(prefers-color-scheme: dark)")
     .addEventListener("change", () => {
       const storedTheme = getStoredTheme();
-      if (storedTheme !== "light" && storedTheme !== "dark") {
+      if (storedTheme !== "light" && storedTheme !== "dark" && storedTheme !== "contrast") {
         setTheme(getPreferredTheme());
       }
     });
@@ -57,12 +61,14 @@
   window.addEventListener("DOMContentLoaded", () => {
     showActiveTheme(getPreferredTheme());
 
-    const themeSelect = document.querySelector("#themeSelect");
-    themeSelect.addEventListener("change", () => {
-      const theme = themeSelect.value;
-      setStoredTheme(theme);
-      setTheme(theme);
-      showActiveTheme(theme);
+    const themeSwitches = document.querySelectorAll(".theme-switch");
+    themeSwitches.forEach((themeSwitch) => {
+      themeSwitch.addEventListener("change", () => {
+        const theme = themeSwitch.checked ? "contrast" : "light";
+        setStoredTheme(theme);
+        setTheme(theme);
+        showActiveTheme(theme);
+      });
     });
   });
 })();
@@ -75,6 +81,10 @@
     localStorage.setItem("fontTheme", fontTheme);
 
   const getPreferredFontTheme = () => {
+    const storedFontTheme = getStoredFontTheme();
+    if (storedFontTheme) {
+      return storedFontTheme;
+    }
     return "default";
   };
 
@@ -89,23 +99,71 @@
   setFontTheme(getPreferredFontTheme());
 
   const showActiveFontTheme = (fontTheme) => {
-    const fontThemeSelect = document.querySelector("#fontThemeSelect");
-    if (!fontThemeSelect) {
-      return;
-    }
+    const fontSwitches = document.querySelectorAll(".font-switch");
+    fontSwitches.forEach((fontSwitch) => {
+      const fontLabel = document.querySelector(`label[for='${fontSwitch.id}']`);
+      if (!fontSwitch || !fontLabel) {
+        return;
+      }
 
-    fontThemeSelect.value = fontTheme;
+      fontSwitch.checked = fontTheme === "dyslexic";
+      fontLabel.textContent = fontTheme === "dyslexic" ? "Turn off Dyslexic Font" : "Turn on Dyslexic Font";
+    });
   };
 
   window.addEventListener("DOMContentLoaded", () => {
     showActiveFontTheme(getPreferredFontTheme());
 
-    const fontThemeSelect = document.querySelector("#fontThemeSelect");
-    fontThemeSelect.addEventListener("change", () => {
-      const fontTheme = fontThemeSelect.value;
-      setStoredFontTheme(fontTheme);
-      setFontTheme(fontTheme);
-      showActiveFontTheme(fontTheme);
+    const fontSwitches = document.querySelectorAll(".font-switch");
+    fontSwitches.forEach((fontSwitch) => {
+      fontSwitch.addEventListener("change", () => {
+        const fontTheme = fontSwitch.checked ? "dyslexic" : "default";
+        setStoredFontTheme(fontTheme);
+        setFontTheme(fontTheme);
+        showActiveFontTheme(fontTheme);
+      });
+    });
+  });
+})();
+
+(() => {
+  "use strict";
+
+  const getStoredFontSize = () => localStorage.getItem("fontSize");
+  const setStoredFontSize = (fontSize) => localStorage.setItem("fontSize", fontSize);
+
+  const getPreferredFontSize = () => {
+    const storedFontSize = getStoredFontSize();
+    if (storedFontSize) {
+      return storedFontSize;
+    }
+    return "medium";
+  };
+
+  const setFontSize = (fontSize) => {
+    document.documentElement.setAttribute("data-font-size", fontSize);
+  };
+
+  setFontSize(getPreferredFontSize());
+
+  const showActiveFontSize = (fontSize) => {
+    const fontSizeOptions = document.querySelectorAll(".font-size-option");
+    fontSizeOptions.forEach((option) => {
+      option.checked = option.value === fontSize;
+    });
+  };
+
+  window.addEventListener("DOMContentLoaded", () => {
+    showActiveFontSize(getPreferredFontSize());
+
+    const fontSizeOptions = document.querySelectorAll(".font-size-option");
+    fontSizeOptions.forEach((option) => {
+      option.addEventListener("change", () => {
+        const fontSize = option.value;
+        setStoredFontSize(fontSize);
+        setFontSize(fontSize);
+        showActiveFontSize(fontSize);
+      });
     });
   });
 })();
