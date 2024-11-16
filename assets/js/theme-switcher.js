@@ -125,3 +125,45 @@
     });
   });
 })();
+
+(() => {
+  "use strict";
+
+  const getStoredFontSize = () => localStorage.getItem("fontSize");
+  const setStoredFontSize = (fontSize) => localStorage.setItem("fontSize", fontSize);
+
+  const getPreferredFontSize = () => {
+    const storedFontSize = getStoredFontSize();
+    if (storedFontSize) {
+      return storedFontSize;
+    }
+    return "medium";
+  };
+
+  const setFontSize = (fontSize) => {
+    document.documentElement.setAttribute("data-font-size", fontSize);
+  };
+
+  setFontSize(getPreferredFontSize());
+
+  const showActiveFontSize = (fontSize) => {
+    const fontSizeOptions = document.querySelectorAll(".font-size-option");
+    fontSizeOptions.forEach((option) => {
+      option.checked = option.value === fontSize;
+    });
+  };
+
+  window.addEventListener("DOMContentLoaded", () => {
+    showActiveFontSize(getPreferredFontSize());
+
+    const fontSizeOptions = document.querySelectorAll(".font-size-option");
+    fontSizeOptions.forEach((option) => {
+      option.addEventListener("change", () => {
+        const fontSize = option.value;
+        setStoredFontSize(fontSize);
+        setFontSize(fontSize);
+        showActiveFontSize(fontSize);
+      });
+    });
+  });
+})();
