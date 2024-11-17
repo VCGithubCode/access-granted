@@ -248,12 +248,98 @@ function handleSpeechRecognition(transcript) {
         return;
     }
     
+    const notesKeywords = [
+        "show me notes",
+        "read notes",
+        "get my notes",
+        "what are my notes",
+        "my notes for today",
+        "show me my reminders",
+        "what are my reminders",
+        "tell me my notes",
+        "tell me my reminders",
+        "reminders for today",
+        "plans for today",
+        "do I have any reminders",
+        "do I have any notes",
+        "what are my plans for today",
+        "reminder list",
+        "show me my plans",
+        "what's on my schedule today",
+        "what do I have planned for today",
+        "are there any reminders today",
+        "do I have notes or reminders",
+        "do I have anything scheduled today",
+        "do I have any tasks for today",
+        "what's on my to-do list",
+        "what should I do today",
+        "tell me my schedule for today",
+        "any plans for today",
+        "do I have any tasks",
+        "reminder for today",
+        "what's planned for today",
+        "is there anything planned for today",
+        "show my to-do list",
+        "remind me what I have today",
+        "give me a list of notes",
+        "do I have anything to remember",
+        "what's on my agenda today"
+    ];
+    
+
+// Check if the recognized phrase matches any of the "brief me" related commands
+if (notesKeywords.some(keyword => recognizedPhrase.includes(keyword))) {
+    giveMeNotes(); 
+    return;
+}
 
 // Trigger note creation mode
 if (
     recognizedPhrase.includes("create a note") ||
     recognizedPhrase.includes("start a note") ||
-    recognizedPhrase.includes("make a note")
+    recognizedPhrase.includes("make a note") ||
+    recognizedPhrase.includes("write a note") ||
+    recognizedPhrase.includes("add a note") ||
+    recognizedPhrase.includes("take a note") ||
+    recognizedPhrase.includes("set a note") ||
+    recognizedPhrase.includes("jot down a note") ||
+    recognizedPhrase.includes("add a reminder") ||
+    recognizedPhrase.includes("set a reminder") ||
+    recognizedPhrase.includes("create a reminder") ||
+    recognizedPhrase.includes("make a reminder") ||
+    recognizedPhrase.includes("add a plan") ||
+    recognizedPhrase.includes("make a plan") ||
+    recognizedPhrase.includes("create a plan") ||
+    recognizedPhrase.includes("set a plan") ||
+    recognizedPhrase.includes("make note") ||
+    recognizedPhrase.includes("write down a plan") ||
+    recognizedPhrase.includes("create a task") ||
+    recognizedPhrase.includes("add a task") ||
+    recognizedPhrase.includes("set a task") ||
+    recognizedPhrase.includes("write down a reminder") ||
+    recognizedPhrase.includes("plan for today") ||
+    recognizedPhrase.includes("set my plans") ||
+    recognizedPhrase.includes("schedule a note") ||
+    recognizedPhrase.includes("create the note") ||
+    recognizedPhrase.includes("start the note") ||
+    recognizedPhrase.includes("make the note") ||
+    recognizedPhrase.includes("write the note") ||
+    recognizedPhrase.includes("add the note") ||
+    recognizedPhrase.includes("take the note") ||
+    recognizedPhrase.includes("set the note") ||
+    recognizedPhrase.includes("jot down the note") ||
+    recognizedPhrase.includes("add the reminder") ||
+    recognizedPhrase.includes("set the reminder") ||
+    recognizedPhrase.includes("create the reminder") ||
+    recognizedPhrase.includes("make the reminder") ||
+    recognizedPhrase.includes("add the plan") ||
+    recognizedPhrase.includes("make the plan") ||
+    recognizedPhrase.includes("create the plan") ||
+    recognizedPhrase.includes("set the plan") ||
+    recognizedPhrase.includes("write down the plan") ||
+    recognizedPhrase.includes("set the plans") ||
+    recognizedPhrase.includes("schedule the note")
+   
 ) {
     isCreatingNote = true; // Enter note creation mode
     noteDetails = {
@@ -405,6 +491,20 @@ if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || rec
         openPlanner();
     }
 
+
+if (recognizedPhrase.includes("need instructions") || recognizedPhrase.includes("need help") || recognizedPhrase.includes("give me instructions")) {
+    // Provide a prompt with examples of common tasks
+    speakResponse("Sure! I can help with several things. You can ask me to: \n" +
+        "- Make a note or reminder\n" +
+        "- Show your existing notes or reminders\n" +
+        "- Check the current weather or tomorrow's weather\n" +
+        "- Open the calculator\n" +
+        "- Help with scheduling or setting reminders\n" +
+        "- Show today's date or time\n" 
+    );
+    
+    return; // Wait for the user’s response at this point
+}
 
 
     // Handle asking for the current date with variations
@@ -613,6 +713,22 @@ function getWeather(type) {
         alert("Location not available. Please allow location access.");
     }
 }
+// Function to get weather for the current location or forecast
+async function getWeatherForBriefing(type) {
+    if (userLocation.lat && userLocation.lon) {
+        console.log("Fetching weather for Latitude: " + userLocation.lat + " Longitude: " + userLocation.lon);
+
+        // Fetch the current weather or forecast based on the type
+        if (type === 'forecast') {
+            return fetchForecast(userLocation.lat, userLocation.lon);  // Get forecast (assumes a promise-returning function)
+        } else {
+            return fetchCurrentWeather(userLocation.lat, userLocation.lon);  // Get current weather (assumes a promise-returning function)
+        }
+    } else {
+        alert("Location not available. Please allow location access.");
+        return null; // Return null if no location
+    }
+}
 
 // Function to fetch current weather data from OpenWeatherMap API
 function fetchCurrentWeather(latitude, longitude) {
@@ -770,34 +886,66 @@ function saveNoteToLocalStorage(note) {
     localStorage.setItem('notes', JSON.stringify(notes)); // Save the updated array back to localStorage
 }
 
-// Function to display all notes from localStorage
+// Function to display all notes dynamically
 function displayNotes() {
     const notes = JSON.parse(localStorage.getItem('notes')) || []; // Retrieve notes from localStorage or initialize an empty array
 
-    const notesList = notes.map(note => {
-        // Check if the note has a reminder and format it
-        const reminderDetails = note.reminderDateTime
-            ? `<strong>Reminder:</strong> ${new Date(note.reminderDateTime).toLocaleString()}<br>`
-            : '';
+    // Get current date and start/end of today
+    const today = new Date();
+    const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 
+    // Filter and sort notes
+    const notesForToday = notes.filter(note => {
+        if (note.reminderDateTime) {
+            const reminderDate = new Date(note.reminderDateTime);
+            return reminderDate >= startOfDay && reminderDate < endOfDay;
+        }
+        return false;
+    });
+
+    const otherNotesWithReminders = notes.filter(note => {
+        if (note.reminderDateTime) {
+            const reminderDate = new Date(note.reminderDateTime);
+            return reminderDate < startOfDay || reminderDate >= endOfDay;
+        }
+        return false;
+    });
+
+    const notesWithoutReminders = notes.filter(note => !note.reminderDateTime);
+
+    // Function to render notes as list items
+    const renderNotes = (notesGroup, groupTitle) => {
+        if (notesGroup.length === 0) return ''; // Skip empty groups
         return `
-            <li style="margin-bottom: 15px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
-                <p>
-                    <strong>Note #${note.id}:</strong><br>
-                    <strong>Content:</strong> ${note.content}<br>
-                    <strong>Created on:</strong> ${note.date} at ${note.time}<br>
-                    ${reminderDetails}
-                </p>
-                <button onclick="editNote(${note.id})" style="margin-right: 10px;">Edit</button>
-                <button onclick="deleteNote(${note.id})">Delete</button>
-            </li>
+            <h3>${groupTitle}</h3>
+            <ul class="notes-list">
+                ${notesGroup.map(note => `
+                    <li style="margin-bottom: 15px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+                        <p>
+                            <strong>Note #${note.id}:</strong><br>
+                            <strong>Content:</strong> ${note.content}<br>
+                            <strong>Created on:</strong> ${note.date} at ${note.time}<br>
+                            ${note.reminderDateTime ? `<strong>Reminder:</strong> ${new Date(note.reminderDateTime).toLocaleString()}<br>` : ''}
+                        </p>
+                        <button onclick="editNote(${note.id})" style="margin-right: 10px;">Edit</button>
+                        <button onclick="deleteNote(${note.id})">Delete</button>
+                    </li>
+                `).join('')}
+            </ul>
         `;
-    }).join(''); // Combine all list items into a single string
+    };
 
-    // Display notes or a placeholder message if no notes are available
-    document.getElementById('organizer-output').innerHTML = notesList || '<p>No notes available. Create one to get started!</p>';
+    // Combine the notes groups into the organizer output
+    const organizerOutput = `
+        ${renderNotes(notesForToday, 'Reminders for Today')}
+        ${renderNotes(otherNotesWithReminders, 'Upcoming Reminders')}
+        ${renderNotes(notesWithoutReminders, 'Notes without Reminders')}
+    `;
+
+    // Update the DOM
+    document.getElementById('organizer-output').innerHTML = organizerOutput || '<p>No notes available. Create one to get started!</p>';
 }
-
 // Function to delete a note
 function deleteNote(noteId) {
     const notes = JSON.parse(localStorage.getItem('notes')) || [];
@@ -809,6 +957,75 @@ function deleteNote(noteId) {
 // Initially load and display all notes when the page is loaded
 window.onload = function () {
 
-    displayNotes(); // Display any existing notes from localStorage when the page loads
+    displayNotes(); 
 };
 
+function giveMeNotes() {
+    // Retrieve notes from localStorage
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+    // Get current date and start/end of today
+    const today = new Date();
+    const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+
+    // Function to format time (e.g., 2:30 PM)
+    const formatTime = (date) => {
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const formattedHours = hours % 12 || 12;  // Convert 24-hour time to 12-hour
+        const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;  // Add leading zero for minutes
+        return `${formattedHours}:${formattedMinutes} ${ampm}`;
+    };
+
+    // Filter notes for today that have reminders
+    const notesForToday = notes.filter(note => {
+        if (note.reminderDateTime) {
+            const reminderDate = new Date(note.reminderDateTime);
+            return reminderDate >= startOfDay && reminderDate < endOfDay;
+        }
+        return false;
+    });
+
+    // Process reminders: If any, speak them, otherwise tell the user no reminders.
+    let reminderText;
+    if (notesForToday.length > 0) {
+        // Map over notes and include formatted reminder time
+        reminderText = `You have reminders for today: `;
+        reminderText += notesForToday.map(note => {
+            const reminderDate = new Date(note.reminderDateTime);
+            const formattedTime = formatTime(reminderDate);
+            return `${note.content} at ${formattedTime}`;
+        }).join(", ");
+        reminderText += ".";
+    } else {
+        reminderText = "You have no reminders for today.";
+    }
+
+    // Log the reminder text for debugging
+    console.log("Reminder Text: " + reminderText);
+
+    // Speak the reminder text (assuming speakResponse is defined elsewhere)
+    speakResponse(reminderText);  // Assuming speakResponse function exists for speech output
+}
+
+
+function checkRemindersForToday() {
+    let notes = JSON.parse(localStorage.getItem('notes')) || [];  // Retrieve notes from localStorage
+    const today = new Date().toDateString();  // Get today's date in string format (YYYY-MM-DD)
+
+    // Filter notes that have a reminder and match today's date
+    const todaysReminders = notes.filter(note => {
+        // Ensure that `note.date` is correctly parsed into a Date object
+        const noteDate = new Date(note.date).toDateString();  // Convert reminder date into string format
+
+        // Log date comparison for debugging
+        console.log(`Comparing note date: ${noteDate} with today's date: ${today}`);
+
+        // Check if the reminder's date matches today and if `remind` is true
+        return note.remind && noteDate === today;  
+    }).map(note => note.content); // Map to extract just the content of the reminders
+
+    return todaysReminders;  // Return today's reminders
+}

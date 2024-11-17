@@ -119,6 +119,33 @@ function getWeather(lat, lon) {
 
 // Call the function to check stored location and display weather
 checkStoredLocationAndDisplayWeather();
+// Function to update current time every second
+function updateTime() {
+    const timeElement = document.getElementById("current-time");
+    setInterval(() => {
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        timeElement.textContent = `Current Time: ${formattedTime}`;
+    }, 1000);
+}
 
+// Function to update current time every second
+function updateTime() {
+    const timeElement = document.getElementById("current-time");
+    setInterval(() => {
+        const now = new Date();
+        const formattedTime = now.toLocaleTimeString([], {
+            hour: '2-digit',
+            minute: '2-digit',
+            second: '2-digit'
+        });
+        timeElement.textContent = `Current Time: ${formattedTime}`;
+    }, 1000);
+}
 // Initialize the calendar on page load
 updateCalendar();
+updateTime();
