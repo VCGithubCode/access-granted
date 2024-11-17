@@ -209,6 +209,10 @@ h1 {
 [data-bs-theme="contrast"] .bg-feature-card {
   background: transparent;
 }
+.header-background {
+  background-color: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+}
 
 [data-bs-theme="contrast"] .header-background {
   background-color: rgba(0, 0, 0, 0.8);
