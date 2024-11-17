@@ -7,7 +7,7 @@
 ---
 
 
-![image](https://github.com/user-attachments/assets/1a642ceb-2125-4901-8424-2d3eeed5b0c5)
+![image](assets/images/readme./responcive.png)
 
 Access Granted - GitHub repository: [GitHub repository](https://github.com/VCGithubCode/access-granted/tree/as-accssesOk-branch)
 
@@ -20,7 +20,7 @@ This project aims to create websites that are accessible and usable by everyone,
 
 This project aims to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content inclusive for all users.
 
-# Criteria of Success
+# Criteria 
 
 The "Access Granted" project aims to make the web more accessible for all users, focusing on features like voice assistance, dyslexia-friendly fonts, and high-contrast modes for users with visual impairments. The site incorporates customizable accessibility settings, including font size adjustments, dyslexia-friendly fonts, colorblind modes, and high-contrast themes to enhance the user experience. It is dedicated to breaking down barriers and creating an inclusive, user-friendly digital environment.
 
@@ -40,16 +40,16 @@ The "Access Granted" project aims to make the web more accessible for all users,
 ## Content
 
 * [Access Granted](#access-granted)
-* [Introduction](#introduction)
+* [Project Overview](#project-overview)
 * [Criteria](#criteria)
 * [Goal & UX](#goal--ux)
 * [Website Structure](#website-structure)
   * [Landing Page](#landing-page)
-  * [Explore Page](#explore-page)
+  * [Resources](#resources)
   * [About Us](#about-us)
-  * [Contact Page](#contact)
+  * [Contact Page](#contact-page)
   * [Responsiveness](#responsiveness)
-* [Wireframes](#Wireframes)
+* [Wireframes](#wireframes)
 * [Development Process](#development-process)
   * [Agile Methodology](#agile-methodology)
   * [Collaboration Tools](#collaboration-tools)
@@ -62,7 +62,7 @@ The "Access Granted" project aims to make the web more accessible for all users,
   * [Forking](#forking)
   * [Making a Local Clone](#making-a-local-clone)
   * [Obtaining EmailJS API](#obtaining-emailjs-api)
-* [Credits and Acknowledgements](#credits-and-acknowledgements)
+* [Acknowledgements](#acknowledgements)
 
 
 # Goal & UX
@@ -102,7 +102,7 @@ The "Access Granted" project aims to make the web more accessible for all users,
 
 ## Landing Page
 
-![image](https://github.com/user-attachments/assets/d69ac759-d3ae-4605-ad29-ad1b5c4f8581)
+![image](assets/images/readme./main.png)
 
 ## Key Features
 
@@ -140,9 +140,9 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
-## Explore Page
+## Resources
 
-![image](https://github.com/user-attachments/assets/cd6896f2-3d34-4fe5-876a-717e9ab5ca87)
+![image](assets/images/readme./resourses.png)
 
 ## Key features
 
@@ -189,6 +189,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 # About Us
 
+![image]()
 ## Who We Are
 - Welcome to Access Granted! We are a dynamic team of passionate developers and innovators with a shared vision: to make the web more accessible and inclusive for everyone. Our project is a testament to the power of collaboration, bringing together diverse skills and perspectives to create an online experience that truly caters to all users, regardless of their abilities.
 
@@ -254,7 +255,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ### Role: Content Creation & Page Design
 - GitHub: [AhmadAlHindi](https://github.com/Ahmadalhindi)
-- LinkedIn: [Ahmad's LinkedIn]
+- LinkedIn: [Ahmad's LinkedIn](https://www.linkedin.com/in/ahmad-al-hindi-899877108/)
 
 
 Our Commitment to Accessibility
@@ -275,12 +276,31 @@ Let’s make the internet accessible for all — together.
 
 ## Contact Page
 
-![image](https://github.com/user-attachments/assets/256309b8-36d2-49f7-b48d-2a5db493aa82)
+![image]()
 
 The page provides a user-friendly Contact Us form along with accessibility features, making it easy for users to get in touch while ensuring a smooth experience for people with different accessibility needs. The layout is responsive, thanks to Bootstrap, and includes tools to adjust the design for better accessibility.
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
+## Accessibility Guide
+
+![image]()
+
+## Key Features:
+### Accessibility Settings Sidebar:
+
+- Users can adjust font size, enable a dyslexic-friendly font, toggle high-contrast mode, and switch on various colorblind modes.
+Offers options to simplify the layout and enable voice control for easier navigation.
+Accessibility Guide Content:
+
+- Detailed explanations of each feature, like keyboard navigation, voice control, and colorblind adjustments, aimed at improving user experience for those with visual, cognitive, or motor impairments.
+Navigation and Structure:
+
+- Clear navigation with skip links, a responsive menu, and a footer providing quick access to social links and the site map.
+Uses semantic HTML elements for improved screen reader compatibility.
+
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 
 ### Responsiveness
@@ -292,14 +312,17 @@ Please visit [Link](https://ui.dev/amiresponsive?url=https://vcgithubcode.github
 
 # Wireframes
 
- - ### Landing Page
    
-![image](https://github.com/user-attachments/assets/9925db0b-d5ab-414c-aa31-470cd11068da)
+![image](assets/images/readme./body.png)
 
-![image](https://github.com/user-attachments/assets/bcf63084-a3cd-4905-a4ad-c546a9fa44bb)
+Also contains sidebar!
 
-- ### Contact Page
-![image](https://github.com/user-attachments/assets/75b21e83-f92f-4b8e-93d1-645b72a8ab0d)
+![image](assets/images/readme./side-bar.png)
+
+For smaller screens including mobile header contains burger menu!
+
+![image](assets/images/readme./mobile.png)
+
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
@@ -421,7 +444,7 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 | [ChatGPT](https://chat.openai.com)                                         | Across website | Used to help debug, troubleshoot, and explain things.                |
 |[DeepAI](https://deepai.org/)||Website for creation Avatars
 |[cloudconvert](https://cloudconvert.com/)||To convert jpg pictures
-|||
+|[Lucid.app](https://lucid.app/)||Used to create Wireframes
 
 ## Testing
 
