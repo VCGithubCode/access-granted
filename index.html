@@ -4,6 +4,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Explore access granted's accessibility, inclusivity and availability for all. Access a wide range of different functions for accessibility">
+  <meta name="keywords" content="Accessible, accessibility, inclusive, inclusivity, for everyone, a website for all">
+  <!-- Link head tags -->
   <link rel='shortcut icon' href="assets/images/logo.webp">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
@@ -28,16 +32,16 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
+            <li class="nav-item mt-2">
               <a class="nav-link" href="resources.html"><i class="fas fa-book"></i> Resources</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mt-2">
               <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mt-2">
               <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
             </li>
-            <li><button class="btn btn-secondary" type="button" data-bs-toggle="offcanvas"
+            <li><button class="btn btn-secondary mt-2" type="button" data-bs-toggle="offcanvas"
                 data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
                   class="fas fa-universal-access"></i> Accessibility</button></li>
           </ul>
@@ -46,6 +50,7 @@
     </nav>
   </header>
 
+  <!-- Canvas sidebar -->
   <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
     aria-labelledby="offcanvasWithBothOptionsLabel">
     <div class="offcanvas-header">
@@ -86,7 +91,7 @@
           <div class="dropdown-item">
             <div class="form-check form-switch form-switch-lg d-flex align-items-center">
               <input class="form-check-input theme-switch" type="checkbox" id="themeSwitch1" aria-label="Theme switch">
-              <label class="form-check-label ms-2" for="themeSwitch1">Turn on High Contrast Mode</label>
+              <label class="form-check-label ms-2" for="themeSwitch1">Turn on High Contrast</label>
             </div>
           </div>
         </li>
@@ -121,6 +126,13 @@
     </div>
   </div>
 
+  <!-- Back to top button -->
+  <a href="#" class="back-to-top position-fixed bottom-0 end-0 m-3 d-none">
+    <button class="btn btn-primary btn-lg" aria-label="Back to Top">
+      <i class="fas fa-arrow-up"></i>
+    </button>
+  </a>
+
   <main id="main-content">
     <section class="p-5 text-center text-md-end container-fluid main-background d-flex align-items-center"
       style="height: 80vh;">
@@ -129,7 +141,7 @@
           <h1>Welcome to Access Granted</h1>
           <p class="fw-medium">We're dedicated to making the web accessible for everyone.</p>
           <p>
-            <a href="#features" class="btn btn-primary my-2">Explore Our Features</a>
+            <a href="#features" class="btn btn-lg btn-primary my-2">Explore Our Features</a>
           </p>
         </div>
         <div class="col-lg-6 col-md-8 mx-auto">
@@ -142,8 +154,8 @@
       <div class="container mt-5">
         <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
           <div class="col">
-            <div class="card h-100 shadow-lg border-0 bg-feature-card">
-              <img src="assets/images/microphone-icon.webp" class="card-img-top" alt="Feature 1 illustration">
+            <div class="card h-100 shadow border-0 bg-feature-card">
+              <img src="assets/images/microphone-iconNoBG.webp" class="card-img-top" alt="Feature 1 illustration">
               <div class="card-body p-4 d-flex flex-column justify-content-between">
                 <div>
                   <h5 class="card-title">Voice Assistant: Your Personal Guide</h5>
@@ -153,17 +165,18 @@
                     and easy interaction through voice commands. Experience the web without barriers.</p>
                 </div>
                 <div class="d-flex gap-3 align-items-center">
-                  <button type="button" class="btn btn-sm btn-primary"><i class="fas fa-info-circle"></i> Learn
-                    More</button>
+                  <a href="resources.html" class="btn btn-sm btn-primary"><i class="fas fa-info-circle"></i> Learn
+                    More</a>
+                  <a href="voice.html" class="btn btn-sm btn-secondary"><i class="fas fa-microphone"></i> Try it out</a>
                 </div>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card h-100 shadow-lg border-0 bg-feature-card">
-              <img src="assets/images/glasses-icon.webp" class="card-img-top" alt="Feature 2 illustration">
+            <div class="card h-100 shadow border-0 bg-feature-card">
+              <img src="assets/images/glasses-iconNoBG.webp" class="card-img-top" alt="Feature 2 illustration">
               <div class="card-body p-4 d-flex flex-column justify-content-between">
-                <div>
+                <div class="mb-3">
                   <h5 class="card-title">OpenDyslexic: Read with Ease</h5>
                   <h6 class="card-subtitle mb-2 text-muted">Say Hi to Glassy with the Glasses!</h6>
                   <p class="card-text text-body">Enhance readability with the OpenDyslexic font, guided by Glassy with
@@ -176,15 +189,15 @@
                       aria-label="Font switch">
                     <label class="form-check-label ms-2 text-body" for="fontSwitch2">Turn on Dyslexic Font</label>
                   </div>
-                  <button type="button" class="btn btn-sm btn-primary" id="enable-dyslexic"><i
-                      class="fas fa-info-circle"></i> Learn More</button>
+                  <a href="resources.html#dyslexia" class="btn btn-sm btn-primary"><i class="fas fa-info-circle"></i>
+                    Learn More</a>
                 </div>
               </div>
             </div>
           </div>
           <div class="col">
-            <div class="card h-100 shadow-lg border-0 bg-feature-card">
-              <img src="assets/images/contrast-icon.webp" class="card-img-top" alt="Feature 3 illustration">
+            <div class="card h-100 shadow border-0 bg-feature-card">
+              <img src="assets/images/contrast-iconNoBG.webp" class="card-img-top" alt="Feature 3 illustration">
               <div class="card-body p-4 d-flex flex-column justify-content-between">
                 <div class="mb-3">
                   <h5 class="card-title">High Contrast Mode: See It Clearly</h5>
@@ -197,10 +210,10 @@
                   <div class="form-check form-switch form-switch-md d-flex">
                     <input class="form-check-input theme-switch mt-0" type="checkbox" id="themeSwitch2"
                       aria-label="Theme switch">
-                    <label class="form-check-label ms-2 text-body" for="themeSwitch2">Turn on High Contrast Mode</label>
+                    <label class="form-check-label ms-2 text-body" for="themeSwitch2">Turn on High Contrast</label>
                   </div>
-                  <button type="button" class="btn btn-sm btn-primary"><i class="fas fa-info-circle"></i> Learn
-                    More</button>
+                  <a href="resources.html#high-contrast" class="btn btn-sm btn-primary"><i
+                      class="fas fa-info-circle"></i> Learn More</a>
                 </div>
               </div>
             </div>
@@ -220,37 +233,30 @@
   </main>
 
   <footer class="text-muted py-5">
-    <div class="container">
+    <div class="container footerdiv">
       <div class="row">
-        <div class="col-md-4">
-          <h5>Resources</h5>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-muted"><i class="fas fa-book"></i> Documentation</a></li>
-            <li><a href="#" class="text-muted"><i class="fas fa-chalkboard-teacher"></i> Tutorials</a></li>
-            <li><a href="#" class="text-muted"><i class="fas fa-life-ring"></i> Support</a></li>
-          </ul>
-        </div>
         <div class="col-md-4">
           <h5>Social</h5>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-muted"><i class="bi bi-twitter"></i> Twitter</a></li>
-            <li><a href="#" class="text-muted"><i class="bi bi-facebook"></i> Facebook</a></li>
-            <li><a href="#" class="text-muted"><i class="bi bi-instagram"></i> Instagram</a></li>
+            <li><a href="https://github.com/VCGithubCode/access-granted" class="text-muted" target="_blank"
+                rel="noopener" aria-label="Visit our github repository page(Opens in a new tab)" aria-hidden="true"><i
+                  class="fa-brands fa-github"></i> Github</a></li>
+            <li><a href="https://app.slack.com/client/T0L30B202/C080JB3ETHU" class="text-muted" target="_blank"
+                rel="noopener" aria-label="Visit our Slack channel(Opens in a new tab)" aria-hidden="true"><i
+                  class="fa-brands fa-slack"></i> Slack</a></li>
           </ul>
         </div>
         <div class="col-md-4">
           <h5>Site Map</h5>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-muted">Home</a></li>
+            <li><a href="index.html" class="text-muted">Home</a></li>
             <li><a href="about.html" class="text-muted">About</a></li>
             <li><a href="resources.html" class="text-muted">Resources</a></li>
             <li><a href="contact.html" class="text-muted">Contact</a></li>
+            <li><a href="accessibility-guide.html" class="text-muted">Accessibility guide</a></li>
           </ul>
         </div>
       </div>
-      <p class="float-end mb-1">
-        <a href="#"><i class="fas fa-arrow-up"></i> Back to top</a>
-      </p>
       <p class="mb-1">&copy; 2024 Access Granted Project</p>
     </div>
   </footer>

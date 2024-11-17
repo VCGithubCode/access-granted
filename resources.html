@@ -4,9 +4,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
-  <link rel="stylesheet" href="assets/css/style.css">
+  <meta name="description" content="Explore access granted's accessibility, inclusivity and availability for all. See our website resources here!">
+  <meta name="keywords" content="Accessible, accessibility, inclusive, inclusivity, for everyone, a website for all">
+  <!-- Link head tags -->
+	<link rel='shortcut icon' href="assets/images/logo.webp">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+	<link rel="stylesheet" href="assets/css/style.css">
   <title>Access Granted | Resources</title>
 </head>
 
@@ -29,103 +33,99 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarContent">
           <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-              <a class="nav-link" href="resources.html"><i class="fas fa-book"></i> Resources</a>
+            <li class="nav-item mt-2">
+              <a class="nav-link active" href="resources.html"><i class="fas fa-book"></i> Resources</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mt-2">
               <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About</a>
             </li>
-            <li class="nav-item">
+            <li class="nav-item mt-2">
               <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
-                aria-expanded="false">
-                <i class="fas fa-universal-access"></i> Accessibility Features
-              </a>
-              <ul class="dropdown-menu p-3" aria-labelledby="navbarDropdown" style="width: 300px;">
-                <li>
-                  <div class="dropdown-item">
-                    <label for="fontSize" class="form-label">Font Size</label>
-                    <input type="range" class="form-range font-size-control" id="fontSize" min="12" max="24" step="1"
-                      value="16">
-                  </div>
-                </li>
-                <li>
-                  <div class="dropdown-item">
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="dyslexicFont">
-                      <label class="form-check-label" for="dyslexicFont">Dyslexic Font</label>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="dropdown-item">
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="highContrast">
-                      <label class="form-check-label" for="highContrast">High Contrast</label>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="dropdown-item">
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="simplifiedLayout">
-                      <label class="form-check-label" for="simplifiedLayout">Simplified Layout</label>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <div class="dropdown-item">
-                    <label for="colorblindMode" class="form-label">Colorblind Mode</label>
-                    <select class="form-select" id="colorblindMode" aria-label="Colorblind mode">
-                      <option selected value="">Normal Vision</option>
-                      <option value="deuteranopia">Deuteranopia</option>
-                      <option value="protanopia">Protanopia</option>
-                      <option value="tritanopia">Tritanopia</option>
-                    </select>
-                  </div>
-                </li>
-                <li>
-                  <div class="dropdown-item">
-                    <div class="form-check form-switch">
-                      <input class="form-check-input" type="checkbox" id="voiceControl">
-                      <label class="form-check-label" for="voiceControl">Voice Control</label>
-                    </div>
-                  </div>
-                </li>
-                <li>
-                  <hr class="dropdown-divider">
-                </li>
-                <li><a class="dropdown-item" href="accessibility-guide.html"><i class="fas fa-book"></i> Accessibility
-                    Guide</a></li>
-                <li>
-                  <div class="dropdown-item">
-                    <label for="themeSelect" class="form-label">Theme</label>
-                    <select class="form-select" id="themeSelect" aria-label="Theme select">
-                      <option value="auto" data-bs-theme-value="auto">Auto</option>
-                      <option value="light" data-bs-theme-value="light">Light</option>
-                      <option value="dark" data-bs-theme-value="dark">Dark</option>
-                      <option value="contrast" data-bs-theme-value="contrast">High Contrast</option>
-                    </select>
-                  </div>
-                </li>
-                <li>
-                  <div class="dropdown-item">
-                    <label for="fontThemeSelect" class="form-label">Font Theme</label>
-                    <select class="form-select" id="fontThemeSelect" aria-label="Font theme select">
-                      <option value="default" data-font-theme-value="default">Default</option>
-                      <option value="dyslexic" data-font-theme-value="dyslexic">Open Dyslexic</option>
-                    </select>
-                  </div>
-                </li>
-              </ul>
-            </li>
+            <li><button class="btn btn-secondary mt-2" type="button" data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
+                  class="fas fa-universal-access"></i> Accessibility</button></li>
           </ul>
         </div>
       </div>
     </nav>
   </header>
+
+  <!-- Canvas sidebar -->
+  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Accessibility Settings</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-unstyled p-3" aria-labelledby="navbarDropdown">
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <label class="form-label">Font Size</label>
+            <div class="d-flex flex-column">
+              <div class="btn-group" role="group" aria-label="Font Size">
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeSmall" value="small"
+                  autocomplete="off">
+                <label class="btn btn-outline-secondary" for="fontSizeSmall">Small</label>
+
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeMedium"
+                  value="medium" autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="fontSizeMedium">Medium</label>
+
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeLarge" value="large"
+                  autocomplete="off">
+                <label class="btn btn-outline-secondary" for="fontSizeLarge">Large</label>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <div class="form-check form-switch form-switch-lg d-flex align-items-center">
+              <input class="form-check-input font-switch" type="checkbox" id="fontSwitch1" aria-label="Font switch">
+              <label class="form-check-label ms-2" for="fontSwitch1">Turn on Dyslexic Font</label>
+            </div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <div class="form-check form-switch form-switch-lg d-flex align-items-center">
+              <input class="form-check-input theme-switch" type="checkbox" id="themeSwitch1" aria-label="Theme switch">
+              <label class="form-check-label ms-2" for="themeSwitch1">Turn on High Contrast</label>
+            </div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <label class="form-label">Colorblind Mode</label>
+            <div class="d-flex flex-column">
+              <div class="btn-group-vertical w-100" role="group" aria-label="Colorblind Mode">
+                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="normalVision" value=""
+                  autocomplete="off" checked>
+                <label class="btn btn-outline-secondary" for="normalVision">Normal Vision</label>
+
+                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="deuteranopia"
+                  value="deuteranopia" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="deuteranopia">Deuteranopia</label>
+
+                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="protanopia"
+                  value="protanopia" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="protanopia">Protanopia</label>
+
+                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="tritanopia"
+                  value="tritanopia" autocomplete="off">
+                <label class="btn btn-outline-secondary" for="tritanopia">Tritanopia</label>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <a class="dropdown-item" href="accessibility-guide.html"><i class="fas fa-book"></i> Accessibility Guide</a>
+        </li>
+      </ul>
+    </div>
+  </div>
 
   <main id="main-content">
     <section class="p-5 text-center container-fluid main-background d-flex align-items-center" style="height: 50vh;">
@@ -137,42 +137,6 @@
         </div>
       </div>
     </section>
-
-    <!-- Carousel Section -->
-    <div id="awarenessCarousel" class="carousel slide" data-bs-ride="carousel">
-      <div class="carousel-inner">
-        <div class="carousel-item active">
-          <img src="assets/images/accessibility-1.jpg" class="d-block w-100" alt="Accessibility concept 1">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Accessible Design Matters</h5>
-            <p>Learn how accessibility improves user experience for everyone.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="assets/images/accessibility-2.jpg" class="d-block w-100" alt="Accessibility concept 2">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Inclusion for All</h5>
-            <p>Accessibility helps make digital spaces inclusive for all.</p>
-          </div>
-        </div>
-        <div class="carousel-item">
-          <img src="assets/images/accessibility-3.jpg" class="d-block w-100" alt="Accessibility concept 3">
-          <div class="carousel-caption d-none d-md-block">
-            <h5>Web for Everyone</h5>
-            <p>Designing accessible websites is essential in a digital-first world.</p>
-          </div>
-        </div>
-      </div>
-      <button class="carousel-control-prev" type="button" data-bs-target="#awarenessCarousel" data-bs-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Previous</span>
-      </button>
-      <button class="carousel-control-next" type="button" data-bs-target="#awarenessCarousel" data-bs-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="visually-hidden">Next</span>
-      </button>
-    </div>
-
 
     <div class="container-fluid p-0 mt-5">
       <!-- Voice Assistant Article -->
@@ -189,7 +153,8 @@
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="p-3 rounded">
-              <img src="assets/images/microphone-icon.webp" alt="Mikey the Mic" class="img-fluid mb-3">
+              <img src="assets/images/microphone-iconNoBG.webp" alt="Mikey the Mic" class="img-fluid mb-3">
+              <a href="voice.html" class="btn btn-secondary btn-lg mt-3">Try It Out</a>
             </div>
           </div>
           <div class="col-md-6">
@@ -209,7 +174,7 @@
                 tailored to your needs.</li>
             </ul>
             <h4>Why It Matters:</h4>
-            <p>For many of us, using a mouse or keyboard is second nature, but those with visual impairments or mobility
+            <p id="dyslexia">For many of us, using a mouse or keyboard is second nature, but those with visual impairments or mobility
               issues face significant barriers. Mikey's voice commands provide an essential alternative, transforming
               how these users interact with digital content and ensuring they can access information just as easily as
               everyone else.</p>
@@ -231,12 +196,11 @@
         <div class="row align-items-center flex-md-row-reverse">
           <div class="col-md-6">
             <div class="p-3 rounded">
-              <img src="assets/images/glasses-icon.webp" alt="Glassy with the Glasses" class="img-fluid mb-3">
+              <img src="assets/images/glasses-iconNoBG.webp" alt="Glassy with the Glasses" class="img-fluid mb-3">
               <div class="form-check form-switch form-switch-lg d-flex align-items-center justify-content-center">
-                      <input class="form-check-input font-switch" type="checkbox" id="fontSwitch2"
-                        aria-label="Font switch">
-                      <label class="form-check-label ms-2" for="fontSwitch2">Turn on Dyslexic Font</label>
-                    </div>
+                <input class="form-check-input font-switch" type="checkbox" id="fontSwitch2" aria-label="Font switch">
+                <label class="form-check-label ms-2" for="fontSwitch2">Turn on Dyslexic Font</label>
+              </div>
             </div>
           </div>
           <div class="col-md-6">
@@ -260,6 +224,12 @@
               information. Glassy's OpenDyslexic font reduces this difficulty, providing a clearer and more stable
               reading experience. By doing so, we're helping to break down barriers that many people face every day,
               which often go unnoticed by those without these challenges.</p>
+            <p>
+              <span>
+                If you want to find out more, go to
+              </span>
+              <a id="high-contrast" href="https://opendyslexic.org/" target="_blank" rel="noopener noreferrer">opendyslexic.org</a>
+            </p>
           </div>
         </div>
       </article>
@@ -278,11 +248,11 @@
         <div class="row align-items-center">
           <div class="col-md-6">
             <div class="p-3 rounded">
-              <img src="assets/images/contrast-icon.webp" alt="Spikey the Hedgehog" class="img-fluid mb-3">
+              <img src="assets/images/contrast-iconNoBG.webp" alt="Spikey the Hedgehog" class="img-fluid mb-3">
               <div class="form-check form-switch form-switch-lg d-flex align-items-center justify-content-center">
                 <input class="form-check-input theme-switch mt-0" type="checkbox" id="themeSwitch2"
                   aria-label="Theme switch">
-                <label class="form-check-label ms-2 text-body" for="themeSwitch2">Turn on High Contrast Mode</label>
+                <label class="form-check-label ms-2 text-body" for="themeSwitch2">Turn on High Contrast</label>
               </div>
             </div>
           </div>
@@ -308,6 +278,9 @@
               between certain colors. Spikey’s High Contrast Mode ensures that users with these visual impairments can
               still clearly see and interact with our content. It's a reminder that accessibility features are crucial
               for creating a truly inclusive web environment.</p>
+            <p>For more information, read this <a
+                href="https://uxdesign.cc/high-contrast-when-you-think-the-dark-mode-is-enough-d190218d4bba"
+                target="_blank" rel="noopener noreferrer">article</a> by Jahde Vaccani.</p>
           </div>
         </div>
       </article>
@@ -316,7 +289,7 @@
     <!-- Tabs Section -->
     <div class="container py-5">
       <h2 class="text-center mb-4">Accessibility Standards</h2>
-      <ul class="nav nav-tabs" id="awarenessTabs" role="tablist">
+      <ul class="nav nav-tabs justify-content-center" id="awarenessTabs" role="tablist">
         <li class="nav-item" role="presentation">
           <button class="nav-link active" id="wcag-tab" data-bs-toggle="tab" data-bs-target="#wcag" type="button"
             role="tab" aria-controls="wcag" aria-selected="true">WCAG</button>
@@ -332,40 +305,19 @@
       </ul>
       <div class="tab-content py-3" id="awarenessTabContent">
         <div class="tab-pane fade show active" id="wcag" role="tabpanel" aria-labelledby="wcag-tab">
-          <p>The Web Content Accessibility Guidelines (WCAG) provide guidelines for making web content accessible to
-            people with disabilities.</p>
+          <p>The <a href="https://www.w3.org/WAI/standards-guidelines/wcag/" target="_blank"
+              rel="noopener noreferrer">Web Content Accessibility Guidelines (WCAG)</a> provide guidelines for making
+            web content accessible to people with disabilities.</p>
         </div>
         <div class="tab-pane fade" id="aria" role="tabpanel" aria-labelledby="aria-tab">
-          <p>The Accessible Rich Internet Applications (ARIA) specifications help make dynamic content and advanced user
-            interface controls accessible.</p>
+          <p>The <a href="https://www.w3.org/WAI/standards-guidelines/aria/" target="_blank"
+              rel="noopener noreferrer">Accessible Rich Internet Applications (ARIA)</a> specifications help make
+            dynamic content and advanced user interface controls accessible.</p>
         </div>
         <div class="tab-pane fade" id="508" role="tabpanel" aria-labelledby="508-tab">
-          <p>Section 508 requires federal agencies to make their electronic and information technology accessible to
-            people with disabilities.</p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Simulation Section -->
-    <div class="container py-5">
-      <h2 class="text-center mb-4">Accessibility Simulation</h2>
-      <p class="lead text-center">Experience how users with various disabilities may interact with web content.</p>
-      <div class="row">
-        <div class="col-md-4">
-          <h3>Color Blindness</h3>
-          <p>Toggle color filters to simulate different types of color blindness and understand how contrast affects
-            readability.</p>
-          <button class="btn btn-secondary" onclick="simulateColorBlindness()">Simulate Color Blindness</button>
-        </div>
-        <div class="col-md-4">
-          <h3>Low Vision</h3>
-          <p>Use a screen magnifier to see how users with low vision interact with your site.</p>
-          <button class="btn btn-secondary" onclick="simulateLowVision()">Simulate Low Vision</button>
-        </div>
-        <div class="col-md-4">
-          <h3>Screen Reader</h3>
-          <p>Try a screen reader simulation to understand how visually impaired users navigate content.</p>
-          <button class="btn btn-secondary" onclick="simulateScreenReader()">Simulate Screen Reader</button>
+          <p><a href="https://www.section508.gov/" target="_blank" rel="noopener noreferrer">Section 508</a> requires
+            federal agencies to make their electronic and information technology accessible to people with disabilities.
+          </p>
         </div>
       </div>
     </div>
@@ -379,45 +331,39 @@
       <p>Have questions or need assistance? We're here to help!</p>
       <a href="contact.html" class="btn btn-primary btn-lg">Contact Us</a>
     </section>
-
   </main>
 
   <footer class="text-muted py-5">
-    <div class="container">
+    <div class="container footerdiv">
       <div class="row">
-        <div class="col-md-4">
-          <h5>Resources</h5>
-          <ul class="list-unstyled">
-            <li><a href="#" class="text-muted">Documentation</a></li>
-            <li><a href="#" class="text-muted">Tutorials</a></li>
-            <li><a href="#" class="text-muted">Support</a></li>
-          </ul>
-        </div>
         <div class="col-md-4">
           <h5>Social</h5>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-muted"><i class="bi bi-twitter"></i> Twitter</a></li>
-            <li><a href="#" class="text-muted"><i class="bi bi-facebook"></i> Facebook</a></li>
-            <li><a href="#" class="text-muted"><i class="bi bi-instagram"></i> Instagram</a></li>
+            <li><a href="https://github.com/VCGithubCode/access-granted" class="text-muted" target="_blank"
+                rel="noopener" aria-label="Visit our github repository page(Opens in a new tab)" aria-hidden="true"><i
+                  class="fa-brands fa-github"></i> Github</a></li>
+            <li><a href="https://app.slack.com/client/T0L30B202/C080JB3ETHU" class="text-muted" target="_blank"
+                rel="noopener" aria-label="Visit our Slack channel(Opens in a new tab)" aria-hidden="true"><i
+                  class="fa-brands fa-slack"></i> Slack</a></li>
           </ul>
         </div>
         <div class="col-md-4">
           <h5>Site Map</h5>
           <ul class="list-unstyled">
-            <li><a href="#" class="text-muted">Home</a></li>
+            <li><a href="index.html" class="text-muted">Home</a></li>
             <li><a href="about.html" class="text-muted">About</a></li>
             <li><a href="resources.html" class="text-muted">Resources</a></li>
             <li><a href="contact.html" class="text-muted">Contact</a></li>
+            <li><a href="accessibility-guide.html" class="text-muted">Accessibility guide</a></li>
           </ul>
         </div>
       </div>
       <p class="float-end mb-1">
-        <a href="#">Back to top</a>
+        <a href="#"><i class="fas fa-arrow-up"></i> Back to top</a>
       </p>
       <p class="mb-1">&copy; 2024 Access Granted Project</p>
     </div>
   </footer>
-
   <svg class="svg-filter">
     <defs>
       <filter id="deuteranopia-filter">

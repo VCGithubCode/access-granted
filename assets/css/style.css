@@ -1,6 +1,7 @@
-/* Poppins Font */
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap');
 
+/* Font Faces */
 @font-face {
   font-family: 'opendyslexic';
   src: url('../fonts/OpenDyslexic-Regular.otf') format('opentype');
@@ -29,15 +30,18 @@
   font-style: italic;
 }
 
+/* Root Variables */
 :root {
   --bs-primary: #238b44;
   --bs-font-sans-serif: 'Poppins', sans-serif;
   --light: #105295;
 }
 
+/* Dyslexic Font Theme */
 [data-font-theme="dyslexic"] {
   --bs-font-sans-serif: "opendyslexic", sans-serif;
   --bs-font-monospace: "opendyslexic", sans-serif;
+  font-size: 14px;
 }
 
 [data-bs-theme="contrast"][data-font-theme="dyslexic"] {
@@ -45,6 +49,7 @@
   --bs-font-monospace: "opendyslexic", sans-serif;
 }
 
+/* Global Styles */
 html {
   scroll-behavior: smooth;
 }
@@ -75,6 +80,7 @@ h1 {
   }
 }
 
+/* Button Styles */
 .btn-primary {
   color: #fff;
   background-color: var(--bs-primary);
@@ -101,23 +107,7 @@ h1 {
   border-color: #d5683d;
 }
 
-.bg-light {
-  background-color: green;
-}
-
-header {
-  transition: background-color 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
-}
-
-.header-background {
-  background-color: rgba(255, 255, 255, 0.8);
-  backdrop-filter: blur(10px);
-}
-
-.bg-feature-card {
-  background: linear-gradient(20deg, #ffe0d3, white, white);
-}
-
+/* Background Styles */
 .main-background {
   background-image: url('../images/shiny1.webp');
   background-position: bottom center;
@@ -132,6 +122,7 @@ header {
   background-image: none;
 }
 
+/* Colorblind Filters */
 .deuteranopia {
   filter: url('#deuteranopia-filter');
 }
@@ -144,6 +135,7 @@ header {
   filter: url('#tritanopia-filter');
 }
 
+/* Accessibility Styles */
 .sr-only {
   position: absolute;
   width: 1px;
@@ -170,12 +162,7 @@ header {
   top: 0;
 }
 
-.svg-filter {
-  display: none;
-}
-
-
-
+/* Contrast Theme */
 [data-bs-theme="contrast"] {
   --bs-primary: #000000;
   --bs-secondary: #ffffff;
@@ -191,10 +178,6 @@ header {
 
   background-color: var(--bs-dark);
   color: var(--bs-light);
-}
-
-[data-bs-theme="contrast"] .nav-link:active {
-  color: var(--bs-body-color-rgb);
 }
 
 [data-bs-theme="contrast"] body {
@@ -271,48 +254,17 @@ header {
   border: 1px solid var(--bs-light) !important;
 }
 
-.resources-voice-article {
-  background-color: #f0f8ff;
-}
-
-.resources-dyslexia-article {
-  background-color: #fff0f5;
-}
-
-.resources-contrast-article {
-  background-color: #f5f5dc;
-}
-
-[data-bs-theme="contrast"] .resources-voice-article {
-  background-color: transparent;
-}
-
-[data-bs-theme="contrast"] .resources-dyslexia-article {
-  background-color: transparent;
-}
-
+[data-bs-theme="contrast"] .resources-voice-article,
+[data-bs-theme="contrast"] .resources-dyslexia-article,
 [data-bs-theme="contrast"] .resources-contrast-article {
   background-color: transparent;
 }
 
-[data-bs-theme="contrast"] .btn-primary {
-  color: #000;
-  background-color: #fff;
-
-}
-
-
-
-/* Credit for custrom form component sizes: https://stackoverflow.com/questions/55593229/increasing-the-size-of-a-bootstrap-checkbox */
+/* Form Styles */
 .form-check-input {
   clear: left;
-  width: 2.5em;
-  height: 1.5em;
-}
-
-.form-switch.form-switch-sm {
-  margin-bottom: 0.5rem;
-  /* JUST FOR STYLING PURPOSE */
+  width: 1em;
+  height: 1em;
 }
 
 .form-switch.form-switch-sm .form-check-input {
@@ -321,20 +273,10 @@ header {
   border-radius: 2rem;
 }
 
-.form-switch.form-switch-md {
-  margin-bottom: 1rem;
-  /* JUST FOR STYLING PURPOSE */
-}
-
 .form-switch.form-switch-md .form-check-input {
   height: 1.5rem;
   width: calc(2rem + 0.75rem);
   border-radius: 3rem;
-}
-
-.form-switch.form-switch-lg {
-  margin-bottom: 1.5rem;
-  /* JUST FOR STYLING PURPOSE */
 }
 
 .form-switch.form-switch-lg .form-check-input {
@@ -343,18 +285,12 @@ header {
   border-radius: 4rem;
 }
 
-.form-switch.form-switch-xl {
-  margin-bottom: 2rem;
-  /* JUST FOR STYLING PURPOSE */
-}
-
 .form-switch.form-switch-xl .form-check-input {
   height: 2.5rem;
   width: calc(4rem + 0.75rem);
   border-radius: 5rem;
 }
 
-/* Add primary color when toggled active */
 .form-check-input:checked {
   background-color: var(--bs-primary);
   border-color: var(--bs-primary);
@@ -380,6 +316,7 @@ header {
   transform: translateX(calc(100% + 0.25rem));
 }
 
+/* Offcanvas Styles */
 .offcanvas {
   background-color: rgba(255, 255, 255, 0.8);
   backdrop-filter: blur(10px);
@@ -398,6 +335,7 @@ header {
   font-weight: bold;
 }
 
+/* Font Size Data Attributes */
 [data-font-size="small"] body {
   font-size: 14px;
 }
@@ -410,16 +348,193 @@ header {
   font-size: 18px;
 }
 
+/* Dropdown Item Styles */
 .dropdown-item {
   padding: 0.5rem 0;
 }
 
 .offcanvas-body li {
-  border: 2px solid #f0f0f0;
+  border: 1px solid #898989;
   padding: 1rem;
   border-radius: 5px;
 }
 
 .offcanvas-body li .form-check {
   margin-bottom: 0;
+}
+
+/* Button Check Styles */
+.btn-check+.btn {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.btn-check:hover+.btn {
+  background-color: #238b441a;
+  color: var(--bs-body-color-rgb);
+}
+
+.btn-check:checked+.btn,
+.btn-check:focus+.btn {
+  background-color: var(--bs-primary);
+  color: #fff;
+}
+
+[data-bs-theme="contrast"] .btn-check+.btn {
+  background-color: #333;
+  color: #fff;
+}
+
+[data-bs-theme="contrast"] .btn-check:hover+.btn {
+  background-color: #555;
+  color: #fff;
+}
+
+[data-bs-theme="contrast"] .btn-check:checked+.btn,
+[data-bs-theme="contrast"] .btn-check:focus+.btn {
+  background-color: #000;
+  color: #fff;
+}
+
+/* Footer Styles */
+.footerdiv li a:hover {
+  color: rgba(0, 0, 0, .7) !important;
+}
+
+nav a .nav-link {
+  padding-left: 14px;
+  padding-right: 14px;
+}
+
+nav li {
+  margin-left: 1rem;
+}
+
+/* Tabs Section */
+.nav-tabs .nav-link {
+  color: #495057;
+  border-top-left-radius: 0.25rem;
+  border-top-right-radius: 0.25rem;
+}
+
+.nav-tabs .nav-link:hover {
+  border-color: #e9ecef #e9ecef #dee2e6;
+}
+
+.nav-tabs .nav-link.active {
+  color: #fff;
+  background-color: var(--bs-primary);
+}
+
+.tab-content {
+  border: 1px solid #dee2e6;
+  border-top: none;
+  padding: 1.5rem;
+  background-color: #f8f9fa;
+  border-bottom-left-radius: 0.25rem;
+  border-bottom-right-radius: 0.25rem;
+}
+
+[data-bs-theme="contrast"] .tab-content {
+  border: 1px solid #495057;
+  background-color: #000000;
+}
+
+.tab-pane a {
+  color: var(--bs-primary);
+  text-decoration: underline;
+}
+
+.tab-pane a:hover {
+  color: var(--bs-primary-dark);
+  text-decoration: none;
+}
+
+[data-bs-theme="contrast"] .tab-pane a {
+  color: #00ff00;
+}
+
+[data-bs-theme="contrast"] .tab-pane a:hover {
+  color: #00ff00;
+}
+
+/* Flip Card Styles */
+.flip-card {
+  perspective: 1000px;
+  overflow: hidden;
+  height: 300px;
+  margin-bottom: 20px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s ease-in-out;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 15px;
+}
+
+.flip-card-front {
+  background-color: #ffffff;
+}
+
+.flip-card-front img {
+  height: 180px;
+  width: auto;
+  object-fit: cover;
+  margin-top: 5px;
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background-color: #f8f9fa;
+  text-align: center;
+}
+
+/* Responsiveness */
+@media (max-width: 576px) {
+  .flip-card {
+    height: 250px;
+    margin-bottom: 15px;
+  }
+
+  .flip-card-front img {
+    height: 120px;
+  }
+
+  .card-text {
+    font-size: 12px;
+  }
+
+  .btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  .flip-card {
+    height: 280px;
+  }
+
+  .flip-card-front img {
+    height: 150px;
+  }
 }
