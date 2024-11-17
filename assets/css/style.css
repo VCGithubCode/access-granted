@@ -258,6 +258,23 @@ h1 {
   border: 1px solid var(--bs-light) !important;
 }
 
+.resources-voice-article {
+  background: linear-gradient(to top, #f0f8ff 80%, transparent);
+}
+
+.resources-dyslexia-article {
+  background-color: #fff0f5;
+}
+
+.resources-contrast-article {
+  background-color: #f5f5dc;
+}
+
+[data-bs-theme="contrast"] .resources-voice-article {
+  background: transparent;
+  background-color: transparent;
+}
+
 [data-bs-theme="contrast"] .resources-voice-article,
 [data-bs-theme="contrast"] .resources-dyslexia-article,
 [data-bs-theme="contrast"] .resources-contrast-article {
