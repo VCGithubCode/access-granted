@@ -304,10 +304,11 @@ header {
 
 
 /* Credit for custrom form component sizes: https://stackoverflow.com/questions/55593229/increasing-the-size-of-a-bootstrap-checkbox */
+
 .form-check-input {
   clear: left;
-  width: 2.5em;
-  height: 1.5em;
+  width: 1em;
+  height: 1em;
 }
 
 .form-switch.form-switch-sm {
