@@ -37,10 +37,6 @@ The "Access Granted" project aims to make the web more accessible for all users,
 - A key strength of our project lies in the collaborative effort of our team. Through active involvement, inclusive practices, and a shared commitment to excellence, we’ve cultivated an environment of mutual support and high-quality outcomes. 
 
 
-## About Us
-
-We are a passionate team of developers and designers participating in the Code Institute Inclusive Web: Building Accessible Websites. Hackathon.
-
 ## Content
 
 * [Access Granted](#access-granted)
@@ -157,12 +153,14 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 ### Accessibility Tools Articles:
 -The page features three main articles, each dedicated to a specific accessibility feature:
 
-### Voice Assistant ("Mikey the Mic")![image](assets/images/microphone-icon.webp):
-- Describes voice navigation capabilities for users with visual impairments or mobility issues.
-### OpenDyslexic Font ("Glassy with the Glasses")![immage](assets/images/glasses-icon.webp):
-- Explains the font switch for dyslexia-friendly text display, aiding users who struggle with standard fonts.
-### High Contrast Mode ("Spikey the Hedgehog")[image](assets/images/contrast-icon.webp):
-- Details a toggle for high-contrast visuals to assist users with color blindness or low vision.
+### Voice Assistant ("Mikey the Mic")
+![image](assets/images/readme./voice.png)
+- Describes voice navigation capabilities for users with visual impairments or mobility issues.![image](assets/images/readme./voice-asistant.png)
+### OpenDyslexic Font ("Glassy with the Glasses")![image](assets/images/readme./dyslecsik.png)
+- Explains the font switch for dyslexia-friendly text display, aiding users who struggle with standard fonts.![image](assets/images/readme./dislecsic.png)
+
+### High Contrast Mode ("Spikey the Hedgehog")![image](assets/images/readme./contrast.png)
+- Details a toggle for high-contrast visuals to assist users with color blindness or low vision.![image](assets/images/readme./colorblind.png)
 
 ### Each article outlines:
 - Who it helps
@@ -171,9 +169,9 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ### Tabs Section (Accessibility Standards):
 - Utilizes Bootstrap tabs to provide information about various accessibility guidelines:
-- WCAG (Web Content Accessibility Guidelines)
-- ARIA (Accessible Rich Internet Applications)
-- Section 508 (U.S. federal requirements for accessible electronic content)
+- WCAG (Web Content Accessibility Guidelines) [Link](https://www.w3.org/WAI/standards-guidelines/wcag/)
+- ARIA (Accessible Rich Internet Applications) [Link](https://www.w3.org/WAI/standards-guidelines/aria/)
+- Section 508 (U.S. federal requirements for accessible electronic content) [Link](https://www.section508.gov/)
 
 ### Simulation Section:
 - Features interactive buttons allowing users to simulate various accessibility challenges (e.g., color blindness, low vision, screen reader use). This helps users understand the importance of inclusive design.
@@ -184,11 +182,101 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
+# About Us
+
+## Who We Are
+- Welcome to Access Granted! We are a dynamic team of passionate developers and innovators with a shared vision: to make the web more accessible and inclusive for everyone. Our project is a testament to the power of collaboration, bringing together diverse skills and perspectives to create an online experience that truly caters to all users, regardless of their abilities.
+
+## Our Mission
+- Access Granted is driven by a mission to create a more inclusive digital world. We believe the internet should be a space where everyone feels welcomed and empowered. Our focus on accessibility, usability, and inclusivity aims to ensure that no user is left behind. We are committed to incorporating innovative solutions that address the needs of all individuals, including those with disabilities, through thoughtful design and user-friendly features.
+
+## Meet Our Team
+- Our talented team is the heart and soul of Access Granted. Each member brings a unique set of skills and expertise, contributing to the success of our project in their own special way.
+
+## 🌟 Vernell Clark — SCRUM Leader
+- Vernell ensures our team remains on track and focused. As our SCRUM Leader, he coordinate team efforts, facilitate meetings, and help resolve any obstacles. Vernell expertise in agile methodologies has been key to our project's timely and organized progress.
+
+### Role: Project Management & Coordination
+- GitHub: [VCGithubCode](https://github.com/VCGithubCode)
+- LinkedIn: Vernell's LinkedIn
+
+## 🎙️ Nikola Simic — Voice Assistant Developer
+- Nikola has played a pivotal role in developing our voice assistant feature, making our website more accessible for users with visual impairments or those who prefer audio navigation. His innovative thinking and dedication to enhancing user experience have been invaluable.
+
+### Role: Voice Interface Development
+- GitHub: [nlekkerman](https://github.com/nlekkerman)
+- LinkedIn: Nicola's's LinkedIn
+
+## 📊 Benjamin Schäfer — Research & Page Layout Specialist
+- Benjamin’s expertise in research and design has helped shape the overall look and feel of our site. His attention to detail and commitment to accessibility principles ensure our content is both aesthetically pleasing and user-friendly.
+
+## Role: UX Design & Research
+- GitHub: [benschaf](https://github.com/benschaf)
+- LinkedIn: [Beni Schäfer's LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
+
+## ✍️ Angela Siniavskaja — Documentation Lead
+- Angela has been instrumental in maintaining clear and concise project documentation. Her organizational skills have kept our team aligned, and her contributions have ensured that our project is thoroughly documented for future developers and users.
+
+### Role: Documentation & Content Strategy
+- GitHub: [Angela-Sin](https://github.com/Angela-Sin)
+- LinkedIn: [Angela's LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
+
+### 🎨 Ashraf Bocktor — Avatar Design Specialist
+- Ashraf’s creative vision brought our project to life through beautifully crafted avatars. His designs not only reflect the diversity of our team but also resonate with our mission of inclusivity.
+
+## Role: Avatar Design & Creative Direction
+- GitHub: [PATH-HIVE](https://github.com/PATH-HIVE)
+- LinkedIn: [Ashraf's LinkedIn](https://www.linkedin.com/in/abbocktor/)
+  
+  
+
+### 🛠️ Alison Mossop — 404 Page Specialist
+- Alison’s creativity shines in her work on our custom 404 error page, ensuring that even when users get lost, they encounter a friendly and helpful experience. Her innovative approach adds a unique touch to our project.
+
+## Role: Error Page Design & User Engagement
+- GitHub: [ali-moss-24](https://github.com/ali-moss-24)
+- LinkedIn: [Alison's LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
+
+## 🔍 James Bracken — Footer & Support Specialist
+- James meticulously designed our footer, which provides a seamless navigation experience across the site. His focus on accessibility ensures that users can easily find the information they need, making our website more user-friendly.
+
+### Role: Site Navigation & Support Features
+- GitHub: [JamesBracken](https://github.com/JamesBracken)
+- LinkedIn: Vernell's LinkedIn
+
+## 🌐 Ahmad Al Hindi — About Page Specialist
+- Ahmad took the lead in designing and creating this very page. His dedication to highlighting the team's contributions and presenting a cohesive narrative has made the About Us section a central part of our website’s storytelling.
+
+### Role: Content Creation & Page Design
+- GitHub: AhmadAlHindi
+- LinkedIn: [Ahmad's LinkedIn](https://github.com/Ahmadalhindi)
+
+
+Our Commitment to Accessibility
+At Access Granted, we believe in the importance of inclusivity. We have implemented various accessibility features, such as:
+
+Voice Assistant: For users who prefer auditory navigation.
+High Contrast Mode: For improved readability.
+Dyslexic Font Option: A font designed to be easier for dyslexic users to read.
+Colorblind Modes: Filters for users with different types of color vision deficiencies.
+These features reflect our ongoing commitment to creating an environment where everyone can interact with ease.
+
+Join Us on Our Journey
+We are excited about the future of Access Granted and the possibilities for making the web a more inclusive place. We invite you to explore our site, share your feedback, and join us in this mission.
+
+Let’s make the internet accessible for all — together.
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
+
 ## Contact Page
 
 ![image](https://github.com/user-attachments/assets/256309b8-36d2-49f7-b48d-2a5db493aa82)
 
 The page provides a user-friendly Contact Us form along with accessibility features, making it easy for users to get in touch while ensuring a smooth experience for people with different accessibility needs. The layout is responsive, thanks to Bootstrap, and includes tools to adjust the design for better accessibility.
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
+
+
 
 ### Responsiveness
 
@@ -264,11 +352,54 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 ### Further Testing
 
 
-### Future adding
+# Future adding
+
+## Personalized Accessibility Settings:
+
+### User Profiles:
+- Allow users to create profiles where their accessibility settings (e.g., font size, colorblind mode, high contrast) can be saved and applied automatically when they visit the site.
+Multi-device Syncing: Enable users to sync their accessibility preferences across different devices (mobile, tablet, desktop).
+Voice Assistant Enhancements:
+
+### Multi-language Support:
+- Extend the voice assistant (Mikey the Mic) to support multiple languages, making it accessible to a wider audience.
+Advanced Voice Commands: Implement more specific voice commands for easier navigation, such as "Go to Resources" or "Activate Colorblind Mode."
+
+### Real-time Text-to-Speech:
+
+- Implement a real-time text-to-speech feature that can read out any text on the website, providing an immersive experience for users with visual impairments.
+
+### Enhanced Content Reader:
+
+- Develop a more robust content reader for users with dyslexia or other reading difficulties, including options for text highlighting, word spacing, and reading speed adjustments.
+
+### AI-Driven Accessibility Tools:
+
+- Use AI to provide real-time suggestions to improve accessibility based on the user’s behavior and preferences (e.g., suggesting font changes or offering an easy-to-read mode based on the user’s interactions).
+
+### Live Chat Support for Accessibility:
+
+- Offer a live chat feature specifically focused on accessibility, where users can quickly reach support for technical issues or learn more about the available accessibility options.
+
+### Mobile App Version:
+
+- Create a mobile app that mirrors the website’s accessibility features, allowing users to customize their experience and access the site through their smartphones or tablets.
+
+### Interactive Accessibility Tutorials:
+
+- Build interactive guides that walk users through the various accessibility features of the site, helping them make the most of the tools available.
+
+### Real-time User Feedback on Accessibility:
+
+- Implement a system where users can provide real-time feedback about the accessibility features, helping to improve future versions of the site.
+
+### Integration with Assistive Technology:
+
+- Integrate the site with third-party assistive technologies such as screen readers, braille displays, or eye-tracking devices for users who rely on them.
 
 
 
-- ## Prerequisites and Deployment
+## Prerequisites and Deployment
 
 - The site was developed in VS Code/Gitpod, stored in GitHub as the local repository. Github Pages was used to deploy the live website. The instructions to ac- hieve this are below.
 
@@ -381,40 +512,11 @@ emailjs.send(serviceID, templateID, templateParams, options);
   
 - Community testers who provided valuable feedback.
 
-- Our team also deserves special mention as a whole. We learned a lot from each other, dove headfirst into new technologies, and were helpful in times of need to resolve coding issues.:
+- Our team also deserves special mention as a whole. We learned a lot from each other, dove headfirst into new technologies, and were helpful in times of need to resolve coding issues.
 
-  - [Vernell Clark](https://github.com/VCGithubCode) [LinkedIn]
 
-  - [Nikola Simic](https://github.com/nlekkerman) [LinkedIn]
-
-  - [Benjamin Schäfer](https://github.com/benschaf) [LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
- 
-  - [Angela Siniavskaja](https://github.com/Angela-Sin) [LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
-  
-  - [Ashraf Bocktor](https://github.com/PATH-HIVE) [LinkedIn](https://www.linkedin.com/in/abbocktor/)
-
-  - [Alison Mossop](https://github.com/ali-moss-24) [LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
-
-  - [James Bracken](https://github.com/JamesBracken)  [LinkedIn]
-
-  - [Ahmad Al Hindi](https://github.com/Ahmadalhindi) [LinkedIn]
 
   *<span style="color: blue;">[Back to Content](#content)</span>*
 
-  Vernell Clark[image](assets/images/avatars/Vernell.webp)
 
-
-  - Nikola Simic [image](/assets/images/avatars/)
-
-  - Benjamin Schäfer [image](/assets/images/avatars/Ben.webp)
- 
-  - Angela Siniavskaja
-
-  - Ashraf Bocktor
-
-  - Alison Mossop
-
-  - James Bracken
-
-  - Ahmad Al Hindi
 
