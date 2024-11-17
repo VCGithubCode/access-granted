@@ -17,31 +17,37 @@
 <body class="relative">
     <a href="#main-content" class="skip-link">Skip to main content</a>
     
-    
-        </a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
-          aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarContent">
-          <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-          <li class="nav-item mt-2">
-            <a class="nav-link" href="resources.html"><i class="fas fa-book"></i> Resources</a>
-          </li>
-          <li class="nav-item mt-2">
-            <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About</a>
-          </li>
-          <li class="nav-item mt-2">
-            <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
-          </li>
-          <li><button class="btn btn-secondary mt-2" type="button" data-bs-toggle="offcanvas"
-            data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
-              class="fas fa-universal-access"></i> Accessibility</button></li>
-          </ul>
-        </div>
+    <header class="fixed-top">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container">
+          <a class="navbar-brand" href="index.html">
+            <img src="assets/images/logo.webp" alt="Access Granted Logo" width="30" height="30"
+              class="d-inline-block align-top">
+            Access Granted
+          </a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarContent">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+              <li class="nav-item mt-2">
+                <a class="nav-link" href="resources.html"><i class="fas fa-book"></i> Resources</a>
+              </li>
+              <li class="nav-item mt-2">
+                <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About</a>
+              </li>
+              <li class="nav-item mt-2">
+                <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+              </li>
+              <li><button class="btn btn-secondary mt-2" type="button" data-bs-toggle="offcanvas"
+                  data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
+                    class="fas fa-universal-access"></i> Accessibility</button></li>
+            </ul>
+          </div>
         </div>
       </nav>
-      </header>
+    </header>
 
       <!-- Canvas sidebar -->
   <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
@@ -131,22 +137,36 @@
         </div>
     </main>
 
+    <hr>
+
     <footer class="text-muted py-5">
       <div class="container footerdiv">
         <div class="row">
-        <div class="col-md-4">
-          
+          <div class="col-md-4">
+            <h5>Social</h5>
+            <ul class="list-unstyled">
+              <li><a href="https://github.com/VCGithubCode/access-granted" class="text-muted" target="_blank"
+                  rel="noopener" aria-label="Visit our github repository page(Opens in a new tab)" aria-hidden="true"><i
+                    class="fa-brands fa-github"></i> Github</a></li>
+              <li><a href="https://app.slack.com/client/T0L30B202/C080JB3ETHU" class="text-muted" target="_blank"
+                  rel="noopener" aria-label="Visit our Slack channel(Opens in a new tab)" aria-hidden="true"><i
+                    class="fa-brands fa-slack"></i> Slack</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Site Map</h5>
+            <ul class="list-unstyled">
+              <li><a href="index.html" class="text-muted">Home</a></li>
+              <li><a href="accessibility-guide.html" class="text-muted">Accessibility guide</a></li>
+              <li><a href="resources.html" class="text-muted">Resources</a></li>
+              <li><a href="about.html" class="text-muted">About</a></li>
+              <li><a href="contact.html" class="text-muted">Contact</a></li>
+            </ul>
+          </div>
         </div>
-        <div class="col-md-4">
-         
-        </div>
-        </div>
-        <p class="float-end mb-1">
-        <a href="#"><i class="fas fa-arrow-up"></i> Back to top</a>
-        </p>
         <p class="mb-1">&copy; 2024 Access Granted Project</p>
       </div>
-      </footer>
+    </footer>
   
     <svg class="svg-filter">
       <defs>
