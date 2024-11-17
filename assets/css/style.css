@@ -543,6 +543,27 @@ nav li {
   text-align: center;
 }
 
+/* About page background */
+.body-background {
+  background-image: url('../images/shiny1.webp');
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+}
+
+/* Linkedin buttons */
+.linkedin {
+  background: #0d6efd;
+  color: #ffffff;
+} 
+
+.linkedin:hover {
+  background: #ffffff;
+  color: #0d6efd;
+}
+
 /* Responsiveness */
 @media (max-width: 576px) {
   .flip-card {
@@ -564,12 +585,3 @@ nav li {
   }
 }
 
-@media (max-width: 768px) {
-  .flip-card {
-    height: 280px;
-  }
-  
-  .flip-card-front img {
-    height: 150px;
-  }
-}
