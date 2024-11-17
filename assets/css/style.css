@@ -437,7 +437,7 @@ header {
 
 /* Footer Styles */
 .footerdiv li a:hover {
-  color: rgba(0, 0, 0, .7) !important;
+  color: rgba(54, 53, 53, 0.7) !important;
 }
 
 nav a .nav-link {
