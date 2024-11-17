@@ -38,6 +38,7 @@
 [data-font-theme="dyslexic"] {
   --bs-font-sans-serif: "opendyslexic", sans-serif;
   --bs-font-monospace: "opendyslexic", sans-serif;
+  font-size: 14px;
 }
 
 [data-bs-theme="contrast"][data-font-theme="dyslexic"] {
