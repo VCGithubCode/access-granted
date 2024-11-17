@@ -94,6 +94,12 @@ h1 {
   border-color: #137b34;
 }
 
+[data-bs-theme="contrast"] .btn-primary {
+  color: #000;
+  background-color: #fff;
+
+}
+
 .btn-secondary {
   color: #fff;
   background-color: #cd4e1b;
@@ -108,6 +114,10 @@ h1 {
 }
 
 /* Background Styles */
+header {
+  transition: background-color 0.3s ease, filter 0.3s ease, box-shadow 0.3s ease;
+}
+
 .main-background {
   background-image: url('../images/shiny1.webp');
   background-position: bottom center;
@@ -118,8 +128,16 @@ h1 {
   position: relative;
 }
 
+.bg-feature-card {
+  background: linear-gradient(20deg, #ffe0d3, white, white);
+}
+
 [data-bs-theme="contrast"] .main-background {
   background-image: none;
+}
+
+.svg-filter {
+  display: none;
 }
 
 /* Colorblind Filters */
