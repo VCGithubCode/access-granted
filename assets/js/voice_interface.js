@@ -3,10 +3,11 @@ let recognition;
 let isListening = false;
 let isProcessing = false;
 let fallbackTriggered = false;
+
 let currentExpression = "";
 let isStandbyMode = false;
 let lastSpokenPhrase = "";
-let recognitionActive = false;
+let recognitionActive = true;
 let noteDetails = {
     content: '',
     date: '',
@@ -14,6 +15,7 @@ let noteDetails = {
     remind: false,
     id: null // Adding ID to noteDetails
 };
+let notes = []; 
 let isCreatingNote = false;  // New flag to track note creation process
 let isDateTimeRequested = false;
 let isNoteSaved = false;
@@ -53,7 +55,16 @@ function calculateResult() {
         currentExpression = "";
     }
 }
-
+// Overlay click to start permissions and initial greeting
+function handleOverlayClick() {
+    console.log("Overlay clicked - initiating permission requests.");
+    requestVoicePermission();
+    speakResponse("Press enter to give your geolocation")
+    requestLocationPermission();
+    document.getElementById("permissionOverlay").style.display = "none";
+    const initialGreeting = `${getTimeBasedGreeting()}, I'm your help buddy. How can I assist you today?`;
+    responsiveVoice.speak(initialGreeting, "UK English Male");
+}
 
 // Store user location globally
 let userLocation = {};
@@ -73,51 +84,34 @@ const questionAnswerPairs = {
     "what can you do": "I can assist with various tasks, answer questions, and provide information.",
     "tell me a joke": "Why did the scarecrow win an award? Because he was outstanding in his field!",
 };
-let isAssistantSpeaking = false; 
-// Function to start or stop recognition based on the assistant's speaking state
+
+
+// Function to speak a response and manage listening state
 function speakResponse(responseText) {
+    console.log("Response Text:", responseText);
+
     // Disable recognition while the assistant speaks
     recognitionActive = false;
-    isAssistantSpeaking = true; // Set the assistant as speaking
-
-    // Log the response text being spoken
-    console.log("Response Text:", responseText);
 
     // Use responsiveVoice to speak the response
     responsiveVoice.speak(responseText, "UK English Male", {
         onstart: () => {
-            // Optionally log or take action when speaking starts
+            recognitionActive = false;  // Ensure recognition is off when assistant starts speaking
             console.log("Assistant is speaking...");
         },
         onend: () => {
             // Re-enable recognition after the assistant finishes speaking
-            recognitionActive = true; // Allow recognition to start again
-            isAssistantSpeaking = false; // Mark the assistant as done speaking
+            recognitionActive = true;  // Reactivate recognition once speaking is done
+            console.log("Assistant finished speaking. Listening again...");
+            // Restart recognition after speaking
+            if (recognition && !recognitionActive) {
+                recognition.start();  // Ensure recognition starts again after speaking
+            }
         }
     });
 
-    // Log that the response has been spoken
     console.log(`Help Buddy Response: ${responseText}`);
 }
-
-// Simplified function to stop recognition
-function stopRecognition() {
-    if (recognitionActive) {
-        recognition.stop(); // Stop recognition
-        recognitionActive = false; // Set flag to false
-        console.log("Speech recognition stopped.");
-    }
-}
-
-// Simplified function to start recognition again
-function startRecognition() {
-    if (!recognitionActive) {
-        recognition.start(); // Start recognition again
-        recognitionActive = true; // Set flag to true
-        console.log("Speech recognition started.");
-    }
-}
-
 
 function handleSpeechRecognition(transcript) {
     const recognizedPhrase = transcript.trim().toLowerCase();
@@ -167,15 +161,144 @@ function handleSpeechRecognition(transcript) {
 
     console.log("Help Buddy: Processing command:", recognizedPhrase);
 
-
-
-    // Handle greetings
-    if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || recognizedPhrase.includes("hey")) {
-        const greeting = `${getTimeBasedGreeting()}! How can I assist you today?`;
-        speakResponse(greeting);
-        recognitionActive = true;
+    if (isCreatingNote) {
+        if (noteDetails.content === '') {
+            noteDetails.content = recognizedPhrase; // First input is assumed to be the note content
+            const currentDate = new Date();
+            noteDetails.date = currentDate.toLocaleDateString();
+            noteDetails.time = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
+            noteDetails.id = Date.now(); // Unique ID based on the timestamp
+    
+            speakResponse("Got it. Do you want to add a reminder to this note?");
+        } else if (recognizedPhrase.includes("yes") && !noteDetails.remind) {
+            noteDetails.remind = true;
+            noteDetails.step = 'askDay'; // Start with asking for the day
+            speakResponse("What day of the month should I set the reminder for?");
+        } else if (noteDetails.remind) {
+            // Handle each step of the reminder setup
+            if (noteDetails.step === 'askDay') {
+                const day = parseInt(recognizedPhrase, 10);
+                if (!isNaN(day) && day > 0 && day <= 31) {
+                    noteDetails.reminderDay = day;
+                    noteDetails.step = 'askMonth';
+                    speakResponse("Got it. What month?");
+                } else {
+                    speakResponse("I didn't catch that. Please provide a valid day of the month.");
+                }
+            } else if (noteDetails.step === 'askMonth') {
+                const month = parseInt(recognizedPhrase, 10);
+                if (!isNaN(month) && month > 0 && month <= 12) {
+                    noteDetails.reminderMonth = month - 1; // Months are zero-based in JavaScript Date
+                    noteDetails.step = 'askYear';
+                    speakResponse("Got it. What year?");
+                } else {
+                    speakResponse("I didn't catch that. Please provide a valid month number between 1 and 12.");
+                }
+            } else if (noteDetails.step === 'askYear') {
+                const year = parseInt(recognizedPhrase, 10);
+                if (!isNaN(year) && year >= new Date().getFullYear()) {
+                    noteDetails.reminderYear = year;
+                    noteDetails.step = 'askHour';
+                    speakResponse("Got it. What hour?");
+                } else {
+                    speakResponse("I didn't catch that. Please provide a valid year.");
+                }
+            } else if (noteDetails.step === 'askHour') {
+                const hour = parseInt(recognizedPhrase, 10);
+                if (!isNaN(hour) && hour >= 0 && hour <= 23) {
+                    noteDetails.reminderHour = hour;
+                    noteDetails.step = 'askMinute';
+                    speakResponse("Got it. What minute?");
+                } else {
+                    speakResponse("I didn't catch that. Please provide a valid hour between 0 and 23.");
+                }
+            } else if (noteDetails.step === 'askMinute') {
+                const minute = parseInt(recognizedPhrase, 10);
+                if (!isNaN(minute) && minute >= 0 && minute <= 59) {
+                    noteDetails.reminderMinute = minute;
+    
+                    // Construct the final reminder date and time
+                    noteDetails.reminderDateTime = new Date(
+                        noteDetails.reminderYear,
+                        noteDetails.reminderMonth,
+                        noteDetails.reminderDay,
+                        noteDetails.reminderHour,
+                        noteDetails.reminderMinute
+                    ).toISOString();
+    
+                    // Save and finalize the note
+                    isCreatingNote = false;
+                    saveNoteToLocalStorage({ ...noteDetails });
+                    displayNotes();
+                    speakResponse(`Your note has been saved with a reminder on ${new Date(noteDetails.reminderDateTime).toLocaleString()}.`);
+                    console.log("Note created with reminder:", noteDetails);
+                } else {
+                    speakResponse("I didn't catch that. Please provide a valid minute between 0 and 59.");
+                }
+            }
+        } else if (recognizedPhrase.includes("no")) {
+            noteDetails.remind = false;
+            isCreatingNote = false; // Note creation process ends
+            saveNoteToLocalStorage({ ...noteDetails });
+            speakResponse(`Your note has been saved: "${noteDetails.content}" on ${noteDetails.date} at ${noteDetails.time}.`);
+            console.log("Note created:", noteDetails);
+        } else {
+            speakResponse("I didn't catch that. Please say 'yes' to add a reminder or 'no' to skip it.");
+        }
         return;
     }
+    
+
+// Trigger note creation mode
+if (
+    recognizedPhrase.includes("create a note") ||
+    recognizedPhrase.includes("start a note") ||
+    recognizedPhrase.includes("make a note")
+) {
+    isCreatingNote = true; // Enter note creation mode
+    noteDetails = {
+        content: '',
+        date: '',
+        time: '',
+        remind: false,
+        id: null
+    }; // Reset note details
+    speakResponse("Sure, what would you like to note down?");
+    return;
+}
+
+// Handle other commands (e.g., reading notes)
+if (
+    recognizedPhrase.includes("show notes") ||
+    recognizedPhrase.includes("list notes") ||
+    recognizedPhrase.includes("read my notes")
+) {
+    if (notes.length === 0) {
+        speakResponse("You don't have any saved notes.");
+    } else {
+        const notesSummary = notes
+            .map((note, index) => `Note ${index + 1}: ${note.content}, recorded on ${note.date} at ${note.time}. Reminder: ${note.remind ? "Yes" : "No"}.`)
+            .join(" ");
+        speakResponse(`Here are your notes: ${notesSummary}`);
+        console.log("Notes list:", notes);
+    }
+    return;
+}
+
+// Handle greetings
+if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || recognizedPhrase.includes("hey")) {
+    recognitionActive = false; // Pause recognition while speaking
+    const greeting = `${getTimeBasedGreeting()}! How can I assist you today?`;
+    
+    speakResponse(greeting);
+
+    // Resume recognition after speaking
+    setTimeout(() => {
+        recognitionActive = false;
+        console.log("Recognition reactivated after greeting.");
+    }, 2000); // Adjust timeout duration to match speaking time
+    return;
+}
 
     // Handle general weather queries
     if (recognizedPhrase.includes("weather")) {
@@ -330,25 +453,9 @@ function handleSpeechRecognition(transcript) {
         speakResponse(timeMessage);
         return;
     }
-    // Process note creation
-    if (isNoteProcessActive) {
-        handleNoteCreationProcess(recognizedPhrase);
-        return;
-    }
+   
 
-    // Handle "make note", "buddy make note", etc.
-    if (
-        recognizedPhrase.includes("make note") ||
-        recognizedPhrase.includes("make a note") ||
-        recognizedPhrase.includes("make a plan") ||
-        recognizedPhrase.includes("make a reminder") ||
-        recognizedPhrase.includes("buddy make note") ||
-        recognizedPhrase.includes("create note") ||
-        recognizedPhrase.includes("take note")
-    ) {
-        startNoteCreation();
-        return;
-    }
+   
 
     // Handle predefined question-answer pairs
     for (const [question, answer] of Object.entries(questionAnswerPairs)) {
@@ -377,7 +484,7 @@ function handleSpeechRecognition(transcript) {
 
 function activateStandbyMode() {
     isStandbyMode = true;  // Set standby mode to true
-    recognitionActive = false;  // Mark recognition as inactive
+    recognitionActive = true;  // Mark recognition as inactive
     console.log("Standby Mode: Activated. No voice commands will be processed.");
 
     // Stop speech recognition or any listening mechanism
@@ -419,6 +526,78 @@ function deactivateStandbyMode() {
     }
 
     responsiveVoice.speak("I m back. How can i help?", "UK English Male");
+}
+
+
+function requestVoicePermission() {
+    // Check if SpeechRecognition is supported
+    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
+        alert("Speech recognition is not supported in this browser.");
+        return;
+    }
+
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
+    recognition.continuous = true;  // Keeps listening for commands until stopped
+    recognition.lang = 'en-US';
+
+    recognition.onstart = () => {
+        isListening = true;
+        console.log("Help Buddy is now listening...");
+    };
+
+    recognition.onresult = (event) => {
+        const transcript = event.results[event.resultIndex][0].transcript.trim().toLowerCase();
+        console.log("Recognized phrase:", transcript);
+        handleSpeechRecognition(transcript);
+    };
+
+    recognition.onerror = (error) => {
+        console.error("Speech recognition error:", error);
+        if (error.error !== 'not-allowed') {
+            recognition.start();  // Restart recognition if it fails (except for "not-allowed")
+        }
+    };
+
+    recognition.onend = () => {
+        if (recognitionActive) {
+            console.log("Recognition ended. Restarting...");
+            recognition.start();  // Restart recognition if needed
+        }
+    };
+
+    // Start recognition only if it's not already active
+    if (recognition && recognition.state !== "active") {
+        recognition.start();
+        console.log("SpeechRecognition started.");
+    }
+}
+// Function to stop listening if needed
+function stopListening() {
+    if (recognition) {
+        isListening = false;
+        recognition.stop();
+        console.log("Help Buddy stopped listening.");
+    }
+}
+
+// Function to request location permission and save user location
+function requestLocationPermission() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition((position) => {
+            const { latitude, longitude } = position.coords;
+            userLocation = { lat: latitude, lon: longitude }; // Save user location
+            localStorage.setItem("locationPermissionGranted", true);
+            localStorage.setItem("userLocation", JSON.stringify(userLocation));
+            console.log(`Location granted: Lat: ${latitude}, Lon: ${longitude}`);
+        }, (error) => {
+            console.error("Location permission error:", error);
+
+            alert("Location access is required for weather functionality.");
+        });
+    } else {
+        alert("Geolocation is not supported by this browser.");
+    }
 }
 
 // Function to get weather for the current location or forecast
@@ -491,100 +670,6 @@ function fetchForecast(latitude, longitude) {
         });
 }
 
-// Function to request voice (speech recognition) permission
-function requestVoicePermission() {
-    if (!('webkitSpeechRecognition' in window) && !('SpeechRecognition' in window)) {
-        alert("Speech recognition is not supported in this browser.");
-        return;
-    }
-
-    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
-    recognition = new SpeechRecognition();
-    recognition.continuous = true;  // Keep recognition running continuously
-    recognition.lang = 'en-US';  // Set language to English
-
-    // Event when speech recognition starts
-    recognition.onstart = () => {
-        isListening = true;
-        console.log("Help Buddy is now listening...");
-    };
-
-    // Event when recognition gets a result
-    recognition.onresult = (event) => {
-        const transcript = event.results[event.resultIndex][0].transcript.trim().toLowerCase();
-        console.log("Recognized phrase:", transcript);
-        handleSpeechRecognition(transcript);
-    };
-
-    // Error handling for speech recognition
-    recognition.onerror = (error) => {
-        console.error("Speech recognition error:", error);
-
-        // Handle specific error types
-        if (error.error === 'no-speech') {
-            console.log("No speech detected. Retrying...");
-        } else if (error.error === 'audio-capture') {
-            console.log("Audio capture failed. Please check your microphone.");
-        } else if (error.error === 'not-allowed') {
-            console.log("Permission denied for speech recognition.");
-        }
-
-        // Restart recognition in case of error, except for 'not-allowed' error
-        if (error.error !== 'not-allowed') {
-            recognition.start();
-        }
-    };
-
-    // Event when recognition stops (either due to errors or natural end)
-    recognition.onend = () => {
-        if (isListening) {
-            console.log("Recognition ended. Restarting...");
-            recognition.start();  // Automatically restart recognition to keep listening
-        }
-    };
-
-    // Start the speech recognition process
-    recognition.start();
-}
-
-// Function to stop listening if needed
-function stopListening() {
-    if (recognition) {
-        isListening = false;
-        recognition.stop();
-        console.log("Help Buddy stopped listening.");
-    }
-}
-
-// Function to request location permission and save user location
-function requestLocationPermission() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition((position) => {
-            const { latitude, longitude } = position.coords;
-            userLocation = { lat: latitude, lon: longitude }; // Save user location
-            localStorage.setItem("locationPermissionGranted", true);
-            localStorage.setItem("userLocation", JSON.stringify(userLocation));
-            console.log(`Location granted: Lat: ${latitude}, Lon: ${longitude}`);
-        }, (error) => {
-            console.error("Location permission error:", error);
-
-            alert("Location access is required for weather functionality.");
-        });
-    } else {
-        alert("Geolocation is not supported by this browser.");
-    }
-}
-
-// Overlay click to start permissions and initial greeting
-function handleOverlayClick() {
-    console.log("Overlay clicked - initiating permission requests.");
-    requestVoicePermission();
-    speakResponse("Press enter to give your geolocation")
-    requestLocationPermission();
-    document.getElementById("permissionOverlay").style.display = "none";
-    const initialGreeting = `${getTimeBasedGreeting()}, I'm your help buddy. How can I assist you today?`;
-    responsiveVoice.speak(initialGreeting, "UK English Male");
-}
 function handleCalculatorCommand(command) {
     const calcResultElement = document.getElementById("calc-result");
     voicePermissionGranted = true;
@@ -674,114 +759,8 @@ function toggleCalculator(show) {
 }
 
 
-/** PLANNER SECTION */
 
-// Start the note creation process
-function startNoteCreation() {
-    // Only start if a note process is not already active
-    if (!isNoteProcessActive) {
-        isNoteProcessActive = true;  // Mark the note creation process as active
-        isCreatingNote = false;  // Reset the creating note flag to ensure proper flow
-        speakResponse("Ok! let's see,...");
-    }
-}
 
-// Function to handle the note creation process
-function handleNoteCreationProcess(recognizedPhrase) {
-    if (recognitionActive) {  // Ensure that recognition only happens when it's active
-        if (isNoteProcessActive && !isCreatingNote) {
-            isCreatingNote = true;
-            speakResponse("What would you like to note down?"); // Ask for note content
-            return;
-        }
-
-        // Step 1: Collect note content
-        if (!isNoteSaved && !noteDetails.content) {
-            // If no note content is set yet, use the recognized phrase
-            noteDetails.content = recognizedPhrase.trim();
-            speakResponse(`You said: "${noteDetails.content}". Is that correct?`);
-            return;
-        }
-
-        // Step 2: Confirm the note content (when recognized phrase is "yes" or "no")
-        if (!isNoteSaved) {
-            if (recognizedPhrase.toLowerCase().includes("yes")) {
-                // If user confirms, save the note
-                speakResponse("Note content confirmed.");
-                const currentDate = new Date();
-                noteDetails.date = currentDate.toLocaleDateString();
-                noteDetails.time = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
-                saveNoteToLocalStorage(noteDetails);  // Save to local storage
-                displayNotes();  // Update notes display
-                isNoteSaved = true;
-                //askForDateAndTime(); // Optionally ask for date and time
-                return;
-            } else if (recognizedPhrase.toLowerCase().includes("no")) {
-                // If user says no, reset content and start over
-                noteDetails.content = '';  // Reset note content
-                speakResponse("Okay, let's start over. What is the note about?");
-                return;
-            }
-        }
-    }
-}
-// Function to ask the user if they want to set the date and time
-function askForDateAndTime() {
-    isDateTimeRequested = true;
-    speakResponse("Do you want to set a date and time for this note? Say 'yes' or 'no'.");
-}
-
-// Function to handle the response from the user regarding date and time
-function handleDateAndTimeResponse(recognizedPhrase) {
-    if (recognizedPhrase.includes("yes")) {
-        speakResponse("Please say the date and time you want to set for this note.");
-        return;
-    } else if (recognizedPhrase.includes("no")) {
-        speakResponse("Your note is finalized without a date and time.");
-        isDateTimeRequested = false;
-        return;
-    }
-}
-
-// Function to capture and update the date and time
-function captureDateAndTime(recognizedPhrase) {
-    // Check if the recognized phrase is a date and time (e.g., "second November 10:30")
-    const dateTimePattern = /\b(\d{1,2})(st|nd|rd|th)?\s+([a-zA-Z]+)\s+(\d{1,2}:\d{2}|\d{1,2}:\d{2}\s?(AM|PM)?)\b/;
-    const match = recognizedPhrase.match(dateTimePattern);
-
-    if (match) {
-        // Extract and format the date and time
-        const day = match[1];
-        const month = match[3];
-        const time = match[4];
-
-        // Here, you can add logic to convert "second November" to an actual date format
-        const date = `${day} ${month}`;
-        updateNoteDateAndTime(date, time);
-
-        speakResponse(`The date and time for your note has been set to ${date} at ${time}.`);
-        isDateTimeRequested = false;
-        return;
-    } else {
-        // If no valid date/time is provided, finalize the note
-        speakResponse("Your note is finalized without a date and time.");
-        isDateTimeRequested = false;
-    }
-}
-
-// Function to update the note with date and time
-function updateNoteDateAndTime(date, time) {
-    let notes = JSON.parse(localStorage.getItem('notes')) || [];
-
-    const noteIndex = notes.findIndex(note => note.id === noteDetails.id);
-    if (noteIndex !== -1) {
-        notes[noteIndex].date = date;
-        notes[noteIndex].time = time;
-        localStorage.setItem('notes', JSON.stringify(notes)); // Save the updated array
-        displayNotes(); // Refresh the displayed notes
-    }
-}
-// Function to save the note to localStorage
 function saveNoteToLocalStorage(note) {
     let notes = JSON.parse(localStorage.getItem('notes')) || [];
 
@@ -793,23 +772,38 @@ function saveNoteToLocalStorage(note) {
 
 // Function to display all notes from localStorage
 function displayNotes() {
-    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+    const notes = JSON.parse(localStorage.getItem('notes')) || []; // Retrieve notes from localStorage or initialize an empty array
 
     const notesList = notes.map(note => {
+        // Check if the note has a reminder and format it
+        const reminderDetails = note.reminderDateTime
+            ? `<strong>Reminder:</strong> ${new Date(note.reminderDateTime).toLocaleString()}<br>`
+            : '';
+
         return `
-            <li style="margin-bottom: 15px;">
+            <li style="margin-bottom: 15px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
                 <p>
                     <strong>Note #${note.id}:</strong><br>
                     <strong>Content:</strong> ${note.content}<br>
-                    <strong>Date:</strong> ${note.date}<br>
-                    <strong>Time:</strong> ${note.time}
+                    <strong>Created on:</strong> ${note.date} at ${note.time}<br>
+                    ${reminderDetails}
                 </p>
-                <button onclick="editNote(${note.id})">Edit</button>
+                <button onclick="editNote(${note.id})" style="margin-right: 10px;">Edit</button>
+                <button onclick="deleteNote(${note.id})">Delete</button>
             </li>
         `;
-    }).join('');
+    }).join(''); // Combine all list items into a single string
 
-    document.getElementById('organizer-output').innerHTML = notesList;
+    // Display notes or a placeholder message if no notes are available
+    document.getElementById('organizer-output').innerHTML = notesList || '<p>No notes available. Create one to get started!</p>';
+}
+
+// Function to delete a note
+function deleteNote(noteId) {
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+    const updatedNotes = notes.filter(note => note.id !== noteId); // Remove the note with the matching ID
+    localStorage.setItem('notes', JSON.stringify(updatedNotes)); // Save the updated notes array back to localStorage
+    displayNotes(); // Refresh the notes list
 }
 
 // Initially load and display all notes when the page is loaded
