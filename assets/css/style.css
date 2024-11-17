@@ -547,6 +547,26 @@ nav li {
   text-align: center;
 }
 
+
+/* Error-background */
+.error-background {
+  background-image: url(../images/person-with-glasses1.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  padding: 50px;
+  border-radius: 15px;
+
+}
+
+.error-container {
+  border: 1px solid #000000;
+  border-radius: 12px;
+  padding: 1em; 
+  font-weight: 900;
+  
+}
+
 /* Responsiveness */
 @media (max-width: 576px) {
   .flip-card {
