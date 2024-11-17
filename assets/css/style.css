@@ -418,13 +418,45 @@ header {
 }
 
 .offcanvas-body li {
-  border: 2px solid #f0f0f0;
+  border: 1px solid #898989;
   padding: 1rem;
   border-radius: 5px;
 }
 
 .offcanvas-body li .form-check {
   margin-bottom: 0;
+}
+
+.btn-check + .btn {
+  background-color: #e0e0e0;
+  color: #000;
+}
+
+.btn-check:hover + .btn {
+  background-color: #238b441a;
+  color: var(--bs-body-color-rgb);
+}
+
+.btn-check:checked + .btn,
+.btn-check:focus + .btn {
+  background-color: var(--bs-primary);
+  color: #fff;
+}
+
+[data-bs-theme="contrast"] .btn-check + .btn {
+  background-color: #333;
+  color: #fff;
+}
+
+[data-bs-theme="contrast"] .btn-check:hover + .btn {
+  background-color: #555;
+  color: #fff;
+}
+
+[data-bs-theme="contrast"] .btn-check:checked + .btn,
+[data-bs-theme="contrast"] .btn-check:focus + .btn {
+  background-color: #000;
+  color: #fff;
 }
 
 /* Footer styles */
