@@ -547,6 +547,25 @@ nav li {
   text-align: center;
 }
 
+/* About page background */
+.body-background {
+  background-image: url('../images/shiny1.webp');
+  background-position: bottom center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  position: relative;
+}
+
+/* Linkedin buttons */
+.linkedin {
+  background: #0d6efd;
+  color: #ffffff;
+} 
+
+.linkedin:hover {
+  background: #ffffff;
+  color: #0d6efd;
 
 /* Error-background */
 .error-background {
@@ -564,7 +583,6 @@ nav li {
   border-radius: 12px;
   padding: 1em; 
   font-weight: 900;
-  
 }
 
 /* Responsiveness */
