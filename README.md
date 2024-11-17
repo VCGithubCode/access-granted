@@ -7,7 +7,7 @@
 ---
 
 
-![image](https://github.com/user-attachments/assets/1a642ceb-2125-4901-8424-2d3eeed5b0c5)
+![image](assets/images/readme./responcive.png)
 
 Access Granted - GitHub repository: [GitHub repository](https://github.com/VCGithubCode/access-granted/tree/as-accssesOk-branch)
 
@@ -20,7 +20,7 @@ This project aims to create websites that are accessible and usable by everyone,
 
 This project aims to empower developers to implement features and structures that adhere to accessibility standards (such as WCAG), making digital content inclusive for all users.
 
-# Criteria of Success
+# Criteria 
 
 The "Access Granted" project aims to make the web more accessible for all users, focusing on features like voice assistance, dyslexia-friendly fonts, and high-contrast modes for users with visual impairments. The site incorporates customizable accessibility settings, including font size adjustments, dyslexia-friendly fonts, colorblind modes, and high-contrast themes to enhance the user experience. It is dedicated to breaking down barriers and creating an inclusive, user-friendly digital environment.
 
@@ -40,24 +40,29 @@ The "Access Granted" project aims to make the web more accessible for all users,
 ## Content
 
 * [Access Granted](#access-granted)
-* [Introduction](#introduction)
+* [Project Overview](#project-overview)
 * [Criteria](#criteria)
 * [Goal & UX](#goal--ux)
 * [Website Structure](#website-structure)
   * [Landing Page](#landing-page)
-  * [Explore Page](#explore-page)
-  * [Contact Page](#contact)
+  * [Resources](#resources)
+  * [About Us](#about-us)
+  * [Contact Page](#contact-page)
   * [Responsiveness](#responsiveness)
-* [TWireframes](#wareframes)
+* [Wireframes](#wireframes)
 * [Development Process](#development-process)
   * [Agile Methodology](#agile-methodology)
   * [Collaboration Tools](#collaboration-tools)
   * [Programming paradigms](#programming-paradigms)
+* [Features](#features)
+  * [Technologies Used](#technologies-used)
+  * [Testing](#testing)
+* [Future Adding](#future-adding)
 * [Prerequisites and Deployment](#prerequisites-and-deployment)
   * [Forking](#forking)
   * [Making a Local Clone](#making-a-local-clone)
   * [Obtaining EmailJS API](#obtaining-emailjs-api)
-* [Credits and Acknowledgements](#credits-and-acknowledgements)
+* [Acknowledgements](#acknowledgements)
 
 
 # Goal & UX
@@ -97,7 +102,7 @@ The "Access Granted" project aims to make the web more accessible for all users,
 
 ## Landing Page
 
-![image](https://github.com/user-attachments/assets/d69ac759-d3ae-4605-ad29-ad1b5c4f8581)
+![image](assets/images/readme./main.png)
 
 ## Key Features
 
@@ -135,9 +140,9 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
-## Explore Page
+## Resources
 
-![image](https://github.com/user-attachments/assets/cd6896f2-3d34-4fe5-876a-717e9ab5ca87)
+![image](assets/images/readme./resourses.png)
 
 ## Key features
 
@@ -184,6 +189,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 # About Us
 
+![image]()
 ## Who We Are
 - Welcome to Access Granted! We are a dynamic team of passionate developers and innovators with a shared vision: to make the web more accessible and inclusive for everyone. Our project is a testament to the power of collaboration, bringing together diverse skills and perspectives to create an online experience that truly caters to all users, regardless of their abilities.
 
@@ -198,7 +204,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ### Role: Project Management & Coordination
 - GitHub: [VCGithubCode](https://github.com/VCGithubCode)
-- LinkedIn: Vernell's LinkedIn
+- LinkedIn: [Vernell's LinkedIn](https://www.linkedin.com/in/vernell-clark-swe/)
 
 ## 🎙️ Nikola Simic — Voice Assistant Developer
 - Nikola has played a pivotal role in developing our voice assistant feature, making our website more accessible for users with visual impairments or those who prefer audio navigation. His innovative thinking and dedication to enhancing user experience have been invaluable.
@@ -248,8 +254,8 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 - Ahmad took the lead in designing and creating this very page. His dedication to highlighting the team's contributions and presenting a cohesive narrative has made the About Us section a central part of our website’s storytelling.
 
 ### Role: Content Creation & Page Design
-- GitHub: AhmadAlHindi
-- LinkedIn: [Ahmad's LinkedIn](https://github.com/Ahmadalhindi)
+- GitHub: [AhmadAlHindi](https://github.com/Ahmadalhindi)
+- LinkedIn: [Ahmad's LinkedIn](https://www.linkedin.com/in/ahmad-al-hindi-899877108/)
 
 
 Our Commitment to Accessibility
@@ -270,12 +276,31 @@ Let’s make the internet accessible for all — together.
 
 ## Contact Page
 
-![image](https://github.com/user-attachments/assets/256309b8-36d2-49f7-b48d-2a5db493aa82)
+![image]()
 
 The page provides a user-friendly Contact Us form along with accessibility features, making it easy for users to get in touch while ensuring a smooth experience for people with different accessibility needs. The layout is responsive, thanks to Bootstrap, and includes tools to adjust the design for better accessibility.
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
+## Accessibility Guide
+
+![image]()
+
+## Key Features:
+### Accessibility Settings Sidebar:
+
+- Users can adjust font size, enable a dyslexic-friendly font, toggle high-contrast mode, and switch on various colorblind modes.
+Offers options to simplify the layout and enable voice control for easier navigation.
+Accessibility Guide Content:
+
+- Detailed explanations of each feature, like keyboard navigation, voice control, and colorblind adjustments, aimed at improving user experience for those with visual, cognitive, or motor impairments.
+Navigation and Structure:
+
+- Clear navigation with skip links, a responsive menu, and a footer providing quick access to social links and the site map.
+Uses semantic HTML elements for improved screen reader compatibility.
+
+
+*<span style="color: blue;">[Back to Content](#content)</span>*
 
 
 ### Responsiveness
@@ -285,18 +310,19 @@ Please visit [Link](https://ui.dev/amiresponsive?url=https://vcgithubcode.github
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
-## Design
+# Wireframes
 
-- ### Wireframes
-
- - ###Landing Page
    
-![image](https://github.com/user-attachments/assets/9925db0b-d5ab-414c-aa31-470cd11068da)
+![image](assets/images/readme./body.png)
 
-![image](https://github.com/user-attachments/assets/bcf63084-a3cd-4905-a4ad-c546a9fa44bb)
+Also contains sidebar!
 
-- ### Contact Page
-![image](https://github.com/user-attachments/assets/75b21e83-f92f-4b8e-93d1-645b72a8ab0d)
+![image](assets/images/readme./side-bar.png)
+
+For smaller screens including mobile header contains burger menu!
+
+![image](assets/images/readme./mobile.png)
+
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
@@ -306,11 +332,72 @@ The development of our project is guided by a structured yet adaptable approach,
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
-### Agile Methodology
+# Agile Methodology
 
-Our project follows the Agile methodology, a framework that enables us to tackle the inherent unpredictability of software development through incremental, iterative work cycles, known as sprints. This approach promotes adaptability and allows us to respond quickly to changes, which is crucial in the fast-paced world of software development.
+## Sprint Process and Team Workflow
+At the beginning of each sprint, our team conducts Sprint Planning to set the course for the upcoming work. This process includes:
 
-At the beginning of each sprint, our team conducts sprint planning to set the course for the upcoming work. This includes prioritizing the product backlog to address the most important tasks first, establishing clear sprint goals aligned with project milestones, and assigning tasks based on expertise and workload. During development, we carefully manage trade-offs between scope, quality, time, and resources to ensure a balance between delivering high-quality work and meeting deadlines. By adopting Agile methodologies, we stay adaptable and focused, ensuring that we meet user needs while striving for excellence.
+- Prioritizing the Product Backlog: We ensure the most important tasks are addressed first, focusing on features and improvements that bring the most value to users.
+- Setting Sprint Goals: Clear goals are established, aligned with project milestones, to provide direction and ensure we stay on track.
+- Assigning Tasks: Tasks are distributed based on each team member’s expertise and workload to promote efficiency and collaboration.
+Throughout the sprint, we carefully manage trade-offs between scope, quality, time, and resources. Our aim is to deliver high-quality work while meeting deadlines and user needs. By adopting Agile methodologies, we remain adaptable, focused, and committed to continuous improvement.
+
+## Task Prioritization Using MOSCOW
+Tasks are organized using the MOSCOW method, which helps us prioritize and manage our work effectively:
+
+- Must Have: Essential features or tasks that are critical for the success of the project and must be completed in the current sprint.
+Should Have: Important tasks that are not essential but should be completed if possible, as they will improve the user experience or functionality.
+- Could Have: Tasks that are nice to have but are not critical. These may be included if there is time available after the must-have and should-have tasks are completed.
+- Won’t Have: Tasks that are not a priority for the current sprint and will be deferred or removed from the current scope.
+This prioritization technique allows us to focus on the most important tasks first, ensuring that we are always addressing the highest-value work.
+
+## Team Meetings Summary
+### First Team Meeting:
+
+Our first team meeting took place with Vernell, Nicola, and Ben, where we introduced ourselves and discussed the project's objectives. In this session, we:
+
+- Planned the project schedule.
+- Decided on a team name. Initially, it was "Access Ok," but after a team vote, it was changed to "Access Granted."
+- Brainstormed ideas for our project’s page. The first suggestion was to create a platform for people with visual impairments, incorporating voice control and vision accessibility. Vernell later proposed expanding the concept to include options for individuals with dyslexia, enhancing the project's inclusivity.
+
+### Second Team Meeting:
+
+The following day, new team members joined us. During this meeting, we:
+
+- Introduced ourselves and shared our skills and availability.
+- Assigned tasks and responsibilities to ensure a smooth workflow and alignment of efforts across the team.
+
+### Ongoing Daily Meetings:
+
+After the initial meetings, our team continued with two daily sessions:
+
+- Sprint Planning Meeting (10:00 AM): During this meeting, we:
+
+- - Provide status updates on tasks.
+- - Assign or reassign tasks based on each team member’s progress and workload.
+
+- Retrospective Meeting (6:00 PM): 
+- - At the retrospective, we reflect on the sprint, evaluate what went well, and identify areas for improvement to ensure smoother workflows and a more efficient development process.
+
+### Informal Meetings:
+
+Throughout the day, team members can meet informally and make decisions without the presence of the full team or SCRUM lead. These meetings are facilitated through Slack, where status updates on tasks are shared, and decisions are communicated to keep the project board updated.
+
+## Kanban Board for Task Management
+To manage and visualize the workflow, we use a Kanban board. This tool helps us track the progress of tasks across different stages of development. Tasks are moved through the following columns:
+
+- To Do: Tasks that need to be started.
+- In Progress: Tasks that are currently being worked on.
+- Review: Completed tasks that are being reviewed or tested.
+- Done: Fully completed tasks.
+By using the Kanban board, we ensure that tasks are organized and transparent, making it easy for team members to see the overall project status and ensure that work is progressing smoothly.
+
+## MVP Focus and Collaboration
+In the early stages, the team worked towards creating a Minimum Viable Product (MVP). As the team adjusted to working together, we found our balance, rhythm, and flow state. Over time, we transitioned from working individually to collaborating more closely, solving problems together, and helping each other complete tasks effectively.
+
+
+
+
 
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
@@ -335,21 +422,31 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 - ## Technologies Used
 
 
-- [![Git](https://img.shields.io/badge/Git-grey?logo=git&logoColor=F05032)](https://git-scm.com) used for version control. (`git add`, `git commit`, `git push`)
-- [![GitHub](https://img.shields.io/badge/GitHub-grey?logo=github&logoColor=181717)](https://github.com) used for secure online code storage.
-- [![Gitpod](https://img.shields.io/badge/Gitpod-grey?logo=gitpod&logoColor=FFAE33)](https://gitpod.io) used as a cloud-based IDE for development.
-- [![VSCode](https://img.shields.io/badge/VSCode-grey?logo=htmx&logoColor=007ACC)](https://code.visualstudio.com) used as a local IDE for development.
-- [![HTML](https://img.shields.io/badge/HTML-grey?logo=html5&logoColor=E34F26)](https://en.wikipedia.org/wiki/HTML) used for the main site content.
-- [![CSS](https://img.shields.io/badge/CSS-grey?logo=css3&logoColor=1572B6)](https://en.wikipedia.org/wiki/CSS) used for the main site design and layout.
-- [![JavaScript](https://img.shields.io/badge/JavaScript-grey?logo=javascript&logoColor=F7DF1E)](https://www.javascript.com) used for user interaction on the site.
-- [![Bootstrap](https://img.shields.io/badge/Bootstrap-grey?logo=bootstrap&logoColor=7952B3)](https://getbootstrap.com) used as the front-end CSS framework for modern responsiveness and pre-built components.
-- [![Font Awesome](https://img.shields.io/badge/Font_Awesome-grey?logo=fontawesome&logoColor=528DD7)](https://fontawesome.com) used for the icons.
-- [![ChatGPT](https://img.shields.io/badge/ChatGPT-grey?logo=chromatic&logoColor=75A99C)](https://chat.openai.com) used to help debug, troubleshoot, and explain things.
+| Source                                                                                                               | Location       | Notes                        |
+| -------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
+| [Git](https://git-scm.com) |Acros website|used for version control.(`git add`, `git commit`, `git push`)
+|[GitHub](https://github.com)||used for secure online code storage.
+|[Gitpod](https://gitpod.io)||used as a cloud-based IDE for development.
+|[VSCode](https://code.visualstudio.com)||used as a local IDE for development.
+|[HTML](https://en.wikipedia.org/wiki/HTML)||used for the main site content.
+|[CSS](https://en.wikipedia.org/wiki/CSS)||used for the main site design and layout.
+|[JavaScript](https://www.javascript.com)||used for user interaction on the site.
+| [YouTube](https://www.youtube.com/)                                                                                  | Acros website  | Tutorial for troubleshouting |
+| [Font Awesome](https://fontawesome.com/)                                                                             | Across website | Inspiration for icons        |
+| [Fonts Google](https://fonts.google.com/)                                                                            | Across website | Font selection               |
+| [Coolors](https://coolors.co/)                                                                                       | Across website | Colour palette selection     |
+| [W3Schools](https://www.w3schools.com/)                                                                              | Across website | Various help pages           |
+| [Lucid.App](https://lucid.app/documents#/documents?folder_id=home)                                                   | Across website | Wireframes creation          |
+| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | used as the front-end CSS framework for modern responsiveness and pre-built components.   |
+| [Email.js](https://www.emailjs.com/)                                                                                 | Across website | For replying to users contact|
+| [tiny.png](https://tinypng.com/)                                                                                     | Across website | For image convertion         |
+| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
+| [ChatGPT](https://chat.openai.com)                                         | Across website | Used to help debug, troubleshoot, and explain things.                |
+|[DeepAI](https://deepai.org/)||Website for creation Avatars
+|[cloudconvert](https://cloudconvert.com/)||To convert jpg pictures
+|[Lucid.app](https://lucid.app/)||Used to create Wireframes
 
 ## Testing
-
-
-### Further Testing
 
 
 # Future adding
@@ -486,19 +583,7 @@ emailjs.send(serviceID, templateID, templateParams, options);
 
 
 
-| Source                                                                                                               | Location       | Notes                        |
-| -------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
-| [YouTube](https://www.youtube.com/)                                                                                  | Acros website  | Tutorial for troubleshouting |
-| [Font Awesome](https://fontawesome.com/)                                                                             | Across website | Inspiration for icons        |
-| [Fonts Google](https://fonts.google.com/)                                                                            | Across website | Font selection               |
-| [Coolors](https://coolors.co/)                                                                                       | Across website | Colour palette selection     |
-| [W3Schools](https://www.w3schools.com/)                                                                              | Across website | Various help pages           |
-| [Lucid.App](https://lucid.app/documents#/documents?folder_id=home)                                                   | Across website | Wireframes creation          |
-| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Css Layout, styling, Icons   |
-| [Email.js](https://www.emailjs.com/)                                                                                 | Across website | For replying to users contact|
-| [tiny.png](https://tinypng.com/)                                                                                     | Across website | For image convertion         |
-| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
-| [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
+
 
 
 

@@ -45,7 +45,7 @@
       }
 
       themeSwitch.checked = theme === "contrast";
-      themeLabel.textContent = theme === "contrast" ? "Turn off High Contrast Mode" : "Turn on High Contrast Mode";
+      themeLabel.textContent = theme === "contrast" ? "Turn off High Contrast" : "Turn on High Contrast";
     });
   };
 
