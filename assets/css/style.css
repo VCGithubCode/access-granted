@@ -273,7 +273,7 @@ header {
 }
 
 .resources-voice-article {
-  background-color: #f0f8ff;
+  background: linear-gradient(to top, #f0f8ff 80%, transparent);
 }
 
 .resources-dyslexia-article {
@@ -285,6 +285,7 @@ header {
 }
 
 [data-bs-theme="contrast"] .resources-voice-article {
+  background: transparent;
   background-color: transparent;
 }
 
