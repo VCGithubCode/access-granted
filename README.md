@@ -214,7 +214,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ### Role: Voice Interface Development
 - GitHub: [nlekkerman](https://github.com/nlekkerman)
-- LinkedIn: Nicola's's LinkedIn
+- LinkedIn: [Nicola's's LinkedIn](https://www.linkedin.com/in/nikola-simic-674862110/)
 
 ## 📊 Benjamin Schäfer — Research & Page Layout Specialist
 - Benjamin’s expertise in research and design has helped shape the overall look and feel of our site. His attention to detail and commitment to accessibility principles ensure our content is both aesthetically pleasing and user-friendly.
@@ -251,7 +251,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ### Role: Site Navigation & Support Features
 - GitHub: [JamesBracken](https://github.com/JamesBracken)
-- LinkedIn: Vernell's LinkedIn
+- LinkedIn: [Vernell's LinkedIn](https://www.linkedin.com/in/christopher-bracken-0b7263314/)
 
 ## 🌐 Ahmad Al Hindi — About Page Specialist
 - Ahmad took the lead in designing and creating this very page. His dedication to highlighting the team's contributions and presenting a cohesive narrative has made the About Us section a central part of our website’s storytelling.
