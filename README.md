@@ -336,7 +336,7 @@ Let’s make the internet accessible for all — together.
 
 ## Contact Page
 
-![image]()
+![image](assets/images/readme/contac.png)
 
 The page provides a user-friendly Contact Us form along with accessibility features, making it easy for users to get in touch while ensuring a smooth experience for people with different accessibility needs. The layout is responsive, thanks to Bootstrap, and includes tools to adjust the design for better accessibility.
 
@@ -370,7 +370,7 @@ For smaller screens including mobile header contains burger menu!
 
 ## Development Process
 
-The development of our project is guided by a structured yet adaptable approach, allowing us to respond to changes and feedback while staying focused on our objectives. Our methodology prioritizes collaboration, iterative progress, and transparency, both within the development team and with our stakeholders. [canvas](https://code-institute-room.slack.com/canvas/C080JB3ETHU)
+The development of our project is guided by a structured yet adaptable approach, allowing us to respond to changes and feedback while staying focused on our objectives. Our methodology prioritizes collaboration, iterative progress, and transparency, both within the development team and with our stakeholders. [Canvas Linka](https://code-institute-room.slack.com/canvas/C080JB3ETHU) [Timetable-Spread-Sheet](https://docs.google.com/spreadsheets/d/1kSje2-_5VTnPjMLzmP3im51LTZMLxkXxOzJhUp8aMd4/edit?gid=0#gid=0)
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
@@ -510,7 +510,7 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 ### thank-you.html
 ![image](assets/images/readme/validation-thank-you.png)
 ### 404.html
-1[image](assets/images/readme/validation-404.png)
+![image](assets/images/readme/validation-404.png)
 
 ## CSS
 
