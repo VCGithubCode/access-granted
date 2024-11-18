@@ -7,7 +7,7 @@
 ---
 
 
-![image](assets/images/readme./responcive.png)
+![image](assets/images/readme/responcive.png)
 
 Access Granted - GitHub repository: [GitHub repository](https://github.com/VCGithubCode/access-granted/tree/as-accssesOk-branch)
 
@@ -102,7 +102,7 @@ The "Access Granted" project aims to make the web more accessible for all users,
 
 ## Landing Page
 
-![image](assets/images/readme./main.png)
+![image](assets/images/readme/main.png)
 
 ## Key Features
 
@@ -142,7 +142,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ## Resources
 
-![image](assets/images/readme./resourses.png)
+![image](assets/images/readme/resourses.png)
 
 ## Key features
 
@@ -159,13 +159,16 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 -The page features three main articles, each dedicated to a specific accessibility feature:
 
 ### Voice Assistant ("Mikey the Mic")
-![image](assets/images/readme./voice.png)
-- Describes voice navigation capabilities for users with visual impairments or mobility issues.![image](assets/images/readme./voice-asistant.png)
-### OpenDyslexic Font ("Glassy with the Glasses")![image](assets/images/readme./dyslecsik.png)
-- Explains the font switch for dyslexia-friendly text display, aiding users who struggle with standard fonts.![image](assets/images/readme./dislecsic.png)
+![image](assets/images/readme/voice.png)
+- Describes voice navigation capabilities for users with visual impairments or mobility issues.![image](assets/images/readme/voice-asistant.png)
 
-### High Contrast Mode ("Spikey the Hedgehog")![image](assets/images/readme./contrast.png)
-- Details a toggle for high-contrast visuals to assist users with color blindness or low vision.![image](assets/images/readme./colorblind.png)
+### OpenDyslexic Font ("Glassy with the Glasses")
+![image](assets/images/readme/dyslecsik.png)
+- Explains the font switch for dyslexia-friendly text display, aiding users who struggle with standard fonts.![image](assets/images/readme/dislecsic.png)
+
+### High Contrast Mode ("Spikey the Hedgehog")
+![image](assets/images/readme/contrast.png)
+- Details a toggle for high-contrast visuals to assist users with color blindness or low vision.![image](assets/images/readme/colorblind.png)
 
 ### Each article outlines:
 - Who it helps
@@ -189,7 +192,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 # About Us
 
-![image]()
+![image](assets/images/readme/team.png)
 ## Who We Are
 - Welcome to Access Granted! We are a dynamic team of passionate developers and innovators with a shared vision: to make the web more accessible and inclusive for everyone. Our project is a testament to the power of collaboration, bringing together diverse skills and perspectives to create an online experience that truly caters to all users, regardless of their abilities.
 
@@ -228,7 +231,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 - LinkedIn: [Angela's LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
 
 ### 🎨 Ashraf Bocktor — Avatar Design Specialist
-- Ashraf’s creative vision brought our project to life through beautifully crafted avatars. His designs not only reflect the diversity of our team but also resonate with our mission of inclusivity.
+- Ashraf’s creative vision was instrumental in bringing our project to life. His beautifully crafted avatars not only showcase the diversity of our team but also embody our mission of inclusivity. Beyond design, Ashraf played a vital role as a supportive team member throughout the web structure development process, ensuring a cohesive and user-centered experience.
 
 ## Role: Avatar Design & Creative Direction
 - GitHub: [PATH-HIVE](https://github.com/PATH-HIVE)
@@ -237,14 +240,14 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
   
 
 ### 🛠️ Alison Mossop — 404 Page Specialist
-- Alison’s creativity shines in her work on our custom 404 error page, ensuring that even when users get lost, they encounter a friendly and helpful experience. Her innovative approach adds a unique touch to our project.
+- Alison’s creativity truly shines in her work on our custom 404 error page, turning a potential setback into a friendly and engaging user experience. Her innovative approach adds a unique and memorable touch to the project. Beyond her design expertise, Alison was a key team player, providing valuable support throughout the development process.
 
 ## Role: Error Page Design & User Engagement
 - GitHub: [ali-moss-24](https://github.com/ali-moss-24)
 - LinkedIn: [Alison's LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
 
 ## 🔍 James Bracken — Footer & Support Specialist
-- James meticulously designed our footer, which provides a seamless navigation experience across the site. His focus on accessibility ensures that users can easily find the information they need, making our website more user-friendly.
+- James meticulously crafted our website footer, delivering a seamless and intuitive navigation experience. His commitment to accessibility ensures that users can easily find the information they need, enhancing the overall user-friendliness of the site. In addition to his design expertise, James also provided valuable support to other team members throughout the web development process.
 
 ### Role: Site Navigation & Support Features
 - GitHub: [JamesBracken](https://github.com/JamesBracken)
@@ -282,26 +285,6 @@ The page provides a user-friendly Contact Us form along with accessibility featu
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
-## Accessibility Guide
-
-![image]()
-
-## Key Features:
-### Accessibility Settings Sidebar:
-
-- Users can adjust font size, enable a dyslexic-friendly font, toggle high-contrast mode, and switch on various colorblind modes.
-Offers options to simplify the layout and enable voice control for easier navigation.
-Accessibility Guide Content:
-
-- Detailed explanations of each feature, like keyboard navigation, voice control, and colorblind adjustments, aimed at improving user experience for those with visual, cognitive, or motor impairments.
-Navigation and Structure:
-
-- Clear navigation with skip links, a responsive menu, and a footer providing quick access to social links and the site map.
-Uses semantic HTML elements for improved screen reader compatibility.
-
-
-*<span style="color: blue;">[Back to Content](#content)</span>*
-
 
 ### Responsiveness
 
@@ -313,15 +296,15 @@ Please visit [Link](https://ui.dev/amiresponsive?url=https://vcgithubcode.github
 # Wireframes
 
    
-![image](assets/images/readme./body.png)
+![image](assets/images/readme/body.png)
 
 Also contains sidebar!
 
-![image](assets/images/readme./side-bar.png)
+![image](assets/images/readme/side-bar.png)
 
 For smaller screens including mobile header contains burger menu!
 
-![image](assets/images/readme./mobile.png)
+![image](assets/images/readme/mobile.png)
 
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
@@ -376,6 +359,8 @@ After the initial meetings, our team continued with two daily sessions:
 - - Provide status updates on tasks.
 - - Assign or reassign tasks based on each team member’s progress and workload.
 
+![image](assets/images/readme/meeting.png)
+
 - Retrospective Meeting (6:00 PM): 
 - - At the retrospective, we reflect on the sprint, evaluate what went well, and identify areas for improvement to ensure smoother workflows and a more efficient development process.
 
@@ -395,7 +380,11 @@ By using the Kanban board, we ensure that tasks are organized and transparent, m
 ## MVP Focus and Collaboration
 In the early stages, the team worked towards creating a Minimum Viable Product (MVP). As the team adjusted to working together, we found our balance, rhythm, and flow state. Over time, we transitioned from working individually to collaborating more closely, solving problems together, and helping each other complete tasks effectively.
 
+### Please do not ge a Heart attack after you see this!
 
+![image](assets/images/readme/oops.png)
+
+### Yes it's almost didn't happened night before dubbmition!
 
 
 
