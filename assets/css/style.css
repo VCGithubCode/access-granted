@@ -136,6 +136,10 @@ header {
   background-image: none;
 }
 
+[data-bs-theme="contrast"] .body-background {
+  background-image: none;
+}
+
 /* Accessibility Styles */
 .sr-only {
   position: absolute;
@@ -540,7 +544,7 @@ nav li {
 .linkedin {
   background: #0d6efd;
   color: #ffffff;
-} 
+}
 
 .linkedin:hover {
   background: #ffffff;
@@ -565,7 +569,7 @@ nav li {
   z-index: 2;
   border: 1px solid #000000;
   border-radius: 12px;
-  padding: 2em; 
+  padding: 2em;
   font-weight: 900;
 }
 
