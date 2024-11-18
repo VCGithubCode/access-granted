@@ -92,6 +92,7 @@ function speakResponse(responseText) {
 
     // Disable recognition while the assistant speaks
     recognitionActive = false;
+    toggleMicrophoneIndicator(false);
 
     // Use responsiveVoice to speak the response
     responsiveVoice.speak(responseText, "UK English Male", {
@@ -103,6 +104,7 @@ function speakResponse(responseText) {
             // Re-enable recognition after the assistant finishes speaking
             recognitionActive = true;  // Reactivate recognition once speaking is done
             console.log("Assistant finished speaking. Listening again...");
+            toggleMicrophoneIndicator(true);
             // Restart recognition after speaking
             if (recognition && !recognitionActive) {
                 recognition.start();  // Ensure recognition starts again after speaking
@@ -112,11 +114,31 @@ function speakResponse(responseText) {
 
     console.log(`Help Buddy Response: ${responseText}`);
 }
+// Utility function to toggle the microphone indicator
+function toggleMicrophoneIndicator(isListening) {
+    const micIndicator = document.getElementById('microphone-indicator');
+    if (isListening) {
+        micIndicator.style.display = 'block'; // Show the microphone
+    } else {
+        micIndicator.style.display = 'none'; // Hide the microphone
+    }
+}
 
 function handleSpeechRecognition(transcript) {
     const recognizedPhrase = transcript.trim().toLowerCase();
     console.log("Recognized phrase:", recognizedPhrase);
-
+    if (
+        recognizedPhrase.includes("back to homepage") || 
+        recognizedPhrase.includes("go to home") || 
+        recognizedPhrase.includes("return to home") || 
+        recognizedPhrase.includes("navigate to home") || 
+        recognizedPhrase.includes("back home") || 
+        recognizedPhrase.includes("homepage")
+    ) {
+        speakResponse("Navigating to the homepage.");
+        window.location.href = "index.html"; // Navigate to the homepage
+        return;
+    }
     // Ignore self-generated responses
     if (recognizedPhrase === lastSpokenPhrase.trim().toLowerCase()) {
         console.log("Ignored self-generated phrase:", recognizedPhrase);
@@ -293,7 +315,6 @@ if (notesKeywords.some(keyword => recognizedPhrase.includes(keyword))) {
     return;
 }
 
-// Trigger note creation mode
 if (
     recognizedPhrase.includes("create a note") ||
     recognizedPhrase.includes("start a note") ||
@@ -353,23 +374,6 @@ if (
     return;
 }
 
-// Handle other commands (e.g., reading notes)
-if (
-    recognizedPhrase.includes("show notes") ||
-    recognizedPhrase.includes("list notes") ||
-    recognizedPhrase.includes("read my notes")
-) {
-    if (notes.length === 0) {
-        speakResponse("You don't have any saved notes.");
-    } else {
-        const notesSummary = notes
-            .map((note, index) => `Note ${index + 1}: ${note.content}, recorded on ${note.date} at ${note.time}. Reminder: ${note.remind ? "Yes" : "No"}.`)
-            .join(" ");
-        speakResponse(`Here are your notes: ${notesSummary}`);
-        console.log("Notes list:", notes);
-    }
-    return;
-}
 
 // Handle greetings
 if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || recognizedPhrase.includes("hey")) {
@@ -569,10 +573,11 @@ if (recognizedPhrase.includes("need instructions") || recognizedPhrase.includes(
     // If no match is found and fallback has not been triggered yet
     if (!fallbackTriggered && !isStandbyMode) {
         fallbackTriggered = true; // Set the flag to prevent repeated fallback
-        speakResponse("I'm here to help! Could you please clarify your request?");
 
         // Reset the fallback flag after a delay (to allow for the next interaction)
         setTimeout(() => {
+            speakResponse("I'm here to help! Could you please clarify your request?");
+
             fallbackTriggered = false;
         }, 13000);
     } else {
@@ -636,9 +641,18 @@ function requestVoicePermission() {
         return;
     }
 
+    // Check if permission status is already stored
+    const savedPermission = localStorage.getItem('voicePermission');
+    if (savedPermission === 'granted') {
+        console.log("Voice permission already granted. Starting recognition...");
+        startSpeechRecognition();
+        return;
+    }
+
+    // Ask for permission if not already granted
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     recognition = new SpeechRecognition();
-    recognition.continuous = true;  // Keeps listening for commands until stopped
+    recognition.continuous = true; // Keeps listening for commands until stopped
     recognition.lang = 'en-US';
 
     recognition.onstart = () => {
@@ -654,24 +668,70 @@ function requestVoicePermission() {
 
     recognition.onerror = (error) => {
         console.error("Speech recognition error:", error);
-        if (error.error !== 'not-allowed') {
-            recognition.start();  // Restart recognition if it fails (except for "not-allowed")
+        if (error.error === 'not-allowed') {
+            console.log("Permission denied by user.");
+            localStorage.setItem('voicePermission', 'denied');
+        } else {
+            recognition.start(); // Restart recognition if it fails (except for "not-allowed")
         }
     };
 
     recognition.onend = () => {
         if (recognitionActive) {
             console.log("Recognition ended. Restarting...");
-            recognition.start();  // Restart recognition if needed
+            recognition.start(); // Restart recognition if needed
         }
     };
 
-    // Start recognition only if it's not already active
-    if (recognition && recognition.state !== "active") {
+    // Try to start recognition to implicitly request permission
+    try {
         recognition.start();
-        console.log("SpeechRecognition started.");
+        console.log("SpeechRecognition started. Waiting for user's response...");
+        
+        // If the user grants permission, save the status
+        recognition.onstart = () => {
+            console.log("Voice permission granted.");
+            localStorage.setItem('voicePermission', 'granted');
+        };
+    } catch (e) {
+        console.error("Error starting SpeechRecognition:", e);
+        alert("Error accessing speech recognition. Please enable microphone permissions in your browser settings.");
     }
 }
+
+// Utility function to start recognition
+function startSpeechRecognition() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.lang = 'en-US';
+
+    recognition.onstart = () => {
+        isListening = true;
+        console.log("Help Buddy is now listening...");
+    };
+
+    recognition.onresult = (event) => {
+        const transcript = event.results[event.resultIndex][0].transcript.trim().toLowerCase();
+        console.log("Recognized phrase:", transcript);
+        handleSpeechRecognition(transcript);
+    };
+
+    recognition.onerror = (error) => {
+        console.error("Speech recognition error:", error);
+    };
+
+    recognition.onend = () => {
+        if (recognitionActive) {
+            console.log("Recognition ended. Restarting...");
+            recognition.start();
+        }
+    };
+
+    recognition.start();
+    console.log("SpeechRecognition started.");
+}
+
 // Function to stop listening if needed
 function stopListening() {
     if (recognition) {
@@ -943,8 +1003,14 @@ function displayNotes() {
         ${renderNotes(notesWithoutReminders, 'Notes without Reminders')}
     `;
 
-    // Update the DOM
-    document.getElementById('organizer-output').innerHTML = organizerOutput || '<p>No notes available. Create one to get started!</p>';
+     if (organizerOutput.trim()) {
+        document.getElementById('organizer-output').innerHTML = organizerOutput;
+    } else {
+        document.getElementById('organizer-output').innerHTML = `
+            <p style="text-align: center; color: grey;">No notes available for today. To create one say make a note?</p>
+        `;
+      
+    }
 }
 // Function to delete a note
 function deleteNote(noteId) {

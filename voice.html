@@ -7,7 +7,8 @@
     <title>Voice Command Site</title>
     <link rel='shortcut icon' href="assets/images/logo.webp">
     <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
-
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
     <script src="assets/js/utils.js" defer></script>
     <script src="assets/js/voice_interface.js" defer></script>
     <style>
@@ -109,6 +110,21 @@
             margin-bottom: 10px;
         }
 
+        #calculator {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+        }
+        #microphone-indicator img{
+            position: fixed;
+            top: 100px;
+            right: 100px;
+            width: 200px;
+            height: 200px;
+        }
+
         .day {
             padding: 10px;
             font-weight: bold;
@@ -143,27 +159,32 @@
             color: white;
             border-radius: 50%;
         }
-/* Ensure no bullets for list items in organizer-output */
-#organizer-output ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
 
-/* Specifically remove markers (bullets) from list items */
-#organizer-output li::marker {
-    content: none;
-}
+        #calendar-container {
+            width: 400px;
+        }
 
-/* Styling for individual list items */
-#organizer-output li {
-    margin-bottom: 15px;
-    text-decoration: none;
-    background-color: #007bff;
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-}
+        /* Ensure no bullets for list items in organizer-output */
+        #organizer-output ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        /* Specifically remove markers (bullets) from list items */
+        #organizer-output li::marker {
+            content: none;
+        }
+
+        /* Styling for individual list items */
+        #organizer-output li {
+            margin-bottom: 15px;
+            text-decoration: none;
+            background-color: #007bff;
+            color: white;
+            padding: 10px;
+            border-radius: 5px;
+        }
     </style>
 </head>
 
@@ -174,27 +195,12 @@
         Help Buddy is in standby mode.
     </div>
     <div class="brief-me-container" style="margin-top: 20px;">
-        <button id="brief-me-btn" class="brief-me-btn" style="font-size: 18px; padding: 10px 20px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px;">
+        <button id="brief-me-btn" class="brief-me-btn"
+            style="font-size: 18px; padding: 10px 20px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px;">
             Brief Me
         </button>
     </div>
-    <div id="calendar-container">
-        <div class="calendar-header">
-            <button id="prev-month">←</button>
-            <h2 id="calendar-title"></h2>
-            <button id="next-month">→</button>
-        </div>
-        <div class="days-of-week">
-            <div class="day">Sun</div>
-            <div class="day">Mon</div>
-            <div class="day">Tue</div>
-            <div class="day">Wed</div>
-            <div class="day">Thu</div>
-            <div class="day">Fri</div>
-            <div class="day">Sat</div>
-        </div>
-        <div class="days" id="days-container"></div>
-    </div>
+
     <!-- Overlay for permission request -->
     <div id="permissionOverlay" class="overlay" onclick="handleOverlayClick()">
         <div class="overlay-text">Click anywhere to grant voice and location permissions</div>
@@ -205,12 +211,50 @@
 
     <!-- Weather Output -->
     <div id="weather-output" class="weather-output"></div>
-    <div id="displayed-weather" class="displayed-weather"></div>
 
-    <!-- Current Time Display -->
-    <div id="current-time" class="current-time"></div>
+    <!-- Microphone Indicator -->
+    <div id="microphone-indicator"
+        style="display: none;">
+        <img src="assets/images/microphone-icon.webp" alt="Listening" >
+        <p class="listening-text">LISTENING...</p>
+    </div>
+    <div class="container vh-100 d-flex align-items-center">
+        <div class="row w-100 gy-3">
+            <!-- Calendar Container -->
+            <div id="calendar-container" class="col-12 col-md-6 d-flex flex-column align-items-center">
+                <div class="calendar-header mb-3">
+                    <button id="prev-month" class="btn btn-outline-primary">←</button>
+                    <h2 id="calendar-title" class="d-inline mx-2">Month</h2>
+                    <button id="next-month" class="btn btn-outline-primary">→</button>
+                </div>
+                <div class="days-of-week d-flex justify-content-between w-100 text-center">
+                    <div class="day">Sun</div>
+                    <div class="day">Mon</div>
+                    <div class="day">Tue</div>
+                    <div class="day">Wed</div>
+                    <div class="day">Thu</div>
+                    <div class="day">Fri</div>
+                    <div class="day">Sat</div>
+                </div>
+                <div class="days mt-3" id="days-container">
+                    <!-- Calendar days will be dynamically injected here -->
+                </div>
+            </div>
+
+            <!-- Weather and Time Container -->
+            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center flex-column">
+                
+                <div id="displayed-weather" class="displayed-weather mb-3">
+                    <i class="bi bi-cloud-sun" style="font-size: 2rem;"></i> Weather Info
+                </div>
+                <div id="current-time" class="current-time">
+                    <i class="bi bi-clock" style="font-size: 2rem;"></i> 12:00 PM
+                </div>
+            </div>
+        </div>
+    </div>
     <div id="organizer-output" class="organizer-output">
-        <ul class="notes-list" >
+        <ul class="notes-list">
             <li style="margin-bottom: 15px;">
 
             </li>
