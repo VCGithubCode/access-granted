@@ -46,6 +46,7 @@ The "Access Granted" project aims to make the web more accessible for all users,
 * [Website Structure](#website-structure)
   * [Landing Page](#landing-page)
   * [Resources](#resources)
+    * [Instructions](#instructions)
   * [About Us](#about-us)
   * [Contact Page](#contact-page)
   * [Responsiveness](#responsiveness)
@@ -159,7 +160,64 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ### Voice Assistant ("Mikey the Mic")
 ![image](assets/images/readme/voice.png)
-- Describes voice navigation capabilities for users with visual impairments or mobility issues.![image](assets/images/readme/voice-asistant.png)
+
+## Help Buddy Voice Assistant - User Guide
+Help Buddy is a voice-enabled assistant that helps you perform tasks like checking the weather, making calculations, and managing notes using voice commands. This guide will help you get started and use all the features effectively.
+
+### Instructions
+## 1. Getting Started
+Before you can use voice commands, you need to allow permissions for both microphone and location access.
+
+## Permissions Setup:
+### Microphone Access: 
+- When prompted, click "Allow" to grant permission for Help Buddy to use the microphone for voice commands.
+### Location Access: 
+- To use the weather feature, grant location permission when prompted.
+## 2. How to Use Voice Commands
+Help Buddy supports a variety of voice commands. Below are the main categories and examples of how to use them.
+
+### General Commands:
+- Say "start listening" to activate voice recognition.
+- Say "stop listening" to deactivate voice recognition.
+### Weather Commands:
+- Current Weather: Say: "What's the weather like?" or "Show me the current weather."
+- Weather Forecast: Say: "What's the weather tomorrow?" or "Give me the forecast."
+- Note: Weather information is based on your current location. Make sure location access is enabled.
+
+## Calculator Commands:
+You can use Help Buddy for basic arithmetic calculations. Here are some examples:
+
+- Addition: Say: "What is 12 plus 5?" or "Calculate 15 and 25."
+- Subtraction: Say: "What is 30 minus 10?" or "Subtract 8 from 20."
+- Multiplication: Say: "Multiply 7 by 6." or "What is 8 times 9?"
+- Division: Say: "Divide 50 by 5." or "What is 40 divided by 8?"
+- Tip: If you make a mistake or the command is not recognized, simply repeat your request.
+
+## Notes and Organizer Commands:
+Help Buddy allows you to create, edit, and manage notes with reminders.
+
+- Create a Note: Say: "Create a note." Follow the prompts to provide content for your note.
+- Add a Reminder: Say: "Set a reminder for this note tomorrow at 10 AM."
+- View Notes: Say: "Show my notes."
+- Delete a Note: Say: "Delete note number 3."
+- Note: You can also edit notes using the on-screen "Edit" button if needed.
+
+## 3. Using the Interface Manually
+While voice commands are the primary way to interact, you can also use the interface manually:
+
+- Click the Calculator button to perform calculations directly.
+- Use the Organizer to view, edit, or delete notes without voice commands.
+- Click the Weather button to get weather information if voice recognition is not active.
+## 4. Troubleshooting Tips
+- Voice Commands Not Recognized: Ensure that your microphone is enabled and the browser has permission to access it.
+- Weather Not Displayed: Make sure location access is granted, and you have an active internet connection.
+- Speech Recognition Stops Unexpectedly: Say "start listening" to restart voice recognition.
+## 5. Privacy and Data Storage
+Your notes and preferences are stored locally in your browser's localStorage.
+Location and microphone data are used only for their respective features and are not shared.
+With Help Buddy, you can easily access useful features through simple voice commands. Enjoy your hands-free assistant experience!
+
+![image](assets/images/readme/voice-asistant.png)
 
 ### OpenDyslexic Font ("Glassy with the Glasses")
 ![image](assets/images/readme/dyslecsik.png)
