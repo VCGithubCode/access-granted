@@ -136,23 +136,6 @@ header {
   background-image: none;
 }
 
-.svg-filter {
-  display: none;
-}
-
-/* Colorblind Filters */
-.deuteranopia {
-  filter: url('#deuteranopia-filter');
-}
-
-.protanopia {
-  filter: url('#protanopia-filter');
-}
-
-.tritanopia {
-  filter: url('#tritanopia-filter');
-}
-
 /* Accessibility Styles */
 .sr-only {
   position: absolute;
@@ -566,6 +549,7 @@ nav li {
 .linkedin:hover {
   background: #ffffff;
   color: #0d6efd;
+}
 
 /* Error-background */
 .error-background {
