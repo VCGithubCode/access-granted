@@ -202,8 +202,8 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 ## Meet Our Team
 - Our talented team is the heart and soul of Access Granted. Each member brings a unique set of skills and expertise, contributing to the success of our project in their own special way.
 
-## 🌟 Vernell Clark — SCRUM Leader
-- Vernell ensures our team remains on track and focused. As our SCRUM Leader, he coordinate team efforts, facilitate meetings, and help resolve any obstacles. Vernell expertise in agile methodologies has been key to our project's timely and organized progress.
+## 🌟 Vernell Clark — SCRUM Lead
+- Vernell ensures our team remains on track and focused. As our SCRUM Lead, he coordinate team efforts, facilitate meetings, and help resolve any obstacles. Vernell expertise in agile methodologies has been key to our project's timely and organized progress.
 
 ### Role: Project Management & Coordination
 - GitHub: [VCGithubCode](https://github.com/VCGithubCode)
@@ -251,7 +251,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ### Role: Site Navigation & Support Features
 - GitHub: [JamesBracken](https://github.com/JamesBracken)
-- LinkedIn: [Vernell's LinkedIn](https://www.linkedin.com/in/christopher-bracken-0b7263314/)
+- LinkedIn: [James LinkedIn](https://www.linkedin.com/in/christopher-bracken-0b7263314/)
 
 ## 🌐 Ahmad Al Hindi — About Page Specialist
 - Ahmad took the lead in designing and creating this very page. His dedication to highlighting the team's contributions and presenting a cohesive narrative has made the About Us section a central part of our website’s storytelling.
@@ -413,14 +413,14 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 
 | Source                                                                                                               | Location       | Notes                        |
 | -------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
-| [Git](https://git-scm.com) |Acros website|used for version control.(`git add`, `git commit`, `git push`)
-|[GitHub](https://github.com)||used for secure online code storage.
-|[Gitpod](https://gitpod.io)||used as a cloud-based IDE for development.
-|[VSCode](https://code.visualstudio.com)||used as a local IDE for development.
-|[HTML](https://en.wikipedia.org/wiki/HTML)||used for the main site content.
-|[CSS](https://en.wikipedia.org/wiki/CSS)||used for the main site design and layout.
-|[JavaScript](https://www.javascript.com)||used for user interaction on the site.
-| [YouTube](https://www.youtube.com/)                                                                                  | Acros website  | Tutorial for troubleshouting |
+| [Git](https://git-scm.com) |Across website|used for version control.(`git add`, `git commit`, `git push`)
+|[GitHub](https://github.com)|Across website|used for secure online code storage.
+|[Gitpod](https://gitpod.io)|Across website|used as a cloud-based IDE for development.
+|[VSCode](https://code.visualstudio.com)|Across website|used as a local IDE for development.
+|[HTML](https://en.wikipedia.org/wiki/HTML)|Across website|used for the main site content.
+|[CSS](https://en.wikipedia.org/wiki/CSS)|Across website|used for the main site design and layout.
+|[JavaScript](https://www.javascript.com)|Across website|used for user interaction on the site.
+| [YouTube](https://www.youtube.com/)                                                                                  | Across website  | Tutorial for troubleshouting |
 | [Font Awesome](https://fontawesome.com/)                                                                             | Across website | Inspiration for icons        |
 | [Fonts Google](https://fonts.google.com/)                                                                            | Across website | Font selection               |
 | [Coolors](https://coolors.co/)                                                                                       | Across website | Colour palette selection     |
@@ -431,10 +431,10 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 | [tiny.png](https://tinypng.com/)                                                                                     | Across website | For image convertion         |
 | [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
 | [ChatGPT](https://chat.openai.com)                                         | Across website | Used to help debug, troubleshoot, and explain things.                |
-|[DeepAI](https://deepai.org/)||Website for creation Avatars
+|[DeepAI](https://deepai.org/)|Across website|Website for creation Avatars
 |[cloudconvert](https://cloudconvert.com/)||To convert jpg pictures
-|[Lucid.app](https://lucid.app/)||Used to create Wireframes
-
+|[Lucid.app](https://lucid.app/)|Across website|Used to create Wireframes
+|[Termsfeed.com](https://www.termsfeed.com/live/7364ab41-d9ad-459e-a730-f1882e830984)|Across website|For privacy policy
 ## Testing
 
 
