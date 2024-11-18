@@ -46,6 +46,7 @@ The "Access Granted" project aims to make the web more accessible for all users,
 * [Website Structure](#website-structure)
   * [Landing Page](#landing-page)
   * [Resources](#resources)
+    * [Instructions](#instructions)
   * [About Us](#about-us)
   * [Contact Page](#contact-page)
   * [Responsiveness](#responsiveness)
@@ -53,10 +54,9 @@ The "Access Granted" project aims to make the web more accessible for all users,
 * [Development Process](#development-process)
   * [Agile Methodology](#agile-methodology)
   * [Collaboration Tools](#collaboration-tools)
-  * [Programming paradigms](#programming-paradigms)
 * [Features](#features)
   * [Technologies Used](#technologies-used)
-  * [Testing](#testing)
+  * [Validation](#validation)
 * [Future Adding](#future-adding)
 * [Prerequisites and Deployment](#prerequisites-and-deployment)
   * [Forking](#forking)
@@ -160,7 +160,64 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ### Voice Assistant ("Mikey the Mic")
 ![image](assets/images/readme/voice.png)
-- Describes voice navigation capabilities for users with visual impairments or mobility issues.![image](assets/images/readme/voice-asistant.png)
+
+## Help Buddy Voice Assistant - User Guide
+Help Buddy is a voice-enabled assistant that helps you perform tasks like checking the weather, making calculations, and managing notes using voice commands. This guide will help you get started and use all the features effectively.
+
+### Instructions
+## 1. Getting Started
+Before you can use voice commands, you need to allow permissions for both microphone and location access.
+
+## Permissions Setup:
+### Microphone Access: 
+- When prompted, click "Allow" to grant permission for Help Buddy to use the microphone for voice commands.
+### Location Access: 
+- To use the weather feature, grant location permission when prompted.
+## 2. How to Use Voice Commands
+Help Buddy supports a variety of voice commands. Below are the main categories and examples of how to use them.
+
+### General Commands:
+- Say "start listening" to activate voice recognition.
+- Say "stop listening" to deactivate voice recognition.
+### Weather Commands:
+- Current Weather: Say: "What's the weather like?" or "Show me the current weather."
+- Weather Forecast: Say: "What's the weather tomorrow?" or "Give me the forecast."
+- Note: Weather information is based on your current location. Make sure location access is enabled.
+
+## Calculator Commands:
+You can use Help Buddy for basic arithmetic calculations. Here are some examples:
+
+- Addition: Say: "What is 12 plus 5?" or "Calculate 15 and 25."
+- Subtraction: Say: "What is 30 minus 10?" or "Subtract 8 from 20."
+- Multiplication: Say: "Multiply 7 by 6." or "What is 8 times 9?"
+- Division: Say: "Divide 50 by 5." or "What is 40 divided by 8?"
+- Tip: If you make a mistake or the command is not recognized, simply repeat your request.
+
+## Notes and Organizer Commands:
+Help Buddy allows you to create, edit, and manage notes with reminders.
+
+- Create a Note: Say: "Create a note." Follow the prompts to provide content for your note.
+- Add a Reminder: Say: "Set a reminder for this note tomorrow at 10 AM."
+- View Notes: Say: "Show my notes."
+- Delete a Note: Say: "Delete note number 3."
+- Note: You can also edit notes using the on-screen "Edit" button if needed.
+
+## 3. Using the Interface Manually
+While voice commands are the primary way to interact, you can also use the interface manually:
+
+- Click the Calculator button to perform calculations directly.
+- Use the Organizer to view, edit, or delete notes without voice commands.
+- Click the Weather button to get weather information if voice recognition is not active.
+## 4. Troubleshooting Tips
+- Voice Commands Not Recognized: Ensure that your microphone is enabled and the browser has permission to access it.
+- Weather Not Displayed: Make sure location access is granted, and you have an active internet connection.
+- Speech Recognition Stops Unexpectedly: Say "start listening" to restart voice recognition.
+## 5. Privacy and Data Storage
+Your notes and preferences are stored locally in your browser's localStorage.
+Location and microphone data are used only for their respective features and are not shared.
+With Help Buddy, you can easily access useful features through simple voice commands. Enjoy your hands-free assistant experience!
+
+![image](assets/images/readme/voice-asistant.png)
 
 ### OpenDyslexic Font ("Glassy with the Glasses")
 ![image](assets/images/readme/dyslecsik.png)
@@ -219,7 +276,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 ## 📊 Benjamin Schäfer — Research & Page Layout Specialist
 - Benjamin’s expertise in research and design has helped shape the overall look and feel of our site. His attention to detail and commitment to accessibility principles ensure our content is both aesthetically pleasing and user-friendly.
 
-## Role: UX Design & Research
+### Role: UX Design & Research
 - GitHub: [benschaf](https://github.com/benschaf)
 - LinkedIn: [Beni Schäfer's LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
 
@@ -230,19 +287,19 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 - GitHub: [Angela-Sin](https://github.com/Angela-Sin)
 - LinkedIn: [Angela's LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
 
-### 🎨 Ashraf Bocktor — Avatar Design Specialist
+## 🎨 Ashraf Bocktor — Avatar Design Specialist
 - Ashraf’s creative vision was instrumental in bringing our project to life. His beautifully crafted avatars not only showcase the diversity of our team but also embody our mission of inclusivity. Beyond design, Ashraf played a vital role as a supportive team member throughout the web structure development process, ensuring a cohesive and user-centered experience.
 
-## Role: Avatar Design & Creative Direction
+### Role: Avatar Design & Creative Direction
 - GitHub: [PATH-HIVE](https://github.com/PATH-HIVE)
 - LinkedIn: [Ashraf's LinkedIn](https://www.linkedin.com/in/abbocktor/)
   
   
 
-### 🛠️ Alison Mossop — 404 Page Specialist
+## 🛠️ Alison Mossop — 404 Page Specialist
 - Alison’s creativity truly shines in her work on our custom 404 error page, turning a potential setback into a friendly and engaging user experience. Her innovative approach adds a unique and memorable touch to the project. Beyond her design expertise, Alison was a key team player, providing valuable support throughout the development process.
 
-## Role: Error Page Design & User Engagement
+### Role: Error Page Design & User Engagement
 - GitHub: [ali-moss-24](https://github.com/ali-moss-24)
 - LinkedIn: [Alison's LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
 
@@ -283,6 +340,8 @@ Let’s make the internet accessible for all — together.
 
 The page provides a user-friendly Contact Us form along with accessibility features, making it easy for users to get in touch while ensuring a smooth experience for people with different accessibility needs. The layout is responsive, thanks to Bootstrap, and includes tools to adjust the design for better accessibility.
 
+![image](assets/images/readme/email.png)
+
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
 
@@ -300,7 +359,7 @@ Please visit [Link](https://ui.dev/amiresponsive?url=https://vcgithubcode.github
 
 Also contains sidebar!
 
-![image](assets/images/readme/side-bar.png)
+![image](assets/images/readme/sidebar.png)
 
 For smaller screens including mobile header contains burger menu!
 
@@ -435,7 +494,27 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 |[cloudconvert](https://cloudconvert.com/)||To convert jpg pictures
 |[Lucid.app](https://lucid.app/)|Across website|Used to create Wireframes
 |[Termsfeed.com](https://www.termsfeed.com/live/7364ab41-d9ad-459e-a730-f1882e830984)|Across website|For privacy policy
-## Testing
+
+# Validation
+
+## HTML
+
+### index.html
+![image](assets/images/readme/validation-index.png)
+### resources.html
+![image](assets/images/readme/validation-recourses.png)
+### about.html
+![image](assets/images/readme/validation-about.png)
+### contact.html
+![image](assets/images/readme/validation-contact.png)
+### thank-you.html
+![image](assets/images/readme/validation-thank-you.png)
+### 404.html
+1[image](assets/images/readme/validation-404.png)
+
+## CSS
+
+![image](assets/images/readme/css.png)
 
 
 # Future adding
