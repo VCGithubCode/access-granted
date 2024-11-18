@@ -221,7 +221,7 @@ header {
 }
 
 [data-bs-theme="contrast"] .navbar-brand,
-[data-bs-theme="contrast"] .nav-link {
+[data-bs-theme="contrast"] .navbar-nav .nav-link {
   color: var(--bs-light);
 }
 
