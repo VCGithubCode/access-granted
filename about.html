@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta name="description" content="Explore access granted's accessibility, inclusivity and availability for all. Access a wide range of different functions for accessibility">
-  <meta name="keywords" content="Accessible, accessibility, inclusive, inclusivity, for everyone, a website for all">
+	<meta name="description"
+		content="Explore Access Granted's accessibility, inclusiveness and availability for all. Access a wide range of different functions for accessibility">
+	<meta name="keywords"
+		content="Accessible, accessibility, inclusive, inclusiveness, for everyone, a website for all">
 	<!-- Link head tags -->
 	<link rel='shortcut icon' href="assets/images/logo.webp">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,9 +15,9 @@
     <title>Access Granted | About Us </title>
 </head>
 
-<body class="relative" style="background-color: #fcd9cb;">
+<body class="relative body-background">
 	<a href="#main-content" class="d-none">Skip to main content</a>
-
+    
 	<header class="fixed-top">
 		<nav class="navbar navbar-expand-lg">
 		  <div class="container">
@@ -39,15 +41,18 @@
 				<li class="nav-item mt-2">
 				  <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
 				</li>
-				<li><button class="btn btn-secondary mt-2" type="button" data-bs-toggle="offcanvas"
-					data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
-					  class="fas fa-universal-access"></i> Accessibility</button></li>
+				<li>
+					<button class="btn btn-secondary mt-2" type="button" data-bs-toggle="offcanvas"
+					  data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions">
+					  <i class="fas fa-universal-access"></i> Accessibility
+					</button>
+				  </li>
 			  </ul>
 			</div>
 		  </div>
 		</nav>
 	  </header>
-
+	
 	  <!-- Canvas sidebar -->
   <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
   aria-labelledby="offcanvasWithBothOptionsLabel">
@@ -56,7 +61,7 @@
 	<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
   </div>
   <div class="offcanvas-body">
-	<ul class="list-unstyled p-3" aria-labelledby="navbarDropdown">
+	<ul class="list-unstyled p-3">
 	  <li class="mb-3">
 		<div class="dropdown-item">
 		  <label class="form-label">Font Size</label>
@@ -89,83 +94,61 @@
 		<div class="dropdown-item">
 		  <div class="form-check form-switch form-switch-lg d-flex align-items-center">
 			<input class="form-check-input theme-switch" type="checkbox" id="themeSwitch1" aria-label="Theme switch">
-			<label class="form-check-label ms-2" for="themeSwitch1">Turn on High Contrast</label>
+			<label class="form-check-label ms-2" for="themeSwitch1">Turn on High Contrast Mode</label>
 		  </div>
 		</div>
-	  </li>
-	  <li class="mb-3">
-		<div class="dropdown-item">
-		  <label class="form-label">Colorblind Mode</label>
-		  <div class="d-flex flex-column">
-			<div class="btn-group-vertical w-100" role="group" aria-label="Colorblind Mode">
-			  <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="normalVision" value=""
-				autocomplete="off" checked>
-			  <label class="btn btn-outline-secondary" for="normalVision">Normal Vision</label>
-
-			  <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="deuteranopia"
-				value="deuteranopia" autocomplete="off">
-			  <label class="btn btn-outline-secondary" for="deuteranopia">Deuteranopia</label>
-
-			  <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="protanopia"
-				value="protanopia" autocomplete="off">
-			  <label class="btn btn-outline-secondary" for="protanopia">Protanopia</label>
-
-			  <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="tritanopia"
-				value="tritanopia" autocomplete="off">
-			  <label class="btn btn-outline-secondary" for="tritanopia">Tritanopia</label>
-			</div>
-		  </div>
-		</div>
-	  </li>
-	  <li class="mb-3">
-		<a class="dropdown-item" href="accessibility-guide.html"><i class="fas fa-book"></i> Accessibility Guide</a>
 	  </li>
 	</ul>
   </div>
 </div>
 
+  <!-- Back to top button -->
+  <a href="#" class="btn btn-primary btn-lg back-to-top position-fixed bottom-0 end-0 m-3 d-none z-3" aria-label="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+  </a>
 
 	  <main class="container my-5">
 		<section>
 		  <div class="row align-items-center">
+			<div class="col-md-6">
+				<h2>Our Mission</h2>
+				<p>
+				  Our mission is to create a more inclusive, accessible world for everyone.
+				<br>
+				<br>
+				  We are a team of passionate developers dedicated to bring innovative solutions and foster a community built on values of collaboration and empathy.
+				</p>
+			</div>
 			<div class="col-md-6 mb-4 mb-md-0">
 			  <img src="assets/images/locky.webp" alt="Our Team" class="img-fluid rounded" height="400" width="400">
 			</div>
-			<div class="col-md-6">
-			  <h2>Our Mission</h2>
-			  <p>
-				Our mission is to create a more inclusive, accessible world for everyone.
-			  <br>
-			  <br>
-				We are a team of passionate developers dedicated to bring innovative solutions and foster a community built on values of collaboration and empathy.
-			  </p>
-			</div>
 		  </div>
 		</section>
-	  <main class="container my-5">
 		<section>
 			<h2 class="text-center mb-4">Meet Our Team</h2>
 			<div class="row g-4">
 				<!-- Card 1 -->
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-					<div class="card shadow-lg text-center flip-card">
+					<div class="card shadow-lg text-center flip-card" aria-label="Card for Vernell Clark, SCRUM Leader">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="assets/images/avatars/Vernell.webp" class="card-img-top" alt="Vernell Clark">
+								<img src="assets/images/avatars/Vernell.webp" class="card-img-top" alt="Avatar of Vernell Clark">
 								<div class="card-body">
 									<h5 class="card-title">Vernell Clark</h5>
-									<p class="card-text">SCRUM Leader</p>
+									<p class="card-text">SCRUM Lead</p>
 								</div>
 							</div>
 							<div class="flip-card-back">
-								<div class="card-body">
-									<p>SCRUM Leader</p>
-									<a href="https://github.com/VCGithubCode" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-github"></i> GitHub
-									</a>
-									<a href="https://www.linkedin.com/in/vernell-clark-swe/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-linkedin"></i> LinkedIn
-									</a>
+								<div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+									<p>Project Management & Coordination</p>
+									<div class="d-flex justify-content-center gap-2">
+										<a href="https://github.com/VCGithubCode" class="btn btn-dark btn-sm" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-github"></i> GitHub
+										</a>
+										<a href="https://www.linkedin.com/in/vernell-clark-swe/" class="btn btn-outline-primary btn-sm linkedin" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-linkedin"></i> LinkedIn
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -173,24 +156,26 @@
 				</div>
 				<!-- Card 2 -->
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-					<div class="card shadow-lg text-center flip-card">
+					<div class="card shadow-lg text-center flip-card" aria-label="Card for Nikola Simic, Voice Assistant Developer">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="assets/images/avatars/Nikola.webp" class="card-img-top" alt="Nikola Simic">
+								<img src="assets/images/avatars/Nicola.webp" class="card-img-top" alt="Avatar of Nikola Simic">
 								<div class="card-body">
 									<h5 class="card-title">Nikola Simic</h5>
 									<p class="card-text">Voice Assistant</p>
 								</div>
 							</div>
 							<div class="flip-card-back">
-								<div class="card-body">
-									<p>Voice Assistant</p>
-									<a href="https://github.com/nlekkerman" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-github"></i> GitHub
-									</a>
-									<a href="https://linkedin.com/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-linkedin"></i> LinkedIn
-									</a>
+								<div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+									<p>Voice Interface Development</p>
+									<div class="d-flex justify-content-center gap-2">
+										<a href="https://github.com/nlekkerman" class="btn btn-dark btn-sm" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-github"></i> GitHub
+										</a>
+										<a href="https://www.linkedin.com/in/nikola-simic-674862110/" class="btn btn-outline-primary btn-sm linkedin" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-linkedin"></i> LinkedIn
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -198,24 +183,26 @@
 				</div>
 				<!-- Card 3 -->
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-					<div class="card shadow-lg text-center flip-card">
+					<div class="card shadow-lg text-center flip-card" aria-label="Card for Benjamin Schäfer, UX Design & Presentation">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="assets/images/avatars/Ben.webp" class="card-img-top" alt="Benjamin Schäfer">
+								<img src="assets/images/avatars/Ben.webp" class="card-img-top" alt="Avatar of Benjamin Schäfer">
 								<div class="card-body">
 									<h5 class="card-title">Benjamin Schäfer</h5>
-									<p class="card-text">Research & Page Layout & Presentation</p>
+									<p class="card-text">UX Design & Presentation</p>
 								</div>
 							</div>
 							<div class="flip-card-back">
-								<div class="card-body">
-									<p>Research & Page Layout & Presentation</p>
-									<a href="https://github.com/benschaf" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-github"></i> GitHub
-									</a>
-									<a href="https://www.linkedin.com/in/beni-schaefer/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-linkedin"></i> LinkedIn
-									</a>
+								<div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+									<p>UX Design & Research & Presentation</p>
+									<div class="d-flex justify-content-center gap-2">
+										<a href="https://github.com/benschaf" class="btn btn-dark btn-sm" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-github"></i> GitHub
+										</a>
+										<a href="https://www.linkedin.com/in/beni-schaefer/" class="btn btn-outline-primary btn-sm linkedin" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-linkedin"></i> LinkedIn
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -223,24 +210,26 @@
 				</div>
 				<!-- Card 4 -->
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-					<div class="card shadow-lg text-center flip-card">
+					<div class="card shadow-lg text-center flip-card" aria-label="Card for Nikola Simic, Documentation & Content Strategy">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="assets/images/avatars/Angela.webp" class="card-img-top" alt="Angela Siniavskaja">
+								<img src="assets/images/avatars/Angela.webp" class="card-img-top" alt="Avatar of Angela Siniavskaja">
 								<div class="card-body">
 									<h5 class="card-title">Angela Siniavskaja</h5>
-									<p class="card-text">ReadMe & Documentation Lead</p>
+									<p class="card-text">Documentation Lead</p>
 								</div>
 							</div>
 							<div class="flip-card-back">
-								<div class="card-body">
-									<p>Project lead and git/github expert</p>
-									<a href="https://github.com/Angela-Sin" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-github"></i> GitHub
-									</a>
-									<a href="https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-linkedin"></i> LinkedIn
-									</a>
+								<div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+									<p>Documentation & Content Strategy</p>
+									<div class="d-flex justify-content-center gap-2">
+										<a href="https://github.com/Angela-Sin" class="btn btn-dark btn-sm" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-github"></i> GitHub
+										</a>
+										<a href="https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/" class="btn btn-outline-primary btn-sm linkedin" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-linkedin"></i> LinkedIn
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -248,24 +237,26 @@
 				</div>
 				<!-- Card 5 -->
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-					<div class="card shadow-lg text-center flip-card">
+					<div class="card shadow-lg text-center flip-card" aria-label="Card for Ashraf Bocktor, Avatar Design">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="assets/images/avatars/Ashraf.webp" class="card-img-top" alt="Ashraf Bocktor">
+								<img src="assets/images/avatars/Ashraf.webp" class="card-img-top" alt="Avatar of Ashraf Bocktor">
 								<div class="card-body">
 									<h5 class="card-title">Ashraf Bocktor</h5>
 									<p class="card-text">Produce Avatars</p>
 								</div>
 							</div>
 							<div class="flip-card-back">
-								<div class="card-body">
-									<p>Produce Avatars</p>
-									<a href="https://github.com/PATH-HIVE" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-github"></i> GitHub
-									</a>
-									<a href="https://www.linkedin.com/in/abbocktor/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-linkedin"></i> LinkedIn
-									</a>
+								<div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+									<p>Avatar Design & Creative Direction</p>
+									<div class="d-flex justify-content-center gap-2">
+										<a href="https://github.com/PATH-HIVE" class="btn btn-dark btn-sm" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-github"></i> GitHub
+										</a>
+										<a href="https://www.linkedin.com/in/abbocktor/" class="btn btn-outline-primary btn-sm linkedin" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-linkedin"></i> LinkedIn
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -273,24 +264,26 @@
 				</div>
 				<!-- Card 6 -->
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-					<div class="card shadow-lg text-center flip-card">
+					<div class="card shadow-lg text-center flip-card" aria-label="Card for Alison Mossop, Error Page Design & User Engagement">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="assets/images/avatars/Alison.webp" class="card-img-top" alt="Alison Mossop">
+								<img src="assets/images/avatars/Alison.webp" class="card-img-top" alt="Avatar of Alison Mossop">
 								<div class="card-body">
 									<h5 class="card-title">Alison Mossop</h5>
-									<p class="card-text">404 Page</p>
+									<p class="card-text">Error Page</p>
 								</div>
 							</div>
 							<div class="flip-card-back">
-								<div class="card-body">
-									<p>Project lead and git/github expert</p>
-									<a href="https://github.com/ali-moss-24" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-github"></i> GitHub
-									</a>
-									<a href="https://www.linkedin.com/in/alison-mossop-4658a5253/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-linkedin"></i> LinkedIn
-									</a>
+								<div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+									<p>Error Page Design & User Engagement</p>
+									<div class="d-flex justify-content-center gap-2">
+										<a href="https://github.com/ali-moss-24" class="btn btn-dark btn-sm" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-github"></i> GitHub
+										</a>
+										<a href="https://www.linkedin.com/in/alison-mossop-4658a5253/" class="btn btn-outline-primary btn-sm linkedin" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-linkedin"></i> LinkedIn
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -298,24 +291,26 @@
 				</div>
 				<!-- Card 7 -->
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-					<div class="card shadow-lg text-center flip-card">
+					<div class="card shadow-lg text-center flip-card" aria-label="Card for James Bracken, Site Navigation & Support Features">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="assets/images/avatars/James.webp" class="card-img-top" alt="James Bracken">
+								<img src="assets/images/avatars/James.webp" class="card-img-top" alt="Avatar of James Bracken">
 								<div class="card-body">
 									<h5 class="card-title">James Bracken</h5>
 									<p class="card-text">Footer & Support</p>
 								</div>
 							</div>
 							<div class="flip-card-back">
-								<div class="card-body">
-									<p>Footer & Support</p>
-									<a href="https://github.com/JamesBracken" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-github"></i> GitHub
-									</a>
-									<a href="https://linkedin.com/in/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-linkedin"></i> LinkedIn
-									</a>
+								<div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+									<p>Site Navigation & Support Features</p>
+									<div class="d-flex justify-content-center gap-2">
+										<a href="https://github.com/JamesBracken" class="btn btn-dark btn-sm" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-github"></i> GitHub
+										</a>
+										<a href="https://www.linkedin.com/in/christopher-bracken-0b7263314/" class="btn btn-outline-primary btn-sm linkedin" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-linkedin"></i> LinkedIn
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
@@ -323,34 +318,36 @@
 				</div>
 				<!-- Card 8 -->
 				<div class="col-12 col-sm-6 col-md-4 col-lg-3">
-					<div class="card shadow-lg text-center flip-card">
+					<div class="card shadow-lg text-center flip-card" aria-label="Card for Ahmad Al Hindi, Content Creation & Page Design">
 						<div class="flip-card-inner">
 							<div class="flip-card-front">
-								<img src="assets/images/avatars/Vernell.webp" class="card-img-top" alt="Ahmad Al Hindi">
+								<img src="assets/images/avatars/Ahmad.webp" class="card-img-top" alt="Avatar of Ahmad Al Hindi">
 								<div class="card-body">
 									<h5 class="card-title">Ahmad Al Hindi</h5>
 									<p class="card-text">About Page</p>
 								</div>
 							</div>
 							<div class="flip-card-back">
-								<div class="card-body">
-									<p>Project lead and git/github expert</p>
-									<a href="https://github.com/Ahmadalhindi" class="btn btn-outline-secondary btn-sm me-2" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-github"></i> GitHub
-									</a>
-									<a href="https://www.linkedin.com/in/ahmad-al-hindi-899877108/" class="btn btn-outline-secondary btn-sm" target="_blank" rel="noopener noreferrer">
-										<i class="bi bi-linkedin"></i> LinkedIn
-									</a>
+								<div class="card-body d-flex flex-column align-items-center justify-content-center text-center">
+									<p>Content Creation & Page Design</p>
+									<div class="d-flex justify-content-center gap-2">
+										<a href="https://github.com/Ahmadalhindi" class="btn btn-dark btn-sm" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-github"></i> GitHub
+										</a>
+										<a href="https://www.linkedin.com/in/ahmad-al-hindi-899877108/" class="btn btn-outline-primary btn-sm linkedin" target="_blank" rel="noopener noreferrer">
+											<i class="bi bi-linkedin"></i> LinkedIn
+										</a>
+									</div>
 								</div>
 							</div>
 						</div>
 					</div>
 				</div>
-
 			</div>
 		</section>
-	  </main>
 	</main>
+
+	<hr>
 
 	<footer class="text-muted py-5">
 		<div class="container footerdiv">
@@ -370,10 +367,9 @@
 			  <h5>Site Map</h5>
 			  <ul class="list-unstyled">
 				<li><a href="index.html" class="text-muted">Home</a></li>
-				<li><a href="about.html" class="text-muted">About</a></li>
 				<li><a href="resources.html" class="text-muted">Resources</a></li>
+				<li><a href="about.html" class="text-muted">About</a></li>
 				<li><a href="contact.html" class="text-muted">Contact</a></li>
-				<li><a href="accessibility-guide.html" class="text-muted">Accessibility guide</a></li>
 			  </ul>
 			</div>
 		  </div>
@@ -383,24 +379,7 @@
 		  <p class="mb-1">&copy; 2024 Access Granted Project</p>
 		</div>
 	  </footer>
-
-	  <svg class="svg-filter">
-		<defs>
-		  <filter id="deuteranopia-filter">
-			<feColorMatrix type="matrix"
-			  values="0.625, 0.375, 0, 0, 0, 0.7, 0.3, 0, 0, 0, 0, 0.3, 0.7, 0, 0, 0, 0, 0, 1, 0" />
-		  </filter>
-		  <filter id="protanopia-filter">
-			<feColorMatrix type="matrix"
-			  values="0.567, 0.433, 0, 0, 0, 0.558, 0.442, 0, 0, 0, 0, 0.242, 0.758, 0, 0, 0, 0, 0, 1, 0" />
-		  </filter>
-		  <filter id="tritanopia-filter">
-			<feColorMatrix type="matrix"
-			  values="0.95, 0.05, 0, 0, 0, 0, 0.433, 0.567, 0, 0, 0, 0.475, 0.525, 0, 0, 0, 0, 0, 1, 0" />
-		  </filter>
-		</defs>
-	  </svg>
-
+	
   <!-- Fontawesome icons -->
   <script src="https://kit.fontawesome.com/8f0b8db894.js" crossorigin="anonymous"></script>
   <!-- Bootstrap Bundle with Popper -->

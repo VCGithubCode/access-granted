@@ -7,7 +7,7 @@
 ---
 
 
-![image](assets/images/readme./responcive.png)
+![image](assets/images/readme/responcive.png)
 
 Access Granted - GitHub repository: [GitHub repository](https://github.com/VCGithubCode/access-granted/tree/as-accssesOk-branch)
 
@@ -46,6 +46,7 @@ The "Access Granted" project aims to make the web more accessible for all users,
 * [Website Structure](#website-structure)
   * [Landing Page](#landing-page)
   * [Resources](#resources)
+    * [Instructions](#instructions)
   * [About Us](#about-us)
   * [Contact Page](#contact-page)
   * [Responsiveness](#responsiveness)
@@ -53,10 +54,9 @@ The "Access Granted" project aims to make the web more accessible for all users,
 * [Development Process](#development-process)
   * [Agile Methodology](#agile-methodology)
   * [Collaboration Tools](#collaboration-tools)
-  * [Programming paradigms](#programming-paradigms)
 * [Features](#features)
   * [Technologies Used](#technologies-used)
-  * [Testing](#testing)
+  * [Validation](#validation)
 * [Future Adding](#future-adding)
 * [Prerequisites and Deployment](#prerequisites-and-deployment)
   * [Forking](#forking)
@@ -102,7 +102,7 @@ The "Access Granted" project aims to make the web more accessible for all users,
 
 ## Landing Page
 
-![image](assets/images/readme./main.png)
+![image](assets/images/readme/main.png)
 
 ## Key Features
 
@@ -142,7 +142,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ## Resources
 
-![image](assets/images/readme./resourses.png)
+![image](assets/images/readme/resourses.png)
 
 ## Key features
 
@@ -159,13 +159,73 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 -The page features three main articles, each dedicated to a specific accessibility feature:
 
 ### Voice Assistant ("Mikey the Mic")
-![image](assets/images/readme./voice.png)
-- Describes voice navigation capabilities for users with visual impairments or mobility issues.![image](assets/images/readme./voice-asistant.png)
-### OpenDyslexic Font ("Glassy with the Glasses")![image](assets/images/readme./dyslecsik.png)
-- Explains the font switch for dyslexia-friendly text display, aiding users who struggle with standard fonts.![image](assets/images/readme./dislecsic.png)
+![image](assets/images/readme/voice.png)
 
-### High Contrast Mode ("Spikey the Hedgehog")![image](assets/images/readme./contrast.png)
-- Details a toggle for high-contrast visuals to assist users with color blindness or low vision.![image](assets/images/readme./colorblind.png)
+## Help Buddy Voice Assistant - User Guide
+Help Buddy is a voice-enabled assistant that helps you perform tasks like checking the weather, making calculations, and managing notes using voice commands. This guide will help you get started and use all the features effectively.
+
+### Instructions
+## 1. Getting Started
+Before you can use voice commands, you need to allow permissions for both microphone and location access.
+
+## Permissions Setup:
+### Microphone Access: 
+- When prompted, click "Allow" to grant permission for Help Buddy to use the microphone for voice commands.
+### Location Access: 
+- To use the weather feature, grant location permission when prompted.
+## 2. How to Use Voice Commands
+Help Buddy supports a variety of voice commands. Below are the main categories and examples of how to use them.
+
+### General Commands:
+- Say "start listening" to activate voice recognition.
+- Say "stop listening" to deactivate voice recognition.
+### Weather Commands:
+- Current Weather: Say: "What's the weather like?" or "Show me the current weather."
+- Weather Forecast: Say: "What's the weather tomorrow?" or "Give me the forecast."
+- Note: Weather information is based on your current location. Make sure location access is enabled.
+
+## Calculator Commands:
+You can use Help Buddy for basic arithmetic calculations. Here are some examples:
+
+- Addition: Say: "What is 12 plus 5?" or "Calculate 15 and 25."
+- Subtraction: Say: "What is 30 minus 10?" or "Subtract 8 from 20."
+- Multiplication: Say: "Multiply 7 by 6." or "What is 8 times 9?"
+- Division: Say: "Divide 50 by 5." or "What is 40 divided by 8?"
+- Tip: If you make a mistake or the command is not recognized, simply repeat your request.
+
+## Notes and Organizer Commands:
+Help Buddy allows you to create, edit, and manage notes with reminders.
+
+- Create a Note: Say: "Create a note." Follow the prompts to provide content for your note.
+- Add a Reminder: Say: "Set a reminder for this note tomorrow at 10 AM."
+- View Notes: Say: "Show my notes."
+- Delete a Note: Say: "Delete note number 3."
+- Note: You can also edit notes using the on-screen "Edit" button if needed.
+
+## 3. Using the Interface Manually
+While voice commands are the primary way to interact, you can also use the interface manually:
+
+- Click the Calculator button to perform calculations directly.
+- Use the Organizer to view, edit, or delete notes without voice commands.
+- Click the Weather button to get weather information if voice recognition is not active.
+## 4. Troubleshooting Tips
+- Voice Commands Not Recognized: Ensure that your microphone is enabled and the browser has permission to access it.
+- Weather Not Displayed: Make sure location access is granted, and you have an active internet connection.
+- Speech Recognition Stops Unexpectedly: Say "start listening" to restart voice recognition.
+## 5. Privacy and Data Storage
+Your notes and preferences are stored locally in your browser's localStorage.
+Location and microphone data are used only for their respective features and are not shared.
+With Help Buddy, you can easily access useful features through simple voice commands. Enjoy your hands-free assistant experience!
+
+![image](assets/images/readme/voice-asistant.png)
+
+### OpenDyslexic Font ("Glassy with the Glasses")
+![image](assets/images/readme/dyslecsik.png)
+- Explains the font switch for dyslexia-friendly text display, aiding users who struggle with standard fonts.![image](assets/images/readme/dislecsic.png)
+
+### High Contrast Mode ("Spikey the Hedgehog")
+![image](assets/images/readme/contrast.png)
+- Details a toggle for high-contrast visuals to assist users with color blindness or low vision.![image](assets/images/readme/colorblind.png)
 
 ### Each article outlines:
 - Who it helps
@@ -189,7 +249,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 # About Us
 
-![image]()
+![image](assets/images/readme/team.png)
 ## Who We Are
 - Welcome to Access Granted! We are a dynamic team of passionate developers and innovators with a shared vision: to make the web more accessible and inclusive for everyone. Our project is a testament to the power of collaboration, bringing together diverse skills and perspectives to create an online experience that truly caters to all users, regardless of their abilities.
 
@@ -199,8 +259,8 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 ## Meet Our Team
 - Our talented team is the heart and soul of Access Granted. Each member brings a unique set of skills and expertise, contributing to the success of our project in their own special way.
 
-## 🌟 Vernell Clark — SCRUM Leader
-- Vernell ensures our team remains on track and focused. As our SCRUM Leader, he coordinate team efforts, facilitate meetings, and help resolve any obstacles. Vernell expertise in agile methodologies has been key to our project's timely and organized progress.
+## 🌟 Vernell Clark — SCRUM Lead
+- Vernell ensures our team remains on track and focused. As our SCRUM Lead, he coordinate team efforts, facilitate meetings, and help resolve any obstacles. Vernell expertise in agile methodologies has been key to our project's timely and organized progress.
 
 ### Role: Project Management & Coordination
 - GitHub: [VCGithubCode](https://github.com/VCGithubCode)
@@ -211,12 +271,12 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 
 ### Role: Voice Interface Development
 - GitHub: [nlekkerman](https://github.com/nlekkerman)
-- LinkedIn: Nicola's's LinkedIn
+- LinkedIn: [Nicola's's LinkedIn](https://www.linkedin.com/in/nikola-simic-674862110/)
 
 ## 📊 Benjamin Schäfer — Research & Page Layout Specialist
 - Benjamin’s expertise in research and design has helped shape the overall look and feel of our site. His attention to detail and commitment to accessibility principles ensure our content is both aesthetically pleasing and user-friendly.
 
-## Role: UX Design & Research
+### Role: UX Design & Research
 - GitHub: [benschaf](https://github.com/benschaf)
 - LinkedIn: [Beni Schäfer's LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
 
@@ -227,28 +287,28 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 - GitHub: [Angela-Sin](https://github.com/Angela-Sin)
 - LinkedIn: [Angela's LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
 
-### 🎨 Ashraf Bocktor — Avatar Design Specialist
-- Ashraf’s creative vision brought our project to life through beautifully crafted avatars. His designs not only reflect the diversity of our team but also resonate with our mission of inclusivity.
+## 🎨 Ashraf Bocktor — Avatar Design Specialist
+- Ashraf’s creative vision was instrumental in bringing our project to life. His beautifully crafted avatars not only showcase the diversity of our team but also embody our mission of inclusivity. Beyond design, Ashraf played a vital role as a supportive team member throughout the web structure development process, ensuring a cohesive and user-centered experience.
 
-## Role: Avatar Design & Creative Direction
+### Role: Avatar Design & Creative Direction
 - GitHub: [PATH-HIVE](https://github.com/PATH-HIVE)
 - LinkedIn: [Ashraf's LinkedIn](https://www.linkedin.com/in/abbocktor/)
   
   
 
-### 🛠️ Alison Mossop — 404 Page Specialist
-- Alison’s creativity shines in her work on our custom 404 error page, ensuring that even when users get lost, they encounter a friendly and helpful experience. Her innovative approach adds a unique touch to our project.
+## 🛠️ Alison Mossop — 404 Page Specialist
+- Alison’s creativity truly shines in her work on our custom 404 error page, turning a potential setback into a friendly and engaging user experience. Her innovative approach adds a unique and memorable touch to the project. Beyond her design expertise, Alison was a key team player, providing valuable support throughout the development process.
 
-## Role: Error Page Design & User Engagement
+### Role: Error Page Design & User Engagement
 - GitHub: [ali-moss-24](https://github.com/ali-moss-24)
 - LinkedIn: [Alison's LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
 
 ## 🔍 James Bracken — Footer & Support Specialist
-- James meticulously designed our footer, which provides a seamless navigation experience across the site. His focus on accessibility ensures that users can easily find the information they need, making our website more user-friendly.
+- James meticulously crafted our website footer, delivering a seamless and intuitive navigation experience. His commitment to accessibility ensures that users can easily find the information they need, enhancing the overall user-friendliness of the site. In addition to his design expertise, James also provided valuable support to other team members throughout the web development process.
 
 ### Role: Site Navigation & Support Features
 - GitHub: [JamesBracken](https://github.com/JamesBracken)
-- LinkedIn: Vernell's LinkedIn
+- LinkedIn: [James LinkedIn](https://www.linkedin.com/in/christopher-bracken-0b7263314/)
 
 ## 🌐 Ahmad Al Hindi — About Page Specialist
 - Ahmad took the lead in designing and creating this very page. His dedication to highlighting the team's contributions and presenting a cohesive narrative has made the About Us section a central part of our website’s storytelling.
@@ -276,29 +336,11 @@ Let’s make the internet accessible for all — together.
 
 ## Contact Page
 
-![image]()
+![image](assets/images/readme/contac.png)
 
 The page provides a user-friendly Contact Us form along with accessibility features, making it easy for users to get in touch while ensuring a smooth experience for people with different accessibility needs. The layout is responsive, thanks to Bootstrap, and includes tools to adjust the design for better accessibility.
 
-*<span style="color: blue;">[Back to Content](#content)</span>*
-
-## Accessibility Guide
-
-![image]()
-
-## Key Features:
-### Accessibility Settings Sidebar:
-
-- Users can adjust font size, enable a dyslexic-friendly font, toggle high-contrast mode, and switch on various colorblind modes.
-Offers options to simplify the layout and enable voice control for easier navigation.
-Accessibility Guide Content:
-
-- Detailed explanations of each feature, like keyboard navigation, voice control, and colorblind adjustments, aimed at improving user experience for those with visual, cognitive, or motor impairments.
-Navigation and Structure:
-
-- Clear navigation with skip links, a responsive menu, and a footer providing quick access to social links and the site map.
-Uses semantic HTML elements for improved screen reader compatibility.
-
+![image](assets/images/readme/email.png)
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
@@ -313,22 +355,22 @@ Please visit [Link](https://ui.dev/amiresponsive?url=https://vcgithubcode.github
 # Wireframes
 
    
-![image](assets/images/readme./body.png)
+![image](assets/images/readme/body.png)
 
 Also contains sidebar!
 
-![image](assets/images/readme./side-bar.png)
+![image](assets/images/readme/sidebar.png)
 
 For smaller screens including mobile header contains burger menu!
 
-![image](assets/images/readme./mobile.png)
+![image](assets/images/readme/mobile.png)
 
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
 ## Development Process
 
-The development of our project is guided by a structured yet adaptable approach, allowing us to respond to changes and feedback while staying focused on our objectives. Our methodology prioritizes collaboration, iterative progress, and transparency, both within the development team and with our stakeholders. [canvas](https://code-institute-room.slack.com/canvas/C080JB3ETHU)
+The development of our project is guided by a structured yet adaptable approach, allowing us to respond to changes and feedback while staying focused on our objectives. Our methodology prioritizes collaboration, iterative progress, and transparency, both within the development team and with our stakeholders. [Canvas Linka](https://code-institute-room.slack.com/canvas/C080JB3ETHU) [Timetable-Spread-Sheet](https://docs.google.com/spreadsheets/d/1kSje2-_5VTnPjMLzmP3im51LTZMLxkXxOzJhUp8aMd4/edit?gid=0#gid=0)
 
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
@@ -376,6 +418,8 @@ After the initial meetings, our team continued with two daily sessions:
 - - Provide status updates on tasks.
 - - Assign or reassign tasks based on each team member’s progress and workload.
 
+![image](assets/images/readme/meeting.png)
+
 - Retrospective Meeting (6:00 PM): 
 - - At the retrospective, we reflect on the sprint, evaluate what went well, and identify areas for improvement to ensure smoother workflows and a more efficient development process.
 
@@ -395,7 +439,11 @@ By using the Kanban board, we ensure that tasks are organized and transparent, m
 ## MVP Focus and Collaboration
 In the early stages, the team worked towards creating a Minimum Viable Product (MVP). As the team adjusted to working together, we found our balance, rhythm, and flow state. Over time, we transitioned from working individually to collaborating more closely, solving problems together, and helping each other complete tasks effectively.
 
+### Please do not ge a Heart attack after you see this!
 
+![image](assets/images/readme/oops.png)
+
+### Yes it's almost didn't happened night before dubbmition!
 
 
 
@@ -424,14 +472,14 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 
 | Source                                                                                                               | Location       | Notes                        |
 | -------------------------------------------------------------------------------------------------------------------- | -------------- | ---------------------------- |
-| [Git](https://git-scm.com) |Acros website|used for version control.(`git add`, `git commit`, `git push`)
-|[GitHub](https://github.com)||used for secure online code storage.
-|[Gitpod](https://gitpod.io)||used as a cloud-based IDE for development.
-|[VSCode](https://code.visualstudio.com)||used as a local IDE for development.
-|[HTML](https://en.wikipedia.org/wiki/HTML)||used for the main site content.
-|[CSS](https://en.wikipedia.org/wiki/CSS)||used for the main site design and layout.
-|[JavaScript](https://www.javascript.com)||used for user interaction on the site.
-| [YouTube](https://www.youtube.com/)                                                                                  | Acros website  | Tutorial for troubleshouting |
+| [Git](https://git-scm.com) |Across website|used for version control.(`git add`, `git commit`, `git push`)
+|[GitHub](https://github.com)|Across website|used for secure online code storage.
+|[Gitpod](https://gitpod.io)|Across website|used as a cloud-based IDE for development.
+|[VSCode](https://code.visualstudio.com)|Across website|used as a local IDE for development.
+|[HTML](https://en.wikipedia.org/wiki/HTML)|Across website|used for the main site content.
+|[CSS](https://en.wikipedia.org/wiki/CSS)|Across website|used for the main site design and layout.
+|[JavaScript](https://www.javascript.com)|Across website|used for user interaction on the site.
+| [YouTube](https://www.youtube.com/)                                                                                  | Across website  | Tutorial for troubleshouting |
 | [Font Awesome](https://fontawesome.com/)                                                                             | Across website | Inspiration for icons        |
 | [Fonts Google](https://fonts.google.com/)                                                                            | Across website | Font selection               |
 | [Coolors](https://coolors.co/)                                                                                       | Across website | Colour palette selection     |
@@ -442,11 +490,38 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 | [tiny.png](https://tinypng.com/)                                                                                     | Across website | For image convertion         |
 | [Bootstrap](https://getbootstrap.com/docs/4.3/getting-started/introduction/)                                         | Across website | Responcivness                |
 | [ChatGPT](https://chat.openai.com)                                         | Across website | Used to help debug, troubleshoot, and explain things.                |
-|[DeepAI](https://deepai.org/)||Website for creation Avatars
+|[DeepAI](https://deepai.org/)|Across website|Website for creation Avatars
 |[cloudconvert](https://cloudconvert.com/)||To convert jpg pictures
-|[Lucid.app](https://lucid.app/)||Used to create Wireframes
+|[Lucid.app](https://lucid.app/)|Across website|Used to create Wireframes
+|[Termsfeed.com](https://www.termsfeed.com/live/7364ab41-d9ad-459e-a730-f1882e830984)|Across website|For privacy policy
 
-## Testing
+# Validation
+
+## Lighthouse 
+
+### Desctope 
+![image](assets/images/readme/lighthouse.png)
+
+### Mobile
+![image](assets/images/readme/mobile.png)
+## HTML
+
+### index.html
+![image](assets/images/readme/validation-index.png)
+### resources.html
+![image](assets/images/readme/validation-recourses.png)
+### about.html
+![image](assets/images/readme/validation-about.png)
+### contact.html
+![image](assets/images/readme/validation-contact.png)
+### thank-you.html
+![image](assets/images/readme/validation-thank-you.png)
+### 404.html
+![image](assets/images/readme/validation-404.png)
+
+## CSS
+
+![image](assets/images/readme/css.png)
 
 
 # Future adding
