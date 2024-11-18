@@ -51,81 +51,52 @@
 		</nav>
 	  </header>
 
-	  <!-- Canvas sidebar -->
+  <!-- Canvas sidebar -->
   <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="offcanvasWithBothOptions"
-  aria-labelledby="offcanvasWithBothOptionsLabel">
-  <div class="offcanvas-header">
-	<h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Accessibility Settings</h5>
-	<button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    aria-labelledby="offcanvasWithBothOptionsLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel">Accessibility Settings</h5>
+      <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <ul class="list-unstyled p-3">
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <label class="form-label">Font Size</label>
+            <div class="d-flex flex-column">
+              <div class="btn-group" role="group" aria-label="Font Size">
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeSmall" value="small">
+                <label class="btn btn-outline-secondary" for="fontSizeSmall">Small</label>
+
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeMedium"
+                  value="medium" checked>
+                <label class="btn btn-outline-secondary" for="fontSizeMedium">Medium</label>
+
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeLarge" value="large">
+                <label class="btn btn-outline-secondary" for="fontSizeLarge">Large</label>
+              </div>
+            </div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <div class="form-check form-switch form-switch-lg d-flex align-items-center">
+              <input class="form-check-input font-switch" type="checkbox" id="fontSwitch1" aria-label="Font switch">
+              <label class="form-check-label ms-2" for="fontSwitch1">Turn on Dyslexic Font</label>
+            </div>
+          </div>
+        </li>
+        <li class="mb-3">
+          <div class="dropdown-item">
+            <div class="form-check form-switch form-switch-lg d-flex align-items-center">
+              <input class="form-check-input theme-switch" type="checkbox" id="themeSwitch1" aria-label="Theme switch">
+              <label class="form-check-label ms-2" for="themeSwitch1">Turn on High Contrast</label>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="offcanvas-body">
-	<ul class="list-unstyled p-3" aria-labelledby="navbarDropdown">
-	  <li class="mb-3">
-		<div class="dropdown-item">
-		  <label class="form-label">Font Size</label>
-		  <div class="d-flex flex-column">
-			<div class="btn-group" role="group" aria-label="Font Size">
-			  <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeSmall" value="small"
-				autocomplete="off">
-			  <label class="btn btn-outline-secondary" for="fontSizeSmall">Small</label>
-
-			  <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeMedium"
-				value="medium" autocomplete="off" checked>
-			  <label class="btn btn-outline-secondary" for="fontSizeMedium">Medium</label>
-
-			  <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeLarge" value="large"
-				autocomplete="off">
-			  <label class="btn btn-outline-secondary" for="fontSizeLarge">Large</label>
-			</div>
-		  </div>
-		</div>
-	  </li>
-	  <li class="mb-3">
-		<div class="dropdown-item">
-		  <div class="form-check form-switch form-switch-lg d-flex align-items-center">
-			<input class="form-check-input font-switch" type="checkbox" id="fontSwitch1" aria-label="Font switch">
-			<label class="form-check-label ms-2" for="fontSwitch1">Turn on Dyslexic Font</label>
-		  </div>
-		</div>
-	  </li>
-	  <li class="mb-3">
-		<div class="dropdown-item">
-		  <div class="form-check form-switch form-switch-lg d-flex align-items-center">
-			<input class="form-check-input theme-switch" type="checkbox" id="themeSwitch1" aria-label="Theme switch">
-			<label class="form-check-label ms-2" for="themeSwitch1">Turn on High Contrast</label>
-		  </div>
-		</div>
-	  </li>
-	  <li class="mb-3">
-		<div class="dropdown-item">
-		  <label class="form-label">Colorblind Mode</label>
-		  <div class="d-flex flex-column">
-			<div class="btn-group-vertical w-100" role="group" aria-label="Colorblind Mode">
-			  <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="normalVision" value=""
-				autocomplete="off" checked>
-			  <label class="btn btn-outline-secondary" for="normalVision">Normal Vision</label>
-
-			  <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="deuteranopia"
-				value="deuteranopia" autocomplete="off">
-			  <label class="btn btn-outline-secondary" for="deuteranopia">Deuteranopia</label>
-
-			  <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="protanopia"
-				value="protanopia" autocomplete="off">
-			  <label class="btn btn-outline-secondary" for="protanopia">Protanopia</label>
-
-			  <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="tritanopia"
-				value="tritanopia" autocomplete="off">
-			  <label class="btn btn-outline-secondary" for="tritanopia">Tritanopia</label>
-			</div>
-		  </div>
-		</div>
-	  </li>
-	  <li class="mb-3">
-		<a class="dropdown-item" href="accessibility-guide.html"><i class="fas fa-book"></i> Accessibility Guide</a>
-	  </li>
-	</ul>
-  </div>
-</div>
 
 
 	<main id="main-content" class="container my-5 main-background ">
@@ -142,50 +113,32 @@
 	<hr>
 
 	<footer class="text-muted py-5">
-	  <div class="container footerdiv">
-		<div class="row">
-		  <div class="col-md-4">
-			<h5>Social</h5>
-			<ul class="list-unstyled">
-			  <li><a href="https://github.com/VCGithubCode/access-granted" class="text-muted" target="_blank"
-				  rel="noopener" aria-label="Visit our github repository page(Opens in a new tab)" aria-hidden="true"><i
-					class="fa-brands fa-github"></i> Github</a></li>
-			  <li><a href="https://app.slack.com/client/T0L30B202/C080JB3ETHU" class="text-muted" target="_blank"
-				  rel="noopener" aria-label="Visit our Slack channel(Opens in a new tab)" aria-hidden="true"><i
-					class="fa-brands fa-slack"></i> Slack</a></li>
-			</ul>
+		<div class="container footerdiv">
+		  <div class="row">
+			<div class="col-md-4">
+			  <h5>Social</h5>
+			  <ul class="list-unstyled">
+				<li><a href="https://github.com/VCGithubCode/access-granted" class="text-muted" target="_blank"
+					rel="noopener" aria-label="Visit our github repository page(Opens in a new tab)" aria-hidden="true"><i
+					  class="fa-brands fa-github"></i> Github</a></li>
+				<li><a href="https://app.slack.com/client/T0L30B202/C080JB3ETHU" class="text-muted" target="_blank"
+					rel="noopener" aria-label="Visit our Slack channel(Opens in a new tab)" aria-hidden="true"><i
+					  class="fa-brands fa-slack"></i> Slack</a></li>
+			  </ul>
+			</div>
+			<div class="col-md-4">
+			  <h5>Site Map</h5>
+			  <ul class="list-unstyled">
+				<li><a href="index.html" class="text-muted">Home</a></li>
+				<li><a href="resources.html" class="text-muted">Resources</a></li>
+				<li><a href="about.html" class="text-muted">About</a></li>
+				<li><a href="contact.html" class="text-muted">Contact</a></li>
+			  </ul>
+			</div>
 		  </div>
-		  <div class="col-md-4">
-			<h5>Site Map</h5>
-			<ul class="list-unstyled">
-			  <li><a href="index.html" class="text-muted">Home</a></li>
-			  <li><a href="accessibility-guide.html" class="text-muted">Accessibility guide</a></li>
-			  <li><a href="resources.html" class="text-muted">Resources</a></li>
-			  <li><a href="about.html" class="text-muted">About</a></li>
-			  <li><a href="contact.html" class="text-muted">Contact</a></li>
-			</ul>
-		  </div>
+		  <p class="mb-1">&copy; 2024 Access Granted Project</p>
 		</div>
-		<p class="mb-1">&copy; 2024 Access Granted Project</p>
-	  </div>
-	</footer>
-
-	<svg class="svg-filter">
-		<defs>
-			<filter id="deuteranopia-filter">
-				<feColorMatrix type="matrix"
-					values="0.625, 0.375, 0, 0, 0, 0.7, 0.3, 0, 0, 0, 0, 0.3, 0.7, 0, 0, 0, 0, 0, 1, 0" />
-			</filter>
-			<filter id="protanopia-filter">
-				<feColorMatrix type="matrix"
-					values="0.567, 0.433, 0, 0, 0, 0.558, 0.442, 0, 0, 0, 0, 0.242, 0.758, 0, 0, 0, 0, 0, 1, 0" />
-			</filter>
-			<filter id="tritanopia-filter">
-				<feColorMatrix type="matrix"
-					values="0.95, 0.05, 0, 0, 0, 0, 0.433, 0.567, 0, 0, 0, 0.475, 0.525, 0, 0, 0, 0, 0, 1, 0" />
-			</filter>
-		</defs>
-	</svg>
+	  </footer>
 
 	<!-- Fontawesome icons -->
 	<script src="https://kit.fontawesome.com/8f0b8db894.js" crossorigin="anonymous"></script>

@@ -136,23 +136,6 @@ header {
   background-image: none;
 }
 
-.svg-filter {
-  display: none;
-}
-
-/* Colorblind Filters */
-.deuteranopia {
-  filter: url('#deuteranopia-filter');
-}
-
-.protanopia {
-  filter: url('#protanopia-filter');
-}
-
-.tritanopia {
-  filter: url('#tritanopia-filter');
-}
-
 /* Accessibility Styles */
 .sr-only {
   position: absolute;
@@ -229,11 +212,13 @@ header {
 }
 .header-background {
   background-color: rgba(255, 255, 255, 0.8);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
 [data-bs-theme="contrast"] .header-background {
   background-color: rgba(0, 0, 0, 0.8);
+  -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
 }
 
@@ -553,8 +538,8 @@ nav li {
   background-position: bottom center;
   background-size: cover;
   background-repeat: no-repeat;
-  height: 100vh;
-  position: relative;
+  height: 100%;
+  padding: 20px;
 }
 
 /* Linkedin buttons */
@@ -566,23 +551,57 @@ nav li {
 .linkedin:hover {
   background: #ffffff;
   color: #0d6efd;
+}
 
 /* Error-background */
 .error-background {
-  background-image: url(../images/person-with-glasses1.jpg);
+  background: linear-gradient(to right,#fc2b2b12, #fa0b0b3a, #ff484835), url('../images/person-with-glasses1.jpg');
   background-repeat: no-repeat;
-  background-size: cover;
   background-position: center;
-  padding: 50px;
-  border-radius: 15px;
-
+  background-size: cover;
+  opacity: 0.75;
+  border-radius: 12px;
 }
 
 .error-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
   border: 1px solid #000000;
   border-radius: 12px;
-  padding: 1em; 
+  padding: 2em; 
   font-weight: 900;
+}
+
+.error-h1 {
+  color: #000000;
+  font-size:7em;
+  font-weight: bold;
+  text-shadow: 2px 2px 2px #fdfdfd;
+}
+
+.error-h2 {
+  color: #000000;
+  /* background: #000000bd; */
+  border-radius: 12px;
+  border: 2px solid #ffffff;
+  text-shadow: 2px 2px 2px #cbcbcb;
+  font-size: 3rem;
+}
+
+.error-paragraph {
+  color: #000000;
+  font-size: 1.5rem;
+  background: #ffffffbd;
+  border-radius: 12px;
+  border: 2px solid #000000;
+}
+
+.error-button {
+  z-index: 10;
+  margin-bottom: 4em;
 }
 
 /* Responsiveness */

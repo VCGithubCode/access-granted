@@ -58,22 +58,20 @@
       <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
     </div>
     <div class="offcanvas-body">
-      <ul class="list-unstyled p-3" aria-labelledby="navbarDropdown">
+      <ul class="list-unstyled p-3">
         <li class="mb-3">
           <div class="dropdown-item">
             <label class="form-label">Font Size</label>
             <div class="d-flex flex-column">
               <div class="btn-group" role="group" aria-label="Font Size">
-                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeSmall" value="small"
-                  autocomplete="off">
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeSmall" value="small">
                 <label class="btn btn-outline-secondary" for="fontSizeSmall">Small</label>
 
                 <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeMedium"
-                  value="medium" autocomplete="off" checked>
+                  value="medium" checked>
                 <label class="btn btn-outline-secondary" for="fontSizeMedium">Medium</label>
 
-                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeLarge" value="large"
-                  autocomplete="off">
+                <input type="radio" class="btn-check font-size-option" name="fontSize" id="fontSizeLarge" value="large">
                 <label class="btn btn-outline-secondary" for="fontSizeLarge">Large</label>
               </div>
             </div>
@@ -95,43 +93,14 @@
             </div>
           </div>
         </li>
-        <li class="mb-3">
-          <div class="dropdown-item">
-            <label class="form-label">Colorblind Mode</label>
-            <div class="d-flex flex-column">
-              <div class="btn-group-vertical w-100" role="group" aria-label="Colorblind Mode">
-                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="normalVision" value=""
-                  autocomplete="off" checked>
-                <label class="btn btn-outline-secondary" for="normalVision">Normal Vision</label>
-
-                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="deuteranopia"
-                  value="deuteranopia" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="deuteranopia">Deuteranopia</label>
-
-                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="protanopia"
-                  value="protanopia" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="protanopia">Protanopia</label>
-
-                <input type="radio" class="btn-check colorblind-option" name="colorblindMode" id="tritanopia"
-                  value="tritanopia" autocomplete="off">
-                <label class="btn btn-outline-secondary" for="tritanopia">Tritanopia</label>
-              </div>
-            </div>
-          </div>
-        </li>
-        <li class="mb-3">
-          <a class="dropdown-item" href="accessibility-guide.html"><i class="fas fa-book"></i> Accessibility Guide</a>
-        </li>
       </ul>
     </div>
   </div>
 
   <!-- Back to top button -->
-  <a href="#" class="back-to-top position-fixed bottom-0 end-0 m-3 d-none">
-    <button class="btn btn-primary btn-lg" aria-label="Back to Top">
-      <i class="fas fa-arrow-up"></i>
-    </button>
-  </a>
+  <button class="btn btn-primary btn-lg back-to-top position-fixed bottom-0 end-0 m-3 d-none" aria-label="Back to Top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
 
   <main id="main-content">
     <section class="p-5 text-center text-md-end container-fluid main-background d-flex align-items-center"
@@ -145,7 +114,8 @@
           </p>
         </div>
         <div class="col-lg-6 col-md-8 mx-auto">
-          <img src="assets/images/locky.webp" alt="" srcset="" class="img-fluid" height="400" width="400">
+          <img src="assets/images/locky.webp" alt="A cute lock character simulating access for all"
+            class="img-fluid" height="400" width="400">
         </div>
       </div>
     </section>
@@ -252,7 +222,6 @@
           <h5>Site Map</h5>
           <ul class="list-unstyled">
             <li><a href="index.html" class="text-muted">Home</a></li>
-            <li><a href="accessibility-guide.html" class="text-muted">Accessibility guide</a></li>
             <li><a href="resources.html" class="text-muted">Resources</a></li>
             <li><a href="about.html" class="text-muted">About</a></li>
             <li><a href="contact.html" class="text-muted">Contact</a></li>
@@ -263,22 +232,6 @@
     </div>
   </footer>
 
-  <svg class="svg-filter">
-    <defs>
-      <filter id="deuteranopia-filter">
-        <feColorMatrix type="matrix"
-          values="0.625, 0.375, 0, 0, 0, 0.7, 0.3, 0, 0, 0, 0, 0.3, 0.7, 0, 0, 0, 0, 0, 1, 0" />
-      </filter>
-      <filter id="protanopia-filter">
-        <feColorMatrix type="matrix"
-          values="0.567, 0.433, 0, 0, 0, 0.558, 0.442, 0, 0, 0, 0, 0.242, 0.758, 0, 0, 0, 0, 0, 1, 0" />
-      </filter>
-      <filter id="tritanopia-filter">
-        <feColorMatrix type="matrix"
-          values="0.95, 0.05, 0, 0, 0, 0, 0.433, 0.567, 0, 0, 0, 0.475, 0.525, 0, 0, 0, 0, 0, 1, 0" />
-      </filter>
-    </defs>
-  </svg>
   <!-- Fontawesome icons -->
   <script src="https://kit.fontawesome.com/8f0b8db894.js" crossorigin="anonymous"></script>
   <!-- Bootstrap Bundle with Popper -->
