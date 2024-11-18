@@ -53,10 +53,9 @@ The "Access Granted" project aims to make the web more accessible for all users,
 * [Development Process](#development-process)
   * [Agile Methodology](#agile-methodology)
   * [Collaboration Tools](#collaboration-tools)
-  * [Programming paradigms](#programming-paradigms)
 * [Features](#features)
   * [Technologies Used](#technologies-used)
-  * [Testing](#testing)
+  * [Validation](#validation)
 * [Future Adding](#future-adding)
 * [Prerequisites and Deployment](#prerequisites-and-deployment)
   * [Forking](#forking)
@@ -219,7 +218,7 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 ## 📊 Benjamin Schäfer — Research & Page Layout Specialist
 - Benjamin’s expertise in research and design has helped shape the overall look and feel of our site. His attention to detail and commitment to accessibility principles ensure our content is both aesthetically pleasing and user-friendly.
 
-## Role: UX Design & Research
+### Role: UX Design & Research
 - GitHub: [benschaf](https://github.com/benschaf)
 - LinkedIn: [Beni Schäfer's LinkedIn](https://www.linkedin.com/in/beni-schaefer/)
 
@@ -230,19 +229,19 @@ Buttons and form elements have descriptive icons and ARIA labels for better scre
 - GitHub: [Angela-Sin](https://github.com/Angela-Sin)
 - LinkedIn: [Angela's LinkedIn](https://www.linkedin.com/in/angela-siniavskaja-a4500a22b/)
 
-### 🎨 Ashraf Bocktor — Avatar Design Specialist
+## 🎨 Ashraf Bocktor — Avatar Design Specialist
 - Ashraf’s creative vision was instrumental in bringing our project to life. His beautifully crafted avatars not only showcase the diversity of our team but also embody our mission of inclusivity. Beyond design, Ashraf played a vital role as a supportive team member throughout the web structure development process, ensuring a cohesive and user-centered experience.
 
-## Role: Avatar Design & Creative Direction
+### Role: Avatar Design & Creative Direction
 - GitHub: [PATH-HIVE](https://github.com/PATH-HIVE)
 - LinkedIn: [Ashraf's LinkedIn](https://www.linkedin.com/in/abbocktor/)
   
   
 
-### 🛠️ Alison Mossop — 404 Page Specialist
+## 🛠️ Alison Mossop — 404 Page Specialist
 - Alison’s creativity truly shines in her work on our custom 404 error page, turning a potential setback into a friendly and engaging user experience. Her innovative approach adds a unique and memorable touch to the project. Beyond her design expertise, Alison was a key team player, providing valuable support throughout the development process.
 
-## Role: Error Page Design & User Engagement
+### Role: Error Page Design & User Engagement
 - GitHub: [ali-moss-24](https://github.com/ali-moss-24)
 - LinkedIn: [Alison's LinkedIn](https://www.linkedin.com/in/alison-mossop-4658a5253/)
 
@@ -283,6 +282,8 @@ Let’s make the internet accessible for all — together.
 
 The page provides a user-friendly Contact Us form along with accessibility features, making it easy for users to get in touch while ensuring a smooth experience for people with different accessibility needs. The layout is responsive, thanks to Bootstrap, and includes tools to adjust the design for better accessibility.
 
+![image](assets/images/readme/email.png)
+
 *<span style="color: blue;">[Back to Content](#content)</span>*
 
 
@@ -300,7 +301,7 @@ Please visit [Link](https://ui.dev/amiresponsive?url=https://vcgithubcode.github
 
 Also contains sidebar!
 
-![image](assets/images/readme/side-bar.png)
+![image](assets/images/readme/sidebar.png)
 
 For smaller screens including mobile header contains burger menu!
 
@@ -435,7 +436,27 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 |[cloudconvert](https://cloudconvert.com/)||To convert jpg pictures
 |[Lucid.app](https://lucid.app/)|Across website|Used to create Wireframes
 |[Termsfeed.com](https://www.termsfeed.com/live/7364ab41-d9ad-459e-a730-f1882e830984)|Across website|For privacy policy
-## Testing
+
+# Validation
+
+## HTML
+
+### index.html
+![image](assets/images/readme/validation-index.png)
+### resources.html
+![image](assets/images/readme/validation-recourses.png)
+### about.html
+![image](assets/images/readme/validation-about.png)
+### contact.html
+![image](assets/images/readme/validation-contact.png)
+### thank-you.html
+![image](assets/images/readme/validation-thank-you.png)
+### 404.html
+1[image](assets/images/readme/validation-404.png)
+
+## CSS
+
+![image](assets/images/readme/css.png)
 
 
 # Future adding
