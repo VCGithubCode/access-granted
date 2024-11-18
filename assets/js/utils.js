@@ -146,6 +146,28 @@ function updateTime() {
         timeElement.textContent = `Current Time: ${formattedTime}`;
     }, 1000);
 }
+
+
 // Initialize the calendar on page load
 updateCalendar();
 updateTime();
+
+document.addEventListener('DOMContentLoaded', () => {
+    const instructionsContainer = document.getElementById('instructions-container');
+    const toggleButton = document.getElementById('toggle-instructions-btn');
+    
+    // Initially hide the instructions container
+    instructionsContainer.style.display = 'none';
+    
+    // Add click event to toggle visibility
+    toggleButton.addEventListener('click', () => {
+        if (instructionsContainer.style.display === 'none') {
+            instructionsContainer.style.display = 'flex'; // Show instructions
+        } else {
+            instructionsContainer.style.display = 'none'; // Hide instructions
+        }
+    });
+
+    // Attach event listeners to speak buttons
+
+});

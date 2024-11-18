@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Voice Command Site</title>
+    <title>Access Granted | Voice Assistant</title>
     <link rel='shortcut icon' href="assets/images/logo.webp">
     <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -13,8 +13,25 @@
     <script src="assets/js/voice_interface.js" defer></script>
     <style>
         body {
+            background-image: url('../images/shiny1.webp');
+
             font-family: Arial, sans-serif;
             text-align: center;
+            height: 100VH;
+        }
+
+        body .voice-container {
+            background-image: url('/assets/images/shiny1.webp') !important;
+            background-position: bottom center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            height: 100%;
+            overflow-y: scroll;
+            position: relative;
+        }
+
+        .assistant-title {
+            margin-top: 100px;
         }
 
         .overlay {
@@ -30,6 +47,7 @@
             color: white;
             font-size: 24px;
             z-index: 1000;
+
         }
 
         .output {
@@ -108,6 +126,7 @@
             display: grid;
             grid-template-columns: repeat(7, 1fr);
             margin-bottom: 10px;
+            font-size: 12px;
         }
 
         #calculator {
@@ -117,12 +136,30 @@
             transform: translate(-50%, -50%);
             background-color: white;
         }
-        #microphone-indicator img{
-            position: fixed;
-            top: 100px;
-            right: 100px;
-            width: 200px;
-            height: 200px;
+
+        #microphone-indicator {
+            background-color: black;
+
+        }
+
+        #microphone-indicator img {
+
+            width: 100px;
+            height: 100px;
+        }
+
+        #microphone-indicator p {
+
+            font-size: 12px;
+            font-weight: 600;
+            color: white;
+        }
+
+        .delete-note-button {
+            background-color: white !important;
+            border: none;
+            border-radius: 10px;
+            padding: 5px;
         }
 
         .day {
@@ -135,6 +172,8 @@
         .days {
             display: grid;
             grid-template-columns: repeat(7, 1fr);
+            font-size: 12px;
+
         }
 
         .day-box {
@@ -149,15 +188,14 @@
         }
 
         .day-box.disabled {
-            background-color: #ddd;
+            background-color: #000000;
             color: #aaa;
             cursor: not-allowed;
         }
 
         .current-day {
-            background-color: #007bff;
+            background-color: #000000;
             color: white;
-            border-radius: 50%;
         }
 
         #calendar-container {
@@ -180,122 +218,248 @@
         #organizer-output li {
             margin-bottom: 15px;
             text-decoration: none;
-            background-color: #007bff;
+            background-color: #000000;
             color: white;
             padding: 10px;
             border-radius: 5px;
+        }
+   /* Your existing styles here */
+   .instructions-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: flex-start;
+            padding: 20px;
+            display: none; /* Initially hidden */
+        }
+
+        .instruction {
+            flex: 1 1 calc(33.33% - 20px);
+            margin-bottom: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        .instruction p {
+            margin: 0 0 10px 0;
+        }
+
+        .instruction button {
+            padding: 10px 15px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .instruction button:hover {
+            background-color: #45a049;
         }
     </style>
 </head>
 
 <body>
-    <h1>Voice Command Site</h1>
-    <!-- Add this to your HTML -->
-    <div id="standby-indicator" style="display:none; color: red; font-size: 20px;">
-        Help Buddy is in standby mode.
-    </div>
-    <div class="brief-me-container" style="margin-top: 20px;">
-        <button id="brief-me-btn" class="brief-me-btn"
-            style="font-size: 18px; padding: 10px 20px; cursor: pointer; background-color: #007bff; color: white; border: none; border-radius: 5px;">
-            Brief Me
-        </button>
-    </div>
-
-    <!-- Overlay for permission request -->
-    <div id="permissionOverlay" class="overlay" onclick="handleOverlayClick()">
-        <div class="overlay-text">Click anywhere to grant voice and location permissions</div>
-    </div>
-
-    <!-- Output for debugging/logging -->
-    <div id="output" class="output"></div>
-
-    <!-- Weather Output -->
-    <div id="weather-output" class="weather-output"></div>
-
-    <!-- Microphone Indicator -->
-    <div id="microphone-indicator"
-        style="display: none;">
-        <img src="assets/images/microphone-icon.webp" alt="Listening" >
-        <p class="listening-text">LISTENING...</p>
-    </div>
-    <div class="container vh-100 d-flex align-items-center">
-        <div class="row w-100 gy-3">
-            <!-- Calendar Container -->
-            <div id="calendar-container" class="col-12 col-md-6 d-flex flex-column align-items-center">
-                <div class="calendar-header mb-3">
-                    <button id="prev-month" class="btn btn-outline-primary">←</button>
-                    <h2 id="calendar-title" class="d-inline mx-2">Month</h2>
-                    <button id="next-month" class="btn btn-outline-primary">→</button>
-                </div>
-                <div class="days-of-week d-flex justify-content-between w-100 text-center">
-                    <div class="day">Sun</div>
-                    <div class="day">Mon</div>
-                    <div class="day">Tue</div>
-                    <div class="day">Wed</div>
-                    <div class="day">Thu</div>
-                    <div class="day">Fri</div>
-                    <div class="day">Sat</div>
-                </div>
-                <div class="days mt-3" id="days-container">
-                    <!-- Calendar days will be dynamically injected here -->
+    <header class="fixed-top">
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                <a class="navbar-brand" href="index.html">
+                    <img src="assets/images/logo.webp" alt="Access Granted Logo" width="30" height="30"
+                        class="d-inline-block align-top">
+                    Access Granted
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                    aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarContent">
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item mt-2">
+                            <a class="nav-link" href="resources.html"><i class="fas fa-book"></i> Resources</a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a class="nav-link" href="about.html"><i class="fas fa-info-circle"></i> About</a>
+                        </li>
+                        <li class="nav-item mt-2">
+                            <a class="nav-link" href="contact.html"><i class="fas fa-envelope"></i> Contact</a>
+                        </li>
+                        <li><button class="btn btn-secondary mt-2" type="button" data-bs-toggle="offcanvas"
+                                data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions"><i
+                                    class="fas fa-universal-access"></i> Accessibility</button></li>
+                    </ul>
                 </div>
             </div>
+        </nav>
+    </header>
 
-            <!-- Weather and Time Container -->
-            <div class="col-12 col-md-6 d-flex justify-content-center align-items-center flex-column">
-                
-                <div id="displayed-weather" class="displayed-weather mb-3">
-                    <i class="bi bi-cloud-sun" style="font-size: 2rem;"></i> Weather Info
+
+    <div class="voice-container">
+        <h1 class="assistant-title">Voice Assistant</h1>
+        <!-- Add this to your HTML -->
+        <div id="buddy-talking-indicator"
+            style="display:none; background-color: #000000; color: white; font-size: 20px;">
+
+        </div>
+  <!-- Add this to your HTML -->
+  <div id="buddy-standby-indicator"
+  style="display:none; background-color: #000000; color: rgb(255, 255, 255); font-size: 20px;">
+
+</div>
+<div class="brief-me-container" style="margin-top: 20px;">
+ 
+   <!-- Microphone Indicator -->
+<div id="microphone-indicator" style="display: none;">
+  <img src="assets/images/microphone-iconNoBG.png" alt="Listening">
+  <p class="listening-text">LISTENING...</p>
+</div>
+</div>
+
+        <button id="toggle-instructions-btn" class="btn btn-primary mt-4">Instructions</button>          
+            
+            <div class="instructions-container" id="instructions-container">
+                <div class="instruction" id="navigation">
+                    <p>To navigate, use voice commands like 'Go to home' or 'Navigate to settings'.</p>
+                    
                 </div>
-                <div id="current-time" class="current-time">
-                    <i class="bi bi-clock" style="font-size: 2rem;"></i> 12:00 PM
+                <div class="instruction" id="wakeUp">
+                    <p>To wake up, say 'Wake up' or 'Activate the assistant'.</p>
+                   
+                </div>
+                <div class="instruction" id="noteCreation">
+                    <p>To create a note, say 'Create a note' followed by the content.</p>
+                   
+                </div>
+                <div class="instruction" id="weather">
+                    <p>To check the weather, say 'What’s the weather today?' or 'Is it raining?'</p>
+                   
+                </div>
+                <div class="instruction" id="calculator-instruction">
+                    <p>To use the calculator, say 'Open calculator' or 'Calculate 25 plus 50'.</p>
+                   
+                </div>
+            </div>
+            
+        <!-- Overlay for permission request -->
+        <div id="permissionOverlay" class="overlay" onclick="handleOverlayClick()">
+            <div class="overlay-text">Click anywhere to grant voice and location permissions</div>
+        </div>
+
+
+
+        <!-- Weather Output -->
+        <div id="weather-output" class="weather-output"></div>
+
+       
+        <div class="container vh-100 d-flex align-items-center">
+            <div class="row w-100 gy-3">
+                <!-- Calendar Container -->
+                <div id="calendar-container" class="col-12 col-md-6 d-flex flex-column align-items-center">
+                    <div class="calendar-header mb-3">
+                        <button id="prev-month" class="btn btn-outline-primary">←</button>
+                        <h2 id="calendar-title" class="d-inline mx-2">Month</h2>
+                        <button id="next-month" class="btn btn-outline-primary">→</button>
+                    </div>
+                    <div class="days-of-week d-flex justify-content-between w-100 text-center">
+                        <div class="day">Sun</div>
+                        <div class="day">Mon</div>
+                        <div class="day">Tue</div>
+                        <div class="day">Wed</div>
+                        <div class="day">Thu</div>
+                        <div class="day">Fri</div>
+                        <div class="day">Sat</div>
+                    </div>
+                    <div class="days mt-3" id="days-container">
+                        <!-- Calendar days will be dynamically injected here -->
+                    </div>
+                </div>
+
+                <!-- Weather and Time Container -->
+                <div class="col-12 col-md-6 d-flex justify-content-center align-items-center flex-column">
+
+                    <div id="displayed-weather" class="displayed-weather mb-3">
+                        <i class="bi bi-cloud-sun" style="font-size: 2rem;"></i> Weather Info
+                    </div>
+                    <div id="current-time" class="current-time">
+                        <i class="bi bi-clock" style="font-size: 2rem;"></i> 12:00 PM
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div id="organizer-output" class="organizer-output">
-        <ul class="notes-list">
-            <li style="margin-bottom: 15px;">
+        <div id="organizer-output" class="organizer-output">
+            <ul class="notes-list">
+                <li style="margin-bottom: 15px;">
 
-            </li>
-        </ul>
-    </div>
+                </li>
+            </ul>
+        </div>
 
 
-    <!-- Accessible Calculator Display -->
-    <div id="calculator" style="display: none; padding: 20px; max-width: 300px;">
-        <!-- Calculator screen -->
-        <div id="calc-result"></div>
+        <!-- Accessible Calculator Display -->
+        <div id="calculator" style="display: none; padding: 20px; max-width: 300px;">
+            <!-- Calculator screen -->
+            <div id="calc-result"></div>
 
-        <input type="text" id="calculator-display" readonly
-            style="width: 100%; height: 50px; font-size: 1.5em; text-align: right; padding: 10px; margin-bottom: 10px;">
+            <input type="text" id="calculator-display" readonly
+                style="width: 100%; height: 50px; font-size: 1.5em; text-align: right; padding: 10px; margin-bottom: 10px;">
 
-        <!-- Calculator buttons -->
-        <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
-            <!-- Number buttons -->
-            <button onclick="appendNumber('1')" style="font-size: 1.5em; padding: 20px;">1</button>
-            <button onclick="appendNumber('2')" style="font-size: 1.5em; padding: 20px;">2</button>
-            <button onclick="appendNumber('3')" style="font-size: 1.5em; padding: 20px;">3</button>
-            <button onclick="appendOperator('+')" style="font-size: 1.5em; padding: 20px;">+</button>
+            <!-- Calculator buttons -->
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px;">
+                <!-- Number buttons -->
+                <button onclick="appendNumber('1')" style="font-size: 1.5em; padding: 20px;">1</button>
+                <button onclick="appendNumber('2')" style="font-size: 1.5em; padding: 20px;">2</button>
+                <button onclick="appendNumber('3')" style="font-size: 1.5em; padding: 20px;">3</button>
+                <button onclick="appendOperator('+')" style="font-size: 1.5em; padding: 20px;">+</button>
 
-            <button onclick="appendNumber('4')" style="font-size: 1.5em; padding: 20px;">4</button>
-            <button onclick="appendNumber('5')" style="font-size: 1.5em; padding: 20px;">5</button>
-            <button onclick="appendNumber('6')" style="font-size: 1.5em; padding: 20px;">6</button>
-            <button onclick="appendOperator('-')" style="font-size: 1.5em; padding: 20px;">−</button>
+                <button onclick="appendNumber('4')" style="font-size: 1.5em; padding: 20px;">4</button>
+                <button onclick="appendNumber('5')" style="font-size: 1.5em; padding: 20px;">5</button>
+                <button onclick="appendNumber('6')" style="font-size: 1.5em; padding: 20px;">6</button>
+                <button onclick="appendOperator('-')" style="font-size: 1.5em; padding: 20px;">−</button>
 
-            <button onclick="appendNumber('7')" style="font-size: 1.5em; padding: 20px;">7</button>
-            <button onclick="appendNumber('8')" style="font-size: 1.5em; padding: 20px;">8</button>
-            <button onclick="appendNumber('9')" style="font-size: 1.5em; padding: 20px;">9</button>
-            <button onclick="appendOperator('*')" style="font-size: 1.5em; padding: 20px;">×</button>
+                <button onclick="appendNumber('7')" style="font-size: 1.5em; padding: 20px;">7</button>
+                <button onclick="appendNumber('8')" style="font-size: 1.5em; padding: 20px;">8</button>
+                <button onclick="appendNumber('9')" style="font-size: 1.5em; padding: 20px;">9</button>
+                <button onclick="appendOperator('*')" style="font-size: 1.5em; padding: 20px;">×</button>
 
-            <button onclick="clearDisplay()" style="font-size: 1.5em; padding: 20px; grid-column: span 2;">C</button>
-            <button onclick="appendNumber('0')" style="font-size: 1.5em; padding: 20px;">0</button>
-            <button onclick="calculateResult()" style="font-size: 1.5em; padding: 20px;">=</button>
-            <button onclick="appendOperator('/')" style="font-size: 1.5em; padding: 20px;">÷</button>
+                <button onclick="clearDisplay()"
+                    style="font-size: 1.5em; padding: 20px; grid-column: span 2;">C</button>
+                <button onclick="appendNumber('0')" style="font-size: 1.5em; padding: 20px;">0</button>
+                <button onclick="calculateResult()" style="font-size: 1.5em; padding: 20px;">=</button>
+                <button onclick="appendOperator('/')" style="font-size: 1.5em; padding: 20px;">÷</button>
+            </div>
         </div>
     </div>
 
-
+    <footer class="text-muted py-5">
+        <div class="container footerdiv">
+            <div class="row">
+                <div class="col-md-4">
+                    <h5>Social</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="https://github.com/VCGithubCode/access-granted" class="text-muted" target="_blank"
+                                rel="noopener" aria-label="Visit our github repository page(Opens in a new tab)"
+                                aria-hidden="true"><i class="fa-brands fa-github"></i> Github</a></li>
+                        <li><a href="https://app.slack.com/client/T0L30B202/C080JB3ETHU" class="text-muted"
+                                target="_blank" rel="noopener" aria-label="Visit our Slack channel(Opens in a new tab)"
+                                aria-hidden="true"><i class="fa-brands fa-slack"></i> Slack</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5>Site Map</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="index.html" class="text-muted">Home</a></li>
+                        <li><a href="about.html" class="text-muted">About</a></li>
+                        <li><a href="resources.html" class="text-muted">Resources</a></li>
+                        <li><a href="contact.html" class="text-muted">Contact</a></li>
+                        <li><a href="accessibility-guide.html" class="text-muted">Accessibility guide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <p class="mb-1">&copy; 2024 Access Granted Project</p>
+        </div>
+    </footer>
+ 
 </body>
 
 </html>
