@@ -15,7 +15,7 @@ let noteDetails = {
     remind: false,
     id: null // Adding ID to noteDetails
 };
-let notes = []; 
+let notes = [];
 let isCreatingNote = false;  // New flag to track note creation process
 let isDateTimeRequested = false;
 let isNoteSaved = false;
@@ -24,6 +24,7 @@ let isNoteProcessActive = false; // Flag to track note creation process
 let noteDate = '';
 let noteTime = '';
 
+let isAssistantSpeaking = false; // Global flag for assistant speaking status
 
 
 
@@ -63,7 +64,7 @@ function handleOverlayClick() {
     requestLocationPermission();
     document.getElementById("permissionOverlay").style.display = "none";
     const initialGreeting = `${getTimeBasedGreeting()}, I'm your help buddy. How can I assist you today?`;
-    responsiveVoice.speak(initialGreeting, "UK English Male");
+    speakResponse(initialGreeting);
 }
 
 // Store user location globally
@@ -85,27 +86,36 @@ const questionAnswerPairs = {
     "tell me a joke": "Why did the scarecrow win an award? Because he was outstanding in his field!",
 };
 
-
-// Function to speak a response and manage listening state
 function speakResponse(responseText) {
     console.log("Response Text:", responseText);
-
+    isAssistantSpeaking = true;
     // Disable recognition while the assistant speaks
     recognitionActive = false;
+    toggleMicrophoneIndicator(false);
+
+    // Update the "Buddy is talking" indicator
+    const buddyIndicator = document.getElementById('buddy-talking-indicator');
+    buddyIndicator.textContent = `"${responseText}"`;
+    buddyIndicator.style.display = 'block'; // Show the indicator
 
     // Use responsiveVoice to speak the response
     responsiveVoice.speak(responseText, "UK English Male", {
         onstart: () => {
-            recognitionActive = false;  // Ensure recognition is off when assistant starts speaking
+            recognitionActive = false; // Ensure recognition is off during speaking
             console.log("Assistant is speaking...");
         },
         onend: () => {
-            // Re-enable recognition after the assistant finishes speaking
-            recognitionActive = true;  // Reactivate recognition once speaking is done
+            // Hide the indicator after speaking
+            buddyIndicator.style.display = 'none';
+            isAssistantSpeaking = false
+            // Re-enable recognition after speaking
+            recognitionActive = true;
             console.log("Assistant finished speaking. Listening again...");
-            // Restart recognition after speaking
-            if (recognition && !recognitionActive) {
-                recognition.start();  // Ensure recognition starts again after speaking
+            toggleMicrophoneIndicator(true);
+
+            // Restart recognition
+            if (recognition && !isStandbyMode) {
+                recognition.start();
             }
         }
     });
@@ -113,51 +123,76 @@ function speakResponse(responseText) {
     console.log(`Help Buddy Response: ${responseText}`);
 }
 
+// Utility function to toggle the microphone indicator
+function toggleMicrophoneIndicator(isListening) {
+    const micIndicator = document.getElementById('microphone-indicator');
+    if (isListening) {
+        micIndicator.style.display = 'block'; // Show the microphone
+    } else {
+        micIndicator.style.display = 'none'; // Hide the microphone
+    }
+}
+
 function handleSpeechRecognition(transcript) {
     const recognizedPhrase = transcript.trim().toLowerCase();
     console.log("Recognized phrase:", recognizedPhrase);
-
+    if (
+        recognizedPhrase.includes("back to homepage") ||
+        recognizedPhrase.includes("go to home") ||
+        recognizedPhrase.includes("return to home") ||
+        recognizedPhrase.includes("navigate to home") ||
+        recognizedPhrase.includes("back home") ||
+        recognizedPhrase.includes("homepage")
+    ) {
+        speakResponse("Navigating to the homepage.");
+        window.location.href = "index.html"; // Navigate to the homepage
+        return;
+    }
     // Ignore self-generated responses
     if (recognizedPhrase === lastSpokenPhrase.trim().toLowerCase()) {
         console.log("Ignored self-generated phrase:", recognizedPhrase);
         return;
     }
 
-    // Process standby mode-specific behavior
-    if (isStandbyMode) {
-        // Define a list of phrases that will activate the system from standby mode
-        const wakeUpPhrases = [
-            "wake up",
-            "hey buddy, wake up",
-            "buddy, it's time to wake up",
-            "buddy, are you there?",
-            "wake up buddy",
-            "buddy, start listening",
-            "come on buddy",
-            "hey buddy, let's go", "hi buddy",
-            "buddy, it's time to talk",
-            "buddy, reactivate",
-            "hello buddy, wake up",
-            "buddy, reboot",
-            "buddy, let's get started",
-            "wake up, buddy!",
-            "buddy, time to wake up"
-        ];
+  
+if (isStandbyMode) {
+   
+    const wakeUpPhrases = [
+        "wake up",
+        "hey buddy, wake up",
+        "buddy, it's time to wake up",
+        "buddy, are you there?",
+        "wake up buddy",
+        "buddy, start listening",
+        "come on buddy",
+        "hey buddy, let's go",
+        "hi buddy",
+        "buddy, it's time to talk",
+        "buddy, reactivate",
+        "hello buddy, wake up",
+        "buddy, reboot",
+        "buddy, let's get started",
+        "wake up, buddy!",
+        "buddy, time to wake up"
+    ];
 
-        // Check if the recognized phrase matches any of the wake-up phrases
-        if (wakeUpPhrases.includes(recognizedPhrase)) {
-            deactivateStandbyMode(); // Reactivate the system
-            return;
-        }
-
-        if (lastSpokenPhrase == "currently in standby mode. please say 'wake up' to activate.") {
-            const standbyMessage = "Currently in standby mode. Please say 'wake up' to activate.";
-            speakResponse(standbyMessage);
-        } else {
-            console.log("Help Buddy: Standby message already spoken.");
-        }
+    // Check if the recognized phrase matches any of the wake-up phrases
+    if (wakeUpPhrases.includes(recognizedPhrase)) {
+        deactivateStandbyMode(); // Reactivate the system
         return;
     }
+
+    // Send the standby reminder message only once
+    const standbyMessage = "Currently in standby mode. Please say 'wake up' to activate.";
+    if (lastSpokenPhrase !== standbyMessage) {
+        speakResponse(standbyMessage);
+        lastSpokenPhrase = standbyMessage; // Update last spoken phrase
+    } else {
+        console.log("Help Buddy: Standby message already spoken.");
+    }
+    return;
+}
+
 
     console.log("Help Buddy: Processing command:", recognizedPhrase);
 
@@ -168,7 +203,7 @@ function handleSpeechRecognition(transcript) {
             noteDetails.date = currentDate.toLocaleDateString();
             noteDetails.time = currentDate.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' });
             noteDetails.id = Date.now(); // Unique ID based on the timestamp
-    
+
             speakResponse("Got it. Do you want to add a reminder to this note?");
         } else if (recognizedPhrase.includes("yes") && !noteDetails.remind) {
             noteDetails.remind = true;
@@ -216,7 +251,7 @@ function handleSpeechRecognition(transcript) {
                 const minute = parseInt(recognizedPhrase, 10);
                 if (!isNaN(minute) && minute >= 0 && minute <= 59) {
                     noteDetails.reminderMinute = minute;
-    
+
                     // Construct the final reminder date and time
                     noteDetails.reminderDateTime = new Date(
                         noteDetails.reminderYear,
@@ -225,7 +260,7 @@ function handleSpeechRecognition(transcript) {
                         noteDetails.reminderHour,
                         noteDetails.reminderMinute
                     ).toISOString();
-    
+
                     // Save and finalize the note
                     isCreatingNote = false;
                     saveNoteToLocalStorage({ ...noteDetails });
@@ -247,58 +282,126 @@ function handleSpeechRecognition(transcript) {
         }
         return;
     }
-    
 
-// Trigger note creation mode
-if (
-    recognizedPhrase.includes("create a note") ||
-    recognizedPhrase.includes("start a note") ||
-    recognizedPhrase.includes("make a note")
-) {
-    isCreatingNote = true; // Enter note creation mode
-    noteDetails = {
-        content: '',
-        date: '',
-        time: '',
-        remind: false,
-        id: null
-    }; // Reset note details
-    speakResponse("Sure, what would you like to note down?");
-    return;
-}
+    const notesKeywords = [
+        "show me notes",
+        "read notes",
+        "get my notes",
+        "what are my notes",
+        "my notes for today",
+        "show me my reminders",
+        "what are my reminders",
+        "tell me my notes",
+        "tell me my reminders",
+        "reminders for today",
+        "plans for today",
+        "do I have any reminders",
+        "do I have any notes",
+        "what are my plans for today",
+        "reminder list",
+        "show me my plans",
+        "what's on my schedule today",
+        "what do I have planned for today",
+        "are there any reminders today",
+        "do I have notes or reminders",
+        "do I have anything scheduled today",
+        "do I have any tasks for today",
+        "what's on my to-do list",
+        "what should I do today",
+        "tell me my schedule for today",
+        "any plans for today",
+        "do I have any tasks",
+        "reminder for today",
+        "what's planned for today",
+        "is there anything planned for today",
+        "show my to-do list",
+        "remind me what I have today",
+        "give me a list of notes",
+        "do I have anything to remember",
+        "what's on my agenda today"
+    ];
 
-// Handle other commands (e.g., reading notes)
-if (
-    recognizedPhrase.includes("show notes") ||
-    recognizedPhrase.includes("list notes") ||
-    recognizedPhrase.includes("read my notes")
-) {
-    if (notes.length === 0) {
-        speakResponse("You don't have any saved notes.");
-    } else {
-        const notesSummary = notes
-            .map((note, index) => `Note ${index + 1}: ${note.content}, recorded on ${note.date} at ${note.time}. Reminder: ${note.remind ? "Yes" : "No"}.`)
-            .join(" ");
-        speakResponse(`Here are your notes: ${notesSummary}`);
-        console.log("Notes list:", notes);
+
+    // Check if the recognized phrase matches any of the "brief me" related commands
+    if (notesKeywords.some(keyword => recognizedPhrase.includes(keyword))) {
+        giveMeNotes();
+        return;
     }
-    return;
-}
 
-// Handle greetings
-if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || recognizedPhrase.includes("hey")) {
-    recognitionActive = false; // Pause recognition while speaking
-    const greeting = `${getTimeBasedGreeting()}! How can I assist you today?`;
-    
-    speakResponse(greeting);
+    if (
+        recognizedPhrase.includes("create a note") ||
+        recognizedPhrase.includes("start a note") ||
+        recognizedPhrase.includes("make a note") ||
+        recognizedPhrase.includes("write a note") ||
+        recognizedPhrase.includes("add a note") ||
+        recognizedPhrase.includes("take a note") ||
+        recognizedPhrase.includes("set a note") ||
+        recognizedPhrase.includes("jot down a note") ||
+        recognizedPhrase.includes("add a reminder") ||
+        recognizedPhrase.includes("set a reminder") ||
+        recognizedPhrase.includes("create a reminder") ||
+        recognizedPhrase.includes("make a reminder") ||
+        recognizedPhrase.includes("add a plan") ||
+        recognizedPhrase.includes("make a plan") ||
+        recognizedPhrase.includes("create a plan") ||
+        recognizedPhrase.includes("set a plan") ||
+        recognizedPhrase.includes("make note") ||
+        recognizedPhrase.includes("write down a plan") ||
+        recognizedPhrase.includes("create a task") ||
+        recognizedPhrase.includes("add a task") ||
+        recognizedPhrase.includes("set a task") ||
+        recognizedPhrase.includes("write down a reminder") ||
+        recognizedPhrase.includes("plan for today") ||
+        recognizedPhrase.includes("set my plans") ||
+        recognizedPhrase.includes("schedule a note") ||
+        recognizedPhrase.includes("create the note") ||
+        recognizedPhrase.includes("start the note") ||
+        recognizedPhrase.includes("make the note") ||
+        recognizedPhrase.includes("write the note") ||
+        recognizedPhrase.includes("add the note") ||
+        recognizedPhrase.includes("take the note") ||
+        recognizedPhrase.includes("set the note") ||
+        recognizedPhrase.includes("jot down the note") ||
+        recognizedPhrase.includes("add the reminder") ||
+        recognizedPhrase.includes("set the reminder") ||
+        recognizedPhrase.includes("create the reminder") ||
+        recognizedPhrase.includes("make the reminder") ||
+        recognizedPhrase.includes("add the plan") ||
+        recognizedPhrase.includes("make the plan") ||
+        recognizedPhrase.includes("create the plan") ||
+        recognizedPhrase.includes("set the plan") ||
+        recognizedPhrase.includes("write down the plan") ||
+        recognizedPhrase.includes("set the plans") ||
+        recognizedPhrase.includes("schedule the note")
 
-    // Resume recognition after speaking
-    setTimeout(() => {
-        recognitionActive = false;
-        console.log("Recognition reactivated after greeting.");
-    }, 2000); // Adjust timeout duration to match speaking time
-    return;
-}
+    ) {
+        isCreatingNote = true; // Enter note creation mode
+        noteDetails = {
+            content: '',
+            date: '',
+            time: '',
+            remind: false,
+            id: null
+        }; // Reset note details
+        speakResponse("Sure, what would you like to note down?");
+        return;
+    }
+
+
+    // Handle greetings
+    if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || recognizedPhrase.includes("hey")) {
+        recognitionActive = false; // Pause recognition while speaking
+        const greeting = `${getTimeBasedGreeting()}! How can I assist you today?`;
+
+        speakResponse(greeting);
+
+        // Resume recognition after speaking
+        setTimeout(() => {
+            recognitionActive = false;
+            console.log("Recognition reactivated after greeting.");
+        }, 2000); // Adjust timeout duration to match speaking time
+        return;
+    }
 
     // Handle general weather queries
     if (recognizedPhrase.includes("weather")) {
@@ -339,7 +442,7 @@ if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || rec
         recognizedPhrase.includes("you're the best")    // Positive, casual sign-off
 
     ) {
-        speakResponse("You're welcome!");
+        
         activateStandbyMode(); // Activate standby mode
         return;
     }
@@ -399,12 +502,21 @@ if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || rec
         handleCalculatorCommand(recognizedPhrase);
         return;
     }
-    // Assuming recognition is already running and we capture the recognizedPhrase
-    if (recognizedPhrase.includes("open planner") || recognizedPhrase.includes("run planner") || recognizedPhrase.includes("show planner")) {
-        // Open the planner and display it
-        openPlanner();
-    }
 
+
+    if (recognizedPhrase.includes("need instructions") || recognizedPhrase.includes("need help") || recognizedPhrase.includes("give me instructions")) {
+        // Provide a prompt with examples of common tasks
+        speakResponse("Sure! I can help with several things. You can ask me to: \n" +
+            "- Make a note or reminder\n" +
+            "- Show your existing notes or reminders\n" +
+            "- Check the current weather or tomorrow's weather\n" +
+            "- Open the calculator\n" +
+            "- Help with scheduling or setting reminders\n" +
+            "- Show today's date or time\n"
+        );
+
+        return; // Wait for the user’s response at this point
+    }
 
 
     // Handle asking for the current date with variations
@@ -436,7 +548,8 @@ if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || rec
         "time now",
         "current time",
         "what is the time",
-        "what's the time",
+        "what is the time",
+        "what's time",
         "what is the current time",
         "what's the current time",
         "give me the time",
@@ -453,9 +566,14 @@ if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || rec
         speakResponse(timeMessage);
         return;
     }
-   
 
-   
+    if (isAssistantSpeaking) {
+        // If the assistant is speaking, prevent further input processing
+        console.log("Assistant is speaking, waiting to listen again.");
+        return; // Exit the function early to prevent further commands from being processed
+    }
+    
+
 
     // Handle predefined question-answer pairs
     for (const [question, answer] of Object.entries(questionAnswerPairs)) {
@@ -467,12 +585,14 @@ if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || rec
     }
 
     // If no match is found and fallback has not been triggered yet
-    if (!fallbackTriggered && !isStandbyMode) {
+    if (!fallbackTriggered && !isStandbyMode && !isAssistantSpeaking) {
         fallbackTriggered = true; // Set the flag to prevent repeated fallback
-        speakResponse("I'm here to help! Could you please clarify your request?");
 
         // Reset the fallback flag after a delay (to allow for the next interaction)
         setTimeout(() => {
+            if (!isAssistantSpeaking) {
+                speakResponse("I'm here to help! Could you please clarify your request?");
+            }
             fallbackTriggered = false;
         }, 13000);
     } else {
@@ -483,50 +603,41 @@ if (recognizedPhrase.includes("hello") || recognizedPhrase.includes("hi") || rec
 
 
 function activateStandbyMode() {
-    isStandbyMode = true;  // Set standby mode to true
-    recognitionActive = true;  // Mark recognition as inactive
+    isStandbyMode = true; // Set standby mode to true
+    recognitionActive = false; // Mark recognition as inactive
     console.log("Standby Mode: Activated. No voice commands will be processed.");
 
-    // Stop speech recognition or any listening mechanism
-    if (recognition && recognition.stop) {
-        try {
-            recognition.stop();  // Stop speech recognition service
-            console.log("SpeechRecognition stopped.");
-        } catch (error) {
-            console.error("Error stopping SpeechRecognition:", error.message);
-        }
-    }
+   
+ // Update the "Buddy is talking" indicator
+ const buddyIndicator = document.getElementById('buddy-standby-indicator');
+ buddyIndicator.textContent = "Buddy is napping. Say 'wake up buddy' to wake me up!";
+ buddyIndicator.style.display = 'block';
+    
 
     // Optionally, speak a message indicating that the system is in standby mode
-    responsiveVoice.speak("I'm going to take nap. Please say wake up buddy or something  to wake me up.", "UK English Male");
+    speakResponse("waaaawh, I'm going to take a nap.");
+    
 }
 
 
 
 function deactivateStandbyMode() {
-    isStandbyMode = false;
-    recognitionActive = true;  // Mark recognition as active
-    console.log("Help Buddy: Deactivated standby mode. Ready to listen for commands.");
+    isStandbyMode = false; // Exit standby mode
+    recognitionActive = true; // Enable recognition
+    console.log("Standby Mode: Deactivated. Buddy is awake!");
 
-    // Check if recognition is running
-    if (recognition && recognition.state === "active") {
-        console.log("SpeechRecognition is already active.");
-        responsiveVoice.speak("System is now active. Please say a command.", "UK English Male");
-        return;
-    }
+    // Update the "Buddy is talking" indicator
+    const buddyIndicator = document.getElementById('buddy-standby-indicator');
+    buddyIndicator.textContent = "Buddy is awake!";
+    buddyIndicator.style.display = 'block';
 
-    // Start recognition only if it isn't already running
-    try {
-        if (recognition) {
-            recognition.start();  // Start the recognition service
-            console.log("SpeechRecognition started successfully.");
-        }
-    } catch (error) {
-        console.error("Error starting SpeechRecognition:", error.message);
-    }
+    // Hide the indicator after a short delay
+    setTimeout(() => buddyIndicator.style.display = 'none', 3000);
 
-    responsiveVoice.speak("I m back. How can i help?", "UK English Male");
+    // Speak a message indicating the system is awake
+    speakResponse("I'm back! How can I assist you?");
 }
+
 
 
 function requestVoicePermission() {
@@ -536,9 +647,18 @@ function requestVoicePermission() {
         return;
     }
 
+    // Check if permission status is already stored
+    const savedPermission = localStorage.getItem('voicePermission');
+    if (savedPermission === 'granted') {
+        console.log("Voice permission already granted. Starting recognition...");
+        startSpeechRecognition();
+        return;
+    }
+
+    // Ask for permission if not already granted
     const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
     recognition = new SpeechRecognition();
-    recognition.continuous = true;  // Keeps listening for commands until stopped
+    recognition.continuous = true; // Keeps listening for commands until stopped
     recognition.lang = 'en-US';
 
     recognition.onstart = () => {
@@ -554,24 +674,74 @@ function requestVoicePermission() {
 
     recognition.onerror = (error) => {
         console.error("Speech recognition error:", error);
-        if (error.error !== 'not-allowed') {
-            recognition.start();  // Restart recognition if it fails (except for "not-allowed")
+        if (error.error === 'not-allowed') {
+            console.log("Permission denied by user.");
+            localStorage.setItem('voicePermission', 'denied');
+        } else {
+            recognition.start(); // Restart recognition if it fails (except for "not-allowed")
         }
     };
 
     recognition.onend = () => {
         if (recognitionActive) {
             console.log("Recognition ended. Restarting...");
-            recognition.start();  // Restart recognition if needed
+            recognition.start(); // Restart recognition if needed
         }
     };
 
-    // Start recognition only if it's not already active
-    if (recognition && recognition.state !== "active") {
+    // Try to start recognition to implicitly request permission
+    try {
+        recognition.start();
+        console.log("SpeechRecognition started. Waiting for user's response...");
+
+        // If the user grants permission, save the status
+        recognition.onstart = () => {
+            console.log("Voice permission granted.");
+            localStorage.setItem('voicePermission', 'granted');
+        };
+    } catch (e) {
+        console.error("Error starting SpeechRecognition:", e);
+        alert("Error accessing speech recognition. Please enable microphone permissions in your browser settings.");
+    }
+}
+
+// Start recognition only when needed
+function startSpeechRecognition() {
+    const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+    recognition = new SpeechRecognition();
+    recognition.continuous = true;
+    recognition.lang = 'en-US';
+
+    recognition.onstart = () => {
+        isListening = true;
+        console.log("Help Buddy is now listening...");
+    };
+
+    recognition.onresult = (event) => {
+        const transcript = event.results[event.resultIndex][0].transcript.trim().toLowerCase();
+        console.log("Recognized phrase:", transcript);
+        handleSpeechRecognition(transcript);
+    };
+
+    recognition.onerror = (error) => {
+        console.error("Speech recognition error:", error);
+    };
+
+    recognition.onend = () => {
+        if (recognitionActive) {
+            console.log("Recognition ended. Restarting...");
+            recognition.start(); // Automatically restart if active
+        } else {
+            console.log("Recognition paused while Buddy is speaking.");
+        }
+    };
+
+    if (recognitionActive) {
         recognition.start();
         console.log("SpeechRecognition started.");
     }
 }
+
 // Function to stop listening if needed
 function stopListening() {
     if (recognition) {
@@ -613,6 +783,22 @@ function getWeather(type) {
         alert("Location not available. Please allow location access.");
     }
 }
+// Function to get weather for the current location or forecast
+async function getWeatherForBriefing(type) {
+    if (userLocation.lat && userLocation.lon) {
+        console.log("Fetching weather for Latitude: " + userLocation.lat + " Longitude: " + userLocation.lon);
+
+        // Fetch the current weather or forecast based on the type
+        if (type === 'forecast') {
+            return fetchForecast(userLocation.lat, userLocation.lon);  // Get forecast (assumes a promise-returning function)
+        } else {
+            return fetchCurrentWeather(userLocation.lat, userLocation.lon);  // Get current weather (assumes a promise-returning function)
+        }
+    } else {
+        alert("Location not available. Please allow location access.");
+        return null; // Return null if no location
+    }
+}
 
 // Function to fetch current weather data from OpenWeatherMap API
 function fetchCurrentWeather(latitude, longitude) {
@@ -627,9 +813,8 @@ function fetchCurrentWeather(latitude, longitude) {
                 const temperature = data.main.temp;
                 const cityName = data.name;
 
-                document.getElementById("weather-output").innerHTML = `The current weather in ${cityName} is ${weatherDescription} with a temperature of ${temperature}°C.`;
                 const weatherMessage = `The current weather in ${cityName} is ${weatherDescription} with a temperature of ${temperature}°C.`;
-                responsiveVoice.speak(weatherMessage, "UK English Male");
+                speakResponse(weatherMessage);
             } else {
                 console.error("Error fetching weather data:", data.message);
                 alert("Failed to retrieve weather data.");
@@ -656,9 +841,8 @@ function fetchForecast(latitude, longitude) {
                 const temperature = tomorrowForecast.main.temp;
                 const cityName = data.city.name;
 
-                document.getElementById("weather-output").innerHTML = `The weather tomorrow in ${cityName} will be ${weatherDescription} with a temperature of ${temperature}°C.`;
                 const weatherMessage = `The weather tomorrow in ${cityName} will be ${weatherDescription} with a temperature of ${temperature}°C.`;
-                responsiveVoice.speak(weatherMessage, "UK English Male");
+                speakResponse(weatherMessage);
             } else {
                 console.error("Error fetching weather forecast:", data.message);
                 alert("Failed to retrieve weather forecast.");
@@ -703,7 +887,7 @@ function handleCalculatorCommand(command) {
         calcResultElement.textContent = `Result: ${numbers[0]} + ${numbers[1]} = ${result}`;
 
         if (voicePermissionGranted) {
-            responsiveVoice.speak("The result is " + result, "UK English Male");
+            speakResponse("The result is " + result);
         }
         return;
     }
@@ -712,7 +896,7 @@ function handleCalculatorCommand(command) {
     if (!numbers || numbers.length < 2 || !operator) {
         calcResultElement.textContent = "Error";
         if (voicePermissionGranted) {
-            responsiveVoice.speak("I'm sorry, I couldn't understand that. Please try again.", "UK English Male");
+            speakResponse("I'm sorry, I couldn't understand that. Please try again.");
         }
         return;
     }
@@ -739,7 +923,7 @@ function handleCalculatorCommand(command) {
 
     // Speak the result if voice permission is granted
     if (voicePermissionGranted) {
-        responsiveVoice.speak("The result is " + result, "UK English Male");
+        speakResponse("The result is " + result);
     }
 }
 
@@ -770,34 +954,71 @@ function saveNoteToLocalStorage(note) {
     localStorage.setItem('notes', JSON.stringify(notes)); // Save the updated array back to localStorage
 }
 
-// Function to display all notes from localStorage
+// Function to display all notes dynamically
 function displayNotes() {
     const notes = JSON.parse(localStorage.getItem('notes')) || []; // Retrieve notes from localStorage or initialize an empty array
 
-    const notesList = notes.map(note => {
-        // Check if the note has a reminder and format it
-        const reminderDetails = note.reminderDateTime
-            ? `<strong>Reminder:</strong> ${new Date(note.reminderDateTime).toLocaleString()}<br>`
-            : '';
+    // Get current date and start/end of today
+    const today = new Date();
+    const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
 
+    // Filter and sort notes
+    const notesForToday = notes.filter(note => {
+        if (note.reminderDateTime) {
+            const reminderDate = new Date(note.reminderDateTime);
+            return reminderDate >= startOfDay && reminderDate < endOfDay;
+        }
+        return false;
+    });
+
+    const otherNotesWithReminders = notes.filter(note => {
+        if (note.reminderDateTime) {
+            const reminderDate = new Date(note.reminderDateTime);
+            return reminderDate < startOfDay || reminderDate >= endOfDay;
+        }
+        return false;
+    });
+
+    const notesWithoutReminders = notes.filter(note => !note.reminderDateTime);
+
+    // Function to render notes as list items
+    const renderNotes = (notesGroup, groupTitle) => {
+        if (notesGroup.length === 0) return ''; // Skip empty groups
         return `
-            <li style="margin-bottom: 15px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
-                <p>
-                    <strong>Note #${note.id}:</strong><br>
-                    <strong>Content:</strong> ${note.content}<br>
-                    <strong>Created on:</strong> ${note.date} at ${note.time}<br>
-                    ${reminderDetails}
-                </p>
-                <button onclick="editNote(${note.id})" style="margin-right: 10px;">Edit</button>
-                <button onclick="deleteNote(${note.id})">Delete</button>
-            </li>
+            <h3>${groupTitle}</h3>
+            <ul class="notes-list">
+                ${notesGroup.map(note => `
+                    <li style="margin-bottom: 15px; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+                        <p>
+                            <strong>Note #${note.id}:</strong><br>
+                            <strong>Content:</strong> ${note.content}<br>
+                            <strong>Created on:</strong> ${note.date} at ${note.time}<br>
+                            ${note.reminderDateTime ? `<strong>Reminder:</strong> ${new Date(note.reminderDateTime).toLocaleString()}<br>` : ''}
+                        </p>
+                        <button class="delete-note-button" onclick="deleteNote(${note.id})">Delete</button>
+                    </li>
+                `).join('')}
+            </ul>
         `;
-    }).join(''); // Combine all list items into a single string
+    };
 
-    // Display notes or a placeholder message if no notes are available
-    document.getElementById('organizer-output').innerHTML = notesList || '<p>No notes available. Create one to get started!</p>';
+    // Combine the notes groups into the organizer output
+    const organizerOutput = `
+        ${renderNotes(notesForToday, 'Reminders for Today')}
+        ${renderNotes(otherNotesWithReminders, 'Upcoming Reminders')}
+        ${renderNotes(notesWithoutReminders, 'Notes without Reminders')}
+    `;
+
+    if (organizerOutput.trim()) {
+        document.getElementById('organizer-output').innerHTML = organizerOutput;
+    } else {
+        document.getElementById('organizer-output').innerHTML = `
+            <p style="text-align: center; color: grey;">No notes available for today. To create one say make a note?</p>
+        `;
+
+    }
 }
-
 // Function to delete a note
 function deleteNote(noteId) {
     const notes = JSON.parse(localStorage.getItem('notes')) || [];
@@ -809,6 +1030,75 @@ function deleteNote(noteId) {
 // Initially load and display all notes when the page is loaded
 window.onload = function () {
 
-    displayNotes(); // Display any existing notes from localStorage when the page loads
+    displayNotes();
 };
 
+function giveMeNotes() {
+    // Retrieve notes from localStorage
+    const notes = JSON.parse(localStorage.getItem('notes')) || [];
+
+    // Get current date and start/end of today
+    const today = new Date();
+    const startOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate());
+    const endOfDay = new Date(today.getFullYear(), today.getMonth(), today.getDate() + 1);
+
+    // Function to format time (e.g., 2:30 PM)
+    const formatTime = (date) => {
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+        const ampm = hours >= 12 ? 'PM' : 'AM';
+        const formattedHours = hours % 12 || 12;  // Convert 24-hour time to 12-hour
+        const formattedMinutes = minutes < 10 ? '0' + minutes : minutes;  // Add leading zero for minutes
+        return `${formattedHours}:${formattedMinutes} ${ampm}`;
+    };
+
+    // Filter notes for today that have reminders
+    const notesForToday = notes.filter(note => {
+        if (note.reminderDateTime) {
+            const reminderDate = new Date(note.reminderDateTime);
+            return reminderDate >= startOfDay && reminderDate < endOfDay;
+        }
+        return false;
+    });
+
+    // Process reminders: If any, speak them, otherwise tell the user no reminders.
+    let reminderText;
+    if (notesForToday.length > 0) {
+        // Map over notes and include formatted reminder time
+        reminderText = `You have reminders for today: `;
+        reminderText += notesForToday.map(note => {
+            const reminderDate = new Date(note.reminderDateTime);
+            const formattedTime = formatTime(reminderDate);
+            return `${note.content} at ${formattedTime}`;
+        }).join(", ");
+        reminderText += ".";
+    } else {
+        reminderText = "You have no reminders for today.";
+    }
+
+    // Log the reminder text for debugging
+    console.log("Reminder Text: " + reminderText);
+
+    // Speak the reminder text (assuming speakResponse is defined elsewhere)
+    speakResponse(reminderText);  // Assuming speakResponse function exists for speech output
+}
+
+
+function checkRemindersForToday() {
+    let notes = JSON.parse(localStorage.getItem('notes')) || [];  // Retrieve notes from localStorage
+    const today = new Date().toDateString();  // Get today's date in string format (YYYY-MM-DD)
+
+    // Filter notes that have a reminder and match today's date
+    const todaysReminders = notes.filter(note => {
+        // Ensure that `note.date` is correctly parsed into a Date object
+        const noteDate = new Date(note.date).toDateString();  // Convert reminder date into string format
+
+        // Log date comparison for debugging
+        console.log(`Comparing note date: ${noteDate} with today's date: ${today}`);
+
+        // Check if the reminder's date matches today and if `remind` is true
+        return note.remind && noteDate === today;
+    }).map(note => note.content); // Map to extract just the content of the reminders
+
+    return todaysReminders;  // Return today's reminders
+}
