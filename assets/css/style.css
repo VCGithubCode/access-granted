@@ -101,16 +101,16 @@ h1 {
 }
 
 .btn-secondary {
-  color: #fff;
-  background-color: #cd4e1b;
-  border-color: #cd4e1b;
+  color: #ffffff;
+  background-color: #000000;
+  border-color: #000000;
   border-radius: 50rem;
 }
 
 .btn-secondary:hover {
-  color: #fff;
-  background-color: #d5683d;
-  border-color: #d5683d;
+  color: #ffffff;
+  background-color: #333333;
+  border-color: #333333;
 }
 
 /* Background Styles */
