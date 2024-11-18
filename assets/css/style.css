@@ -136,6 +136,10 @@ header {
   background-image: none;
 }
 
+[data-bs-theme="contrast"] .body-background {
+  background-image: none;
+}
+
 /* Accessibility Styles */
 .sr-only {
   position: absolute;
@@ -195,12 +199,6 @@ header {
   color: var(--bs-light);
 }
 
-[data-bs-theme="contrast"] .btn-primary {
-  background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
-  color: var(--bs-secondary);
-}
-
 [data-bs-theme="contrast"] .list-group-item {
   background-color: var(--bs-dark);
   color: var(--bs-light);
@@ -227,7 +225,7 @@ header {
 }
 
 [data-bs-theme="contrast"] .navbar-brand,
-[data-bs-theme="contrast"] .nav-link {
+[data-bs-theme="contrast"] .navbar-nav .nav-link {
   color: var(--bs-light);
 }
 
@@ -546,7 +544,7 @@ nav li {
 .linkedin {
   background: #0d6efd;
   color: #ffffff;
-} 
+}
 
 .linkedin:hover {
   background: #ffffff;
@@ -571,7 +569,7 @@ nav li {
   z-index: 2;
   border: 1px solid #000000;
   border-radius: 12px;
-  padding: 2em; 
+  padding: 2em;
   font-weight: 900;
 }
 
