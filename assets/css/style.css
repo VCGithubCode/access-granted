@@ -632,3 +632,30 @@ nav li {
     height: 150px;
   }
 }
+
+/* Link styles for get in touch card */
+.get-in-touch-card a {
+  display: flex;
+  align-items: center;
+  color: var(--bs-body-color-rgb);
+  transition: color 0.3s ease, transform 0.3s ease;
+}
+
+.get-in-touch-card a:hover {
+  transform: translateX(5px);
+}
+
+.get-in-touch-card a:focus {
+  outline: 2px solid var(--bs-primary);
+  outline-offset: 2px;
+}
+
+/* Icon styles */
+.get-in-touch-card i {
+  margin-right: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+.get-in-touch-card a:hover i {
+  transform: scale(1.2);
+}
