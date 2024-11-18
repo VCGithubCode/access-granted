@@ -195,12 +195,6 @@ header {
   color: var(--bs-light);
 }
 
-[data-bs-theme="contrast"] .btn-primary {
-  background-color: var(--bs-primary);
-  border-color: var(--bs-primary);
-  color: var(--bs-secondary);
-}
-
 [data-bs-theme="contrast"] .list-group-item {
   background-color: var(--bs-dark);
   color: var(--bs-light);
