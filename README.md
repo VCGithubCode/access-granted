@@ -497,6 +497,13 @@ The Team used slack team channel Canvas to ensure everyone stayed updated on pro
 
 # Validation
 
+## Lighthouse 
+
+### Desctope 
+![image](assets/images/readme/lighthouse.png)
+
+### Mobile
+![image](assets/images/readme/mobile.png)
 ## HTML
 
 ### index.html
